@@ -1,11 +1,11 @@
 html, body {
   padding: 0;
   margin: 0;
-  background-color: red;
+  background-color: #DAE0E6;;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .headerOuter {
-  background-color: blue;
   display: flex;
   -ms-flex: 0;
   flex: 0;
@@ -42,7 +42,8 @@ html, body {
   border-radius: 20px;
   border: solid #0079D3 1px;
   height: 30px;
-  font-weight: bolder;
+  font-weight: 800;
+  font-size: 1rem;
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -50,9 +51,15 @@ html, body {
   background-color: white;
   color: #0079D3;
 }
+.iButton:hover {
+  background-color: #f2f8fc;
+}
 .oButton {
   background-color: #0079D3;
   color: white;
+}
+.oButton:hover {
+  background-color: #3293db;
 }
 .faBullhorn {
   border-radius: 50%;
@@ -71,10 +78,14 @@ html, body {
 .searchBar {
   min-width: 321px;
   width: 594px;
-  height: 34px;
-  border: none;
+  height: 33px;
+  border: solid 1px #f0f1f3;
   padding-left: 60px;
   background-color: #F6F7F8;
+  border-radius: 3px;
+}
+::placeholder {
+  font-size: 1rem;
 }
 .searchDiv {
   position: relative;
@@ -86,9 +97,19 @@ html, body {
   font-size: 1.3rem;
   position: absolute;
   padding-left: 20px;
-  top: 8px
+  top: 5px
 }
 .actMag {
   height: 20px;
   width: 20px;
+}
+.logoWrapper {
+  display: flex;
+  margin: auto 0;
+}
+.logo {
+  width: 97px;
+}
+.trending-container {
+  margin-top: 48px;
 }
