@@ -110,6 +110,92 @@ html, body {
 .logo {
   width: 97px;
 }
+.trending-outer-container {
+  max-width: 1020px;
+  height: 220px;
+  width: 988px;
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 0px;
+  margin-left: 36px;
+  margin-right: 36px;
+  margin-top: 0px;
+  max-width: 1020px;
+  padding-bottom: 0px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 16px;
+  vertical-align: baseline;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
 .trending-container {
-  margin-top: 48px;
+  display: block;
+  height: 208px;
+  width: 988px;
+  padding: 16px 24px 0;
+  margin: 0;
+}
+.trendingHeaderContainer {
+  padding: 10px 16px 0;
+  display: block;
+  width: 988px;
+  line-height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+}
+.trendingHeader {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+}
+
+.trend-x1 {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 100vw;
+}
+.trendingCard {
+  overflow: hidden;
+  color: white;
+  display: block;
+  max-width: 375px;
+  width: 238px;
+  min-width: 208px;
+  height: 178px;
+  margin-left: 12px;
+  background-color: purple;
+  border-radius: 12px;
+  
+}
+.trending-card h4 {
+  margin-block-start: 75px;
+  margin-block-end: 0px;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 75px 0px 0px 0px;
+}
+.trending-card-outer {
+  position: relative;
+  display: flex;
+  height: 178px;
+}
+.trending-card-inner {
+  padding: 12px;
+  line-height: 16px;
+  position: absolute;
+  bottom: 0px;
+}
+.trending-text-container {
+  vertical-align: baseline;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  max-height: 40px;
+  line-height: 20px;
+  margin: 0 0 8px 0;
+  font-size: 14px;
 }
