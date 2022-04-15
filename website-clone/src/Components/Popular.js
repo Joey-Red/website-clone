@@ -1,5 +1,5 @@
 import React from "react";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Popular() {
@@ -28,7 +28,7 @@ function Popular() {
           </div>
           <div className="viewButton">
             <button>
-              [|]
+              {/* at some point maybe change view or remove */}
               <FontAwesomeIcon
                 icon={faAngleDown}
                 className="actMag"
@@ -39,7 +39,103 @@ function Popular() {
       </div>
       <div className="top-x-communities-container">
         <div className="top-communities">
-          <div>Top "whatever" Here</div>
+          <div className="top-coms-header">
+            <h2>Top News Communities</h2>
+          </div>
+          <ol className="top-coms-list">
+            <li>
+              <a href="#">
+              <FontAwesomeIcon
+                icon={faCaretUp}
+                className="actMag"
+              ></FontAwesomeIcon>
+              [pic]
+              <span>r/technews</span>
+              <div>
+                <button>
+                  <span>
+                    Join
+                    </span>
+                </button>
+              </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <FontAwesomeIcon
+                icon={faCaretUp}
+                className="actMag"
+              ></FontAwesomeIcon>
+              [pic]
+              <span>r/offbeat</span>
+              <div>
+                <button>
+                  <span>
+                    Join
+                    </span>
+                </button>
+              </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <FontAwesomeIcon
+                icon={faCaretUp}
+                className="actMag"
+              ></FontAwesomeIcon>
+              [pic]
+              <span>r/gamernews</span>
+              <div>
+                <button>
+                  <span>
+                    Join
+                    </span>
+                </button>
+              </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <FontAwesomeIcon
+                icon={faCaretUp}
+                className="actMag"
+              ></FontAwesomeIcon>
+              [pic]
+              <span>r/savedyouaclick</span>
+              <div>
+                <button>
+                  <span>
+                    Join
+                    </span>
+                </button>
+              </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <FontAwesomeIcon
+                icon={faCaretUp}
+                className="actMag"
+              ></FontAwesomeIcon>
+              [pic]
+              <span>r/olympics</span>
+              <div>
+                <button>
+                  <span>
+                    Join
+                    </span>
+                </button>
+              </div>
+              </a>
+            </li>
+            <button>View All</button>
+          </ol>
+          <div className="extra-catagories">
+            <a href="#">Top</a>
+            <a href="#">Near You</a>
+            <a href="#">Sports</a>
+            <a href="#">Gaming</a>
+          </div>
         </div>
       </div>
     </div>
