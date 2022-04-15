@@ -199,3 +199,67 @@ html, body {
   margin: 0 0 8px 0;
   font-size: 14px;
 }
+.popular-post-header {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 50px 0 0 0;
+  padding-bottom: 10px;
+}
+.outermost-popular-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 20px 24px;
+
+}
+.inner-menu-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 4px;
+  border: solid 1px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  min-width: 640px; 
+  /* ^May need to be a media query */
+  width: 640px;
+  max-width: 1248px;
+}
+.menu-links {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+.dotsButton {
+  align-items: center;
+  border: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.viewButton {
+  align-items: center;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 0 142.297px;
+  flex-wrap: nowrap;
+}
+.top-x-communities-container {
+  flex-basis: 312px;
+  margin: 50px 0 24px 0;
+  border: none;
+  padding: 0;
+  display: block;
+  width: 312px;
+}
