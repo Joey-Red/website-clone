@@ -10,16 +10,16 @@ function Popular() {
         <div className="inner-menu-control">
           <div className="menu-links">
             {/* will be links */}
-            <div>
+            <div id="hot">
               <button>Hot</button>
             </div>
-            <div>
+            <div id="everywhere">
               <button>Everywhere</button>
             </div>
-            <div>
+            <div id="new">
               <button>New</button>
             </div>
-            <div>
+            <div id="top">
               <button>Top</button>
             </div>
           </div>
@@ -51,7 +51,7 @@ function Popular() {
               ></FontAwesomeIcon>
               [pic]
               <span>r/technews</span>
-              <div>
+              <div className="joinButtonDiv">
                 <button>
                   <span>
                     Join
