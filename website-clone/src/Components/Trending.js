@@ -2,53 +2,81 @@ import React from "react";
 
 function Trending() {
   return (
-    <div className="trending-outer-container">
-      <div className="trending-container">
-        <div className="trendingHeaderContainer">
-          <h5 className="trendingHeader">Trending today</h5>
-        </div>
-        <div className="trend-x1">
-          <div className="trendingCard">
-            <div className="trending-card-outer">
-              <div className="trending-card-inner">
-                <h4>Scrat</h4>
-                <div className="trending-text-container">
-                  Scrat Blue Sky Studios Gives Scrat a Proper Sendoff in Final
-                  Farewell Subreddit Iconr/movies and more
+    <div className="trend-om">
+      <div className="trend-x1">
+        <div className="trend-x2">
+          <div className="trend-x3">
+            <div id="TrendingPostsContainer">
+              <div className="inside-x1">
+                <div className="header-outside">
+                  <div className="header-inside">
+                  Trending today
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="trendingCard">
-            <div className="trending-card-outer">
-              <div className="trending-card-inner">
-                <h4>Elon Musk</h4>
-                <div className="trending-text-container">
-                  Elon Musk offers to buy Twitter for $54.20 a share, saying it
-                  needs to be 'transformed as private company' Subreddit
-                  Iconr/news and more
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="trendingCard">
-            <div className="trending-card-outer">
-              <div className="trending-card-inner">
-                <h4>NATO</h4>
-                <div className="trending-text-container">
-                  Russia warns of Baltic nuclear deployment if NATO admits
-                  Sweden and Finland
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="trendingCard">
-            <div className="trending-card-outer">
-              <div className="trending-card-inner">
-                <h4>Kentucky Laws</h4>
-                <div className="trending-text-container">
-                  'We're Suing,' Says ACLU as Kentucky GOP Enacts Draconian
-                  Abortion Ban Subreddit Iconr/politics and more
+              <div className="carousel-x1">
+                <div className="carousel-x2">
+                  <div className="carousel-x3">
+                    <div className="carousel">
+                      <a href="#">
+                        <div className="caro-inside-x1">
+                          <div className="caro-inside-x2">
+                            <h2>
+                              Cristiano Ronaldo
+                            </h2>
+                            <div className="caro-text-body">Ronaldo before the game</div>
+                            <div>
+                              <img/><span>r/reddevils and more</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  <div className="carousel">
+                      <a href="#">
+                        <div className="caro-inside-x1">
+                          <div className="caro-inside-x2">
+                            <h2>
+                              Cristiano Ronaldo
+                            </h2>
+                            <div className="caro-text-body">Ronaldo before the game</div>
+                            <div>
+                              <img/><span>r/reddevils and more</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  <div className="carousel">
+                      <a href="#">
+                        <div className="caro-inside-x1">
+                          <div className="caro-inside-x2">
+                            <h2>
+                              Cristiano Ronaldo
+                            </h2>
+                            <div className="caro-text-body">Ronaldo before the game</div>
+                            <div>
+                              <img/><span>r/reddevils and more</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  <div className="carousel">
+                      <a href="#">
+                        <div className="caro-inside-x1">
+                          <div className="caro-inside-x2">
+                            <h2>
+                              Cristiano Ronaldo
+                            </h2>
+                            <div className="caro-text-body">Ronaldo before the game</div>
+                            <div>
+                              <img/><span>r/reddevils and more</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -56,6 +84,7 @@ function Trending() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
 

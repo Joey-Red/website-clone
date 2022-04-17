@@ -1,5 +1,12 @@
 import React from "react";
-import { faAngleDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faCaretUp,
+  faCaretDown,
+  faFire,
+  faCertificate,
+  faRankingStar,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Popular() {
@@ -11,16 +18,40 @@ function Popular() {
           <div className="menu-links">
             {/* will be links */}
             <div id="hot">
-              <button>Hot</button>
+              <button>
+                <FontAwesomeIcon
+                  icon={faFire}
+                  className="mlb"
+                ></FontAwesomeIcon>
+                Hot
+              </button>
             </div>
             <div id="everywhere">
-              <button>Everywhere</button>
+              <button>
+                Everywhere
+                <FontAwesomeIcon
+                  icon={faCaretDown}
+                  className="mlb"
+                ></FontAwesomeIcon>
+              </button>
             </div>
             <div id="new">
-              <button>New</button>
+              <button>
+                <FontAwesomeIcon
+                  icon={faCertificate}
+                  className="mlb"
+                ></FontAwesomeIcon>
+                New
+              </button>
             </div>
             <div id="top">
-              <button>Top</button>
+              <button>
+                <FontAwesomeIcon
+                  icon={faRankingStar}
+                  className="mlb"
+                ></FontAwesomeIcon>
+                Top
+              </button>
             </div>
           </div>
           <div className="dotsButton">
@@ -45,90 +76,120 @@ function Popular() {
           <ol className="top-coms-list">
             <li>
               <a href="#">
-              <FontAwesomeIcon
-                icon={faCaretUp}
-                className="actMag"
-              ></FontAwesomeIcon>
-              [pic]
-              <span>r/technews</span>
-              <div className="joinButtonDiv">
-                <button>
-                  <span>
-                    Join
-                    </span>
-                </button>
-              </div>
+                <span>
+                  <div className="number-holder">1</div>
+                  <FontAwesomeIcon
+                    icon={faCaretUp}
+                    className="caretUp"
+                  ></FontAwesomeIcon>
+                  <img
+                    alt="Subreddit Icon"
+                    role="presentation"
+                    src="https://styles.redditmedia.com/t5_2qi4j/styles/communityIcon_a0b0l0lb75k41.png"
+                    
+                  />
+                  r/technews
+                </span>
+                <div className="joinButtonDiv">
+                  <button>
+                    <div>Join</div>
+                  </button>
+                </div>
               </a>
             </li>
             <li>
               <a href="#">
-              <FontAwesomeIcon
-                icon={faCaretUp}
-                className="actMag"
-              ></FontAwesomeIcon>
-              [pic]
-              <span>r/offbeat</span>
-              <div>
-                <button>
-                  <span>
-                    Join
-                    </span>
-                </button>
-              </div>
+                <span>
+                  <div className="number-holder">2</div>
+                  <FontAwesomeIcon
+                    icon={faCaretUp}
+                    className="caretUp"
+                  ></FontAwesomeIcon>
+                  <img
+                    alt="Subreddit Icon"
+                    role="presentation"
+                    src="https://a.thumbs.redditmedia.com/E0Bkwgwe5TkVLflBA7WMe9fMSC7DV2UOeff-UpNJeb0.png"
+                  />
+                  r/technews
+                </span>
+                <div className="joinButtonDiv">
+                  <button>
+                    <div>Join</div>
+                  </button>
+                </div>
               </a>
             </li>
             <li>
               <a href="#">
-              <FontAwesomeIcon
-                icon={faCaretUp}
-                className="actMag"
-              ></FontAwesomeIcon>
-              [pic]
-              <span>r/gamernews</span>
-              <div>
-                <button>
-                  <span>
-                    Join
-                    </span>
-                </button>
-              </div>
+                <span>
+                  <div className="number-holder">3</div>
+                  <FontAwesomeIcon
+                    icon={faCaretUp}
+                    className="caretUp"
+                  ></FontAwesomeIcon>
+                  <img
+                    alt="Subreddit Icon"
+                    role="presentation"
+                    src="https://styles.redditmedia.com/t5_2qi4j/styles/communityIcon_a0b0l0lb75k41.png"
+                  />
+                  r/worldnews
+                </span>
+                <div className="joinButtonDiv">
+                  <button>
+                    <div>Join</div>
+                  </button>
+                </div>
               </a>
             </li>
             <li>
               <a href="#">
-              <FontAwesomeIcon
-                icon={faCaretUp}
-                className="actMag"
-              ></FontAwesomeIcon>
-              [pic]
-              <span>r/savedyouaclick</span>
-              <div>
-                <button>
-                  <span>
-                    Join
-                    </span>
-                </button>
-              </div>
+                <span>
+                  <div className="number-holder">4</div>
+                  <FontAwesomeIcon
+                    icon={faCaretUp}
+                    className="caretUp"
+                  ></FontAwesomeIcon>
+                  <img
+                    alt="Subreddit Icon"
+                    role="presentation"
+                    src="https://styles.redditmedia.com/t5_2qh11/styles/communityIcon_yn4xge2wh2h51.png"
+                  />
+                  r/offbeat
+                </span>
+                <div className="joinButtonDiv">
+                  <button>
+                    <div>Join</div>
+                  </button>
+                </div>
               </a>
             </li>
             <li>
               <a href="#">
-              <FontAwesomeIcon
-                icon={faCaretUp}
-                className="actMag"
-              ></FontAwesomeIcon>
-              [pic]
-              <span>r/olympics</span>
-              <div>
-                <button>
-                  <span>
-                    Join
-                    </span>
-                </button>
-              </div>
+                <span>
+                  <div className="number-holder">5</div>
+                  <FontAwesomeIcon
+                    icon={faCaretUp}
+                    className="caretUp"
+                  ></FontAwesomeIcon>
+                  <img
+                    alt="Subreddit Icon"
+                    role="presentation"
+                    src="https://styles.redditmedia.com/t5_2sc3f/styles/communityIcon_x6dymnk82f861.png"
+                  />
+                  r/gamernews
+                </span>
+                <div className="joinButtonDiv">
+                  <button>
+                    <div>Join</div>
+                  </button>
+                </div>
               </a>
             </li>
-            <button>View All</button>
+            <div className="viewButtonContainer">
+              <a href="#">
+                View All
+              </a>
+            </div>
           </ol>
           <div className="extra-catagories">
             <a href="#">Top</a>
