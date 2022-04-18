@@ -292,7 +292,6 @@ body {
 }
 
 .headerOuter {
-  margin: 0;
   padding: 0;
   border: 0;
   font: inherit;
@@ -306,7 +305,6 @@ body {
   right: 0;
   top: 0;
   z-index: 80;
-  margin-top: 0;
 }
 .headerContainer {
   width: 100%;
@@ -350,7 +348,6 @@ body {
   --background: #ffffff;
   --canvas: #dae0e6;
   color: var(--newCommunityTheme-bodyText);
-  margin: 0;
   border: 0;
   font: inherit;
   vertical-align: baseline;
