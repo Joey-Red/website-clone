@@ -6,8 +6,10 @@ import {
   faFire,
   faCertificate,
   faRankingStar,
+  faEllipsis
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PopularFeed from "./PopularFeed";
 
 function Popular() {
   return (
@@ -18,55 +20,59 @@ function Popular() {
           <div className="menu-links">
             {/* will be links */}
             <div id="hot">
-              <button>
+              <a href="#">
                 <FontAwesomeIcon
                   icon={faFire}
                   className="mlb"
                 ></FontAwesomeIcon>
                 Hot
-              </button>
+              </a>
             </div>
             <div id="everywhere">
-              <button>
+              <a href="#">
                 Everywhere
                 <FontAwesomeIcon
                   icon={faCaretDown}
                   className="mlb"
                 ></FontAwesomeIcon>
-              </button>
+              </a>
             </div>
             <div id="new">
-              <button>
+              <a href="#">
                 <FontAwesomeIcon
                   icon={faCertificate}
                   className="mlb"
                 ></FontAwesomeIcon>
                 New
-              </button>
+              </a>
             </div>
             <div id="top">
-              <button>
+              <a href="#">
                 <FontAwesomeIcon
                   icon={faRankingStar}
                   className="mlb"
                 ></FontAwesomeIcon>
                 Top
-              </button>
+              </a>
             </div>
           </div>
           <div className="dotsButton">
-            <button>...</button>
+            <a href="#"><FontAwesomeIcon
+                  icon={faEllipsis}
+                  className="mlb"
+                ></FontAwesomeIcon></a>
           </div>
           <div className="viewButton">
-            <button>
+            <a href="#">
               {/* at some point maybe change view or remove */}
               <FontAwesomeIcon
                 icon={faAngleDown}
                 className="actMag"
               ></FontAwesomeIcon>
-            </button>
+            </a>
           </div>
         </div>
+          <PopularFeed />
       </div>
       <div className="top-x-communities-container">
         <div className="top-communities">
@@ -192,10 +198,10 @@ function Popular() {
             </div>
           </ol>
           <div className="extra-catagories">
-            <a href="#">Top</a>
-            <a href="#">Near You</a>
-            <a href="#">Sports</a>
-            <a href="#">Gaming</a>
+            <span><a href="#">Top</a></span>
+            <span><a href="#">Near You</a></span>
+            <span><a href="#">Sports</a></span>
+            <span><a href="#">Gaming</a></span>
           </div>
         </div>
       </div>

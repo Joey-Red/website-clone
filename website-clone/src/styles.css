@@ -1,372 +1,367 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
-  background-color: #DAE0E6;;
-  font-family: 'IBM Plex Sans', sans-serif;
-        --newCommunityTheme-actionIcon: #878A8C;
-    --newCommunityTheme-actionIconAlpha20: rgba(135,138,140,0.2);
-    --newCommunityTheme-actionIconAlpha50: rgba(135,138,140,0.5);
-    --newCommunityTheme-actionIconShaded80: #6c6e70;
-    --newCommunityTheme-actionIconTinted80: #9fa1a3;
-    --newCommunityTheme-active: #0079D3;
-    --newCommunityTheme-activeAlpha10: rgba(0,121,211,0.1);
-    --newCommunityTheme-activeAlpha20: rgba(0,121,211,0.2);
-    --newCommunityTheme-activeAlpha50: rgba(0,121,211,0.5);
-    --newCommunityTheme-activeLight60: #33a8ff;
-    --newCommunityTheme-activeShaded80: #0060a8;
-    --newCommunityTheme-activeShaded90: #006cbd;
-    --newCommunityTheme-activeTinted05: #f2f8fc;
-    --newCommunityTheme-backgroundImage: initial;
-    --newCommunityTheme-backgroundImagePosition: cover;
-    --newCommunityTheme-banner-backgroundColor: #33a8ff;
-    --newCommunityTheme-banner-backgroundImage: initial;
-    --newCommunityTheme-banner-backgroundImagePosition: cover;
-    --newCommunityTheme-banner-communityNameFormat: slashtag;
-    --newCommunityTheme-banner-height: 64;
-    --newCommunityTheme-banner-iconColor: #0079D3;
-    --newCommunityTheme-banner-iconDimensions-borderRadius: 24;
-    --newCommunityTheme-banner-iconDimensions-customSize: 32;
-    --newCommunityTheme-banner-iconDimensions-padding: 6;
-    --newCommunityTheme-banner-iconDimensions-size: 24;
-    --newCommunityTheme-banner-iconImage: initial;
-    --newCommunityTheme-banner-lineHeight: 38;
-    --newCommunityTheme-banner-positionedImage: initial;
-    --newCommunityTheme-banner-positionedImageAlignment: left;
-    --newCommunityTheme-banner-positionedImageHeight: 48;
-    --newCommunityTheme-banner-secondaryBannerPositionedImage: initial;
-    --newCommunityTheme-body: #FFFFFF;
-    --newCommunityTheme-bodyAlpha50: rgba(255,255,255,0.5);
-    --newCommunityTheme-bodyAlpha70: rgba(255,255,255,0.7);
-    --newCommunityTheme-bodyAlpha80: rgba(255,255,255,0.8);
-    --newCommunityTheme-bodyFade: #FFFFFF00;
-    --newCommunityTheme-bodyShaded80: #ccc;
-    --newCommunityTheme-bodyText: #1c1c1c;
-    --newCommunityTheme-bodyTextAlpha03: rgba(28,28,28,0.03);
-    --newCommunityTheme-bodyTextAlpha20: rgba(28,28,28,0.2);
-    --newCommunityTheme-bodyTextShaded20: #050505;
-    --newCommunityTheme-bodyTextTinted20: #d1d1d1;
-    --newCommunityTheme-bodyTinted50: #fff;
-    --newCommunityTheme-bodyTinted80: #fff;
-    --newCommunityTheme-button: #0079D3;
-    --newCommunityTheme-buttonAlpha05: rgba(0,121,211,0.05);
-    --newCommunityTheme-buttonAlpha10: rgba(0,121,211,0.1);
-    --newCommunityTheme-buttonAlpha20: rgba(0,121,211,0.2);
-    --newCommunityTheme-buttonAlpha40: rgba(0,121,211,0.4);
-    --newCommunityTheme-buttonAlpha50: rgba(0,121,211,0.5);
-    --newCommunityTheme-buttonAlpha80: rgba(0,121,211,0.8);
-    --newCommunityTheme-buttonShaded80: #0060a8;
-    --newCommunityTheme-buttonTinted20: #cce4f6;
-    --newCommunityTheme-buttonTinted50: #7fbce9;
-    --newCommunityTheme-buttonTinted80: #3293db;
-    --newCommunityTheme-canvas: #DAE0E6;
-    --newCommunityTheme-canvasImgPosition: cover;
-    --newCommunityTheme-canvasImgUrl: initial;
-    --newCommunityTheme-checkbox: #000000;
-    --newCommunityTheme-errorText: #FF0000;
-    --newCommunityTheme-field: #F6F7F8;
-    --newCommunityTheme-fieldFade: #F6F7F800;
-    --newCommunityTheme-flair: #EDEFF1;
-    --newCommunityTheme-highlight: #e5f1fa;
-    --newCommunityTheme-inactive: #EDEFF1;
-    --newCommunityTheme-invertFilter: invert(0);
-    --newCommunityTheme-lightText: #FFFFFF;
-    --newCommunityTheme-lightTextAlpha75: rgba(255,255,255,0.75);
-    --newCommunityTheme-line: #EDEFF1;
-    --newCommunityTheme-lineShaded80: #bdbfc0;
-    --newCommunityTheme-lineShaded90: #d5d7d8;
-    --newCommunityTheme-lineShadedNinety: #d5d7d8;
-    --newCommunityTheme-linkText: #0079D3;
-    --newCommunityTheme-linkTextAlpha80: rgba(0,121,211,0.5);
-    --newCommunityTheme-linkTextShaded80: #0060a8;
-    --newCommunityTheme-linkTextTinted80: #3293db;
-    --newCommunityTheme-linkTextWithBody: #3f9ade;
-    --newCommunityTheme-menu: #FFFFFF;
-    --newCommunityTheme-menuActiveText: #0079D3;
-    --newCommunityTheme-menuButtonBackground-active: rgba(0,0,0,0.08);
-    --newCommunityTheme-menuButtonBackground-focus: rgba(0,0,0,0.12);
-    --newCommunityTheme-menuButtonBackground-hover: rgba(0,0,0,0.04);
-    --newCommunityTheme-menuInactiveText: #0079D3;
-    --newCommunityTheme-metaText: #7c7c7c;
-    --newCommunityTheme-monospaceColor: #FF006D;
-    --newCommunityTheme-navBar-activeLink: #0079D3;
-    --newCommunityTheme-navBar-activeSubmenuCaret: #0079D3;
-    --newCommunityTheme-navBar-activeSubmenuLink: #0079D3;
-    --newCommunityTheme-navBar-backgroundColor: #dbf0ff;
-    --newCommunityTheme-navBar-backgroundImage: initial;
-    --newCommunityTheme-navBar-hoverLink: #0079D3;
-    --newCommunityTheme-navBar-inactiveLink: #0079D3;
-    --newCommunityTheme-navBar-inactiveSubmenuCaret: #33a8ff;
-    --newCommunityTheme-navBar-inactiveSubmenuLink: #33a8ff;
-    --newCommunityTheme-navBar-submenuBackgroundColor: #dbf0ff;
-    --newCommunityTheme-navIcon: #1A1A1B;
-    --newCommunityTheme-navIconFaded10: rgba(26,26,27,0.1);
-    --newCommunityTheme-nsfwBlocking-bgcolor: #edeff1;
-    --newCommunityTheme-nsfwBlocking-color: #030303;
-    --newCommunityTheme-nsfwBlocking-contentTitleBgColor: #f6f7f8;
-    --newCommunityTheme-nsfwBlocking-mainCtaBgColor: #fff;
-    --newCommunityTheme-pageHeader: #0079D3;
-    --newCommunityTheme-placeholder: #d6d6d6;
-    --newCommunityTheme-placeholderImage: initial;
-    --newCommunityTheme-placeholderImagePosition: cover;
-    --newCommunityTheme-post: #FFFFFF;
-    --newCommunityTheme-postError: #ffe5e5;
-    --newCommunityTheme-postFlairText: #1A1A1B;
-    --newCommunityTheme-postIcon: #898989;
-    --newCommunityTheme-postLine: #ccc;
-    --newCommunityTheme-postLineShaded80: #a3a3a3;
-    --newCommunityTheme-postLineShaded90: #b7b7b7;
-    --newCommunityTheme-postTinted20: #fff;
-    --newCommunityTheme-postTransparent20: rgba(255,255,255,0.8);
-    --newCommunityTheme-primaryButtonShadedEighty: #0060a8;
-    --newCommunityTheme-primaryButtonTintedEighty: #3293db;
-    --newCommunityTheme-primaryButtonTintedFifty: #7fbce9;
-    --newCommunityTheme-primaryButtonTintedSixty: #66aee4;
-    --newCommunityTheme-report: #fff7e5;
-    --newCommunityTheme-textTransparentizedEighty: rgba(26,26,27,0.2);
-    --newCommunityTheme-titleText: #222222;
-    --newCommunityTheme-voteIcons-downvoteActive: initial;
-    --newCommunityTheme-voteIcons-downvoteInactive: initial;
-    --newCommunityTheme-voteIcons-upvoteActive: initial;
-    --newCommunityTheme-voteIcons-upvoteInactive: initial;
-    --newCommunityTheme-voteText-base: #898989;
-    --newCommunityTheme-voteText-downvote: #7193FF;
-    --newCommunityTheme-voteText-downvoteShaded80: #5a75cc;
-    --newCommunityTheme-voteText-downvoteTinted80: #8da8ff;
-    --newCommunityTheme-voteText-upvote: #FF4500;
-    --newCommunityTheme-voteText-upvoteShaded80: #cc3700;
-    --newCommunityTheme-voteText-upvoteTinted80: #ff6a32;
-    --newCommunityTheme-widgetColors-lineColor: rgba(26,26,27,0.07);
-    --newCommunityTheme-widgetColors-sidebarWidgetBackgroundColor: #FFFFFF;
-    --newCommunityTheme-widgetColors-sidebarWidgetBorderColor: #ccc;
-    --newCommunityTheme-widgetColors-sidebarWidgetHeaderColor: #FFFFFF;
-    --newCommunityTheme-widgetColors-sidebarWidgetHeaderColorAlpha60: rgba(255,255,255,0.6);
-    --newCommunityTheme-widgetColors-sidebarWidgetTextColor: #1A1A1B;
-    --newCommunityTheme-widgetColors-sidebarWidgetTextColorShaded80: #141415;
-    --newCommunityTheme-widgetColors-sidebarWidgetTitleColor: #1A1A1B;
-    --newRedditTheme-actionIcon: #878A8C;
-    --newRedditTheme-actionIconAlpha20: rgba(135,138,140,0.2);
-    --newRedditTheme-actionIconAlpha50: rgba(135,138,140,0.5);
-    --newRedditTheme-actionIconShaded80: #6c6e70;
-    --newRedditTheme-actionIconTinted80: #9fa1a3;
-    --newRedditTheme-active: #24A0ED;
-    --newRedditTheme-activeAlpha10: rgba(36,160,237,0.1);
-    --newRedditTheme-activeAlpha20: rgba(36,160,237,0.2);
-    --newRedditTheme-activeAlpha50: rgba(36,160,237,0.5);
-    --newRedditTheme-activeLight60: #42adf0;
-    --newRedditTheme-activeShaded80: #1c80bd;
-    --newRedditTheme-activeShaded90: #2090d5;
-    --newRedditTheme-activeTinted05: #f4fafe;
-    --newRedditTheme-banner-backgroundColor: #24A0ED;
-    --newRedditTheme-banner-backgroundImage: initial;
-    --newRedditTheme-banner-backgroundImagePosition: cover;
-    --newRedditTheme-banner-communityNameFormat: slashtag;
-    --newRedditTheme-banner-height: 64;
-    --newRedditTheme-banner-iconColor: #24A0ED;
-    --newRedditTheme-banner-iconDimensions-borderRadius: 24;
-    --newRedditTheme-banner-iconDimensions-customSize: 32;
-    --newRedditTheme-banner-iconDimensions-padding: 6;
-    --newRedditTheme-banner-iconDimensions-size: 24;
-    --newRedditTheme-banner-iconImage: initial;
-    --newRedditTheme-banner-lineHeight: 38;
-    --newRedditTheme-banner-positionedImage: initial;
-    --newRedditTheme-banner-positionedImageAlignment: cover;
-    --newRedditTheme-banner-positionedImageHeight: 48;
-    --newRedditTheme-banner-secondaryBannerPositionedImage: initial;
-    --newRedditTheme-body: #FFFFFF;
-    --newRedditTheme-bodyAlpha50: rgba(255,255,255,0.5);
-    --newRedditTheme-bodyAlpha70: rgba(255,255,255,0.7);
-    --newRedditTheme-bodyAlpha80: rgba(255,255,255,0.8);
-    --newRedditTheme-bodyFade: #FFFFFF00;
-    --newRedditTheme-bodyShaded80: #ccc;
-    --newRedditTheme-bodyText: #1c1c1c;
-    --newRedditTheme-bodyTextAlpha03: rgba(28,28,28,0.03);
-    --newRedditTheme-bodyTextAlpha20: rgba(28,28,28,0.2);
-    --newRedditTheme-bodyTextShaded20: #050505;
-    --newRedditTheme-bodyTextTinted20: #d1d1d1;
-    --newRedditTheme-bodyTinted50: #fff;
-    --newRedditTheme-bodyTinted80: #fff;
-    --newRedditTheme-button: #0079D3;
-    --newRedditTheme-buttonAlpha05: rgba(0,121,211,0.05);
-    --newRedditTheme-buttonAlpha10: rgba(0,121,211,0.1);
-    --newRedditTheme-buttonAlpha20: rgba(0,121,211,0.2);
-    --newRedditTheme-buttonAlpha40: rgba(0,121,211,0.4);
-    --newRedditTheme-buttonAlpha50: rgba(0,121,211,0.5);
-    --newRedditTheme-buttonAlpha80: rgba(0,121,211,0.8);
-    --newRedditTheme-buttonShaded80: #0060a8;
-    --newRedditTheme-buttonTinted20: #cce4f6;
-    --newRedditTheme-buttonTinted50: #7fbce9;
-    --newRedditTheme-buttonTinted80: #3293db;
-    --newRedditTheme-canvas: #DAE0E6;
-    --newRedditTheme-checkbox: #000000;
-    --newRedditTheme-errorText: #FF0000;
-    --newRedditTheme-field: #F6F7F8;
-    --newRedditTheme-fieldFade: #F6F7F800;
-    --newRedditTheme-flair: #EDEFF1;
-    --newRedditTheme-highlight: #e9f5fd;
-    --newRedditTheme-inactive: #EDEFF1;
-    --newRedditTheme-invertFilter: invert(0);
-    --newRedditTheme-lightText: #FFFFFF;
-    --newRedditTheme-lightTextAlpha75: rgba(255,255,255,0.75);
-    --newRedditTheme-line: #EDEFF1;
-    --newRedditTheme-lineShaded80: #bdbfc0;
-    --newRedditTheme-lineShaded90: #d5d7d8;
-    --newRedditTheme-linkText: #0079D3;
-    --newRedditTheme-linkTextAlpha80: rgba(0,121,211,0.5);
-    --newRedditTheme-linkTextShaded80: #0060a8;
-    --newRedditTheme-linkTextTinted80: #3293db;
-    --newRedditTheme-linkTextWithBody: #3f9ade;
-    --newRedditTheme-menu: #FFFFFF;
-    --newRedditTheme-menuActiveText: #0079D3;
-    --newRedditTheme-menuButtonBackground-active: rgba(0,0,0,0.08);
-    --newRedditTheme-menuButtonBackground-focus: rgba(0,0,0,0.12);
-    --newRedditTheme-menuButtonBackground-hover: rgba(0,0,0,0.04);
-    --newRedditTheme-menuInactiveText: #0079D3;
-    --newRedditTheme-metaText: #7c7c7c;
-    --newRedditTheme-metaTextAlpha50: rgba(120,124,126,0.5);
-    --newRedditTheme-metaTextShaded80: #606364;
-    --newRedditTheme-monospaceColor: #FF006D;
-    --newRedditTheme-navBar-activeLink: #E9F5FD;
-    --newRedditTheme-navBar-activeSubmenuCaret: #24A0ED;
-    --newRedditTheme-navBar-activeSubmenuLink: #24A0ED;
-    --newRedditTheme-navBar-backgroundColor: #24A0ED;
-    --newRedditTheme-navBar-backgroundImage: initial;
-    --newRedditTheme-navBar-hoverLink: #E9F5FD;
-    --newRedditTheme-navBar-inactiveLink: #EDEFF1;
-    --newRedditTheme-navBar-inactiveSubmenuCaret: #42adf0;
-    --newRedditTheme-navBar-inactiveSubmenuLink: #42adf0;
-    --newRedditTheme-navBar-submenuBackgroundColor: #def1fc;
-    --newRedditTheme-navIcon: #1A1A1B;
-    --newRedditTheme-navIconFaded10: rgba(26,26,27,0.1);
-    --newRedditTheme-nsfwBlocking-bgcolor: #edeff1;
-    --newRedditTheme-nsfwBlocking-color: #030303;
-    --newRedditTheme-nsfwBlocking-contentTitleBgColor: #f6f7f8;
-    --newRedditTheme-nsfwBlocking-mainCtaBgColor: #fff;
-    --newRedditTheme-pageHeader: #0079D3;
-    --newRedditTheme-placeholder: #d6d6d6;
-    --newRedditTheme-post: #FFFFFF;
-    --newRedditTheme-postError: #ffe5e5;
-    --newRedditTheme-postFlairText: #1A1A1B;
-    --newRedditTheme-postIcon: #898989;
-    --newRedditTheme-postLine: #ccc;
-    --newRedditTheme-postLineShaded80: #a3a3a3;
-    --newRedditTheme-postLineShaded90: #b7b7b7;
-    --newRedditTheme-postTinted20: #fff;
-    --newRedditTheme-postTransparent20: rgba(255,255,255,0.8);
-    --newRedditTheme-report: #fff7e5;
-    --newRedditTheme-search-syntaxHighlightBackgroundColor: #E9F5FD;
-    --newRedditTheme-search-syntaxHighlightColor: #1A1A1A;
-    --newRedditTheme-titleText: #1A1A1B;
-    --newRedditTheme-upsell-appleIcon: #000000;
-    --newRedditTheme-upsell-ssoButtonBorderColor: #D3D6DA;
-    --newRedditTheme-upsell-ssoButtonTextColor: #3D4043;
-    --newRedditTheme-voteIcons-downvoteActive: initial;
-    --newRedditTheme-voteIcons-downvoteInactive: initial;
-    --newRedditTheme-voteIcons-upvoteActive: initial;
-    --newRedditTheme-voteIcons-upvoteInactive: initial;
-    --newRedditTheme-voteText-base: #898989;
-    --newRedditTheme-voteText-downvote: #7193FF;
-    --newRedditTheme-voteText-downvoteShaded80: #5a75cc;
-    --newRedditTheme-voteText-downvoteTinted80: #8da8ff;
-    --newRedditTheme-voteText-upvote: #FF4500;
-    --newRedditTheme-voteText-upvoteShaded80: #cc3700;
-    --newRedditTheme-voteText-upvoteTinted80: #ff6a32;
-    --newRedditTheme-widgetColors-lineColor: rgba(26,26,27,0.07);
-    --newRedditTheme-widgetColors-sidebarWidgetBackgroundColor: #FFFFFF;
-    --newRedditTheme-widgetColors-sidebarWidgetBorderColor: #ccc;
-    --newRedditTheme-widgetColors-sidebarWidgetHeaderColor: #FFFFFF;
-    --newRedditTheme-widgetColors-sidebarWidgetHeaderColorAlpha60: rgba(255,255,255,0.6);
-    --newRedditTheme-widgetColors-sidebarWidgetTextColor: #1A1A1B;
-    --newRedditTheme-widgetColors-sidebarWidgetTextColorShaded80: #141415;
-    --newRedditTheme-widgetColors-sidebarWidgetTitleColor: #1A1A1B;
+  background-color: #dae0e6;
+  font-family: "IBM Plex Sans", sans-serif;
+  --newCommunityTheme-actionIcon: #878a8c;
+  --newCommunityTheme-actionIconAlpha20: rgba(135, 138, 140, 0.2);
+  --newCommunityTheme-actionIconAlpha50: rgba(135, 138, 140, 0.5);
+  --newCommunityTheme-actionIconShaded80: #6c6e70;
+  --newCommunityTheme-actionIconTinted80: #9fa1a3;
+  --newCommunityTheme-active: #0079d3;
+  --newCommunityTheme-activeAlpha10: rgba(0, 121, 211, 0.1);
+  --newCommunityTheme-activeAlpha20: rgba(0, 121, 211, 0.2);
+  --newCommunityTheme-activeAlpha50: rgba(0, 121, 211, 0.5);
+  --newCommunityTheme-activeLight60: #33a8ff;
+  --newCommunityTheme-activeShaded80: #0060a8;
+  --newCommunityTheme-activeShaded90: #006cbd;
+  --newCommunityTheme-activeTinted05: #f2f8fc;
+  --newCommunityTheme-backgroundImage: initial;
+  --newCommunityTheme-backgroundImagePosition: cover;
+  --newCommunityTheme-banner-backgroundColor: #33a8ff;
+  --newCommunityTheme-banner-backgroundImage: initial;
+  --newCommunityTheme-banner-backgroundImagePosition: cover;
+  --newCommunityTheme-banner-communityNameFormat: slashtag;
+  --newCommunityTheme-banner-height: 64;
+  --newCommunityTheme-banner-iconColor: #0079d3;
+  --newCommunityTheme-banner-iconDimensions-borderRadius: 24;
+  --newCommunityTheme-banner-iconDimensions-customSize: 32;
+  --newCommunityTheme-banner-iconDimensions-padding: 6;
+  --newCommunityTheme-banner-iconDimensions-size: 24;
+  --newCommunityTheme-banner-iconImage: initial;
+  --newCommunityTheme-banner-lineHeight: 38;
+  --newCommunityTheme-banner-positionedImage: initial;
+  --newCommunityTheme-banner-positionedImageAlignment: left;
+  --newCommunityTheme-banner-positionedImageHeight: 48;
+  --newCommunityTheme-banner-secondaryBannerPositionedImage: initial;
+  --newCommunityTheme-body: #ffffff;
+  --newCommunityTheme-bodyAlpha50: rgba(255, 255, 255, 0.5);
+  --newCommunityTheme-bodyAlpha70: rgba(255, 255, 255, 0.7);
+  --newCommunityTheme-bodyAlpha80: rgba(255, 255, 255, 0.8);
+  --newCommunityTheme-bodyFade: #ffffff00;
+  --newCommunityTheme-bodyShaded80: #ccc;
+  --newCommunityTheme-bodyText: #1c1c1c;
+  --newCommunityTheme-bodyTextAlpha03: rgba(28, 28, 28, 0.03);
+  --newCommunityTheme-bodyTextAlpha20: rgba(28, 28, 28, 0.2);
+  --newCommunityTheme-bodyTextShaded20: #050505;
+  --newCommunityTheme-bodyTextTinted20: #d1d1d1;
+  --newCommunityTheme-bodyTinted50: #fff;
+  --newCommunityTheme-bodyTinted80: #fff;
+  --newCommunityTheme-button: #0079d3;
+  --newCommunityTheme-buttonAlpha05: rgba(0, 121, 211, 0.05);
+  --newCommunityTheme-buttonAlpha10: rgba(0, 121, 211, 0.1);
+  --newCommunityTheme-buttonAlpha20: rgba(0, 121, 211, 0.2);
+  --newCommunityTheme-buttonAlpha40: rgba(0, 121, 211, 0.4);
+  --newCommunityTheme-buttonAlpha50: rgba(0, 121, 211, 0.5);
+  --newCommunityTheme-buttonAlpha80: rgba(0, 121, 211, 0.8);
+  --newCommunityTheme-buttonShaded80: #0060a8;
+  --newCommunityTheme-buttonTinted20: #cce4f6;
+  --newCommunityTheme-buttonTinted50: #7fbce9;
+  --newCommunityTheme-buttonTinted80: #3293db;
+  --newCommunityTheme-canvas: #dae0e6;
+  --newCommunityTheme-canvasImgPosition: cover;
+  --newCommunityTheme-canvasImgUrl: initial;
+  --newCommunityTheme-checkbox: #000000;
+  --newCommunityTheme-errorText: #ff0000;
+  --newCommunityTheme-field: #f6f7f8;
+  --newCommunityTheme-fieldFade: #f6f7f800;
+  --newCommunityTheme-flair: #edeff1;
+  --newCommunityTheme-highlight: #e5f1fa;
+  --newCommunityTheme-inactive: #edeff1;
+  --newCommunityTheme-invertFilter: invert(0);
+  --newCommunityTheme-lightText: #ffffff;
+  --newCommunityTheme-lightTextAlpha75: rgba(255, 255, 255, 0.75);
+  --newCommunityTheme-line: #edeff1;
+  --newCommunityTheme-lineShaded80: #bdbfc0;
+  --newCommunityTheme-lineShaded90: #d5d7d8;
+  --newCommunityTheme-lineShadedNinety: #d5d7d8;
+  --newCommunityTheme-linkText: #0079d3;
+  --newCommunityTheme-linkTextAlpha80: rgba(0, 121, 211, 0.5);
+  --newCommunityTheme-linkTextShaded80: #0060a8;
+  --newCommunityTheme-linkTextTinted80: #3293db;
+  --newCommunityTheme-linkTextWithBody: #3f9ade;
+  --newCommunityTheme-menu: #ffffff;
+  --newCommunityTheme-menuActiveText: #0079d3;
+  --newCommunityTheme-menuButtonBackground-active: rgba(0, 0, 0, 0.08);
+  --newCommunityTheme-menuButtonBackground-focus: rgba(0, 0, 0, 0.12);
+  --newCommunityTheme-menuButtonBackground-hover: rgba(0, 0, 0, 0.04);
+  --newCommunityTheme-menuInactiveText: #0079d3;
+  --newCommunityTheme-metaText: #7c7c7c;
+  --newCommunityTheme-monospaceColor: #ff006d;
+  --newCommunityTheme-navBar-activeLink: #0079d3;
+  --newCommunityTheme-navBar-activeSubmenuCaret: #0079d3;
+  --newCommunityTheme-navBar-activeSubmenuLink: #0079d3;
+  --newCommunityTheme-navBar-backgroundColor: #dbf0ff;
+  --newCommunityTheme-navBar-backgroundImage: initial;
+  --newCommunityTheme-navBar-hoverLink: #0079d3;
+  --newCommunityTheme-navBar-inactiveLink: #0079d3;
+  --newCommunityTheme-navBar-inactiveSubmenuCaret: #33a8ff;
+  --newCommunityTheme-navBar-inactiveSubmenuLink: #33a8ff;
+  --newCommunityTheme-navBar-submenuBackgroundColor: #dbf0ff;
+  --newCommunityTheme-navIcon: #1a1a1b;
+  --newCommunityTheme-navIconFaded10: rgba(26, 26, 27, 0.1);
+  --newCommunityTheme-nsfwBlocking-bgcolor: #edeff1;
+  --newCommunityTheme-nsfwBlocking-color: #030303;
+  --newCommunityTheme-nsfwBlocking-contentTitleBgColor: #f6f7f8;
+  --newCommunityTheme-nsfwBlocking-mainCtaBgColor: #fff;
+  --newCommunityTheme-pageHeader: #0079d3;
+  --newCommunityTheme-placeholder: #d6d6d6;
+  --newCommunityTheme-placeholderImage: initial;
+  --newCommunityTheme-placeholderImagePosition: cover;
+  --newCommunityTheme-post: #ffffff;
+  --newCommunityTheme-postError: #ffe5e5;
+  --newCommunityTheme-postFlairText: #1a1a1b;
+  --newCommunityTheme-postIcon: #898989;
+  --newCommunityTheme-postLine: #ccc;
+  --newCommunityTheme-postLineShaded80: #a3a3a3;
+  --newCommunityTheme-postLineShaded90: #b7b7b7;
+  --newCommunityTheme-postTinted20: #fff;
+  --newCommunityTheme-postTransparent20: rgba(255, 255, 255, 0.8);
+  --newCommunityTheme-primaryButtonShadedEighty: #0060a8;
+  --newCommunityTheme-primaryButtonTintedEighty: #3293db;
+  --newCommunityTheme-primaryButtonTintedFifty: #7fbce9;
+  --newCommunityTheme-primaryButtonTintedSixty: #66aee4;
+  --newCommunityTheme-report: #fff7e5;
+  --newCommunityTheme-textTransparentizedEighty: rgba(26, 26, 27, 0.2);
+  --newCommunityTheme-titleText: #222222;
+  --newCommunityTheme-voteIcons-downvoteActive: initial;
+  --newCommunityTheme-voteIcons-downvoteInactive: initial;
+  --newCommunityTheme-voteIcons-upvoteActive: initial;
+  --newCommunityTheme-voteIcons-upvoteInactive: initial;
+  --newCommunityTheme-voteText-base: #898989;
+  --newCommunityTheme-voteText-downvote: #7193ff;
+  --newCommunityTheme-voteText-downvoteShaded80: #5a75cc;
+  --newCommunityTheme-voteText-downvoteTinted80: #8da8ff;
+  --newCommunityTheme-voteText-upvote: #ff4500;
+  --newCommunityTheme-voteText-upvoteShaded80: #cc3700;
+  --newCommunityTheme-voteText-upvoteTinted80: #ff6a32;
+  --newCommunityTheme-widgetColors-lineColor: rgba(26, 26, 27, 0.07);
+  --newCommunityTheme-widgetColors-sidebarWidgetBackgroundColor: #ffffff;
+  --newCommunityTheme-widgetColors-sidebarWidgetBorderColor: #ccc;
+  --newCommunityTheme-widgetColors-sidebarWidgetHeaderColor: #ffffff;
+  --newCommunityTheme-widgetColors-sidebarWidgetHeaderColorAlpha60: rgba(
+    255,
+    255,
+    255,
+    0.6
+  );
+  --newCommunityTheme-widgetColors-sidebarWidgetTextColor: #1a1a1b;
+  --newCommunityTheme-widgetColors-sidebarWidgetTextColorShaded80: #141415;
+  --newCommunityTheme-widgetColors-sidebarWidgetTitleColor: #1a1a1b;
+  --newRedditTheme-actionIcon: #878a8c;
+  --newRedditTheme-actionIconAlpha20: rgba(135, 138, 140, 0.2);
+  --newRedditTheme-actionIconAlpha50: rgba(135, 138, 140, 0.5);
+  --newRedditTheme-actionIconShaded80: #6c6e70;
+  --newRedditTheme-actionIconTinted80: #9fa1a3;
+  --newRedditTheme-active: #24a0ed;
+  --newRedditTheme-activeAlpha10: rgba(36, 160, 237, 0.1);
+  --newRedditTheme-activeAlpha20: rgba(36, 160, 237, 0.2);
+  --newRedditTheme-activeAlpha50: rgba(36, 160, 237, 0.5);
+  --newRedditTheme-activeLight60: #42adf0;
+  --newRedditTheme-activeShaded80: #1c80bd;
+  --newRedditTheme-activeShaded90: #2090d5;
+  --newRedditTheme-activeTinted05: #f4fafe;
+  --newRedditTheme-banner-backgroundColor: #24a0ed;
+  --newRedditTheme-banner-backgroundImage: initial;
+  --newRedditTheme-banner-backgroundImagePosition: cover;
+  --newRedditTheme-banner-communityNameFormat: slashtag;
+  --newRedditTheme-banner-height: 64;
+  --newRedditTheme-banner-iconColor: #24a0ed;
+  --newRedditTheme-banner-iconDimensions-borderRadius: 24;
+  --newRedditTheme-banner-iconDimensions-customSize: 32;
+  --newRedditTheme-banner-iconDimensions-padding: 6;
+  --newRedditTheme-banner-iconDimensions-size: 24;
+  --newRedditTheme-banner-iconImage: initial;
+  --newRedditTheme-banner-lineHeight: 38;
+  --newRedditTheme-banner-positionedImage: initial;
+  --newRedditTheme-banner-positionedImageAlignment: cover;
+  --newRedditTheme-banner-positionedImageHeight: 48;
+  --newRedditTheme-banner-secondaryBannerPositionedImage: initial;
+  --newRedditTheme-body: #ffffff;
+  --newRedditTheme-bodyAlpha50: rgba(255, 255, 255, 0.5);
+  --newRedditTheme-bodyAlpha70: rgba(255, 255, 255, 0.7);
+  --newRedditTheme-bodyAlpha80: rgba(255, 255, 255, 0.8);
+  --newRedditTheme-bodyFade: #ffffff00;
+  --newRedditTheme-bodyShaded80: #ccc;
+  --newRedditTheme-bodyText: #1c1c1c;
+  --newRedditTheme-bodyTextAlpha03: rgba(28, 28, 28, 0.03);
+  --newRedditTheme-bodyTextAlpha20: rgba(28, 28, 28, 0.2);
+  --newRedditTheme-bodyTextShaded20: #050505;
+  --newRedditTheme-bodyTextTinted20: #d1d1d1;
+  --newRedditTheme-bodyTinted50: #fff;
+  --newRedditTheme-bodyTinted80: #fff;
+  --newRedditTheme-button: #0079d3;
+  --newRedditTheme-buttonAlpha05: rgba(0, 121, 211, 0.05);
+  --newRedditTheme-buttonAlpha10: rgba(0, 121, 211, 0.1);
+  --newRedditTheme-buttonAlpha20: rgba(0, 121, 211, 0.2);
+  --newRedditTheme-buttonAlpha40: rgba(0, 121, 211, 0.4);
+  --newRedditTheme-buttonAlpha50: rgba(0, 121, 211, 0.5);
+  --newRedditTheme-buttonAlpha80: rgba(0, 121, 211, 0.8);
+  --newRedditTheme-buttonShaded80: #0060a8;
+  --newRedditTheme-buttonTinted20: #cce4f6;
+  --newRedditTheme-buttonTinted50: #7fbce9;
+  --newRedditTheme-buttonTinted80: #3293db;
+  --newRedditTheme-canvas: #dae0e6;
+  --newRedditTheme-checkbox: #000000;
+  --newRedditTheme-errorText: #ff0000;
+  --newRedditTheme-field: #f6f7f8;
+  --newRedditTheme-fieldFade: #f6f7f800;
+  --newRedditTheme-flair: #edeff1;
+  --newRedditTheme-highlight: #e9f5fd;
+  --newRedditTheme-inactive: #edeff1;
+  --newRedditTheme-invertFilter: invert(0);
+  --newRedditTheme-lightText: #ffffff;
+  --newRedditTheme-lightTextAlpha75: rgba(255, 255, 255, 0.75);
+  --newRedditTheme-line: #edeff1;
+  --newRedditTheme-lineShaded80: #bdbfc0;
+  --newRedditTheme-lineShaded90: #d5d7d8;
+  --newRedditTheme-linkText: #0079d3;
+  --newRedditTheme-linkTextAlpha80: rgba(0, 121, 211, 0.5);
+  --newRedditTheme-linkTextShaded80: #0060a8;
+  --newRedditTheme-linkTextTinted80: #3293db;
+  --newRedditTheme-linkTextWithBody: #3f9ade;
+  --newRedditTheme-menu: #ffffff;
+  --newRedditTheme-menuActiveText: #0079d3;
+  --newRedditTheme-menuButtonBackground-active: rgba(0, 0, 0, 0.08);
+  --newRedditTheme-menuButtonBackground-focus: rgba(0, 0, 0, 0.12);
+  --newRedditTheme-menuButtonBackground-hover: rgba(0, 0, 0, 0.04);
+  --newRedditTheme-menuInactiveText: #0079d3;
+  --newRedditTheme-metaText: #7c7c7c;
+  --newRedditTheme-metaTextAlpha50: rgba(120, 124, 126, 0.5);
+  --newRedditTheme-metaTextShaded80: #606364;
+  --newRedditTheme-monospaceColor: #ff006d;
+  --newRedditTheme-navBar-activeLink: #e9f5fd;
+  --newRedditTheme-navBar-activeSubmenuCaret: #24a0ed;
+  --newRedditTheme-navBar-activeSubmenuLink: #24a0ed;
+  --newRedditTheme-navBar-backgroundColor: #24a0ed;
+  --newRedditTheme-navBar-backgroundImage: initial;
+  --newRedditTheme-navBar-hoverLink: #e9f5fd;
+  --newRedditTheme-navBar-inactiveLink: #edeff1;
+  --newRedditTheme-navBar-inactiveSubmenuCaret: #42adf0;
+  --newRedditTheme-navBar-inactiveSubmenuLink: #42adf0;
+  --newRedditTheme-navBar-submenuBackgroundColor: #def1fc;
+  --newRedditTheme-navIcon: #1a1a1b;
+  --newRedditTheme-navIconFaded10: rgba(26, 26, 27, 0.1);
+  --newRedditTheme-nsfwBlocking-bgcolor: #edeff1;
+  --newRedditTheme-nsfwBlocking-color: #030303;
+  --newRedditTheme-nsfwBlocking-contentTitleBgColor: #f6f7f8;
+  --newRedditTheme-nsfwBlocking-mainCtaBgColor: #fff;
+  --newRedditTheme-pageHeader: #0079d3;
+  --newRedditTheme-placeholder: #d6d6d6;
+  --newRedditTheme-post: #ffffff;
+  --newRedditTheme-postError: #ffe5e5;
+  --newRedditTheme-postFlairText: #1a1a1b;
+  --newRedditTheme-postIcon: #898989;
+  --newRedditTheme-postLine: #ccc;
+  --newRedditTheme-postLineShaded80: #a3a3a3;
+  --newRedditTheme-postLineShaded90: #b7b7b7;
+  --newRedditTheme-postTinted20: #fff;
+  --newRedditTheme-postTransparent20: rgba(255, 255, 255, 0.8);
+  --newRedditTheme-report: #fff7e5;
+  --newRedditTheme-search-syntaxHighlightBackgroundColor: #e9f5fd;
+  --newRedditTheme-search-syntaxHighlightColor: #1a1a1a;
+  --newRedditTheme-titleText: #1a1a1b;
+  --newRedditTheme-upsell-appleIcon: #000000;
+  --newRedditTheme-upsell-ssoButtonBorderColor: #d3d6da;
+  --newRedditTheme-upsell-ssoButtonTextColor: #3d4043;
+  --newRedditTheme-voteIcons-downvoteActive: initial;
+  --newRedditTheme-voteIcons-downvoteInactive: initial;
+  --newRedditTheme-voteIcons-upvoteActive: initial;
+  --newRedditTheme-voteIcons-upvoteInactive: initial;
+  --newRedditTheme-voteText-base: #898989;
+  --newRedditTheme-voteText-downvote: #7193ff;
+  --newRedditTheme-voteText-downvoteShaded80: #5a75cc;
+  --newRedditTheme-voteText-downvoteTinted80: #8da8ff;
+  --newRedditTheme-voteText-upvote: #ff4500;
+  --newRedditTheme-voteText-upvoteShaded80: #cc3700;
+  --newRedditTheme-voteText-upvoteTinted80: #ff6a32;
+  --newRedditTheme-widgetColors-lineColor: rgba(26, 26, 27, 0.07);
+  --newRedditTheme-widgetColors-sidebarWidgetBackgroundColor: #ffffff;
+  --newRedditTheme-widgetColors-sidebarWidgetBorderColor: #ccc;
+  --newRedditTheme-widgetColors-sidebarWidgetHeaderColor: #ffffff;
+  --newRedditTheme-widgetColors-sidebarWidgetHeaderColorAlpha60: rgba(
+    255,
+    255,
+    255,
+    0.6
+  );
+  --newRedditTheme-widgetColors-sidebarWidgetTextColor: #1a1a1b;
+  --newRedditTheme-widgetColors-sidebarWidgetTextColorShaded80: #141415;
+  --newRedditTheme-widgetColors-sidebarWidgetTitleColor: #1a1a1b;
 }
 
 .headerOuter {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    flex-direction: row;
-    height: 48px;
-    flex: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 80;
-    margin-top: 0;
-}
-/* .headerContainer {
-  -ms-flex-align: center;
-  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
   align-items: center;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  background-color: white;
-  border-bottom: 1px solid white;
-  box-sizing: border-box;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -ms-flex-positive: 1;
+  height: 48px;
+  flex: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 80;
+  margin-top: 0;
+}
+.headerContainer {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: inline-flex;
+  background-color: var(--newCommunityTheme-body);
+  border-bottom: 1px solid var(--newCommunityTheme-line);
+  box-sizing: border-box;
+  flex-direction: row;
   flex-grow: 1;
-  padding: 0 20px;
-  gap: 12px;
-} */
-.headerContainer{
-    width: 100%;
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: inline-flex;
-    background-color: var(--newCommunityTheme-body);
-    border-bottom: 1px solid var(--newCommunityTheme-line);
-    box-sizing: border-box;
-    flex-direction: row;
-    flex-grow: 1;
 }
 .left-side {
-    color: var(--newCommunityTheme-bodyText);
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: inline-flex;
-    flex-direction: row;
-    flex-grow: 1;
+  color: var(--newCommunityTheme-bodyText);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
 .right-side {
-    color: var(--newCommunityTheme-bodyText);
-    margin: 0 40px 0 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: inline-flex;
-    flex-direction: row;
-    flex-grow: 0;
+  color: var(--newCommunityTheme-bodyText);
+  margin: 0 40px 0 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 0;
 }
 .inner-container {
-    --background: #FFFFFF;
-    --canvas: #DAE0E6;
-    color: var(--newCommunityTheme-bodyText);
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: inline-flex;
-    background-color: var(--newCommunityTheme-body);
-    border-bottom: 1px solid var(--newCommunityTheme-line);
-    box-sizing: border-box;
-    flex-direction: row;
-    flex-grow: 1;
-    padding: 0 20px;
+  --background: #ffffff;
+  --canvas: #dae0e6;
+  color: var(--newCommunityTheme-bodyText);
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: inline-flex;
+  background-color: var(--newCommunityTheme-body);
+  border-bottom: 1px solid var(--newCommunityTheme-line);
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-grow: 1;
+  padding: 0 20px;
 }
 .buttonGroup {
   align-items: center;
@@ -375,7 +370,7 @@ html, body {
 }
 .ioButton {
   border-radius: 20px;
-  border: solid #0079D3 1px;
+  border: solid #0079d3 1px;
   height: 30px;
   font-weight: 800;
   font-size: 1rem;
@@ -384,13 +379,13 @@ html, body {
 }
 .iButton {
   background-color: white;
-  color: #0079D3;
+  color: #0079d3;
 }
 .iButton:hover {
   background-color: #f2f8fc;
 }
 .oButton {
-  background-color: #0079D3;
+  background-color: #0079d3;
   color: white;
 }
 .oButton:hover {
@@ -416,7 +411,7 @@ html, body {
   height: 33px;
   border: solid 1px #f0f1f3;
   padding-left: 60px;
-  background-color: #F6F7F8;
+  background-color: #f6f7f8;
   border-radius: 3px;
   align-self: center;
 }
@@ -436,7 +431,7 @@ html, body {
   font-size: 1.3rem;
   position: absolute;
   padding-left: 20px;
-  top: 10px
+  top: 10px;
 }
 .actMag {
   height: 20px;
@@ -450,41 +445,41 @@ html, body {
   width: 97px;
 }
 .trend-om {
-    margin: 49px 0 0 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    max-width: 100%;
+  margin: 49px 0 0 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  max-width: 100%;
 }
 .trend-x1 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
 }
 .trend-x2 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
 }
 .trend-x3 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
 }
 #TrendingPostsContainer {
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    padding: 16px 24px 0;
-    margin: 0 auto;
-    max-width: 1020px;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  padding: 16px 24px 0;
+  margin: 0 auto;
+  max-width: 1020px;
 }
 .inside-x1 {
   margin: 0;
@@ -563,220 +558,243 @@ html, body {
   border-radius: 8px;
 }
 .caro-inside-x1 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: flex;
-    flex-flow: column nowrap;
-    flex: 1;
-    border-radius: 8px;
-    height: 178px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    fill: inherit;
-    background: url("https://external-preview.redd.it/VADjlUWrU3EfCXpEKxa3erMgWh4l_246TyQTgJS9dLQ.png?format=pjpg&auto=webp&s=9aea7c40c07725b34bb616d80e0cdefd86a2ca7b") center center / cover no-repeat rgb(255, 255, 255);
-    --SearchDiscoveryUnits-TrendingPosts-Post-background: linear-gradient( rgba(255,255,255,0.2), rgba(255,255,255,0.3), rgba(255,255,255,0.4), rgba(255,255,255,0.6), rgba(255,255,255,0.8), #FFFFFF );
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  border-radius: 8px;
+  height: 178px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  fill: inherit;
+  background: url("https://external-preview.redd.it/VADjlUWrU3EfCXpEKxa3erMgWh4l_246TyQTgJS9dLQ.png?format=pjpg&auto=webp&s=9aea7c40c07725b34bb616d80e0cdefd86a2ca7b")
+    center center / cover no-repeat rgb(255, 255, 255);
+  --SearchDiscoveryUnits-TrendingPosts-Post-background: linear-gradient(
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.8),
+    #ffffff
+  );
 }
+/* caro-inside-x1 has an image linked */
 .caro-inside-x2 {
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: flex;
-    flex-flow: column nowrap;
-    flex: 1;
-    min-height: 0;
-    bottom: 0;
-    position: absolute;
-    z-index: 10;
-    padding: 12px;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  min-height: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  padding: 12px;
 }
 .caro-inside-x2 h2 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    margin-top: 75px;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  margin-top: 75px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
 }
 .caro-text-body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: -webkit-inline-box;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 20px;
-    max-height: 40px;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: -webkit-inline-box;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  max-height: 40px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .caro-inside-x2 img {
-    border-radius: 9001px;
-    box-sizing: border-box;
-    display: inline-block;
-    flex: none;
-    font-size: 16px;
-    height: 16px;
-    line-height: 16px;
-    margin-right: 4px;
-    vertical-align: sub;
-    width: 16px;
-    border: 1px solid var(--newCommunityTheme-line);
-    background-color: rgb(0, 121, 211);
+  border-radius: 9001px;
+  box-sizing: border-box;
+  display: inline-block;
+  flex: none;
+  font-size: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin-right: 4px;
+  vertical-align: sub;
+  width: 16px;
+  border: 1px solid var(--newCommunityTheme-line);
+  background-color: rgb(0, 121, 211);
 }
 .caro-inside-x2 span {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    padding-right: 4px;
-    display: inline-block;
-    vertical-align: bottom;
-    flex: none;
-    margin-left: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  padding-right: 4px;
+  display: inline-block;
+  vertical-align: bottom;
+  flex: none;
+  margin-left: 0;
 }
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: white;
 }
 .popular-post-container {
-    --canvas: #DAE0E6;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 18px;
-    text-transform: unset;
-    padding-bottom: 10px;
+  --canvas: #dae0e6;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: unset;
+  padding-bottom: 10px;
 }
 
 .outermost-popular-container {
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 20px 24px;
-    max-width: 100%;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px 24px;
+  max-width: 100%;
 }
 .outer-menu-control-container {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    min-width: 0;
-    width: 640px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  min-width: 0;
+  width: 640px;
 }
 .inner-menu-control {
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    --newCommunityTheme-body: #FFFFFF;
-    --newCommunityTheme-postLine: #ccc;
-    background-color: var(--newCommunityTheme-body);
-    border: 1px solid var(--newCommunityTheme-postLine);
-    border-radius: 4px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    margin-bottom: 16px;
-    padding: 10px 12px;
+  overflow: hidden ;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  --newCommunityTheme-body: #ffffff;
+  --newCommunityTheme-postLine: #ccc;
+  background-color: var(--newCommunityTheme-body);
+  border: 1px solid var(--newCommunityTheme-postLine);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  padding: 10px 12px;
 }
+
 .menu-links {
-    -webkit-font-smoothing: antialiased;
-    --background: #FFFFFF;
-    --canvas: #DAE0E6;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    cursor: pointer;
-    display: flex;
+  -webkit-font-smoothing: antialiased;
+  --background: #ffffff;
+  --canvas: #dae0e6;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
 }
 .mlb {
   align-content: center;
   font-size: 1.1rem;
   margin: 2px;
 }
-#hot, #everywhere, #new, #top, .dotsButton button, .viewButton button {
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    text-decoration: inherit;
-    align-items: center;
-    box-sizing: border-box;
-    justify-content: center;
-    text-align: center;
-    width: auto;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: unset;
-    line-height: 17px;
-    text-transform: capitalize;
-    margin-right: 8px;
-    position: relative;
-    border: 1px solid transparent;
-    min-height: unset;
-    min-width: unset;
-    padding: 6px 8px;
-    border-radius: 20px;
-    display: inline-flex;
-    --newCommunityTheme-field: #F6F7F8;
-    background: var(--newCommunityTheme-field);
-    cursor: default;
+
+#hot,
+#everywhere,
+#new,
+#top,
+.dotsButton,
+.viewButton {
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: inherit;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: capitalize;
+  margin-right: 8px;
+  position: relative;
+  border: 1px solid transparent;
+  min-height: unset;
+  min-width: unset;
+  padding: 6px 8px;
+  border-radius: 20px;
+  display: inline-flex;
+  --newCommunityTheme-field: #f6f7f8;
+  background: var(--newCommunityTheme-field);
+  cursor: default;
 }
-#hot button, #everywhere button {
-    color: #0079d3;
-    text-transform: capitalize;
-    font-size: 14px;
-    font-weight: 700;
-    border: none;
-    background: none;
-}
-#new button, #top button{
+#hot a,
+#everywhere a {
+  color: #0079d3;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 700;
   border: none;
   background: none;
 }
-
+#new a,
+#top a,
+.viewButton a,
+.dotsButton a {
+  border: none;
+  background: none;
+  color: rgb(135, 138, 140);
+}
 .viewButton {
-  align-items: center;
   border: none;
   display: flex;
   flex-direction: row;
-  margin: 0 0 0 142.297px;
+  margin: 0 0 0 150px;
   flex-wrap: nowrap;
 }
+
 .top-x-communities-container {
   margin: 20px 0 0 0;
   padding: 0;
@@ -788,16 +806,16 @@ a, a:visited {
   margin-left: 24px;
 }
 .top-communities {
-    background-color: #FFFFFF;
-    color: #1A1A1B;
-    border: solid #ccc 1px;
-    margin: 0;
-    padding: 0;
-    font: inherit;
-    vertical-align: baseline;
-    border-radius: 4px;
-    overflow: visible;
-    word-wrap: break-word;
+  background-color: #ffffff;
+  color: #1a1a1b;
+  border: solid #ccc 1px;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  vertical-align: baseline;
+  border-radius: 4px;
+  overflow: visible;
+  word-wrap: break-word;
 }
 .top-coms-header {
   border-top-left-radius: 4px;
@@ -819,91 +837,498 @@ a, a:visited {
   bottom: 0;
 }
 .top-coms-list {
-    word-wrap: break-word;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    list-style: none;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  list-style: none;
 }
 .top-coms-list li {
-    word-wrap: break-word;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    position: relative;
-    border-bottom: thin solid var(--newCommunityTheme-line);
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  position: relative;
+  border-bottom: thin solid var(--newCommunityTheme-line);
 }
 .top-coms-list li a {
-    word-wrap: break-word;
-    list-style: none;
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    color: inherit;
-    text-decoration: inherit;
-    align-items: center;
-    display: flex;
-    height: 48px;
-    justify-content: space-between;
-    padding: 0 12px;
-    border-bottom: thin solid var(--newCommunityTheme-line);
+  word-wrap: break-word;
+  list-style: none;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  color: inherit;
+  text-decoration: inherit;
+  align-items: center;
+  display: flex;
+  height: 48px;
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: thin solid var(--newCommunityTheme-line);
 }
 .top-coms-list span {
-    word-wrap: break-word;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: flex;
+  word-wrap: break-word;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: flex;
 }
 .top-coms-list img {
-    word-wrap: break-word;
-    list-style: none;
-    color: inherit;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: middle;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-radius: 24px;
-    box-sizing: border-box;
-    flex: none;
-    font-size: 32px;
-    height: 32px;
-    line-height: 32px;
-    margin: 0 8px;
-    width: 32px;
-    background-color: rgb(13, 75, 63);
+  word-wrap: break-word;
+  list-style: none;
+  color: inherit;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: middle;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 24px;
+  box-sizing: border-box;
+  flex: none;
+  font-size: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 8px;
+  width: 32px;
+  background-color: rgb(13, 75, 63);
 }
 .number-holder {
   margin: 0 4px 0 4px;
   font-weight: 800;
 }
 .joinButtonDiv {
-    word-wrap: break-word;
-    list-style: none;
+  word-wrap: break-word;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  position: absolute;
+  right: 12px;
+  top: 13px;
+}
+.joinButtonDiv button {
+  word-wrap: break-word;
+  list-style: none;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 16px;
+  text-transform: unset;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 4px 16px;
+  position: relative;
+  background-color: var(--newCommunityTheme-button);
+  border: none;
+  color: var(--newCommunityTheme-body);
+  fill: var(--newCommunityTheme-body);
+}
+.viewButtonContainer {
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  padding: 12px;
+  height: 32px;
+}
+.viewButtonContainer a {
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: inherit;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 4px 16px;
+  position: relative;
+  background-color: var(--newCommunityTheme-button);
+  border: none;
+  color: var(--newCommunityTheme-body);
+  fill: var(--newCommunityTheme-body);
+  justify-content: center;
+  width: 100%;
+  display: flex;
+}
+.joinButtonDiv button:hover {
+  background-color: #3293db;
+}
+.caretUp {
+  height: 20px;
+  width: 20px;
+  color: rgb(70, 209, 96);
+}
+.extra-catagories {
+  word-wrap: break-word;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 0 8px 12px;
+}
+.extra-catagories span {
+  word-wrap: break-word;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  margin: 4px;
+}
+
+.extra-catagories a {
+  word-wrap: break-word;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: inherit;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 16px;
+  text-transform: unset;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 4px 8px;
+  flex: 1;
+  position: relative;
+  background-color: var(--newCommunityTheme-field);
+  border: 1px solid transparent;
+  color: var(--newCommunityTheme-linkText);
+  fill: var(--newCommunityTheme-linkText);
+  margin-right: 0;
+}
+.outerPostContainer {
     margin: 0;
     padding: 0;
     border: 0;
     font: inherit;
     vertical-align: baseline;
-    position: absolute;
-    right: 12px;
-    top: 13px;
 }
-.joinButtonDiv button {
-    word-wrap: break-word;
-    list-style: none;
+.innerPostContainer {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    background-color: var(--newCommunityTheme-postTransparent20);
+    color: var(--newCommunityTheme-actionIcon);
+    position: relative;
+    --post-line-color: var(--newCommunityTheme-postLine);
+    border: 1px solid var(--post-line-color);
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding-left: 40px;
+}
+.likeContainer {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    padding: 8px 4px 8px 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+    border-left: 4px solid transparent;
+}
+.likeContainer-x1 {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    padding: 8px 4px 8px 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+    border-left: 4px solid transparent;
+}
+.likeContainer-x2 {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    align-items: center;
+    display: flex;
+    fill: inherit;
+    flex-direction: column;
+}
+.upVote {
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    fill: inherit;
+    margin: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: initial;
+    height: 24px;
+    width: 24px;
+}
+.voteCount {
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    fill: inherit;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    pointer-events: none;
+    word-break: normal;
+    margin: 4px 0;
+    color: rgb(26, 26, 27);
+}
+.downVote {
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    fill: inherit;
+    margin: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: initial;
+    height: 24px;
+    width: 24px;
+}
+.postFormatContainer {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    padding-top: 8px;
+    position: relative;
+    background: rgb(255, 255, 255);
+}
+.post-info {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    margin: 0 8px;
+    position: relative;
+}
+.post-pic {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    flex: 0 0 auto;
+}
+.post-pic a {
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--newCommunityTheme-bodyText);
+    display: inline;
+    line-height: 20px;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+.subMoreInfo {
+    font: inherit;
+    vertical-align: baseline;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    margin: 0 8px 8px;
+    position: relative;
+}
+.subAndPosterName {
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    align-items: center;
+    color: inherit;
+    display: inline;
+}
+.subName {
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    display: inline-block;
+    flex: 0 0 auto;
+}
+.subName a {
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--newCommunityTheme-bodyText);
+    display: inline;
+    line-height: 20px;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+.extraSpans {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    flex: 0 0 auto;
+    margin-right: 3px;
+    color: rgb(120, 124, 126);
+}
+.posterName {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    display: inline-block;
+    flex: 0 0 auto;
+}
+.posterName a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-right: 3px;
+    text-decoration: none;
+    color: rgb(120, 124, 126);
+}
+.timeStamp a{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    margin-right: 3px;
+    text-decoration: none;
+    display: inline-block;
+    flex: 0 0 auto;
+    color: rgb(120, 124, 126);
+}
+.post-join-button-container {
     margin: 0;
     font: inherit;
     vertical-align: baseline;
@@ -930,59 +1355,164 @@ a, a:visited {
     border: none;
     color: var(--newCommunityTheme-body);
     fill: var(--newCommunityTheme-body);
+    flex: 0 0 auto;
+    position: absolute;
+    right: 0;
 }
-.viewButtonContainer {
-  display: flex;
-  align-items: center;
+.post-join-button-container span {
+  
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: unset;
+    text-transform: unset;
+    color: var(--newCommunityTheme-body);
+    fill: var(--newCommunityTheme-body);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+.postBodyContainer {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    --posttitletextcolor: var(--newCommunityTheme-titleText);
+    margin: 8px 8px;
+    --postTitle-VisitedLinkColor: #9b9b9b;
+    --postTitleLink-VisitedLinkColor: #9b9b9b;
+}
+.postTitle {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    display: inline;
+    position: relative;
+    text-decoration: none;
+    word-break: break-word;
+}
+.postTitle h3 {
+    word-break: break-word;
+    color: var(--posttitletextcolor);
     word-wrap: break-word;
+    --posttitletextcolor: #222222;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    display: inline;
+    font-weight: 800;
+}
+.commentShareSave {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    padding-right: 10px;
+    overflow-y: visible;
+}
+.cSSContainer {
     margin: 0;
     border: 0;
     font: inherit;
     vertical-align: baseline;
-    padding: 12px;
-    height: 56px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    padding: 0 8px 0 4px;
+    flex-grow: 1;
 }
-.viewButtonContainer a {
+.cSSContainer a {
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    color: inherit;
+    text-decoration: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    align-items: center;
+    display: flex;
+    margin-right: 4px;
+    padding: 8px;
+    word-break: normal;
+}
+.faComment {
+    color: inherit;
+    word-break: normal;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 20px;
+    font-weight: 400;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    width: 20px;
+    margin-right: 6px;
+}
+.shareButton, .saveButton, .elipsesButton {
+    color: var(--newCommunityTheme-actionIcon);
+    --post-line-color: var(--newCommunityTheme-postLine);
+    --post-icon-color: var(--newCommunityTheme-postIcon);
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    align-items: center;
+    display: flex;
+    margin: 0 4px 0 0;
+    width: auto;
+    word-break: normal;
+}
+.shareButton button, .saveButton button, .elipsesButton button {
+    word-break: normal;
     margin: 0;
     font: inherit;
     vertical-align: baseline;
-    text-decoration: inherit;
-    align-items: center;
-    border-radius: 9999px;
-    box-sizing: border-box;
-    text-align: center;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: unset;
-    line-height: 17px;
-    text-transform: unset;
-    min-height: 32px;
-    min-width: 32px;
-    padding: 4px 16px;
-    position: relative;
-    background-color: var(--newCommunityTheme-button);
+    background: transparent;
     border: none;
-    color: var(--newCommunityTheme-body);
-    fill: var(--newCommunityTheme-body);
-    justify-content: center;
-    width: 100%;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 8px;
     display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    height: 100%;
 }
-.joinButtonDiv button:hover {
-  background-color: #3293db;
+.emptySpaceDiv {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    flex: 1 1 auto;
 }
-.caretUp {
-  height: 20px;
-  width: 20px;
-  color: rgb(70, 209, 96);
-}
-.extra-catagories {
-  display: flex;
-  justify-content: space-evenly;
-}
-.extra-catagories a {
-  text-decoration: none;
-  color:#0079D3;
-  font-weight: 700;
+.saveSpan {
+  margin-left: 4px;
 }
