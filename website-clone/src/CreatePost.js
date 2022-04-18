@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "./styleSheet2.css";
 import {
   faAngleDown,
@@ -25,8 +25,67 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function CreatePost() {
+  let [bold, setBold] = useState(false);
+  let [italic, setItalic] = useState(false);
+  let [strikeThrough, setStrikeThrough] = useState(false);
+  let [heading, setHeading] = useState(false);
+  let [dotsList, setDotsList] = useState(false);
+  let [numericList, setNumericList] = useState(false);
+  let [quotes, setQuotes] = useState(false);
+
+  let inputRef = useRef();
+  let outputRef = useRef();
+  let boldActive = (e) => {
+    e.target.setAttribute('class', bold ? "Selected" : "");
+    setBold(!bold)
+  }
+  if (bold === true) {
+    outputRef.current.innerHTML += "<strong></strong>"
+  }
+  let italicActive = (e) => {
+    e.target.setAttribute('class', italic ? "Selected" : "");
+    setItalic(!italic)
+  }
+  let strikethroughActive = (e) => {
+    e.target.setAttribute('class', strikeThrough ? "Selected" : "");
+    setStrikeThrough(!strikeThrough)
+  }
+  let headingActive = (e) => {
+    e.target.setAttribute('class', heading ? "Selected" : "");
+    setHeading(!heading)
+  }
+  let dotsListActive = (e) => {
+    e.target.setAttribute('class', dotsList ? "Selected" : "");
+    setDotsList(!dotsList)
+  }
+  let numericListActive = (e) => {
+    e.target.setAttribute('class', numericList ? "Selected" : "");
+    setNumericList(!numericList)
+  }
+  let quotesActive = (e) => {
+    e.target.setAttribute('class', quotes ? "Selected" : "");
+    setQuotes(!quotes)
+  }
+  let onInputChange = () => {
+const input = inputRef.current.value;
+const output = outputRef.current.innerText;
+const newText = input.slice(output.length);
+this.formatText(newText);
+}
+  let  formatText = (text) => {
+    switch (true) {
+      case bold === true:
+        const allBold = outputRef.current.getElementsByTagName("Strong");
+        const lastBold = allBold[allBold.length - 1];
+        lastBold.innerText += text;
+        break;
+    default:
+    outputRef.current.innerHTML += text;
+    break;
+  }
+  }
   return (
-    <div className="createPostContainer">
+    <div className="createPostContainer" ref={outputRef}>
       <div className="createPost-x1">
         <div className="createPost-x2">
           <div className="createPostHeaderContainer">
@@ -108,7 +167,7 @@ function CreatePost() {
                         <div className="actualButtonInfluence-x1">
                           <div className="strictlyButtons">
                             <span>
-                              <button>
+                              <button onClick={boldActive}>
                                 <FontAwesomeIcon
                                   icon={faBold}
                                   className="textFormatIcon"
@@ -117,7 +176,7 @@ function CreatePost() {
                               </button>
                             </span>
                             <span>
-                              <button>
+                              <button onClick={italicActive}>
                                 <FontAwesomeIcon
                                   icon={faItalic}
                                   className="textFormatIcon"
@@ -135,15 +194,11 @@ function CreatePost() {
                             </span>
                             <span></span>
                             <span>
-                              <button>
-                                <div>
-                                  <div>
+                              <button onClick={strikethroughActive}>
                                     <FontAwesomeIcon
                                       icon={faStrikethrough}
                                       className="textFormatIcon"
                                     ></FontAwesomeIcon>
-                                  </div>
-                                </div>
                               </button>
                             </span>
                             <span>
@@ -174,31 +229,23 @@ function CreatePost() {
                               <div></div>
                             </span>
                             <span>
-                              <button>
-                                <div>
-                                  <div>
+                              <button onClick={headingActive}>
                                     <FontAwesomeIcon
                                       icon={faHeading}
                                       className="textFormatIcon"
                                     ></FontAwesomeIcon>
-                                  </div>
-                                </div>
                               </button>
                             </span>
                             <span>
-                              <button>
-                                <div>
-                                  <div>
+                              <button onClick={dotsListActive}>
                                     <FontAwesomeIcon
                                       icon={faListDots}
                                       className="textFormatIcon"
                                     ></FontAwesomeIcon>
-                                  </div>
-                                </div>
                               </button>
                             </span>
                             <span>
-                              <button>
+                              <button onClick={numericListActive}>
                                 <div>
                                   <div>
                                     <FontAwesomeIcon
@@ -210,7 +257,7 @@ function CreatePost() {
                               </button>
                             </span>
                             <span>
-                              <button>
+                              <button onClick={quotesActive}>
                                 <div>
                                   <div>
                                     <FontAwesomeIcon
@@ -261,11 +308,11 @@ function CreatePost() {
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
-                                {/* <input
+                                <input className="displayNone"
                                   multiple=""
                                   type="file"
                                   accept="image/png,image/gif,image/jpeg,image/webp"
-                                /> */}
+                                />
                               </button>
                             </span>
                             <span>
@@ -278,11 +325,11 @@ function CreatePost() {
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
-                                {/* <input
+                                <input className="displayNone"
                                   multiple=""
                                   type="file"
                                   accept="video/mp4,video/quicktime"
-                                /> */}
+                                />
                               </button>
                             </span>
                           </div>
@@ -297,8 +344,7 @@ function CreatePost() {
                         <div></div>
                       </div>
                       <div className="textBodyContainer">
-                        <div className="textBodyContainer-x1">
-                          <div></div>
+                        <div className="textBodyContainer-x1" ref={inputRef} onChange={onInputChange}>
                         </div>
                       </div>
                     </div>

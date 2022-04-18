@@ -938,3 +938,9 @@ body {
     color: var(--newCommunityTheme-buttonAlpha50);
     fill: var(--newCommunityTheme-buttonAlpha50);
 }
+.Selected {
+  color: black;
+}
+.displayNone {
+  display: none;
+}
