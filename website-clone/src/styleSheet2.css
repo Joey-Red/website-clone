@@ -424,7 +424,7 @@ body {
   height: 100%;
   padding: 0 8px;
 }
-.chooseCommunity-x2 span {
+.circlePlaceHolder {
   padding: 0;
   font: inherit;
   vertical-align: baseline;
@@ -467,6 +467,7 @@ body {
   border: 0;
   font: inherit;
   vertical-align: baseline;
+  position: relative;
 }
 .createPostFormContainer {
   margin: 0;
@@ -705,6 +706,7 @@ body {
   transition: background-color 0.1s;
   border-radius: 2px;
   color: var(--newCommunityTheme-actionIcon);
+  max-height: 20px;
 }
 .textFormatIcon {
   text-align: center;
@@ -940,7 +942,49 @@ body {
 }
 .Selected {
   color: black;
+  max-width: 20px;
+  max-height: 20px;
 }
 .displayNone {
   display: none;
+}
+.dropDownContainer {
+  /* display: none; */
+  top: 29px;
+  right: -8px;
+  z-index: 999;
+  position: absolute;
+  width: 281px;
+  padding: 0 8px;
+  border: 1px solid var(--newCommunityTheme-line);
+  background-color: var(--newCommunityTheme-body);
+  display: flex;
+}
+.communityList li{
+  list-style: none;
+  list-style-position: outside;
+  width: 281px;
+  height: 36px;
+  padding: 8px;
+}
+.communityList ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dropDownCommunity img {
+  height: 32px;
+  width: 32px;
+}
+.liSubName {
+  color: #1c1c1c;
+  font-size: 14px;
+}
+
+.liSubMemberCount {
+  color: #878A8C;
+  font-size: 12px;
 }

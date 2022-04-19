@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./styleSheet2.css";
 import {
   faAngleDown,
@@ -25,67 +25,45 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function CreatePost() {
-  let [bold, setBold] = useState(false);
-  let [italic, setItalic] = useState(false);
-  let [strikeThrough, setStrikeThrough] = useState(false);
-  let [heading, setHeading] = useState(false);
-  let [dotsList, setDotsList] = useState(false);
-  let [numericList, setNumericList] = useState(false);
-  let [quotes, setQuotes] = useState(false);
+  let [bold, setBold] = useState(true);
+  let [italic, setItalic] = useState(true);
+  let [strikeThrough, setStrikeThrough] = useState(true);
+  let [heading, setHeading] = useState(true);
+  let [dotsList, setDotsList] = useState(true);
+  let [numericList, setNumericList] = useState(true);
+  let [quotes, setQuotes] = useState(true);
 
-  let inputRef = useRef();
-  let outputRef = useRef();
   let boldActive = (e) => {
-    e.target.setAttribute('class', bold ? "Selected" : "");
-    setBold(!bold)
-  }
-  if (bold === true) {
-    outputRef.current.innerHTML += "<strong></strong>"
-  }
+    e.target.setAttribute("class", bold ? "Selected" : "");
+    setBold(!bold);
+  };
   let italicActive = (e) => {
-    e.target.setAttribute('class', italic ? "Selected" : "");
-    setItalic(!italic)
-  }
+    e.target.setAttribute("class", italic ? "Selected" : "");
+    setItalic(!italic);
+  };
   let strikethroughActive = (e) => {
-    e.target.setAttribute('class', strikeThrough ? "Selected" : "");
-    setStrikeThrough(!strikeThrough)
-  }
+    e.target.setAttribute("class", strikeThrough ? "Selected" : "");
+    setStrikeThrough(!strikeThrough);
+  };
   let headingActive = (e) => {
-    e.target.setAttribute('class', heading ? "Selected" : "");
-    setHeading(!heading)
-  }
+    e.target.setAttribute("class", heading ? "Selected" : "");
+    setHeading(!heading);
+  };
   let dotsListActive = (e) => {
-    e.target.setAttribute('class', dotsList ? "Selected" : "");
-    setDotsList(!dotsList)
-  }
+    e.target.setAttribute("class", dotsList ? "Selected" : "");
+    setDotsList(!dotsList);
+  };
   let numericListActive = (e) => {
-    e.target.setAttribute('class', numericList ? "Selected" : "");
-    setNumericList(!numericList)
-  }
+    e.target.setAttribute("class", numericList ? "Selected" : "");
+    setNumericList(!numericList);
+  };
   let quotesActive = (e) => {
-    e.target.setAttribute('class', quotes ? "Selected" : "");
-    setQuotes(!quotes)
-  }
-  let onInputChange = () => {
-const input = inputRef.current.value;
-const output = outputRef.current.innerText;
-const newText = input.slice(output.length);
-this.formatText(newText);
-}
-  let  formatText = (text) => {
-    switch (true) {
-      case bold === true:
-        const allBold = outputRef.current.getElementsByTagName("Strong");
-        const lastBold = allBold[allBold.length - 1];
-        lastBold.innerText += text;
-        break;
-    default:
-    outputRef.current.innerHTML += text;
-    break;
-  }
-  }
+    e.target.setAttribute("class", quotes ? "Selected" : "");
+    setQuotes(!quotes);
+  };
+
   return (
-    <div className="createPostContainer" ref={outputRef}>
+    <div className="createPostContainer">
       <div className="createPost-x1">
         <div className="createPost-x2">
           <div className="createPostHeaderContainer">
@@ -99,7 +77,7 @@ this.formatText(newText);
           <div className="chooseCommunityContainer">
             <div className="chooseCommunity-x1">
               <div className="chooseCommunity-x2">
-                <span>
+                <span className="circlePlaceHolder">
                   <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon>
                 </span>
                 <div className="inputCommunity">
@@ -107,6 +85,29 @@ this.formatText(newText);
                 </div>
                 <div className="dropDownCommunity">
                   <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
+                  <div className="dropDownContainer">
+                    <div className="communityList">
+                      <ul>
+                        <li>
+                          <div>
+                            <img src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png" alt="" />
+                            <span className="liSubName">r/tech</span>
+                            <span className="liSubMemberCount">1000 Members</span>
+                          </div>
+                        </li>
+                        <li><div>
+                            <img src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png" alt="" />
+                              <span className="liSubName">r/gaming</span>
+                            <span className="liSubMemberCount">1000 Members</span>                            
+                          </div></li>
+                        <li><div>
+                            <img src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png" alt="" />
+                            <span className="liSubName">r/sports</span>
+                            <span className="liSubMemberCount">1000 Members</span>
+                          </div></li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -166,20 +167,20 @@ this.formatText(newText);
                       <div className="actualButtonInfluence">
                         <div className="actualButtonInfluence-x1">
                           <div className="strictlyButtons">
-                            <span>
-                              <button onClick={boldActive}>
-                                <FontAwesomeIcon
-                                  icon={faBold}
-                                  className="textFormatIcon"
-                                ></FontAwesomeIcon>
-                                <div>{/* <div>Bold</div> */}</div>
-                              </button>
-                            </span>
+                            <button onClick={boldActive}>
+                              <FontAwesomeIcon
+                                icon={faBold}
+                                className="textFormatIcon"
+                                id="bold"
+                              ></FontAwesomeIcon>
+                              <div>{/* <div>Bold</div> */}</div>
+                            </button>
                             <span>
                               <button onClick={italicActive}>
                                 <FontAwesomeIcon
                                   icon={faItalic}
                                   className="textFormatIcon"
+                                  id="italic"
                                 ></FontAwesomeIcon>
                                 <div>{/* <div>Italics</div> */}</div>
                               </button>
@@ -189,16 +190,18 @@ this.formatText(newText);
                                 <FontAwesomeIcon
                                   icon={faLink}
                                   className="textFormatIcon"
+                                  id="link"
                                 ></FontAwesomeIcon>
                               </button>
                             </span>
                             <span></span>
                             <span>
                               <button onClick={strikethroughActive}>
-                                    <FontAwesomeIcon
-                                      icon={faStrikethrough}
-                                      className="textFormatIcon"
-                                    ></FontAwesomeIcon>
+                                <FontAwesomeIcon
+                                  icon={faStrikethrough}
+                                  className="textFormatIcon"
+                                  id="strike"
+                                ></FontAwesomeIcon>
                               </button>
                             </span>
                             <span>
@@ -208,6 +211,7 @@ this.formatText(newText);
                                     <FontAwesomeIcon
                                       icon={faSuperscript}
                                       className="textFormatIcon"
+                                      id="superscript"
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
@@ -230,18 +234,20 @@ this.formatText(newText);
                             </span>
                             <span>
                               <button onClick={headingActive}>
-                                    <FontAwesomeIcon
-                                      icon={faHeading}
-                                      className="textFormatIcon"
-                                    ></FontAwesomeIcon>
+                                <FontAwesomeIcon
+                                  icon={faHeading}
+                                  className="textFormatIcon"
+                                  id="heading"
+                                ></FontAwesomeIcon>
                               </button>
                             </span>
                             <span>
                               <button onClick={dotsListActive}>
-                                    <FontAwesomeIcon
-                                      icon={faListDots}
-                                      className="textFormatIcon"
-                                    ></FontAwesomeIcon>
+                                <FontAwesomeIcon
+                                  icon={faListDots}
+                                  className="textFormatIcon"
+                                  id="dotList"
+                                ></FontAwesomeIcon>
                               </button>
                             </span>
                             <span>
@@ -251,6 +257,7 @@ this.formatText(newText);
                                     <FontAwesomeIcon
                                       icon={faListNumeric}
                                       className="textFormatIcon"
+                                      id="numList"
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
@@ -263,6 +270,7 @@ this.formatText(newText);
                                     <FontAwesomeIcon
                                       icon={faQuoteLeftAlt}
                                       className="textFormatIcon"
+                                      id="quote"
                                     ></FontAwesomeIcon>
                                     <FontAwesomeIcon
                                       icon={faQuoteRight}
@@ -278,6 +286,7 @@ this.formatText(newText);
                                     <FontAwesomeIcon
                                       icon={faCode}
                                       className="textFormatIcon"
+                                      id="code"
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
@@ -293,6 +302,7 @@ this.formatText(newText);
                                     <FontAwesomeIcon
                                       icon={faTable}
                                       className="textFormatIcon"
+                                      id="table"
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
@@ -308,7 +318,8 @@ this.formatText(newText);
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
-                                <input className="displayNone"
+                                <input
+                                  className="displayNone"
                                   multiple=""
                                   type="file"
                                   accept="image/png,image/gif,image/jpeg,image/webp"
@@ -325,7 +336,8 @@ this.formatText(newText);
                                     ></FontAwesomeIcon>
                                   </div>
                                 </div>
-                                <input className="displayNone"
+                                <input
+                                  className="displayNone"
                                   multiple=""
                                   type="file"
                                   accept="video/mp4,video/quicktime"
@@ -344,8 +356,7 @@ this.formatText(newText);
                         <div></div>
                       </div>
                       <div className="textBodyContainer">
-                        <div className="textBodyContainer-x1" ref={inputRef} onChange={onInputChange}>
-                        </div>
+                        <div className="textBodyContainer-x1"></div>
                       </div>
                     </div>
                     <div className="tagAndSubmit">

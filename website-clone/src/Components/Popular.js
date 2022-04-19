@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   faAngleDown,
   faCaretUp,
@@ -12,6 +12,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PopularFeed from "./PopularFeed";
 
 function Popular() {
+    let [activeButton, setActiveButton] = useState(true);
+    // something weird going on here
+  let topComsSort = (e) => {
+    if (activeButton === true) {
+      e.target.style.backgroundColor="#0079d3";
+    e.target.style.color="#f6f7f8";
+    } else if (activeButton === false){
+    e.target.style.backgroundColor="#f6f7f8";
+    e.target.style.color="#0079d3";
+    }
+    setActiveButton(!activeButton)
+    console.log(activeButton)
+  }
+
   return (
     <div className="outermost-popular-container">
       <div className="outer-menu-control-container">
@@ -198,10 +212,10 @@ function Popular() {
             </div>
           </ol>
           <div className="extra-catagories">
-            <span><a href="#">Top</a></span>
-            <span><a href="#">Near You</a></span>
-            <span><a href="#">Sports</a></span>
-            <span><a href="#">Gaming</a></span>
+            <span><button onClick={topComsSort}>Top</button></span>
+            <span><button onClick={topComsSort}>Near You</button></span>
+            <span><button onClick={topComsSort}>Sports</button></span>
+            <span><button onClick={topComsSort}>Gaming</button></span>
           </div>
         </div>
       </div>
