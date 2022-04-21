@@ -86,27 +86,38 @@ function CreatePost() {
                 <div className="dropDownCommunity">
                   <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
                   <div className="dropDownContainer">
-                    <div className="communityList">
-                      <ul>
-                        <li>
-                          <div>
-                            <img src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png" alt="" />
-                            <span className="liSubName">r/tech</span>
-                            <span className="liSubMemberCount">1000 Members</span>
-                          </div>
-                        </li>
-                        <li><div>
-                            <img src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png" alt="" />
-                              <span className="liSubName">r/gaming</span>
-                            <span className="liSubMemberCount">1000 Members</span>                            
-                          </div></li>
-                        <li><div>
-                            <img src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png" alt="" />
-                            <span className="liSubName">r/sports</span>
-                            <span className="liSubMemberCount">1000 Members</span>
-                          </div></li>
-                      </ul>
+                    {/* <div className="communityList"> */}
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
                     </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/gaming</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/sports</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    {/* </div> */}
                   </div>
                 </div>
               </div>

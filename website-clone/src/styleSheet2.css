@@ -298,7 +298,6 @@ body {
   padding: 20px 24px;
   max-width: 1248px;
   margin-top: 48px;
-
 }
 .createPost-x1 {
   margin: 0;
@@ -754,191 +753,191 @@ body {
   word-break: keep-all;
 }
 .textBodyContainer {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
 }
 .textBodyContainer-x1 {
-    -webkit-line-break: after-white-space;
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 21px;
-    height: inherit;
-    text-align: initial;
-    -webkit-user-modify: read-write-plaintext-only;
-    background-color: var(--newCommunityTheme-body);
-    border-radius: 4px;
-    font-family: Noto Sans,Arial,sans-serif;
-    min-height: 122px;
-    overflow: hidden;
-    padding: 8px 16px;
-    resize: vertical;
-    color: var(--newRedditTheme-bodyText);
-    caret-color: var(--newRedditTheme-button);
-    outline: none;
-    -webkit-user-select: text;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  height: inherit;
+  text-align: initial;
+  -webkit-user-modify: read-write-plaintext-only;
+  background-color: var(--newCommunityTheme-body);
+  border-radius: 4px;
+  font-family: Noto Sans, Arial, sans-serif;
+  min-height: 122px;
+  overflow: hidden;
+  padding: 8px 16px;
+  resize: vertical;
+  color: var(--newRedditTheme-bodyText);
+  caret-color: var(--newRedditTheme-button);
+  outline: none;
+  -webkit-user-select: text;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 .faAddFlair {
-    text-align: center;
-    letter-spacing: unset;
-    text-transform: unset;
-    cursor: not-allowed;
-    color: var(--newCommunityTheme-actionIconAlpha50);
-    fill: var(--newCommunityTheme-actionIconAlpha50);
-    margin: 0;
-    border: 0;
-    font: inherit;
-    font-weight: 400;
-    vertical-align: middle;
-    display: inline-block;
-    padding: 0 8px 0 0;
-    height: 20px;
-    width: 20px;
-    font-size: 20px;
-    line-height: 20px;
+  text-align: center;
+  letter-spacing: unset;
+  text-transform: unset;
+  cursor: not-allowed;
+  color: var(--newCommunityTheme-actionIconAlpha50);
+  fill: var(--newCommunityTheme-actionIconAlpha50);
+  margin: 0;
+  border: 0;
+  font: inherit;
+  font-weight: 400;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0 8px 0 0;
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+  line-height: 20px;
 }
 .tagAndSubmit {
-    margin: 10px 0 0 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
+  margin: 10px 0 0 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .tagContainer {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: flex;
-    flex-flow: column nowrap;
-    max-width: 100%;
-    min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 100%;
+  min-width: 0;
 }
 .tagList {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 530px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 530px;
 }
 .tagList button {
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
-    align-items: center;
-    border-radius: 9999px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: auto;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: unset;
-    line-height: 17px;
-    text-transform: unset;
-    min-height: 32px;
-    min-width: 32px;
-    margin-bottom: 8px;
-    margin-right: 4px;
-    padding: 4px 16px;
-    z-index: 1;
-    position: relative;
-    border: 1px solid var(--newCommunityTheme-actionIcon);
-    cursor: not-allowed;
-    filter: grayscale(1);
-    border-color: var(--newCommunityTheme-actionIconAlpha50);
-    color: var(--newCommunityTheme-actionIconAlpha50);
-    fill: var(--newCommunityTheme-actionIconAlpha50);
-    overflow: visible;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  margin-bottom: 8px;
+  margin-right: 4px;
+  padding: 4px 16px;
+  z-index: 1;
+  position: relative;
+  border: 1px solid var(--newCommunityTheme-actionIcon);
+  cursor: not-allowed;
+  filter: grayscale(1);
+  border-color: var(--newCommunityTheme-actionIconAlpha50);
+  color: var(--newCommunityTheme-actionIconAlpha50);
+  fill: var(--newCommunityTheme-actionIconAlpha50);
+  overflow: visible;
 }
 .draftOrSubmit {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    padding-top: 8px;
-    gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding-top: 8px;
+  gap: 10px;
 }
 .postSubmitButton button {
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
-    align-items: center;
-    border-radius: 9999px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: unset;
-    line-height: 17px;
-    text-transform: unset;
-    min-height: 32px;
-    min-width: 32px;
-    padding: 4px 16px;
-    position: relative;
-    border: none;
-    width: 100%;
-    cursor: not-allowed;
-    filter: grayscale(1);
-    background-color: var(--newCommunityTheme-buttonTinted80);
-    color: var(--newCommunityTheme-bodyAlpha50);
-    fill: var(--newCommunityTheme-bodyAlpha50);
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 4px 16px;
+  position: relative;
+  border: none;
+  width: 100%;
+  cursor: not-allowed;
+  filter: grayscale(1);
+  background-color: var(--newCommunityTheme-buttonTinted80);
+  color: var(--newCommunityTheme-bodyAlpha50);
+  fill: var(--newCommunityTheme-bodyAlpha50);
 }
 .saveDraft button {
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
-    align-items: center;
-    border-radius: 9999px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: unset;
-    line-height: 17px;
-    text-transform: unset;
-    min-height: 32px;
-    min-width: 32px;
-    padding: 4px 16px;
-    position: relative;
-    border: 1px solid var(--newCommunityTheme-button);
-    width: 100%;
-    cursor: not-allowed;
-    filter: grayscale(1);
-    border-color: var(--newCommunityTheme-buttonAlpha50);
-    color: var(--newCommunityTheme-buttonAlpha50);
-    fill: var(--newCommunityTheme-buttonAlpha50);
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 4px 16px;
+  position: relative;
+  border: 1px solid var(--newCommunityTheme-button);
+  width: 100%;
+  cursor: not-allowed;
+  filter: grayscale(1);
+  border-color: var(--newCommunityTheme-buttonAlpha50);
+  color: var(--newCommunityTheme-buttonAlpha50);
+  fill: var(--newCommunityTheme-buttonAlpha50);
 }
 .Selected {
   color: black;
@@ -955,29 +954,27 @@ body {
   z-index: 999;
   position: absolute;
   width: 281px;
-  padding: 0 8px;
+  padding: 8px;
   border: 1px solid var(--newCommunityTheme-line);
   background-color: var(--newCommunityTheme-body);
+  flex-direction: column;
   display: flex;
 }
-.communityList li{
-  list-style: none;
-  list-style-position: outside;
-  width: 281px;
-  height: 36px;
-  padding: 8px;
+
+.indComStyle {
+  display: flex;
+  align-items: center;
+  height: 52px;
 }
-.communityList ul{
-  margin: 0;
-  padding: 0;
+.flexSpans {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
+
 .dropDownCommunity img {
   height: 32px;
   width: 32px;
+  padding: 2px 8px 2px 0px;
 }
 .liSubName {
   color: #1c1c1c;
@@ -985,6 +982,6 @@ body {
 }
 
 .liSubMemberCount {
-  color: #878A8C;
+  color: #878a8c;
   font-size: 12px;
 }
