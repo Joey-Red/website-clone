@@ -24,6 +24,7 @@ import {
   faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NewCommunity from "./NewCommunity";
 function CreatePost() {
   let [bold, setBold] = useState(true);
   let [italic, setItalic] = useState(true);
@@ -61,7 +62,17 @@ function CreatePost() {
     e.target.setAttribute("class", quotes ? "Selected" : "");
     setQuotes(!quotes);
   };
-
+  let dropDownClick = () => {
+    let target = document.querySelector(".dropDownContainer");
+    if (target.style.display === "flex") {
+      target.style.display = "none";
+    } else {
+      target.style.display = "flex";
+    }
+  };
+  let createNewCom = () => {
+    <NewCommunity />;
+  };
   return (
     <div className="createPostContainer">
       <div className="createPost-x1">
@@ -83,10 +94,126 @@ function CreatePost() {
                 <div className="inputCommunity">
                   <input type="text" placeholder="Choose a community" />
                 </div>
-                <div className="dropDownCommunity">
+                <div
+                  className="dropDownCommunity"
+                  onClick={() => {
+                    dropDownClick();
+                  }}
+                >
                   <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
                   <div className="dropDownContainer">
-                    {/* <div className="communityList"> */}
+                    <div className="yourComStyle">
+                      <span>YOUR COMMUNITIES</span>
+                      <div>
+                        <button
+                          onClick={() => {
+                            createNewCom();
+                          }}
+                        >
+                          Create New
+                        </button>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
+                    <div className="indComStyle">
+                      <img
+                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                        alt=""
+                      />
+                      <div className="flexSpans">
+                        <span className="liSubName">r/tech</span>
+                        <span className="liSubMemberCount">1000 Members</span>
+                      </div>
+                    </div>
                     <div className="indComStyle">
                       <img
                         src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
@@ -117,7 +244,6 @@ function CreatePost() {
                         <span className="liSubMemberCount">1000 Members</span>
                       </div>
                     </div>
-                    {/* </div> */}
                   </div>
                 </div>
               </div>
