@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styleSheet2.css";
+import "../styleSheet3.css";
 import {
   faAngleDown,
   faCircle,
@@ -22,9 +23,13 @@ import {
   faQuoteLeftAlt,
   faVideo,
   faPlusCircle,
+  faBullhorn,
+  faLock,
+  faPerson,
+  faEye,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import NewCommunity from "./NewCommunity";
+// import NewCommunity from "./NewCommunity";
 function CreatePost() {
   let [bold, setBold] = useState(true);
   let [italic, setItalic] = useState(true);
@@ -33,7 +38,7 @@ function CreatePost() {
   let [dotsList, setDotsList] = useState(true);
   let [numericList, setNumericList] = useState(true);
   let [quotes, setQuotes] = useState(true);
-
+  let [showNewCom, setShowNewCom] = useState(false);
   let boldActive = (e) => {
     e.target.setAttribute("class", bold ? "Selected" : "");
     setBold(!bold);
@@ -71,10 +76,109 @@ function CreatePost() {
     }
   };
   let createNewCom = () => {
-    <NewCommunity />;
+    if (showNewCom === false) {
+      setShowNewCom(true);
+    } else {
+      setShowNewCom(false);
+    }
   };
+  let hideCreate = () => {
+    setShowNewCom(false);
+  };
+  function NewCommunity() {
+    return (
+      <div className="blackScreen">
+        <div className="newComContainer">
+          <div className="ccHeader">
+            <h1>Create a community</h1>
+          </div>
+          <div className="ccInfoContainer">
+            <div className="ccNameInfo">
+              <div className="ccName">
+                <p className="ccNameSpan">Name</p>
+                <span className="nameInfo">
+                  Community names cannot be changed.
+                </span>
+                <span className="ccrPlaceholder">r/</span>
+                <input type="text" name="" id="ccNameInput" maxLength={21} />
+              </div>
+            </div>
+            <div className="ccComType">
+              <div>
+                <input type="radio" value="" defaultChecked id="comType" />
+                <label htmlFor="comType">
+                  <FontAwesomeIcon
+                    icon={faPerson}
+                    className="ccFa"
+                  ></FontAwesomeIcon>
+                  Public
+                </label>
+                <div className="ccTypeInfo">
+                  Anyone can view, post and comment to this community
+                </div>
+              </div>
+              <div>
+                <input type="radio" value="" id="comTypeRestricted" />
+                <label htmlFor="comTypeRestricted">
+                  <FontAwesomeIcon
+                    icon={faEye}
+                    className="ccFa"
+                  ></FontAwesomeIcon>
+                  Restricted
+                </label>
+                <div className="ccTypeInfo">
+                  Anyone can view this community, but only approved users can
+                  post
+                </div>
+              </div>
+              <div>
+                <input type="radio" value="" id="comTypePrivate" />
+                <label htmlFor="comTypePrivate">
+                  <FontAwesomeIcon
+                    icon={faLock}
+                    className="ccFa"
+                  ></FontAwesomeIcon>
+                  Private
+                </label>
+                <div className="ccTypeInfo">
+                  Only approved users can view and submit to this community
+                </div>
+              </div>
+              <div>
+                <input type="radio" value="" id="ccNotice" />
+                <label htmlFor="ccNotice">
+                  <FontAwesomeIcon
+                    icon={faBullhorn}
+                    className="ccFa"
+                  ></FontAwesomeIcon>
+                  <p className="ccNotice">Notice</p>
+                </label>
+                <div className="ccTypeInfo">
+                  All Communities are treated as public.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="ccFooter">
+            <div className="ccButtonContainer">
+              <button
+                onClick={() => {
+                  hideCreate();
+                }}
+                className="ccCancelButton"
+              >
+                Cancel
+              </button>
+              <button className="ccCreateButton">Create Community</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="createPostContainer">
+      {showNewCom ? <NewCommunity /> : null}
       <div className="createPost-x1">
         <div className="createPost-x2">
           <div className="createPostHeaderContainer">

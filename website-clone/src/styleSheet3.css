@@ -287,9 +287,13 @@ body {
   --newRedditTheme-widgetColors-sidebarWidgetTitleColor: #1a1a1b;
 }
 .blackScreen {
+  position: absolute;
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
   height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  padding-top: -100px;
 }
 .newComContainer {
   position: relative;
@@ -437,4 +441,8 @@ body {
   pointer-events: auto;
   position: relative;
   top: 39px;
+}
+.ccNotice {
+  display: inline;
+  color: orange;
 }
