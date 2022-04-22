@@ -1,6 +1,12 @@
 import React from "react";
-import "./styleSheet3.css";
-
+import "../styleSheet3.css";
+import {
+  faEye,
+  faPerson,
+  faLock,
+  faBullhorn,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function NewCommunity() {
   return (
     <div className="blackScreen">
@@ -8,7 +14,6 @@ function NewCommunity() {
         <div className="ccHeader">
           <h1>Create a community</h1>
         </div>
-        <hr />
         <div className="ccInfoContainer">
           <div className="ccNameInfo">
             <div className="ccName">
@@ -16,35 +21,61 @@ function NewCommunity() {
               <span className="nameInfo">
                 Community names cannot be changed.
               </span>
-              <input
-                type="text"
-                name=""
-                id="ccNameInput"
-                placeholder="r/"
-                maxLength={21}
-              />
+              <span className="ccrPlaceholder">r/</span>
+              <input type="text" name="" id="ccNameInput" maxLength={21} />
             </div>
           </div>
           <div className="ccComType">
             <div>
               <input type="radio" value="" checked id="comType" />
-              <label htmlFor="comType">Public</label>
+              <label htmlFor="comType">
+                <FontAwesomeIcon
+                  icon={faPerson}
+                  className="ccFa"
+                ></FontAwesomeIcon>
+                Public
+              </label>
               <div className="ccTypeInfo">
-                Anyone can view, post and comment to this community.
+                Anyone can view, post and comment to this community
               </div>
             </div>
             <div>
               <input type="radio" value="" id="comTypeRestricted" />
-              <label htmlFor="comTypeRestricted">Restricted</label>
+              <label htmlFor="comTypeRestricted">
+                <FontAwesomeIcon
+                  icon={faEye}
+                  className="ccFa"
+                ></FontAwesomeIcon>
+                Restricted
+              </label>
               <div className="ccTypeInfo">
                 Anyone can view this community, but only approved users can post
               </div>
             </div>
             <div>
               <input type="radio" value="" id="comTypePrivate" />
-              <label htmlFor="comTypePrivate">Private</label>
+              <label htmlFor="comTypePrivate">
+                <FontAwesomeIcon
+                  icon={faLock}
+                  className="ccFa"
+                ></FontAwesomeIcon>
+                Private
+              </label>
               <div className="ccTypeInfo">
                 Only approved users can view and submit to this community
+              </div>
+            </div>
+            <div>
+              <input type="radio" value="" id="ccNotice" />
+              <label htmlFor="ccNotice">
+                <FontAwesomeIcon
+                  icon={faBullhorn}
+                  className="ccFa"
+                ></FontAwesomeIcon>
+                Notice
+              </label>
+              <div className="ccTypeInfo">
+                All Communities are treated as public.
               </div>
             </div>
           </div>

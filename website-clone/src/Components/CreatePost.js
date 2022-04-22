@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styleSheet2.css";
+import "../styleSheet2.css";
 import {
   faAngleDown,
   faCircle,
