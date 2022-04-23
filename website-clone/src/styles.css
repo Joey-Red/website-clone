@@ -696,7 +696,7 @@ a:visited {
   width: 640px;
 }
 .inner-menu-control {
-  overflow: hidden ;
+  overflow: hidden;
   align-items: center;
   align-content: center;
   margin: 0;
@@ -730,8 +730,12 @@ a:visited {
 }
 .mlb {
   align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
   font-size: 1.1rem;
-  margin: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 #hot,
@@ -984,7 +988,9 @@ a:visited {
   width: 100%;
   display: flex;
 }
-.joinButtonDiv button:hover, .post-join-button-container:hover, .viewButtonContainer a:hover {
+.joinButtonDiv button:hover,
+.post-join-button-container:hover,
+.viewButtonContainer a:hover {
   background-color: #3293db;
 }
 .caretUp {
@@ -1044,471 +1050,474 @@ a:visited {
   margin-right: 0;
 }
 .outerPostContainer {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
 }
 .innerPostContainer {
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-    background-color: var(--newCommunityTheme-postTransparent20);
-    color: var(--newCommunityTheme-actionIcon);
-    position: relative;
-    --post-line-color: var(--newCommunityTheme-postLine);
-    border: 1px solid var(--post-line-color);
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    padding-left: 40px;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  background-color: var(--newCommunityTheme-postTransparent20);
+  color: var(--newCommunityTheme-actionIcon);
+  position: relative;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  border: 1px solid var(--post-line-color);
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding-left: 40px;
 }
 .likeContainer {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    padding: 8px 4px 8px 0;
-    position: absolute;
-    top: 0;
-    width: 40px;
-    border-left: 4px solid transparent;
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  padding: 8px 4px 8px 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+  border-left: 4px solid transparent;
 }
 .likeContainer-x1 {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    padding: 8px 4px 8px 0;
-    position: absolute;
-    top: 0;
-    width: 40px;
-    border-left: 4px solid transparent;
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  padding: 8px 4px 8px 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+  border-left: 4px solid transparent;
 }
 .likeContainer-x2 {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: flex;
-    fill: inherit;
-    flex-direction: column;
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: flex;
+  fill: inherit;
+  flex-direction: column;
 }
 .upVote {
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    fill: inherit;
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    padding: initial;
-    height: 24px;
-    width: 24px;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  fill: inherit;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: initial;
+  height: 24px;
+  width: 24px;
 }
 .voteCount {
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    fill: inherit;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    pointer-events: none;
-    word-break: normal;
-    margin: 4px 0;
-    color: rgb(26, 26, 27);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  fill: inherit;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  pointer-events: none;
+  word-break: normal;
+  margin: 4px 0;
+  color: rgb(26, 26, 27);
 }
 .downVote {
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    fill: inherit;
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    padding: initial;
-    height: 24px;
-    width: 24px;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  fill: inherit;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: initial;
+  height: 24px;
+  width: 24px;
 }
 .postFormatContainer {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    padding-top: 8px;
-    position: relative;
-    background: rgb(255, 255, 255);
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  padding-top: 8px;
+  position: relative;
+  background: rgb(255, 255, 255);
 }
 .post-info {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    margin: 0 8px;
-    position: relative;
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  margin: 0 8px;
+  position: relative;
 }
 .post-pic {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    flex: 0 0 auto;
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  flex: 0 0 auto;
 }
 .post-pic a {
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--newCommunityTheme-bodyText);
-    display: inline;
-    line-height: 20px;
-    text-decoration: none;
-    vertical-align: baseline;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--newCommunityTheme-bodyText);
+  display: inline;
+  line-height: 20px;
+  text-decoration: none;
+  vertical-align: baseline;
 }
 .subMoreInfo {
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    margin: 0 8px 8px;
-    position: relative;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  margin: 0 8px 8px;
+  position: relative;
 }
 .subAndPosterName {
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    align-items: center;
-    color: inherit;
-    display: inline;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  align-items: center;
+  color: inherit;
+  display: inline;
 }
 .subName {
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    color: inherit;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: inline-block;
-    flex: 0 0 auto;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: inline-block;
+  flex: 0 0 auto;
 }
 .subName a {
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--newCommunityTheme-bodyText);
-    display: inline;
-    line-height: 20px;
-    text-decoration: none;
-    vertical-align: baseline;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--newCommunityTheme-bodyText);
+  display: inline;
+  line-height: 20px;
+  text-decoration: none;
+  vertical-align: baseline;
 }
 .extraSpans {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    flex: 0 0 auto;
-    margin-right: 3px;
-    color: rgb(120, 124, 126);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  flex: 0 0 auto;
+  margin-right: 3px;
+  color: rgb(120, 124, 126);
 }
 .posterName {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: inline-block;
-    flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: inline-block;
+  flex: 0 0 auto;
 }
 .posterName a {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    margin-right: 3px;
-    text-decoration: none;
-    color: rgb(120, 124, 126);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-right: 3px;
+  text-decoration: none;
+  color: rgb(120, 124, 126);
 }
-.timeStamp a{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    margin-right: 3px;
-    text-decoration: none;
-    display: inline-block;
-    flex: 0 0 auto;
-    color: rgb(120, 124, 126);
+.timeStamp a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  margin-right: 3px;
+  text-decoration: none;
+  display: inline-block;
+  flex: 0 0 auto;
+  color: rgb(120, 124, 126);
 }
 .post-join-button-container {
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
-    cursor: pointer;
-    align-items: center;
-    border-radius: 9999px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: auto;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: unset;
-    line-height: 16px;
-    text-transform: unset;
-    min-height: 24px;
-    min-width: 24px;
-    padding: 4px 16px;
-    position: relative;
-    background-color: var(--newCommunityTheme-button);
-    border: none;
-    color: var(--newCommunityTheme-body);
-    fill: var(--newCommunityTheme-body);
-    flex: 0 0 auto;
-    position: absolute;
-    right: 0;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 16px;
+  text-transform: unset;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 4px 16px;
+  position: relative;
+  background-color: var(--newCommunityTheme-button);
+  border: none;
+  color: var(--newCommunityTheme-body);
+  fill: var(--newCommunityTheme-body);
+  flex: 0 0 auto;
+  position: absolute;
+  right: 0;
 }
 .post-join-button-container span {
-  
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    text-align: center;
-    letter-spacing: unset;
-    text-transform: unset;
-    color: var(--newCommunityTheme-body);
-    fill: var(--newCommunityTheme-body);
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: var(--newCommunityTheme-body);
+  fill: var(--newCommunityTheme-body);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
 }
 .postBodyContainer {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    --posttitletextcolor: var(--newCommunityTheme-titleText);
-    margin: 8px 8px;
-    --postTitle-VisitedLinkColor: #9b9b9b;
-    --postTitleLink-VisitedLinkColor: #9b9b9b;
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  --posttitletextcolor: var(--newCommunityTheme-titleText);
+  margin: 8px 8px;
+  --postTitle-VisitedLinkColor: #9b9b9b;
+  --postTitleLink-VisitedLinkColor: #9b9b9b;
 }
 .postTitle {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: inline;
-    position: relative;
-    text-decoration: none;
-    word-break: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: inline;
+  position: relative;
+  text-decoration: none;
+  word-break: break-word;
 }
 .postTitle h3 {
-    word-break: break-word;
-    color: var(--posttitletextcolor);
-    word-wrap: break-word;
-    --posttitletextcolor: #222222;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    display: inline;
-    font-weight: 800;
+  word-break: break-word;
+  color: var(--posttitletextcolor);
+  word-wrap: break-word;
+  --posttitletextcolor: #222222;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: inline;
+  font-weight: 800;
 }
 .commentShareSave {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    height: 40px;
-    padding-right: 10px;
-    overflow-y: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  padding-right: 10px;
+  overflow-y: visible;
 }
 .cSSContainer {
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    align-items: stretch;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    padding: 0 8px 0 4px;
-    flex-grow: 1;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  padding: 0 8px 0 4px;
+  flex-grow: 1;
 }
 .cSSContainer a {
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    color: inherit;
-    text-decoration: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    box-sizing: border-box;
-    border-radius: 2px;
-    align-items: center;
-    display: flex;
-    margin-right: 4px;
-    padding: 8px;
-    word-break: normal;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  color: inherit;
+  text-decoration: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  align-items: center;
+  display: flex;
+  margin-right: 4px;
+  padding: 8px;
+  word-break: normal;
 }
 .faComment {
-    color: inherit;
-    word-break: normal;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 20px;
-    font-weight: 400;
-    height: 20px;
-    line-height: 20px;
-    vertical-align: middle;
-    width: 20px;
-    margin-right: 6px;
+  color: inherit;
+  word-break: normal;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 20px;
+  font-weight: 400;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+  width: 20px;
+  margin-right: 6px;
 }
-.shareButton, .saveButton, .elipsesButton {
-    color: var(--newCommunityTheme-actionIcon);
-    --post-line-color: var(--newCommunityTheme-postLine);
-    --post-icon-color: var(--newCommunityTheme-postIcon);
-    cursor: pointer;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    align-items: center;
-    display: flex;
-    margin: 0 4px 0 0;
-    width: auto;
-    word-break: normal;
+.shareButton,
+.saveButton,
+.elipsesButton {
+  color: var(--newCommunityTheme-actionIcon);
+  --post-line-color: var(--newCommunityTheme-postLine);
+  --post-icon-color: var(--newCommunityTheme-postIcon);
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: flex;
+  margin: 0 4px 0 0;
+  width: auto;
+  word-break: normal;
 }
-.shareButton button, .saveButton button, .elipsesButton button {
-    word-break: normal;
-    margin: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    border-radius: 2px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    text-transform: capitalize;
-    height: 100%;
+.shareButton button,
+.saveButton button,
+.elipsesButton button {
+  word-break: normal;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  height: 100%;
 }
 .emptySpaceDiv {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  flex: 1 1 auto;
 }
 .saveSpan {
   margin-left: 4px;

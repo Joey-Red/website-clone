@@ -29,7 +29,6 @@ import {
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import NewCommunity from "./NewCommunity";
 function CreatePost() {
   let [bold, setBold] = useState(true);
   let [italic, setItalic] = useState(true);
