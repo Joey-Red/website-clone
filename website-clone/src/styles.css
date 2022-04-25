@@ -402,6 +402,12 @@ body {
   font-size: 1.2rem;
   display: flex;
 }
+.faUserContainer {
+  border: solid black 1px;
+  width: 40px;
+  border-radius: 4px;
+  padding: 2px 0;
+}
 .searchBar {
   min-width: 321px;
   width: 594px;
@@ -808,6 +814,9 @@ a:visited {
 }
 #orig {
   margin-left: 24px;
+}
+.extraBit {
+  margin-top: 20px;
 }
 .top-communities {
   background-color: #ffffff;

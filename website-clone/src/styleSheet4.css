@@ -527,3 +527,200 @@ body {
 .top-x-special {
   margin-top: 37px;
 }
+.faMessage {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  border: none;
+}
+.userOptionsContainer {
+  display: none;
+  /* position: fixed;
+  background-color: red;
+  left: 980px;
+  padding: 12px;
+  top: 45px; */
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  vertical-align: baseline;
+  color: var(--newCommunityTheme-bodyText);
+  background-color: var(--newCommunityTheme-body);
+  border: 1px solid var(--newRedditTheme-line);
+  box-shadow: none;
+  max-height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 80;
+  border-radius: 4px;
+  border-top: 1px solid var(--newRedditTheme-line);
+  justify-content: flex-end;
+  margin-top: 4px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  /* width: 252px; */
+  position: fixed;
+  right: 10px;
+  top: 45.5px;
+}
+.userOptionsContainer a {
+  box-sizing: border-box;
+  color: var(--newRedditTheme-actionIcon);
+  display: block;
+  height: 40px;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--newCommunityTheme-bodyText);
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+/* .faUserContainer {
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+} */
+.faUser {
+  position: relative;
+}
+.pfpContainer {
+  margin-top: 49px;
+}
+.sortingButton {
+  height: 40px;
+  display: flex;
+  background: var(--newCommunityTheme-body);
+  border-bottom: 1px solid var(--newCommunityTheme-line);
+  height: 39px;
+  text-transform: uppercase;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.sortingButton a {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--newCommunityTheme-navIcon);
+  cursor: pointer;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  margin: 0 5px;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+.profileSortButtons {
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: inherit;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: capitalize;
+  margin-right: 8px;
+  position: relative;
+  border: 1px solid transparent;
+  min-height: unset;
+  min-width: unset;
+  padding: 6px 8px;
+  border-radius: 20px;
+  display: inline-flex;
+  --newCommunityTheme-field: #f6f7f8;
+  background: var(--newCommunityTheme-field);
+  cursor: default;
+}
+.profileSortButtons a {
+  color: var(--newCommunityTheme-actionIcon);
+}
+.profilePicContainer {
+  /* background-color: inherit;
+  border-radius: 6px;
+  box-sizing: border-box;
+  height: 86px;
+  margin-left: -3px;
+  margin-top: 16px;
+  padding: 3px;
+  position: relative;
+  width: 86px; */
+  /* background-color: var(--newCommunityTheme-banner-backgroundColor); */
+  border-radius: 4px 4px 0 0;
+  height: 94px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  width: calc(100% - 2px);
+}
+.pfpInner {
+  background-color: inherit;
+  border-radius: 6px;
+  box-sizing: border-box;
+  height: 86px;
+  margin-left: 5px;
+  margin-top: 16px;
+  padding: 3px;
+  position: relative;
+  width: 86px;
+}
+.acctDetails {
+  display: flex;
+  /* justify-content: space-evenly; */
+  /* justify-content: space-between; */
+  /* text-align: left; */
+  flex-wrap: wrap;
+}
+.accountCreationDate div,
+.upvoteScore div {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--newCommunityTheme-metaText);
+  margin-left: 4px;
+}
+.accountCreationDate,
+.upvoteScore {
+  cursor: default;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  margin-bottom: 12px;
+  align-items: center;
+}
+.profilePic {
+  border: solid white 4px;
+  border-radius: 4px;
+  height: 80px;
+  width: 80px;
+  position: relative;
+}
+.accountInfoContainer {
+  margin-top: 4rem;
+}
+.usernameContainer {
+  /* margin-left: 12px; */
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 4px;
+  font-weight: bold;
+  color: black;
+}
+.topComsUser {
+  padding: 12px;
+}

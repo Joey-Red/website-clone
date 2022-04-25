@@ -18,8 +18,7 @@ function PopularFeed() {
     username: "just-a-dreamer",
   };
   // Maybe do a loop returning like 10 posts or something
-  let stringNum = Array.from(String(postData.likes), Number);
-  console.log(stringNum);
+  // let stringNum = Array.from(String(postData.likes), Number);
   return (
     <div>
       <TextPost
