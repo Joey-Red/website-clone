@@ -20,11 +20,6 @@ function PopularFeed() {
   // Maybe do a loop returning like 10 posts or something
   let stringNum = Array.from(String(postData.likes), Number);
   console.log(stringNum);
-  // if (postData.likes > 999) {
-  //   postData.likes ===
-  // } else if (postData.likes > 9999) {
-  //   postData.likes ===
-  // }
   return (
     <div>
       <TextPost

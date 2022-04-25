@@ -420,6 +420,7 @@ body {
   height: 48px;
   display: flex;
   margin-left: 40px;
+  margin: 0 auto;
 }
 
 .faMag {
@@ -804,6 +805,8 @@ a:visited {
   flex: 0 0 312px;
   width: 312px;
   display: block;
+}
+#orig {
   margin-left: 24px;
 }
 .top-communities {
