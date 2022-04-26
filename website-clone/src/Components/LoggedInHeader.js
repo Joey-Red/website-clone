@@ -10,13 +10,14 @@ import {
 import logo from "./img/Reddit_logo_new.png";
 // Todos on this page so far: give everything a link.
 function LoggedInHeader() {
-  const [displayOptions, setDisplayOptions] = useState(false);
+  const [displayOptions, setDisplayOptions] = useState(true);
+  console.log(displayOptions);
   let target = document.querySelector(".userOptionsContainer");
   let displayUserOptions = () => {
     setDisplayOptions(!displayOptions);
-    if (displayOptions === false) {
+    if (displayOptions === true) {
       target.style.display = "none";
-    } else if (displayOptions === true) {
+    } else if (displayOptions === false) {
       target.style.display = "flex";
     }
   };

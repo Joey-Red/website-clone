@@ -13,6 +13,15 @@ import phimg from "./img/phimg.png";
 import TextPost from "./TextPost";
 
 function CommunityCreated() {
+  // let creationDate = new Date("2015-03-25");
+  // let createYear = new Date();
+  // createYear.getFullYear();
+  // let createMonth = new Date();
+  // createMonth.getMonth();
+  let createDay = new Date();
+  createDay.getDay();
+  let dateString = createDay.toDateString();
+  let modifiedDate = dateString.slice(4);
   return (
     <>
       <span className="colorSpan"></span>
@@ -54,11 +63,11 @@ function CommunityCreated() {
             <SortButtonsBar />
             <div className="postsBodyContainer">
               {/* if there are no posts return this: */}
-              <div>
+              <div className="emptyPostBody">
                 <div className="beFirstText">
                   There are no posts in this subreddit
                 </div>
-                <div className="beFirstText">
+                <div className="beFirstText bft">
                   Be the first to till this fertile land.
                 </div>
                 <div className="viewButtonContainer">
@@ -89,7 +98,8 @@ function CommunityCreated() {
                   icon={faCake}
                   className="faEnv"
                 ></FontAwesomeIcon>
-                mm dd yy
+
+                {modifiedDate}
               </div>
               <div className="viewButtonContainer">
                 <a href="#">Create Post</a>

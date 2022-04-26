@@ -15,7 +15,7 @@ function App() {
   // Is logged in state y/n needs to be here. BUT we wont be doing logged in for some time
   return (
     <>
-      <FixedHeader />
+      {/* <FixedHeader /> */}
       <LoggedInHeader />
       <CommunityCreated />
       <Trending />

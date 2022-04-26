@@ -517,12 +517,26 @@ body {
   width: 100%;
   justify-content: center;
 }
+.emptyPostBody {
+  margin: 80px auto;
+  width: 80%;
+}
+.emptyPostBody a {
+  width: 200px;
+
+  margin: 0 auto;
+}
 .beFirstText {
   font-weight: bold;
   margin: 16px;
   color: var(--newCommunityTheme-bodyText);
   font-size: 18px;
   line-height: 22px;
+}
+.bft {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500px;
 }
 .top-x-special {
   margin-top: 37px;

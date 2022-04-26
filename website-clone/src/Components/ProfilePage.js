@@ -22,7 +22,16 @@ function ProfilePage() {
       <div className="outermost-popular-container">
         <div className="outer-menu-control-container extraBit">
           <ProfileSortButtonsBar />
-          <div>test</div>
+          <div className="postsBodyContainer">
+            {/* if there are no posts return this: */}
+            <div className="emptyPostBody">
+              <div className="beFirstText">
+                `hmm... u/Salty_Hero hasn't posted anything`
+              </div>
+              {/* else return this with the relevant props*/}
+              {/* <TextPost /> */}
+            </div>
+          </div>
         </div>
         <div className="top-x-communities-container" id="orig">
           <div className="top-communities">
