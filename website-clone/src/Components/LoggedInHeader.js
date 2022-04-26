@@ -11,16 +11,7 @@ import logo from "./img/Reddit_logo_new.png";
 // Todos on this page so far: give everything a link.
 function LoggedInHeader() {
   const [displayOptions, setDisplayOptions] = useState(true);
-  console.log(displayOptions);
-  let target = document.querySelector(".userOptionsContainer");
-  let displayUserOptions = () => {
-    setDisplayOptions(!displayOptions);
-    if (displayOptions === true) {
-      target.style.display = "none";
-    } else if (displayOptions === false) {
-      target.style.display = "flex";
-    }
-  };
+
   return (
     <div className="headerOuter">
       <div className="headerContainer">
@@ -59,34 +50,36 @@ function LoggedInHeader() {
                 <div className="faUserContainer">
                   <button
                     className="faUser"
-                    onClick={() => displayUserOptions()}
+                    onClick={() => setDisplayOptions((s) => !s)}
                   >
                     <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                     <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
                   </button>
                 </div>
-                <div className="userOptionsContainer">
-                  <div className="optionsContainer">
-                    <div className="myStuff">
-                      <div className="myProfile">
-                        <a href="#">Profile</a>
-                        <a href="#">User Settings</a>
+                {!displayOptions ? (
+                  <div className="userOptionsContainer">
+                    <div className="optionsContainer">
+                      <div className="myStuff">
+                        <div className="myProfile">
+                          <a href="#">Profile</a>
+                          <a href="#">User Settings</a>
+                        </div>
+                      </div>
+                      <div className="additionalStuff">
+                        <a href="#">Create Community</a>
+                        <a href="#">Advertise on Reddit</a>
+                        <a href="#">Reddit Coins</a>
+                        <a href="#">Premium</a>
+                        <a href="#">Help Center</a>
+                        <a href="#">Terms & Policies</a>
+                        <a href="#">User Agreement</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Content Policy</a>
+                        <a href="#">Moderator Guidelines</a>
                       </div>
                     </div>
-                    <div className="additionalStuff">
-                      <a href="#">Create Community</a>
-                      <a href="#">Advertise on Reddit</a>
-                      <a href="#">Reddit Coins</a>
-                      <a href="#">Premium</a>
-                      <a href="#">Help Center</a>
-                      <a href="#">Terms & Policies</a>
-                      <a href="#">User Agreement</a>
-                      <a href="#">Privacy Policy</a>
-                      <a href="#">Content Policy</a>
-                      <a href="#">Moderator Guidelines</a>
-                    </div>
                   </div>
-                </div>
+                ) : null}
               </div>
             </div>
           </div>

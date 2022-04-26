@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -9,6 +9,7 @@ import {
 import logo from "./img/Reddit_logo_new.png";
 // Todos on this page so far: give everything a link.
 function FixedHeader() {
+  const [displayOptions, setDisplayOptions] = useState(true);
   return (
     <div className="headerOuter">
       <div className="headerContainer">
@@ -44,11 +45,34 @@ function FixedHeader() {
               <div>
                 <button className="ioButton oButton">Sign Up</button>
               </div>
-              <div>
-                <button className="faUser">
+              <div className="faUserContainer">
+                <button
+                  className="faUser"
+                  onClick={() => setDisplayOptions((s) => !s)}
+                >
                   <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                   <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
                 </button>
+                {!displayOptions ? (
+                  <div className="userOptionsContainer">
+                    <div className="myStuff">
+                      <div className="myProfile">
+                        <a href="#">Create Account</a>
+                      </div>
+                    </div>
+                    <div className="additionalStuff">
+                      <a href="#">Advertise on Reddit</a>
+                      <a href="#">Reddit Coins</a>
+                      <a href="#">Premium</a>
+                      <a href="#">Help Center</a>
+                      <a href="#">Terms & Policies</a>
+                      <a href="#">User Agreement</a>
+                      <a href="#">Privacy Policy</a>
+                      <a href="#">Content Policy</a>
+                      <a href="#">Moderator Guidelines</a>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>

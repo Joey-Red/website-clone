@@ -10,18 +10,20 @@ import CreatePost from "./Components/CreatePost";
 import CommunityCreated from "./Components/CommunityCreated";
 import LoggedInHeader from "./Components/LoggedInHeader";
 import ProfilePage from "./Components/ProfilePage";
+import SignUp from "./Components/SignUp";
 
 function App() {
   // Is logged in state y/n needs to be here. BUT we wont be doing logged in for some time
   return (
     <>
-      {/* <FixedHeader /> */}
-      <LoggedInHeader />
-      <CommunityCreated />
+      <FixedHeader />
+      {/* <LoggedInHeader /> */}
+      {/* <CommunityCreated />
       <Trending />
       <Popular />
       <CreatePost />
-      <ProfilePage />
+      <ProfilePage /> */}
+      <SignUp />
     </>
   );
 }
