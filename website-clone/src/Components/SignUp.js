@@ -1,5 +1,7 @@
 import React from "react";
 import "../styleSheet4.css";
+import G from "./img/googleG.png";
+import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 function SignUp() {
@@ -22,16 +24,37 @@ function SignUp() {
               <div className="googleButtonContainer">
                 <div className="googleButtonInner">
                   <div className="googleButtonFlex">
-                    <div className="googleIco">[]</div>
+                    <div className="googleIco">
+                      <img src={G} alt="" />
+                    </div>
                     <span>Continue with Google</span>
                   </div>
                 </div>
               </div>
-              <div className="appleButton">Continue with Apple</div>
-              <div className="spacer">------- OR -------</div>
-              <input type="text" placeholder="EMAIL" />
-              <button>Continue</button>
-              Already a redditor? <a href="#">LOG IN</a>
+              <div className="googleButtonContainer appleButtonContainer">
+                <div className="googleButtonInner">
+                  <div className="googleButtonFlex">
+                    <div className="googleIco appleIco">
+                      <img src={Apple} alt="" />
+                    </div>
+                    <span>Continue with Apple</span>
+                  </div>
+                </div>
+              </div>
+              <div className="spacer">
+                <span className="spacerSpan"></span>
+                <span className="spacerText">OR</span>
+                <span className="spacerSpan"></span>
+              </div>
+              <div className="signUpInputContainer">
+                <input type="text" placeholder="EMAIL" />
+              </div>
+              <div className="signUpButtonContinue">
+                <button>Continue</button>
+              </div>
+              <div className="altLogin">
+                Already a redditor? <a href="#">LOG IN</a>
+              </div>
             </div>
           </div>
         </div>

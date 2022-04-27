@@ -760,7 +760,7 @@ body {
   height: 650px;
   width: 168px;
   background-image: url("./Components/img/art-sidebar.jpg");
-  height: 100vh;
+  height: 100%;
   top: 0;
   position: relative;
   min-height: 430px;
@@ -809,7 +809,6 @@ body {
   width: 280px;
   max-width: 400px;
   min-width: min-content;
-  -webkit-user-select: none;
   -webkit-appearance: none;
   background-color: #fff;
   background-image: none;
@@ -828,22 +827,6 @@ body {
   vertical-align: middle;
   white-space: nowrap;
   border-radius: 20px;
-  /* background-color: #fff;
-    background-image: none;
-    border: 1px solid #dadce0;
-    color: #3c4043;
-    cursor: pointer;
-    font-family: "Google Sans",arial,sans-serif;
-    font-size: 14px;
-    height: 40px;
-    letter-spacing: 0.25px;
-    outline: none;
-    overflow: hidden;
-    padding: 0 12px;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap; */
 }
 .googleButtonInner {
   bottom: 0;
@@ -851,11 +834,12 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  display: block;
+  display: flex;
 }
 .googleButtonFlex {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
   height: 100%;
@@ -870,27 +854,88 @@ body {
   flex-grow: 1;
   color: black;
   text-align: center;
+  margin: 0 auto;
 }
-.appleButton {
+.googleIco img {
+  height: 20px;
+  margin-left: 12px;
+  margin-top: 2px;
+}
+.appleIco {
+  margin-left: 2px;
+}
+.appleButtonContainer {
+  margin-top: 10px;
+}
+.spacer {
   width: 280px;
-  max-width: 400px;
-  min-width: min-content;
-  -webkit-user-select: none;
-  -webkit-appearance: none;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #dadce0;
-  color: #3c4043;
-  cursor: pointer;
-  font-family: "Google Sans", arial, sans-serif;
+  height: 18px;
+  margin: 28px 0;
+  /* text-align: center; */
+  align-items: center;
+  display: flex;
+}
+.spacerText {
   font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  color: #878e94;
+  margin: 0px 14px;
+  justify-content: space-between;
+}
+.spacerSpan {
+  border-top: 1px solid #edeff1;
+  width: 40%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #1a1a1b;
+  display: block;
+}
+.signUpInputContainer {
+  margin: 0;
+  padding: 0;
+}
+.signUpInputContainer input {
+  width: 100%;
+  height: 48px;
+  padding: 22px 12px 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: #fcfcfb;
+}
+
+.signUpContainer ::placeholder {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 21px;
+}
+.signUpButtonContinue {
+  background: #0079d3;
+  border-radius: 999px;
   height: 40px;
-  letter-spacing: 0.25px;
-  outline: none;
-  overflow: hidden;
-  padding: 0 12px;
-  position: relative;
+  padding: 0 16px;
+  display: flex;
+  margin-top: 10px;
+}
+.signUpButtonContinue button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bolder;
   text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
+  margin: 0 auto;
+}
+.altLogin {
+  margin-top: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 20px;
+  color: black;
+}
+.altLogin a {
+  font-weight: bolder;
 }

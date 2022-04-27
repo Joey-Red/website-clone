@@ -18,11 +18,11 @@ function App() {
     <>
       <FixedHeader />
       {/* <LoggedInHeader /> */}
-      {/* <CommunityCreated />
+      <CommunityCreated />
       <Trending />
       <Popular />
       <CreatePost />
-      <ProfilePage /> */}
+      <ProfilePage />
       <SignUp />
     </>
   );
