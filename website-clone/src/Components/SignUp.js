@@ -1,25 +1,32 @@
 import React from "react";
 import "../styleSheet4.css";
-import artSidebar from "./img/art-sidebar.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 function SignUp() {
   return (
     <div className="signUpContainerOutside">
       <div className="signUpContainer">
-        <div className="art-sidebar">
-          <img src={artSidebar} alt="" className="art-sidebar-pic" />
-        </div>
+        <button className="xButton">
+          <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+        </button>
+        <div className="art-sidebar"></div>
         <div className="agreementTextContainer">
-          xbutton
           <div className="signUpHeader">
-            Sign Up
+            <h1>Sign Up</h1>
             <div className="additionalText">
-              <a href="#">Create Community</a>
               By continuing, you are setting up a Reddit account and agree to
-              our <a href="#">User Agreement</a> and{" "}
-              <a href="#">Privacy Policy</a>.
+              our <a href="#">User Agreement</a> and
+              <a href="#"> Privacy Policy</a>.
             </div>
             <div className="signUpButtons">
-              <div className="googleButton">Continue With Google</div>
+              <div className="googleButtonContainer">
+                <div className="googleButtonInner">
+                  <div className="googleButtonFlex">
+                    <div className="googleIco">[]</div>
+                    <span>Continue with Google</span>
+                  </div>
+                </div>
+              </div>
               <div className="appleButton">Continue with Apple</div>
               <div className="spacer">------- OR -------</div>
               <input type="text" placeholder="EMAIL" />
