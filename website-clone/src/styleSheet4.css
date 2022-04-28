@@ -511,6 +511,12 @@ body {
   font-size: 20px;
   color: var(--newRedditTheme-actionIcon);
 }
+.headerOuter a:visited {
+  color: black;
+}
+.addTextLinks a:visited {
+  color: #0079d3;
+}
 .postsBodyContainer {
   display: flex;
   text-align: center;
@@ -756,13 +762,16 @@ body {
   z-index: 111;
   display: flex;
 }
+.signInInputContainer {
+  width: 304px;
+}
 .art-sidebar {
   height: 650px;
   width: 168px;
   background-image: url("./Components/img/art-sidebar.jpg");
   height: 100%;
   top: 0;
-  position: relative;
+  position: relativeA;
   min-height: 430px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -781,6 +790,7 @@ body {
   font-size: 20px;
   color: grey;
   right: 16px;
+  cursor: pointer;
 }
 .signUpHeader h1 {
   margin-top: 100px;
@@ -788,6 +798,7 @@ body {
   font-weight: bolder;
   line-height: 22px;
 }
+
 .signUpContainerOutside a {
   color: #0079d3;
 }
@@ -875,6 +886,11 @@ body {
   align-items: center;
   display: flex;
 }
+.signInSpacer {
+  width: 304px;
+  align-items: center;
+  justify-content: center;
+}
 .spacerText {
   font-size: 14px;
   font-weight: 700;
@@ -938,4 +954,32 @@ body {
 }
 .altLogin a {
   font-weight: bolder;
+}
+.forgotLinks {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+.newToRed a {
+  color: #0079d3;
+}
+.newToRed a:visited {
+  color: #0079d3;
+}
+.newToRed {
+  margin-bottom: 20px;
+}
+.signUpInputPW {
+  margin-top: 10px;
+}
+.signInHeader h1 {
+  /* margin-top: 100px; */
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 22px;
+}
+.signInContainer {
+  width: 576px;
 }

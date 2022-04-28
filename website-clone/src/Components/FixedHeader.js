@@ -7,9 +7,24 @@ import {
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "./img/Reddit_logo_new.png";
+import "../styleSheet4.css";
+import SignUp from "./SignUp";
+import LogIn from "./LogIn";
 // Todos on this page so far: give everything a link.
-function FixedHeader() {
+function FixedHeader(props) {
+  let { setDisplaySignUp, displaySignUp, setDisplayLogIn, displayLogIn } =
+    props;
   const [displayOptions, setDisplayOptions] = useState(true);
+  let toggleMenu = () => {
+    setDisplaySignUp(!displaySignUp);
+    setDisplayOptions(!displayOptions);
+  };
+  let showMenu = () => {
+    setDisplaySignUp(!displaySignUp);
+  };
+  let showLogin = () => {
+    setDisplayLogIn(!displayLogIn);
+  };
   return (
     <div className="headerOuter">
       <div className="headerContainer">
@@ -40,15 +55,22 @@ function FixedHeader() {
                 </button>
               </div>
               <div>
-                <button className="ioButton iButton">Log In</button>
+                <button
+                  className="ioButton iButton"
+                  onClick={() => showLogin()}
+                >
+                  Log In
+                </button>
               </div>
               <div>
-                <button className="ioButton oButton">Sign Up</button>
+                <button className="ioButton oButton" onClick={() => showMenu()}>
+                  Sign Up
+                </button>
               </div>
               <div className="faUserContainer">
                 <button
                   className="faUser"
-                  onClick={() => setDisplayOptions((s) => !s)}
+                  onClick={() => setDisplayOptions((x) => !x)}
                 >
                   <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                   <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
@@ -57,7 +79,9 @@ function FixedHeader() {
                   <div className="userOptionsContainer">
                     <div className="myStuff">
                       <div className="myProfile">
-                        <a href="#">Create Account</a>
+                        <a href="#" onClick={() => toggleMenu()}>
+                          Create Account
+                        </a>
                       </div>
                     </div>
                     <div className="additionalStuff">
@@ -72,6 +96,18 @@ function FixedHeader() {
                       <a href="#">Moderator Guidelines</a>
                     </div>
                   </div>
+                ) : null}
+                {!displaySignUp ? (
+                  <SignUp
+                    displaySignUp={displaySignUp}
+                    setDisplaySignUp={setDisplaySignUp}
+                  />
+                ) : null}
+                {!displayLogIn ? (
+                  <LogIn
+                    displayLogIn={displayLogIn}
+                    setDisplayLogIn={setDisplayLogIn}
+                  />
                 ) : null}
               </div>
             </div>

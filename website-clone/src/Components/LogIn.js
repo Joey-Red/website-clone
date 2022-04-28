@@ -5,9 +5,9 @@ import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 function SignUp(props) {
-  let { setDisplaySignUp, displaySignUp } = props;
+  let { setDisplayLogIn, displayLogin } = props;
   let toggleMenu = () => {
-    setDisplaySignUp(!displaySignUp);
+    setDisplayLogIn(!displayLogin);
   };
   return (
     <div className="signUpContainerOutside">
@@ -16,15 +16,14 @@ function SignUp(props) {
           <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
         </button>
         <div className="art-sidebar"></div>
-        <div className="agreementTextContainer">
-          <div className="signUpHeader">
-            <h1>Sign Up</h1>
+        <div className="agreementTextContainer  signInContainer">
+          <div className="signInHeader">
+            <h1>Log In</h1>
             <div className="additionalText addTextLinks">
-              By continuing, you are setting up a Reddit account and agree to
-              our <a href="#">User Agreement</a> and
+              By continuing, you agree to our <a href="#">User Agreement</a> and
               <a href="#"> Privacy Policy</a>.
             </div>
-            <div className="signUpButtons">
+            <div className="signUpButtons signInInputContainer">
               <div className="googleButtonContainer">
                 <div className="googleButtonInner">
                   <div className="googleButtonFlex">
@@ -45,19 +44,33 @@ function SignUp(props) {
                   </div>
                 </div>
               </div>
-              <div className="spacer">
+              <div className="spacer signInSpacer">
                 <span className="spacerSpan"></span>
                 <span className="spacerText">OR</span>
                 <span className="spacerSpan"></span>
               </div>
-              <div className="signUpInputContainer">
+              <div className="signUpInputContainer ">
                 <input type="text" placeholder="EMAIL" />
+                <input
+                  type="text"
+                  placeholder="PASSWORD"
+                  className="signUpInputPW"
+                />
               </div>
               <div className="signUpButtonContinue">
                 <button>Continue</button>
               </div>
               <div className="altLogin">
-                Already a redditor? <a href="#">LOG IN</a>
+                <div className="additionalText addTextLinks forgotLinks">
+                  Forgot your <a href="#">username</a> or{" "}
+                  <a href="#">Password</a>?
+                </div>
+                <div className="newToRed">
+                  New to Reddit?{" "}
+                  <a href="#" onClick={() => signUp()}>
+                    SIGN UP
+                  </a>
+                </div>
               </div>
             </div>
           </div>
