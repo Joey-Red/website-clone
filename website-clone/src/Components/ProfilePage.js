@@ -20,7 +20,7 @@ function ProfilePage() {
         </div>
       </div>
       <div className="outermost-popular-container">
-        <div className="outer-menu-control-container extraBit">
+        <div className="outer-menu-control-container">
           <ProfileSortButtonsBar />
           <div className="postsBodyContainer">
             {/* if there are no posts return this: */}

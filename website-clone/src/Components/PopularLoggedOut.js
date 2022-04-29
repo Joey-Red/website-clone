@@ -1,6 +1,6 @@
 import React from "react";
 import PopularFeed from "./PopularFeed";
-import TopXComs from "./TopXComs";
+import TopXComsLoggedOut from "./TopXComsLoggedOut";
 import SortButtonsBar from "./SortButtonsBar";
 
 function PopularLoggedOut() {
@@ -11,7 +11,7 @@ function PopularLoggedOut() {
         <SortButtonsBar />
         <PopularFeed />
       </div>
-      <TopXComs />
+      <TopXComsLoggedOut />
     </div>
   );
 }

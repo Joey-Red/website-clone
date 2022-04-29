@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faUser,
   faBullhorn,
@@ -8,17 +9,24 @@ import {
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "./img/Reddit_logo_new.png";
+import ProfilePage from "./ProfilePage";
 // Todos on this page so far: give everything a link.
-function LoggedInHeader() {
+function LoggedInHeader(props) {
   const [displayOptions, setDisplayOptions] = useState(true);
-
+  let { displayPfp, setDisplayPfp } = props;
+  // let showPfp = () => {
+  //   setDisplayPfp(!displayPfp);
+  //   console.log("peepoHey");
+  // };
   return (
     <div className="headerOuter">
       <div className="headerContainer">
         <div className="inner-container">
           <div className="left-side">
             <div className="logoWrapper">
-              <img src={logo} alt="redditlogo" className="logo" />
+              <a href="/">
+                <img src={logo} alt="redditlogo" className="logo" />
+              </a>
             </div>
             <form className="searchDiv">
               <label htmlFor="searchBar" className="faMag">
@@ -61,7 +69,7 @@ function LoggedInHeader() {
                     <div className="optionsContainer">
                       <div className="myStuff">
                         <div className="myProfile">
-                          <a href="#">Profile</a>
+                          <a href="/profile">Profile</a>
                           <a href="#">User Settings</a>
                         </div>
                       </div>
@@ -80,6 +88,12 @@ function LoggedInHeader() {
                     </div>
                   </div>
                 ) : null}
+                {/* {!displayPfp ? (
+                  <ProfilePage
+                    displayPfp={displayPfp}
+                    setDisplayPfp={setDisplayPfp}
+                  />
+                ) : null} */}
               </div>
             </div>
           </div>

@@ -79,11 +79,9 @@ function CommunityCreated() {
             </div>
           </div>
         </div>
-        <div className="top-x-communities-container" id="orig">
+        <div className="top-x-communities-container  extraBit" id="orig">
           <div className="top-communities">
-            <div className="top-coms-header top-coms-header-edit">
-              About Community
-            </div>
+            <div className="top-coms-header-edit">About Community</div>
             <div className="tcInside">
               <div className="aboutComInfo">
                 Input about this community
@@ -106,11 +104,9 @@ function CommunityCreated() {
               </div>
             </div>
           </div>
-          <div className="top-x-communities-container top-x-special">
+          <div className="top-x-communities-container top-x-special extraBits">
             <div className="top-communities">
-              <div className="top-coms-header top-coms-header-edit">
-                Moderators
-              </div>
+              <div className="top-coms-header-edit">Moderators</div>
               <div className="tcInside">
                 <div className="viewButtonContainerInverse">
                   <a href="#">

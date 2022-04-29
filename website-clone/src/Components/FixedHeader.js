@@ -31,7 +31,9 @@ function FixedHeader(props) {
         <div className="inner-container">
           <div className="left-side">
             <div className="logoWrapper">
-              <img src={logo} alt="redditlogo" className="logo" />
+              <a href="/">
+                <img src={logo} alt="redditlogo" className="logo" />
+              </a>
             </div>
             <form className="searchDiv">
               <label htmlFor="searchBar" className="faMag">
