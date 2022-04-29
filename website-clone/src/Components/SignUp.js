@@ -4,13 +4,28 @@ import G from "./img/googleG.png";
 import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import LogIn from "./LogIn";
 function SignUp(props) {
-  let { setDisplaySignUp, displaySignUp } = props;
+  let { setDisplaySignUp, displaySignUp, displayLogIn, setDisplayLogIn } =
+    props;
   let toggleMenu = () => {
     setDisplaySignUp(!displaySignUp);
   };
+  let altSignIn = () => {
+    setDisplaySignUp(!displaySignUp);
+    setDisplayLogIn(!displayLogIn);
+  };
+
   return (
     <div className="signUpContainerOutside">
+      {!displayLogIn ? (
+        <LogIn
+          displayLogIn={displayLogIn}
+          setDisplayLogIn={setDisplayLogIn}
+          displaySignUp={displaySignUp}
+          setDisplaySignUp={setDisplaySignUp}
+        />
+      ) : null}
       <div className="signUpContainer">
         <button className="xButton" onClick={() => toggleMenu()}>
           <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
@@ -57,7 +72,10 @@ function SignUp(props) {
                 <button>Continue</button>
               </div>
               <div className="altLogin">
-                Already a redditor? <a href="#">LOG IN</a>
+                Already a redditor?{" "}
+                <a href="#" onClick={() => altSignIn()}>
+                  LOG IN
+                </a>
               </div>
             </div>
           </div>

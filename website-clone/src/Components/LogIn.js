@@ -4,10 +4,15 @@ import G from "./img/googleG.png";
 import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
-function SignUp(props) {
-  let { setDisplayLogIn, displayLogin } = props;
+function LogIn(props) {
+  let { setDisplayLogIn, displayLogIn, displaySignUp, setDisplaySignUp } =
+    props;
   let toggleMenu = () => {
-    setDisplayLogIn(!displayLogin);
+    setDisplayLogIn(!displayLogIn);
+  };
+  let signUp = () => {
+    setDisplaySignUp(!displaySignUp);
+    setDisplayLogIn(!displayLogIn);
   };
   return (
     <div className="signUpContainerOutside">
@@ -80,4 +85,4 @@ function SignUp(props) {
   );
 }
 
-export default SignUp;
+export default LogIn;

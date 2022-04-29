@@ -2,14 +2,11 @@ import React from "react";
 import PopularFeed from "./PopularFeed";
 import TopXComs from "./TopXComs";
 import SortButtonsBar from "./SortButtonsBar";
-import MakePostLinkBox from "./MakePostLinkBox";
 
-function Popular() {
+function PopularLoggedOut() {
   return (
     <div className="outermost-popular-container">
       <div className="outer-menu-control-container">
-        <MakePostLinkBox />
-
         <div className="popular-post-header">Popular Posts</div>
         <SortButtonsBar />
         <PopularFeed />
@@ -19,4 +16,4 @@ function Popular() {
   );
 }
 
-export default Popular;
+export default PopularLoggedOut;

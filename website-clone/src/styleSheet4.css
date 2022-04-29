@@ -489,14 +489,15 @@ body {
 }
 
 .mpContainer {
-  width: 640px;
+  width: 614px;
   margin-bottom: 16px;
   height: 58px;
-  padding: 8px;
+  padding: 12px;
   display: flex;
   background-color: white;
   justify-content: space-evenly;
   align-items: center;
+  border: 1px solid var(--newCommunityTheme-postLine);
 }
 .mpContainer input {
   width: 486px;
@@ -982,4 +983,9 @@ body {
 }
 .signInContainer {
   width: 576px;
+}
+.signUpButtonContinue:hover,
+.signUpButtonContinue button:hover {
+  background-color: #3293db;
+  cursor: pointer;
 }

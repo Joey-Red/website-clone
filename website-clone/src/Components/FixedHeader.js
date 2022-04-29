@@ -101,12 +101,16 @@ function FixedHeader(props) {
                   <SignUp
                     displaySignUp={displaySignUp}
                     setDisplaySignUp={setDisplaySignUp}
+                    displayLogIn={displayLogIn}
+                    setDisplayLogIn={setDisplayLogIn}
                   />
                 ) : null}
                 {!displayLogIn ? (
                   <LogIn
                     displayLogIn={displayLogIn}
                     setDisplayLogIn={setDisplayLogIn}
+                    displaySignUp={displaySignUp}
+                    setDisplaySignUp={setDisplaySignUp}
                   />
                 ) : null}
               </div>
