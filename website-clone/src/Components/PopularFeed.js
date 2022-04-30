@@ -28,13 +28,13 @@ function PopularFeed() {
         likes={postData.likes}
         username={postData.username}
       />
-      <TextPost
+      {/* <TextPost
         postSub={postData2.postSub}
         postTitle={postData2.postTitle}
         comments={postData2.comments}
         likes={postData2.likes}
         username={postData2.username}
-      />
+      /> */}
     </div>
   );
 }

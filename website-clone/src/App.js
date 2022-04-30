@@ -17,7 +17,7 @@ function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [postPopUp, setPostPopUp] = useState(false);
   return (
     <>
       <Routes>
@@ -28,7 +28,7 @@ function App() {
             element={
               <Fragment>
                 <Trending />
-                <Popular />
+                <Popular setPostPopUp={setPostPopUp} postPopUp={postPopUp} />
               </Fragment>
             }
           />
@@ -38,7 +38,10 @@ function App() {
             element={
               <Fragment>
                 <Trending />
-                <PopularLoggedOut />
+                <PopularLoggedOut
+                  setPostPopUp={setPostPopUp}
+                  postPopUp={postPopUp}
+                />
               </Fragment>
             }
           />
