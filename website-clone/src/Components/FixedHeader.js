@@ -12,8 +12,13 @@ import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 // Todos on this page so far: give everything a link.
 function FixedHeader(props) {
-  let { setDisplaySignUp, displaySignUp, setDisplayLogIn, displayLogIn } =
-    props;
+  let {
+    setDisplaySignUp,
+    displaySignUp,
+    setDisplayLogIn,
+    displayLogIn,
+    setIsLoggedIn,
+  } = props;
   const [displayOptions, setDisplayOptions] = useState(true);
   let toggleMenu = () => {
     setDisplaySignUp(!displaySignUp);
@@ -113,6 +118,7 @@ function FixedHeader(props) {
                     setDisplayLogIn={setDisplayLogIn}
                     displaySignUp={displaySignUp}
                     setDisplaySignUp={setDisplaySignUp}
+                    setIsLoggedIn={setIsLoggedIn}
                   />
                 ) : null}
               </div>

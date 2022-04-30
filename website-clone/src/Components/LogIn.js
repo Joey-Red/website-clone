@@ -5,14 +5,23 @@ import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 function LogIn(props) {
-  let { setDisplayLogIn, displayLogIn, displaySignUp, setDisplaySignUp } =
-    props;
+  let {
+    setDisplayLogIn,
+    displayLogIn,
+    displaySignUp,
+    setDisplaySignUp,
+    setIsLoggedIn,
+  } = props;
   let toggleMenu = () => {
     setDisplayLogIn(!displayLogIn);
   };
   let signUp = () => {
     setDisplaySignUp(!displaySignUp);
     setDisplayLogIn(!displayLogIn);
+  };
+  let logIn = () => {
+    setIsLoggedIn(true);
+    console.log("peepoDontForgetToRemoveThis");
   };
   return (
     <div className="signUpContainerOutside">
@@ -63,7 +72,7 @@ function LogIn(props) {
                 />
               </div>
               <div className="signUpButtonContinue">
-                <button>Continue</button>
+                <button onClick={() => logIn()}>Continue</button>
               </div>
               <div className="altLogin">
                 <div className="additionalText addTextLinks forgotLinks">

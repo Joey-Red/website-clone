@@ -10,66 +10,54 @@ import CreatePost from "./Components/CreatePost";
 import CommunityCreated from "./Components/CommunityCreated";
 import LoggedInHeader from "./Components/LoggedInHeader";
 import ProfilePage from "./Components/ProfilePage";
-import SignUp from "./Components/SignUp";
-import MakePostLinkBox from "./Components/MakePostLinkBox";
 import PopularLoggedOut from "./Components/PopularLoggedOut";
-import { Routes, Route, Link, Router } from "react-router-dom";
-import TopXComs from "./Components/TopXComs";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  // const [displayPfp, setDisplayPfp] = useState(true);
-  // Is logged in state y/n needs to be here. BUT we wont be doing logged in for some time
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  /*
-  If youre logged in: 
-  1. LoggedInHeader
-  2. Make Post Link Box
-  3. Trending
-  4. Popular
-  ------------
-  If youre logged out:
-  1. FixedHeader
-  2. Trending
-  3. Popular
-  */
   return (
     <>
       <Routes>
-        {/* Logged In */}
-        {/* <Route path="profile" element={<ProfilePage />} />
-        <Route
-          path="/"
-          element={
-            <Fragment>
-              <Trending />
-              <Popular />
-            </Fragment>
-          }
-        /> */}
+        <Route path="profile" element={<ProfilePage />} />
+        {isLoggedIn ? (
+          <Route
+            path="/"
+            element={
+              <Fragment>
+                <Trending />
+                <Popular />
+              </Fragment>
+            }
+          />
+        ) : (
+          <Route
+            path="/"
+            element={
+              <Fragment>
+                <Trending />
+                <PopularLoggedOut />
+              </Fragment>
+            }
+          />
+        )}
         <Route path="createpost" element={<CreatePost />} />
         <Route path="communitycreated" element={<CommunityCreated />} />
         <Route path="profile" element={<ProfilePage />} />
-        {/* Logged Out */}
-        <Route
-          path="/"
-          element={
-            <Fragment>
-              <Trending />
-              <PopularLoggedOut />
-            </Fragment>
-          }
-        />
       </Routes>
-      <FixedHeader
-        displaySignUp={displaySignUp}
-        setDisplaySignUp={setDisplaySignUp}
-        displayLogIn={displayLogIn}
-        setDisplayLogIn={setDisplayLogIn}
-      />
-      {/* <LoggedInHeader /> */}
+      {isLoggedIn ? (
+        <LoggedInHeader />
+      ) : (
+        <FixedHeader
+          displaySignUp={displaySignUp}
+          setDisplaySignUp={setDisplaySignUp}
+          displayLogIn={displayLogIn}
+          setDisplayLogIn={setDisplayLogIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      )}
     </>
   );
 }
