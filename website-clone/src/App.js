@@ -12,6 +12,7 @@ import LoggedInHeader from "./Components/LoggedInHeader";
 import ProfilePage from "./Components/ProfilePage";
 import PopularLoggedOut from "./Components/PopularLoggedOut";
 import { Routes, Route } from "react-router-dom";
+import TextEditorDRAFTJS from "./Components/TextEditorDRAFTJS";
 
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
@@ -19,49 +20,50 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [postPopUp, setPostPopUp] = useState(false);
   return (
-    <>
-      <Routes>
-        <Route path="profile" element={<ProfilePage />} />
-        {isLoggedIn ? (
-          <Route
-            path="/"
-            element={
-              <Fragment>
-                <Trending />
-                <Popular setPostPopUp={setPostPopUp} postPopUp={postPopUp} />
-              </Fragment>
-            }
-          />
-        ) : (
-          <Route
-            path="/"
-            element={
-              <Fragment>
-                <Trending />
-                <PopularLoggedOut
-                  setPostPopUp={setPostPopUp}
-                  postPopUp={postPopUp}
-                />
-              </Fragment>
-            }
-          />
-        )}
-        <Route path="createpost" element={<CreatePost />} />
-        <Route path="communitycreated" element={<CommunityCreated />} />
-        <Route path="profile" element={<ProfilePage />} />
-      </Routes>
-      {isLoggedIn ? (
-        <LoggedInHeader />
-      ) : (
-        <FixedHeader
-          displaySignUp={displaySignUp}
-          setDisplaySignUp={setDisplaySignUp}
-          displayLogIn={displayLogIn}
-          setDisplayLogIn={setDisplayLogIn}
-          setIsLoggedIn={setIsLoggedIn}
-        />
-      )}
-    </>
+    <TextEditorDRAFTJS />
+    // <>
+    //   <Routes>
+    //     <Route path="profile" element={<ProfilePage />} />
+    //     {isLoggedIn ? (
+    //       <Route
+    //         path="/"
+    //         element={
+    //           <Fragment>
+    //             <Trending />
+    //             <Popular setPostPopUp={setPostPopUp} postPopUp={postPopUp} />
+    //           </Fragment>
+    //         }
+    //       />
+    //     ) : (
+    //       <Route
+    //         path="/"
+    //         element={
+    //           <Fragment>
+    //             <Trending />
+    //             <PopularLoggedOut
+    //               setPostPopUp={setPostPopUp}
+    //               postPopUp={postPopUp}
+    //             />
+    //           </Fragment>
+    //         }
+    //       />
+    //     )}
+    //     <Route path="createpost" element={<CreatePost />} />
+    //     <Route path="communitycreated" element={<CommunityCreated />} />
+    //     <Route path="profile" element={<ProfilePage />} />
+    //   </Routes>
+    //   {isLoggedIn ? (
+    //     <LoggedInHeader />
+    //   ) : (
+    //     <FixedHeader
+    //       displaySignUp={displaySignUp}
+    //       setDisplaySignUp={setDisplaySignUp}
+    //       displayLogIn={displayLogIn}
+    //       setDisplayLogIn={setDisplayLogIn}
+    //       setIsLoggedIn={setIsLoggedIn}
+    //     />
+    //   )}
+    // </>
   );
 }
 

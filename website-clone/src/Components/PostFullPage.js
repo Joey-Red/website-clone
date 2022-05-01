@@ -17,8 +17,10 @@ function PostFullPage(props) {
     <div className="postFullScreenContainer">
       <div className="fullScreenPost">
         <div className="fullScreenPostHeader">
-          {props.postTitle}
-          <div>
+          <div className="postTitleFP">
+            <h1>{props.postTitle}</h1>
+          </div>
+          <div className="faxContainer">
             <FontAwesomeIcon icon={faX} className="faX"></FontAwesomeIcon>Close
           </div>
         </div>
