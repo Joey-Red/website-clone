@@ -362,9 +362,10 @@ body {
 }
 .RichEditor-editor {
   height: 138px;
-  padding: 8px 16px;
+  text-indent: 20px;
 }
-.RichEditor-controls {
+.DraftEditor-editorContainer {
+  overflow-y: scroll;
 }
 .RichEditor-styleButton {
   margin: 2px 20px;
@@ -390,4 +391,21 @@ body {
   flex: 1;
   margin-left: 100px;
   font-weight: 700;
+}
+.commentControlsSP {
+  display: flex;
+  /* align-items: center; */
+  /* flex: 1; */
+}
+.RichEditor-controlsSP {
+  width: 100%;
+  padding: 8px 16px 8px 16px;
+  background-color: #e1e7ee;
+  display: flex;
+  justify-content: center;
+}
+.RichEditor-rootSP {
+  border: 1px solid var(--newCommunityTheme-line);
+  max-width: 1248px;
+  /* overflow-y: scroll; */
 }

@@ -1,7 +1,10 @@
 import React from "react";
 import TextPost from "./TextPost";
+import PostFullPage from "./PostFullPage";
 
-function PopularFeed() {
+function PopularFeed(props) {
+  const { postPopUp, setPostPopUp } = props;
+
   let postData = {
     postSub: "r/AskReddit",
     postTitle:
@@ -20,23 +23,48 @@ function PopularFeed() {
   // Maybe do a loop returning like 10 posts or something
   // let stringNum = Array.from(String(postData.likes), Number);
   return (
-    <div>
-      <TextPost
+    <>
+      {!postPopUp ? (
+        <TextPost
+          postSub={postData.postSub}
+          postTitle={postData.postTitle}
+          comments={postData.comments}
+          likes={postData.likes}
+          username={postData.username}
+        />
+      ) : (
+        <PostFullPage
+          postSub={postData.postSub}
+          postTitle={postData.postTitle}
+          comments={postData.comments}
+          likes={postData.likes}
+          username={postData.username}
+          postPopUp={postPopUp}
+          setPostPopUp={setPostPopUp}
+        />
+      )}
+    </>
+    // <div>
+  );
+}
+
+export default PopularFeed;
+{
+  /* <TextPost
         postSub={postData.postSub}
         postTitle={postData.postTitle}
         comments={postData.comments}
         likes={postData.likes}
         username={postData.username}
-      />
-      {/* <TextPost
+      /> */
+}
+{
+  /* <TextPost
         postSub={postData2.postSub}
         postTitle={postData2.postTitle}
         comments={postData2.comments}
         likes={postData2.likes}
         username={postData2.username}
-      /> */}
-    </div>
-  );
+      /> */
 }
-
-export default PopularFeed;
+// </div>

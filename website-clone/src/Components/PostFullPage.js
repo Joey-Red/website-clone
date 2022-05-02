@@ -10,9 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styleSheet5.css";
-import TextEditorTemp from "./TextEditorTemp";
+import TextEditorDRAFTJS from "./TextEditorDRAFTJSCreatePost";
 
 function PostFullPage(props) {
+  let { postPopUp, setPostPopUp } = props;
+  let closePost = () => {
+    setPostPopUp(false);
+    console.log("peepoHeyu");
+  };
   return (
     <div className="postFullScreenContainer">
       <div className="fullScreenPost">
@@ -20,7 +25,7 @@ function PostFullPage(props) {
           <div className="postTitleFP">
             <h1>{props.postTitle}</h1>
           </div>
-          <div className="faxContainer">
+          <div className="faxContainer" onClick={() => closePost()}>
             <FontAwesomeIcon icon={faX} className="faX"></FontAwesomeIcon>Close
           </div>
         </div>
@@ -127,7 +132,7 @@ function PostFullPage(props) {
                 <div className="emptySpaceDiv"></div>
               </div>
             </div>
-            <TextEditorTemp />
+            <TextEditorDRAFTJS />
             <div className="commentContainer">
               <div className="commentPicNameContainer">
                 <div className="svg">

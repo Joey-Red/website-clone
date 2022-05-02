@@ -4,7 +4,8 @@ import TopXComs from "./TopXComs";
 import SortButtonsBar from "./SortButtonsBar";
 import MakePostLinkBox from "./MakePostLinkBox";
 
-function Popular() {
+function Popular(props) {
+  const { setPostPopUp, postPopUp } = props;
   return (
     <div className="outermost-popular-container">
       <div className="outer-menu-control-container">
@@ -12,7 +13,7 @@ function Popular() {
 
         <div className="popular-post-header">Popular Posts</div>
         <SortButtonsBar />
-        <PopularFeed />
+        <PopularFeed postPopUp={postPopUp} setPostPopUp={setPostPopUp} />
       </div>
       <TopXComs />
     </div>

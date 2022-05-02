@@ -10,7 +10,6 @@ import {
   faListOl,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import nextId from "react-id-generator";
 
 class TextEditorDRAFTJS extends React.Component {
   constructor(props) {
@@ -74,8 +73,18 @@ class TextEditorDRAFTJS extends React.Component {
     }
 
     return (
-      <div className="RichEditor-root">
+      <div className="RichEditor-rootSP">
         <div className={className} onClick={this.focus}>
+          <div className="commentControlsSP">
+            <InlineStyleControls
+              editorState={editorState}
+              onToggle={this.toggleInlineStyle}
+            />
+            <BlockStyleControls
+              editorState={editorState}
+              onToggle={this.toggleBlockType}
+            />
+          </div>
           <Editor
             blockStyleFn={getBlockStyle}
             customStyleMap={styleMap}
@@ -83,21 +92,10 @@ class TextEditorDRAFTJS extends React.Component {
             handleKeyCommand={this.handleKeyCommand}
             keyBindingFn={this.mapKeyToEditorCommand}
             onChange={this.onChange}
-            placeholder="What are your thoughts?"
+            placeholder="Text (optional)"
             ref="editor"
             spellCheck={true}
           />
-        </div>
-        <div className="commentControls">
-          <InlineStyleControls
-            editorState={editorState}
-            onToggle={this.toggleInlineStyle}
-          />
-          <BlockStyleControls
-            editorState={editorState}
-            onToggle={this.toggleBlockType}
-          />
-          <button className="submitComment">Comment</button>
         </div>
       </div>
     );
@@ -179,7 +177,7 @@ const BlockStyleControls = (props) => {
     .getType();
 
   return (
-    <div className="RichEditor-controls">
+    <div className="RichEditor-controlsSP">
       {BLOCK_TYPES.map((type) => (
         <StyleButton
           key={type.label}
@@ -212,7 +210,7 @@ const InlineStyleControls = (props) => {
   const currentStyle = props.editorState.getCurrentInlineStyle();
 
   return (
-    <div className="RichEditor-controls">
+    <div className="RichEditor-controlsSP">
       {INLINE_STYLES.map((type) => (
         <StyleButton
           key={type.label}
