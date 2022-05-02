@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Editor, EditorState, RichUtils, getDefaultKeyBinding } from "draft-js";
 import "draft-js/dist/Draft.css";
 import {
@@ -16,7 +16,7 @@ class TextEditorDRAFTJS extends React.Component {
     super(props);
     this.state = { editorState: EditorState.createEmpty() };
 
-    this.focus = () => this.refs.editor.focus();
+    // this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({ editorState });
 
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
@@ -71,7 +71,6 @@ class TextEditorDRAFTJS extends React.Component {
         className += " RichEditor-hidePlaceholder";
       }
     }
-
     return (
       <div className="RichEditor-rootSP">
         <div className={className} onClick={this.focus}>
@@ -93,7 +92,7 @@ class TextEditorDRAFTJS extends React.Component {
             keyBindingFn={this.mapKeyToEditorCommand}
             onChange={this.onChange}
             placeholder="Text (optional)"
-            ref="editor"
+            // ref="editor"
             spellCheck={true}
           />
         </div>
@@ -157,14 +156,17 @@ const BLOCK_TYPES = [
   {
     label: <FontAwesomeIcon icon={faList}></FontAwesomeIcon>,
     style: "unordered-list-item",
+    keyType: 3,
   },
   {
     label: <FontAwesomeIcon icon={faListOl}></FontAwesomeIcon>,
     style: "ordered-list-item",
+    keyType: 4,
   },
   {
     label: <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>,
     style: "code-block",
+    keyType: 5,
   },
 ];
 
@@ -180,7 +182,7 @@ const BlockStyleControls = (props) => {
     <div className="RichEditor-controlsSP">
       {BLOCK_TYPES.map((type) => (
         <StyleButton
-          key={type.label}
+          key={type.keyType}
           active={type.style === blockType}
           label={type.label}
           onToggle={props.onToggle}
@@ -195,14 +197,17 @@ var INLINE_STYLES = [
   {
     label: <FontAwesomeIcon icon={faBold}></FontAwesomeIcon>,
     style: "BOLD",
+    keyType: 0,
   },
   {
     label: <FontAwesomeIcon icon={faItalic}></FontAwesomeIcon>,
     style: "ITALIC",
+    keyType: 1,
   },
   {
     label: <FontAwesomeIcon icon={faUnderline}></FontAwesomeIcon>,
     style: "UNDERLINE",
+    keyType: 2,
   },
 ];
 
@@ -213,7 +218,7 @@ const InlineStyleControls = (props) => {
     <div className="RichEditor-controlsSP">
       {INLINE_STYLES.map((type) => (
         <StyleButton
-          key={type.label}
+          key={type.keyType}
           active={currentStyle.has(type.style)}
           label={type.label}
           onToggle={props.onToggle}

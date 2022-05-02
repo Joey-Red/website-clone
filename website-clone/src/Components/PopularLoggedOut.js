@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PopularFeed from "./PopularFeed";
 import TopXComsLoggedOut from "./TopXComsLoggedOut";
 import SortButtonsBar from "./SortButtonsBar";
 
 function PopularLoggedOut(props) {
-  let { setPostPopUp, postPopUp } = props;
+  const [postPopUp, setPostPopUp] = useState(false);
   return (
     <div className="outermost-popular-container">
       <div className="outer-menu-control-container">

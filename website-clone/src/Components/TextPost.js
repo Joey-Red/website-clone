@@ -17,15 +17,17 @@ function TextPost(props) {
   };
   return (
     <>
-      {!postPopUp ? (
+      {/* {postPopUp ? (
         <PostFullPage
+          postPopUp={postPopUp}
+          setPostPopUp={setPostPopUp}
           postSub={props.postSub}
           postTitle={props.postTitle}
           comments={props.comments}
           likes={props.likes}
           username={props.username}
         />
-      ) : null}
+      ) : null} */}
       <div className="outerPostContainer" onClick={() => openPost()}>
         <div className="innerPostContainer">
           <div className="likeContainer">
@@ -45,7 +47,7 @@ function TextPost(props) {
               </div>
             </div>
           </div>
-          <div className="postFormatContainer">
+          <div className="postFormatContainerHP">
             <div className="post-info">
               <div className="post-pic">
                 <a href="#">{/* link to sub img */}</a>
