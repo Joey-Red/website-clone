@@ -13,13 +13,12 @@ import LoggedInHeader from "./Components/LoggedInHeader";
 import ProfilePage from "./Components/ProfilePage";
 import PopularLoggedOut from "./Components/PopularLoggedOut";
 import { Routes, Route } from "react-router-dom";
-import TextEditorDRAFTJS from "./Components/TextEditorDRAFTJS";
-import PostFullPage from "./Components/PostFullPageOLDNOTUSED";
 
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [postPopUp, setPostPopUp] = useState(false);
   return (
     <>
       <Routes>
@@ -30,7 +29,7 @@ function App() {
             element={
               <Fragment>
                 <Trending />
-                <Popular />
+                <Popular postPopUp={postPopUp} setPostPopUp={setPostPopUp} />
               </Fragment>
             }
           />
@@ -40,7 +39,10 @@ function App() {
             element={
               <Fragment>
                 <Trending />
-                <PopularLoggedOut />
+                <PopularLoggedOut
+                  postPopUp={postPopUp}
+                  setPostPopUp={setPostPopUp}
+                />
               </Fragment>
             }
           />

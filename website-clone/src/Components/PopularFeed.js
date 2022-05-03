@@ -29,6 +29,16 @@ function PopularFeed(props) {
       <TextPost
         postPopUp={postPopUp}
         setPostPopUp={setPostPopUp}
+        postSub={postData2.postSub}
+        postTitle={postData2.postTitle}
+        comments={postData2.comments}
+        likes={postData2.likes}
+        username={postData2.username}
+        postBody={postData2.postBody}
+      />
+      <TextPost
+        postPopUp={postPopUp}
+        setPostPopUp={setPostPopUp}
         postSub={postData.postSub}
         postTitle={postData.postTitle}
         comments={postData.comments}
@@ -37,16 +47,6 @@ function PopularFeed(props) {
         postBody={postData.postBody}
       />
       {postPopUp ? (
-        // <PostFullPage
-        //   postPopUp={postPopUp}
-        //   setPostPopUp={setPostPopUp}
-        //   postSub={postData.postSub}
-        //   postTitle={postData.postTitle}
-        //   comments={postData.comments}
-        //   likes={postData.likes}
-        //   username={postData.username}
-        //   postBody={postData.postBody}
-        // />
         <PostFullPage
           postPopUp={postPopUp}
           setPostPopUp={setPostPopUp}

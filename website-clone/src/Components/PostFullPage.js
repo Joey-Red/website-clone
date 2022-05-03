@@ -12,6 +12,17 @@ function PostFullPage(props) {
   let closePost = () => {
     setPostPopUp(false);
   };
+  let commentData = {
+    commentBody:
+      "I used to eat apples. I used to eat apples.I used to eat apples. I used to eat apples.",
+    likes: 100,
+    username: "just-a-dreamer",
+  };
+  let commentData2 = {
+    commentBody: "lorem lorem.",
+    likes: 10,
+    username: "radGuy9",
+  };
   return (
     <div className="postFullScreenContainer">
       <div className="fullScreenPost">
@@ -38,8 +49,19 @@ function PostFullPage(props) {
                       postSub={props.postSub}
                       username={props.username}
                     />
-                    <TextEditorDRAFTJS />
-                    <CommentContainer />
+                    <div className="holdsAllComments">
+                      <TextEditorDRAFTJS />
+                      <CommentContainer
+                        username={commentData.username}
+                        likes={commentData.likes}
+                        commentBody={commentData.commentBody}
+                      />
+                      <CommentContainer
+                        username={commentData2.username}
+                        likes={commentData2.likes}
+                        commentBody={commentData2.commentBody}
+                      />
+                    </div>
                   </div>
                   <div className="FPRightSide">
                     <FPRightSide />

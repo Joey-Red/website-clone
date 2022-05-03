@@ -1,16 +1,8 @@
 import React from "react";
-import {
-  faArrowUp,
-  faArrowDown,
-  faComment,
-  faShare,
-  faBookmark,
-  faEllipsis,
-  faX,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function CommentContainer() {
+function CommentContainer(props) {
   return (
     <div className="commentContainerCenter">
       <div className="commentContainer">
@@ -40,24 +32,16 @@ function CommentContainer() {
               </g>
             </svg>
           </div>
-          <div className="commenterUserName">CommenterGuy42</div>
+          <div className="commenterUserName">{props.username}</div>
         </div>
-        <div className="commentTextContent">
-          I used to eat apples.I used to eat apples.I used to eat apples.I used
-          to eat apples.I used to eat apples.I used to eat apples.I used to eat
-          apples.I used to eat apples.I used to eat apples.I used to eat
-          apples.I used to eat apples.I used to eat apples.I used to eat
-          apples.I used to eat apples.I used to eat apples.I used to eat
-          apples.I used to eat apples.I used to eat apples.I used to eat
-          apples.I used to eat apples.I used to eat apples.
-        </div>
+        <div className="commentTextContent">{props.commentBody}</div>
         <div className="commentUpVoteContainer">
           <button className="upVote">
             <span>
               <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
             </span>
           </button>
-          <span className="commentVoteCount">8</span>
+          <span className="commentVoteCount">{props.likes}</span>
           <button className="downVote">
             <span>
               <FontAwesomeIcon icon={faArrowDown}></FontAwesomeIcon>

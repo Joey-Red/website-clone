@@ -1405,7 +1405,6 @@ a:visited {
   color: var(--newCommunityTheme-actionIcon);
   --post-line-color: var(--newCommunityTheme-postLine);
   --post-icon-color: var(--newCommunityTheme-postIcon);
-  cursor: pointer;
   padding: 0;
   border: 0;
   font: inherit;

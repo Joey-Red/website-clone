@@ -4,7 +4,8 @@ import TopXComsLoggedOut from "./TopXComsLoggedOut";
 import SortButtonsBar from "./SortButtonsBar";
 
 function PopularLoggedOut(props) {
-  const [postPopUp, setPostPopUp] = useState(false);
+  // const [postPopUp, setPostPopUp] = useState(false);
+  const { setPostPopUp, postPopUp } = props;
   return (
     <div className="outermost-popular-container">
       <div className="outer-menu-control-container">
