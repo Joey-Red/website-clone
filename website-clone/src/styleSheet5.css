@@ -313,7 +313,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   margin: 0 auto;
-  /* padding: 0px 32px 0px 32px; */
   height: 48px;
   align-items: center;
   font-size: 16px;
@@ -526,49 +525,38 @@ body {
   padding-top: 8px;
   position: relative;
   background-color: #dae0e6;
-  /*123  */
   width: 80vw;
   max-width: 1280px;
   min-height: 100%;
   min-height: 100vh;
-}
-.top-info-container {
+  display: flex;
 }
 
 .layoutWrapper {
   display: flex;
 }
-/* .postFormatContainerInner {
-  background: rgb(255, 255, 255);
-  border-radius: 6px;
-  width: 80%;
-  margin: 24px auto;
-} */
 
 .FPLeftSide {
   justify-content: center;
   align-content: center;
-  width: 740px;
-  margin-top: 8px;
+  margin: 8px 20px 0px 20px;
   background: rgb(255, 255, 255);
-  margin-right: 20px;
   border-radius: 4px;
 }
 
 .FPRightSide {
-  flex: 1;
   justify-content: center;
   margin-top: 8px;
   display: flex;
 }
 .postFormatContainerInner {
   border-radius: 6px;
-  width: fit-content;
   margin: 0 auto;
   display: flex;
 }
 .postFormatContainerOuter {
-  background-color: #dae0e6;
+  margin: 0 auto;
+  display: flex;
 }
 .top-x-communities-container {
   padding: 0;
@@ -578,6 +566,7 @@ body {
   width: 312px;
   display: block;
 }
+
 .top-coms-header-editFP {
   padding: 12px 12px;
   line-height: 12px;
@@ -598,12 +587,130 @@ body {
   margin-top: 20px;
 }
 .rulesList ol {
-  /* list-style-position: outside;
-  text-align: left;
-  list-style-type: none; */
   padding-left: 10px;
-  /* overflow: hidden; */
   font-size: 13px;
   font-weight: bold;
   line-height: 16px;
 }
+.postTitleFPStrict {
+  color: black;
+}
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1385px) {
+  .FPRightSide {
+    display: none;
+  }
+}
+@media only screen and (max-width: 985px) {
+  .richEditCenter,
+  .commentContainerCenter,
+  .cSSContainerFP,
+  .FPLeftSide,
+  .submitComment,
+  .postBodyMargin {
+    margin: 0 auto;
+  }
+  .FPLeftSideOuter {
+    display: flex;
+  }
+  .FPLeftSide,
+  .postBodyContainerFPInner,
+  .postMutator,
+  .post-infoFP,
+  .postTitleFPStrict {
+    width: 60vw;
+  }
+  .RichEditor-root {
+    width: 250px;
+  }
+  .RichEditor-editor,
+  .RichEditor-root {
+    height: 50px;
+  }
+  .RichEditor-styleButton {
+    display: none;
+  }
+  .postBodyMargin {
+    max-width: fit-content;
+  }
+  .cSSContainerFP {
+    font-size: 8px;
+  }
+  .post-infoFP {
+    justify-content: center;
+    text-align: center;
+  }
+  .postTitleFPStrict {
+    font-size: 12px;
+    margin: 4px;
+    text-align: center;
+    color: black;
+  }
+  .likeContainerFP {
+    /* margin-left: -40px; */
+  }
+}
+@media only screen and (max-width: 830px) {
+  .richEditCenter,
+  .commentContainerCenter,
+  .cSSContainerFP,
+  .FPLeftSide,
+  .submitComment,
+  .postBodyMargin {
+    margin: 0 auto;
+  }
+  .FPLeftSideOuter {
+    display: flex;
+  }
+  .FPLeftSide,
+  .postBodyContainerFPInner,
+  .postMutator,
+  .post-infoFP,
+  .postTitleFPStrict {
+    width: 60vw;
+  }
+  .RichEditor-root {
+    width: 250px;
+  }
+  .RichEditor-editor,
+  .RichEditor-root {
+    height: 50px;
+  }
+  .RichEditor-styleButton {
+    display: none;
+  }
+  .postBodyMargin {
+    max-width: fit-content;
+  }
+  .cSSContainerFP {
+    font-size: 8px;
+  }
+  .post-infoFP {
+    justify-content: center;
+    text-align: center;
+  }
+  .postTitleFPStrict {
+    font-size: 12px;
+    margin: 4px;
+    text-align: center;
+    color: black;
+  }
+  .likeContainerFP {
+    margin-left: -44px;
+  }
+}
+@media only screen and (max-width: 862px) {
+  #orig {
+    display: none;
+  }
+  .carousel-x3 {
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .header-outside {
+    text-align: center;
+  }
+}
+/* @media 806px {
+  up/down arrows
+} */

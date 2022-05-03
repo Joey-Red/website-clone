@@ -364,6 +364,7 @@ body {
   align-items: center;
   display: inline-flex;
   gap: 12px;
+  overflow: hidden;
 }
 .ioButton {
   border-radius: 20px;
@@ -1076,6 +1077,7 @@ a:visited {
   cursor: pointer;
   border-radius: 4px;
   padding-left: 40px;
+  overflow: hidden;
 }
 .likeContainer {
   color: var(--newCommunityTheme-actionIcon);

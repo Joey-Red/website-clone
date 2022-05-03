@@ -17,7 +17,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [postPopUp, setPostPopUp] = useState(false);
   return (
     <>

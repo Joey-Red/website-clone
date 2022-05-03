@@ -10,7 +10,6 @@ function Popular(props) {
     <div className="outermost-popular-container">
       <div className="outer-menu-control-container">
         <MakePostLinkBox />
-
         <div className="popular-post-header">Popular Posts</div>
         <SortButtonsBar />
         <PopularFeed postPopUp={postPopUp} setPostPopUp={setPostPopUp} />

@@ -40,27 +40,31 @@ function PostFullPage(props) {
             <div className="postFormatContainerCM">
               <div className="postFormatContainerOuter">
                 <div className="postFormatContainerInner">
-                  <div className="FPLeftSide">
-                    <UpDownVotes likes={props.likes} />
-                    <TopInfoContainer
-                      postbody={props.postBody}
-                      comments={props.comments}
-                      postTitle={props.postTitle}
-                      postSub={props.postSub}
-                      username={props.username}
-                    />
-                    <div className="holdsAllComments">
-                      <TextEditorDRAFTJS />
-                      <CommentContainer
-                        username={commentData.username}
-                        likes={commentData.likes}
-                        commentBody={commentData.commentBody}
-                      />
-                      <CommentContainer
-                        username={commentData2.username}
-                        likes={commentData2.likes}
-                        commentBody={commentData2.commentBody}
-                      />
+                  <div className="FPLeftSideOuter">
+                    <div className="FPLeftSide">
+                      <div className="postMutator">
+                        <UpDownVotes likes={props.likes} />
+                        <TopInfoContainer
+                          postBody={props.postBody}
+                          comments={props.comments}
+                          postTitle={props.postTitle}
+                          postSub={props.postSub}
+                          username={props.username}
+                        />
+                      </div>
+                      <div className="holdsAllComments">
+                        <TextEditorDRAFTJS />
+                        <CommentContainer
+                          username={commentData.username}
+                          likes={commentData.likes}
+                          commentBody={commentData.commentBody}
+                        />
+                        <CommentContainer
+                          username={commentData2.username}
+                          likes={commentData2.likes}
+                          commentBody={commentData2.commentBody}
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="FPRightSide">

@@ -5,8 +5,8 @@ function TitleBody(props) {
     <div className="postBodyContainer">
       <div className="wrapperTEST">
         <div className="postBodyContainerFPInner">
-          <div className="postTitleFP">
-            <h3>{props.postTitle}</h3>
+          <div className="postTitleFPStrict">
+            <h3 id="FPTitle">{props.postTitle}</h3>
           </div>
           <div className="postBodyMargin">
             <div className="postBodyText">{props.postBody}</div>

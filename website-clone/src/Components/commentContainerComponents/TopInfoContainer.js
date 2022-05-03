@@ -27,7 +27,7 @@ function TopInfoContainer(props) {
         </div>
       </div>
       <TitleBody
-        postbody={props.postBody}
+        postBody={props.postBody}
         comments={props.comments}
         postTitle={props.postTitle}
       />
