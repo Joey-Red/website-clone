@@ -711,6 +711,19 @@ body {
     text-align: center;
   }
 }
-/* @media 806px {
-  up/down arrows
-} */
+.adContainer {
+  padding: 6px;
+  border: 1px solid rgb(204, 204, 204);
+  font-weight: 500;
+  /* sticky */
+}
+.adContainer img {
+  width: 298px;
+  cursor: pointer;
+}
+.adWords {
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  color: var(--newCommunityTheme-actionIcon);
+  font-size: 10px;
+}

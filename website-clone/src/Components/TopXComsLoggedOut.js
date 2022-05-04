@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import adPhoto from "../Components/img/adplacement.jpg";
 
 function TopXComs() {
   let [activeButton, setActiveButton] = useState(true);
@@ -149,6 +150,28 @@ function TopXComs() {
           <span>
             <button onClick={topComsSort}>Gaming</button>
           </span>
+        </div>
+      </div>
+      <div className="top-communities">
+        {/* <div className="top-coms-header ">
+          <h2>Reddit Premium</h2>
+        </div> */}
+        <div className="redditPremium">
+          <h2>Reddit Premium</h2>{" "}
+          <p>The best Reddit experience, with monthly Coins</p>
+          <ol className="top-coms-list">
+            <div className="viewButtonContainer">
+              <a href="#" className="redditPremiumButton">
+                Try Now
+              </a>
+            </div>
+          </ol>
+        </div>
+      </div>
+      <div className="top-communities">
+        <div className="adContainer">
+          <div className="adWords">ADVERTISEMENT</div>
+          <img src={adPhoto} alt="adPhoto" />
         </div>
       </div>
     </div>
