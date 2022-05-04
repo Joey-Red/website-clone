@@ -7,7 +7,7 @@ import MakePostLinkBox from "./MakePostLinkBox";
 function Popular(props) {
   const { setPostPopUp, postPopUp } = props;
   return (
-    <div className="outermost-popular-container">
+    <div className="outermost-popular-container" id="loggedInPop">
       <div className="outer-menu-control-container">
         <MakePostLinkBox />
         <div className="popular-post-header">Popular Posts</div>

@@ -646,9 +646,9 @@ body {
     text-align: center;
     color: black;
   }
-  .likeContainerFP {
-    /* margin-left: -40px; */
-  }
+  /* .ioButtonComment {
+    font-size: 8px;
+  } */
 }
 @media only screen and (max-width: 830px) {
   .richEditCenter,
@@ -715,7 +715,16 @@ body {
   padding: 6px;
   border: 1px solid rgb(204, 204, 204);
   font-weight: 500;
-  /* sticky */
+  display: block;
+  border-radius: 4px;
+}
+#adContainer {
+  margin-top: 16px;
+  position: sticky;
+  top: 59px;
+}
+#redditPremium {
+  margin-top: 16px;
 }
 .adContainer img {
   width: 298px;
@@ -726,4 +735,189 @@ body {
   letter-spacing: 0.5px;
   color: var(--newCommunityTheme-actionIcon);
   font-size: 10px;
+}
+#supportLinks {
+  margin-top: 16px;
+  position: sticky;
+  top: 302px;
+  width: 310px;
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /* margin-left: 12px;
+  margin-right: 12px; */
+  /* border: solid #dae0e6 1px; */
+  display: block;
+}
+.supportLinks {
+  /* border: solid #dae0e6 1px; */
+  background-color: #ffffff;
+  color: #1a1a1b;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  vertical-align: baseline;
+  border-radius: 4px;
+  overflow: visible;
+  word-wrap: break-word;
+}
+#supportLinks a,
+p {
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: capitalize;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+#supportLinks p {
+  text-align: center;
+  justify-self: center;
+  margin: 8px 0px 8px 8px;
+  display: flex;
+  padding-top: 8px;
+}
+#supportLinks a:visited {
+  color: black;
+}
+#supportLinks ol {
+  list-style: none;
+  margin-left: -20px;
+}
+.top-support-links {
+  display: flex;
+  padding: 12px 8px;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  /* display: inline-block; */
+  text-decoration: none;
+  text-transform: capitalize;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.supportLinksFirst,
+.supportLinksSecond {
+  display: flex;
+  width: 50%;
+  flex-flow: column nowrap;
+  padding: 0 4px;
+}
+
+.lang {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e9ebed;
+  border-bottom: 1px solid #e9ebed;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0 8px 0 8px;
+  width: 100%;
+}
+.langEn,
+.langDeutsch {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 50%;
+}
+.redditPremiumButtonContainer {
+  background-color: #ff4500;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: inherit;
+  align-items: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Noto Sans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  position: relative;
+  border: none;
+  fill: var(--newCommunityTheme-body);
+  justify-content: center;
+  max-width: 286px;
+  align-self: center;
+  display: flex;
+  cursor: pointer;
+}
+.premFlex {
+  display: flex;
+}
+#redditPremium {
+  width: 286px;
+  padding: 8px 12px;
+}
+.faShield {
+  height: 24px;
+  width: 24px;
+  flex: 0 0 24px;
+  margin-right: 12px;
+  vertical-align: middle;
+  align-self: center;
+  color: #ff4500;
+}
+.premInfo {
+  flex: 1 1 auto;
+  margin-bottom: 8px;
+}
+.premHeader {
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+.premText {
+  font-size: 12px;
+  font-weight: 400;
+}
+#loggedInPop {
+  margin-top: 49px;
+}
+.logInToComment {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid var(--newCommunityTheme-line);
+  justify-content: space-between;
+  margin: 16px 26px 0 48px;
+  padding: 12px 8px;
+}
+.logInToComment a:visited {
+  color: black;
+}
+.ioButtonComment {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+}
+#iButtonComment {
+  position: relative;
+  color: var(--newRedditTheme-button);
+}
+#oButtonComment {
+  color: var(--newRedditTheme-body);
+}
+#oButtonComment,
+#iButtonComment {
+  margin-right: 8px;
+  padding: 4px 16px;
+}
+.logInToComment button {
+  background: none;
+  border: none;
 }

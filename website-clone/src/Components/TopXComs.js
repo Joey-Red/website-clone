@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { faCaretUp, faShield } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import adPhoto from "../Components/img/adplacement.jpg";
 
 function TopXComs() {
   let [activeButton, setActiveButton] = useState(true);
@@ -150,6 +151,74 @@ function TopXComs() {
           <span>
             <button onClick={topComsSort}>Gaming</button>
           </span>
+        </div>
+      </div>
+      <div className="top-communities" id="redditPremium">
+        {/* <div className="top-coms-header ">
+          <h2>Reddit Premium</h2>
+        </div> */}
+        <div>
+          <div className="premFlex">
+            <FontAwesomeIcon
+              icon={faShield}
+              className="faShield"
+            ></FontAwesomeIcon>
+            <div className="premInfo">
+              <div className="premHeader">Reddit Premium </div>
+              <div className="premText">
+                The best Reddit experience, with monthly Coins
+              </div>
+            </div>
+          </div>
+          <ol className="top-coms-list">
+            <div className="redditPremiumButtonContainer">
+              <a href="#" className="redditPremiumButton">
+                Try Now
+              </a>
+            </div>
+          </ol>
+        </div>
+      </div>
+      <div className="top-communities" id="adContainer">
+        <div className="adContainer">
+          <div className="adWords">ADVERTISEMENT</div>
+          <img src={adPhoto} alt="adPhoto" />
+        </div>
+      </div>
+      <div className="top-communities" id="supportLinks">
+        <div className="supportLinks">
+          <div className="supportLinksInner">
+            <div className="top-support-links">
+              <div className="supportLinksFirst">
+                <a href="#">Help</a>
+                <a href="#">Reddit Coins</a>
+                <a href="#">Reddit Premium</a>
+                <a href="#">Communities</a>
+                <a href="#">Rereddit</a>
+                <a href="#">Topics</a>
+              </div>
+              <div className="supportLinksSecond">
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+                <a href="#">Advertise</a>
+                <a href="#">Blog</a>
+                <a href="#">Terms</a>
+                <a href="#">Content Policy</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Mod Policy</a>
+              </div>
+            </div>
+            <div className="lang">
+              <div className="langEn">
+                <a href="#">USA/Global</a>
+              </div>
+              <div className="langDeutsch">
+                <a href="#">Deutsch</a>
+              </div>
+            </div>
+            <p>Reddit Clone by Joey Dalrymple, 2022</p>
+          </div>
         </div>
       </div>
     </div>

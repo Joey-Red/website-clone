@@ -28,7 +28,6 @@ function App() {
             path="/"
             element={
               <Fragment>
-                <Trending />
                 <Popular postPopUp={postPopUp} setPostPopUp={setPostPopUp} />
               </Fragment>
             }
@@ -42,6 +41,7 @@ function App() {
                 <PopularLoggedOut
                   postPopUp={postPopUp}
                   setPostPopUp={setPostPopUp}
+                  isLoggedIn={isLoggedIn}
                 />
               </Fragment>
             }

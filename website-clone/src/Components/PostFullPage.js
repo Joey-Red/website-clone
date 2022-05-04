@@ -8,7 +8,7 @@ import FPRightSide from "./commentContainerComponents/FPRightSide";
 import UpDownVotes from "./commentContainerComponents/UpDownVotes";
 import TopInfoContainer from "./commentContainerComponents/TopInfoContainer";
 function PostFullPage(props) {
-  let { setPostPopUp } = props;
+  let { setPostPopUp, isLoggedIn } = props;
   let closePost = () => {
     setPostPopUp(false);
   };
@@ -53,7 +53,34 @@ function PostFullPage(props) {
                         />
                       </div>
                       <div className="holdsAllComments">
-                        <TextEditorDRAFTJS />
+                        {isLoggedIn ? (
+                          <TextEditorDRAFTJS />
+                        ) : (
+                          <div className="logInToComment">
+                            <span>Log in or sign up to leave a comment</span>
+                            <div className="ioButtonComment">
+                              <button>
+                                <a
+                                  href="#"
+                                  className="ioButton iButton"
+                                  id="iButtonComment"
+                                >
+                                  Log In
+                                </a>
+                              </button>
+                              <button>
+                                <a
+                                  href="#"
+                                  className="ioButton oButton"
+                                  id="oButtonComment"
+                                >
+                                  Sign Up
+                                </a>
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                        {/* <TextEditorDRAFTJS /> */}
                         <CommentContainer
                           username={commentData.username}
                           likes={commentData.likes}
