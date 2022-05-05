@@ -5,7 +5,6 @@ import adPhoto from "../Components/img/adplacement.jpg";
 
 function TopXComs() {
   let [activeButton, setActiveButton] = useState(true);
-  // something weird going on here
   let topComsSort = (e) => {
     if (activeButton === true) {
       e.target.style.backgroundColor = "#0079d3";

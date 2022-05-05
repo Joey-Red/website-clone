@@ -378,6 +378,9 @@ body {
 .DraftEditor-editorContainer {
   overflow-y: scroll;
 }
+.DraftEditor-root {
+  border: 1px solid var(--newCommunityTheme-line);
+}
 .RichEditor-styleButton {
   margin: 2px 20px;
   cursor: pointer;
@@ -417,11 +420,10 @@ body {
   justify-content: center;
 }
 .RichEditor-rootSP {
-  border: 1px solid var(--newCommunityTheme-line);
+  /* border: 1px solid var(--newCommunityTheme-line); */
   max-width: 1248px;
   /* overflow-y: scroll; */
 }
-
 .extraStyles {
   margin: 24px 40px 24px 40px;
   border: solid #e1e7ee 1px;
@@ -621,11 +623,11 @@ body {
     width: 60vw;
   }
   .RichEditor-root {
-    width: 250px;
+    width: 75%;
   }
   .RichEditor-editor,
   .RichEditor-root {
-    height: 50px;
+    height: 100px;
   }
   .RichEditor-styleButton {
     display: none;
@@ -646,9 +648,7 @@ body {
     text-align: center;
     color: black;
   }
-  .holdsAllComments div {
-    margin: 0;
-  }
+
   .ioButtonComment {
   }
   .ioButtonComment button a {
@@ -659,13 +659,15 @@ body {
   .ioButtonComment button {
     padding: 8px;
   }
+  .submitComment {
+    margin: 0px 80px;
+  }
 }
 @media only screen and (max-width: 830px) {
   .richEditCenter,
   .commentContainerCenter,
   .cSSContainerFP,
   .FPLeftSide,
-  .submitComment,
   .postBodyMargin {
     margin: 0 auto;
   }
@@ -678,13 +680,6 @@ body {
   .post-infoFP,
   .postTitleFPStrict {
     width: 60vw;
-  }
-  .RichEditor-root {
-    width: 250px;
-  }
-  .RichEditor-editor,
-  .RichEditor-root {
-    height: 50px;
   }
   .RichEditor-styleButton {
     display: none;
@@ -721,7 +716,7 @@ body {
     text-align: center;
   }
   .ioButtonComment button {
-    display: flex;
+    display: block;
     padding: 0;
   }
   .inComment {
@@ -733,6 +728,12 @@ body {
     vertical-align: middle;
     justify-self: center;
     text-align: center;
+  }
+}
+@media only screen and (max-width: 784px) {
+  .ioButtonComment button {
+    display: flex;
+    padding: 0;
   }
 }
 .adContainer {

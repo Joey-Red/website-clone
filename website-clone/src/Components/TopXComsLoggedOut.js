@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretUp, faShield } from "@fortawesome/free-solid-svg-icons";
 import adPhoto from "../Components/img/adplacement.jpg";
 
 function TopXComs() {
@@ -156,11 +156,21 @@ function TopXComs() {
         {/* <div className="top-coms-header ">
           <h2>Reddit Premium</h2>
         </div> */}
-        <div className="redditPremium">
-          <h2>Reddit Premium</h2>{" "}
-          <p>The best Reddit experience, with monthly Coins</p>
+        <div>
+          <div className="premFlex">
+            <FontAwesomeIcon
+              icon={faShield}
+              className="faShield"
+            ></FontAwesomeIcon>
+            <div className="premInfo">
+              <div className="premHeader">Reddit Premium </div>
+              <div className="premText">
+                The best Reddit experience, with monthly Coins
+              </div>
+            </div>
+          </div>
           <ol className="top-coms-list">
-            <div className="viewButtonContainer">
+            <div className="redditPremiumButtonContainer">
               <a href="#" className="redditPremiumButton">
                 Try Now
               </a>

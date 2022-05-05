@@ -4,7 +4,7 @@ import TextPost from "./TextPost";
 import PostFullPage from "./PostFullPage";
 
 function PopularFeed(props) {
-  const { postPopUp, setPostPopUp } = props;
+  const { postPopUp, setPostPopUp, isLoggedIn } = props;
   let postData = {
     postSub: "r/AskReddit",
     postTitle:
@@ -188,6 +188,7 @@ function PopularFeed(props) {
       />
       {postPopUp ? (
         <PostFullPage
+          isLoggedIn={isLoggedIn}
           postPopUp={postPopUp}
           setPostPopUp={setPostPopUp}
           postSub={postData.postSub}

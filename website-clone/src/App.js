@@ -17,7 +17,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [postPopUp, setPostPopUp] = useState(false);
   return (
     <>
@@ -28,7 +28,11 @@ function App() {
             path="/"
             element={
               <Fragment>
-                <Popular postPopUp={postPopUp} setPostPopUp={setPostPopUp} />
+                <Popular
+                  postPopUp={postPopUp}
+                  setPostPopUp={setPostPopUp}
+                  isLoggedIn={isLoggedIn}
+                />
               </Fragment>
             }
           />

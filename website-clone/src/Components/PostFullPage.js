@@ -9,6 +9,7 @@ import UpDownVotes from "./commentContainerComponents/UpDownVotes";
 import TopInfoContainer from "./commentContainerComponents/TopInfoContainer";
 function PostFullPage(props) {
   let { setPostPopUp, isLoggedIn } = props;
+  console.log("peepoLoggedIn?" + isLoggedIn);
   let closePost = () => {
     setPostPopUp(false);
   };
@@ -84,7 +85,6 @@ function PostFullPage(props) {
                             </div>
                           </div>
                         )}
-                        {/* <TextEditorDRAFTJS /> */}
                         <CommentContainer
                           username={commentData.username}
                           likes={commentData.likes}
