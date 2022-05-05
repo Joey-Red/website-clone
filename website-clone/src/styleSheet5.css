@@ -646,9 +646,19 @@ body {
     text-align: center;
     color: black;
   }
-  /* .ioButtonComment {
-    font-size: 8px;
-  } */
+  .holdsAllComments div {
+    margin: 0;
+  }
+  .ioButtonComment {
+  }
+  .ioButtonComment button a {
+    /* display: flex; */
+    text-align: center;
+    margin: 0 auto;
+  }
+  .ioButtonComment button {
+    padding: 8px;
+  }
 }
 @media only screen and (max-width: 830px) {
   .richEditCenter,
@@ -708,6 +718,20 @@ body {
     justify-content: center;
   }
   .header-outside {
+    text-align: center;
+  }
+  .ioButtonComment button {
+    display: flex;
+    padding: 0;
+  }
+  .inComment {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    vertical-align: middle;
+    justify-self: center;
     text-align: center;
   }
 }

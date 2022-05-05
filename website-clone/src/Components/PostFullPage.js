@@ -59,24 +59,28 @@ function PostFullPage(props) {
                           <div className="logInToComment">
                             <span>Log in or sign up to leave a comment</span>
                             <div className="ioButtonComment">
-                              <button>
-                                <a
-                                  href="#"
-                                  className="ioButton iButton"
-                                  id="iButtonComment"
-                                >
-                                  Log In
-                                </a>
-                              </button>
-                              <button>
-                                <a
-                                  href="#"
-                                  className="ioButton oButton"
-                                  id="oButtonComment"
-                                >
-                                  Sign Up
-                                </a>
-                              </button>
+                              <div className="inComment">
+                                <button>
+                                  <a
+                                    href="#"
+                                    className="ioButton iButton"
+                                    id="iButtonComment"
+                                  >
+                                    Log In
+                                  </a>
+                                </button>
+                              </div>
+                              <div className="outComment">
+                                <button>
+                                  <a
+                                    href="#"
+                                    className="ioButton oButton"
+                                    id="oButtonComment"
+                                  >
+                                    Sign Up
+                                  </a>
+                                </button>
+                              </div>
                             </div>
                           </div>
                         )}
