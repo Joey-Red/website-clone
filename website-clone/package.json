@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/auth": "^0.20.0",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -11,7 +12,7 @@
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",
     "draft-js": "^0.11.7",
-    "firebase": "^9.7.0",
+    "firebase": "^9.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-id-generator": "^3.0.2",

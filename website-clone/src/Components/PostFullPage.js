@@ -1,7 +1,7 @@
 import React from "react";
 import { faArrowUp, faArrowDown, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../styleSheet5.css";
+// import "../styleSheet5.css";
 import TextEditorDRAFTJS from "./TextEditorDRAFTJS";
 import CommentContainer from "./CommentContainer";
 import FPRightSide from "./commentContainerComponents/FPRightSide";

@@ -7,7 +7,7 @@ import {
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "./img/Reddit_logo_new.png";
-import "../styleSheet4.css";
+// import "../styleSheet4.css";
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 // Todos on this page so far: give everything a link.
@@ -18,6 +18,8 @@ function FixedHeader(props) {
     setDisplayLogIn,
     displayLogIn,
     setIsLoggedIn,
+    setDisplayForgotPw,
+    displayForgotPw,
   } = props;
   const [displayOptions, setDisplayOptions] = useState(true);
   let toggleMenu = () => {
@@ -119,6 +121,8 @@ function FixedHeader(props) {
                     displaySignUp={displaySignUp}
                     setDisplaySignUp={setDisplaySignUp}
                     setIsLoggedIn={setIsLoggedIn}
+                    setDisplayForgotPw={setDisplayForgotPw}
+                    displayForgotPw={displayForgotPw}
                   />
                 ) : null}
               </div>

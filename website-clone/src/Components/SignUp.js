@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import "../styleSheet4.css";
+import React, { useState, useRef } from "react";
+// import "../styleSheet4.css";
 import G from "./img/googleG.png";
 import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import LogIn from "./LogIn";
+import { useAuth } from "./contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 function SignUp(props) {
   let { setDisplaySignUp, displaySignUp, displayLogIn, setDisplayLogIn } =
     props;
@@ -15,7 +18,35 @@ function SignUp(props) {
     setDisplaySignUp(!displaySignUp);
     setDisplayLogIn(!displayLogIn);
   };
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match.");
+    }
+
+    try {
+      setError("");
+      setLoading(true);
+      await signup(
+        emailRef.current.value,
+        passwordRef.current.value,
+        passwordConfirmRef.current.value
+      );
+      navigate("/", { replace: true });
+    } catch {
+      setError("Failed to create an account");
+    }
+    setLoading(false);
+  }
+  console.log(error);
   return (
     <div className="signUpContainerOutside">
       {!displayLogIn ? (
@@ -65,12 +96,49 @@ function SignUp(props) {
                 <span className="spacerText">OR</span>
                 <span className="spacerSpan"></span>
               </div>
-              <div className="signUpInputContainer">
-                <input type="text" placeholder="EMAIL" />
-              </div>
-              <div className="signUpButtonContinue">
-                <button>Continue</button>
-              </div>
+              {/* {currentUser && currentUser.email} */}
+              {error && <div>{error}</div>}
+              <form onSubmit={handleSubmit}>
+                <div className="signUpInputContainer" id="email">
+                  <input
+                    type="email"
+                    ref={emailRef}
+                    required
+                    placeholder="EMAIL"
+                  />
+                </div>
+                {/* <form > */}
+                <div className="signUpInputContainer" id="password">
+                  <input
+                    minLength={6}
+                    maxLength={16}
+                    type="password"
+                    ref={passwordRef}
+                    required
+                    placeholder="PASSWORD"
+                  />
+                </div>
+                {/* </form> */}
+                {/* <form > */}
+                <div className="signUpInputContainer" id="passwordConfirm">
+                  <input
+                    minLength={6}
+                    maxLength={16}
+                    type="password"
+                    ref={passwordConfirmRef}
+                    required
+                    placeholder="CONFIRM PASSWORD"
+                  />
+                </div>
+                {/* </form> */}
+
+                <div className="signUpButtonContinue">
+                  <button type="submit" disabled={loading}>
+                    Continue
+                  </button>
+                </div>
+              </form>
+
               <div className="altLogin">
                 Already a redditor?{" "}
                 <a href="#" onClick={() => altSignIn()}>

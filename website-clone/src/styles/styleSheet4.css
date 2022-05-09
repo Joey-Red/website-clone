@@ -791,7 +791,7 @@ body {
 .art-sidebar {
   height: 650px;
   width: 168px;
-  background-image: url("./Components/img/art-sidebar.jpg");
+  background-image: url("../Components/img/art-sidebar.jpg");
   height: 100%;
   top: 0;
   position: relativeA;
@@ -816,7 +816,7 @@ body {
   cursor: pointer;
 }
 .signUpHeader h1 {
-  margin-top: 100px;
+  margin-top: 0px;
   font-size: 18px;
   font-weight: bolder;
   line-height: 22px;

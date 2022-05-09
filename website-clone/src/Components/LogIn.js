@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import "../styleSheet4.css";
+import React, { useState, useEffect, useRef } from "react";
+import { useAuth } from "./contexts/AuthContext";
+// import "../styleSheet4.css";
 import G from "./img/googleG.png";
 import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import ForgotPassword from "./ForgotPassword";
 function LogIn(props) {
   let {
     setDisplayLogIn,
@@ -11,6 +14,8 @@ function LogIn(props) {
     displaySignUp,
     setDisplaySignUp,
     setIsLoggedIn,
+    setDisplayForgotPw,
+    displayForgotPw,
   } = props;
   let toggleMenu = () => {
     setDisplayLogIn(!displayLogIn);
@@ -19,10 +24,34 @@ function LogIn(props) {
     setDisplaySignUp(!displaySignUp);
     setDisplayLogIn(!displayLogIn);
   };
-  let logIn = () => {
-    setIsLoggedIn(true);
-    console.log("peepoDontForgetToRemoveThis");
+  let forgotPw = () => {
+    // setDisplayLogIn(!displayLogIn);
+    setDisplayForgotPw(!displayForgotPw);
   };
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      navigate("/", { replace: true });
+      setIsLoggedIn(true);
+    } catch {
+      setError("Failed to log in");
+    }
+
+    setLoading(false);
+  }
+
   return (
     <div className="signUpContainerOutside">
       <div className="signUpContainer">
@@ -63,21 +92,41 @@ function LogIn(props) {
                 <span className="spacerText">OR</span>
                 <span className="spacerSpan"></span>
               </div>
-              <div className="signUpInputContainer ">
-                <input type="text" placeholder="EMAIL" />
-                <input
-                  type="text"
-                  placeholder="PASSWORD"
-                  className="signUpInputPW"
-                />
-              </div>
-              <div className="signUpButtonContinue">
-                <button onClick={() => logIn()}>Continue</button>
-              </div>
+              {error && <div>{error}</div>}
+              <form onSubmit={handleSubmit}>
+                <div className="signUpInputContainer" id="email">
+                  <input
+                    type="email"
+                    ref={emailRef}
+                    required
+                    placeholder="EMAIL"
+                  />
+                </div>
+                {/* <form > */}
+                <div className="signUpInputContainer" id="password">
+                  <input
+                    minLength={6}
+                    maxLength={16}
+                    type="password"
+                    ref={passwordRef}
+                    required
+                    placeholder="PASSWORD"
+                  />
+                </div>
+                {/* </form> */}
+                <div className="signUpButtonContinue">
+                  <button type="submit" disabled={loading}>
+                    Continue
+                  </button>
+                </div>
+              </form>
               <div className="altLogin">
                 <div className="additionalText addTextLinks forgotLinks">
                   Forgot your <a href="#">username</a> or{" "}
-                  <a href="#">Password</a>?
+                  <a href="#" onClick={() => forgotPw()}>
+                    Password
+                  </a>
+                  ?
                 </div>
                 <div className="newToRed">
                   New to Reddit?{" "}
@@ -90,6 +139,17 @@ function LogIn(props) {
           </div>
         </div>
       </div>
+      {displayForgotPw ? (
+        <ForgotPassword
+          displayLogIn={displayLogIn}
+          setDisplayLogIn={setDisplayLogIn}
+          displaySignUp={displaySignUp}
+          setDisplaySignUp={setDisplaySignUp}
+          setIsLoggedIn={setIsLoggedIn}
+          setDisplayForgotPw={setDisplayForgotPw}
+          displayForgotPw={displayForgotPw}
+        />
+      ) : null}
     </div>
   );
 }

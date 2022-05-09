@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import TextPost from "./TextPost";
-// import PostFullPage from "./PostFullPageOLDNOTUSED";
 import PostFullPage from "./PostFullPage";
+import { collection, doc, setDoc, getDocs, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { getDatabase, ref, set } from "firebase/database";
+
+// const postsRef = collection(db, 'posts');
 
 function PopularFeed(props) {
   const { postPopUp, setPostPopUp, isLoggedIn } = props;
@@ -23,7 +27,15 @@ function PopularFeed(props) {
     username: "just-a-dreamer",
   };
   // Maybe do a loop returning like 10 posts or something
-  // let stringNum = Array.from(String(postData.likes), Number);
+
+  // function writeUserData(userId, name, email) {
+  //   const db = getDatabase();
+  //   set(ref(db, "users/" + userId), {
+  //     username: name,
+  //     email: email,
+  //   });
+  // }
+
   return (
     <>
       <TextPost
@@ -35,156 +47,6 @@ function PopularFeed(props) {
         likes={postData2.likes}
         username={postData2.username}
         postBody={postData2.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
-      />
-      <TextPost
-        postPopUp={postPopUp}
-        setPostPopUp={setPostPopUp}
-        postSub={postData.postSub}
-        postTitle={postData.postTitle}
-        comments={postData.comments}
-        likes={postData.likes}
-        username={postData.username}
-        postBody={postData.postBody}
       />
       {postPopUp ? (
         <PostFullPage

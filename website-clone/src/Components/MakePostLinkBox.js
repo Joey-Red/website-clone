@@ -1,7 +1,7 @@
 import React from "react";
 import { faChain, faImage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../styleSheet4.css";
+// import "../styleSheet4.css";
 function MakePostLinkBox() {
   return (
     <div className="mpOuter">
@@ -36,20 +36,10 @@ function MakePostLinkBox() {
           </div>
           <input type="text" placeholder="Create Post" />
           <div className="mpLinks">
-            <a href="#">
-              <FontAwesomeIcon
-                icon={faImage}
-                className="mpFa"
-              ></FontAwesomeIcon>
-            </a>
+            <FontAwesomeIcon icon={faImage} className="mpFa"></FontAwesomeIcon>
           </div>
           <div className="mpLinks">
-            <a href="#">
-              <FontAwesomeIcon
-                icon={faChain}
-                className="mpFa"
-              ></FontAwesomeIcon>
-            </a>
+            <FontAwesomeIcon icon={faChain} className="mpFa"></FontAwesomeIcon>
           </div>
         </div>
       </a>

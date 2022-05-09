@@ -946,3 +946,92 @@ p {
   background: none;
   border: none;
 }
+.outerSettingsContainer {
+  background-color: white;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.userSettingsContainer {
+  max-width: 688px;
+  margin: 49px auto 0 auto;
+  padding: 0 16px;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+}
+.userSettingsContainer h2 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--newCommunityTheme-bodyText);
+  padding: 40px 0;
+}
+.userSettingsContainer h3 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--newCommunityTheme-line);
+  color: var(--newCommunityTheme-metaText);
+  margin-bottom: 32px;
+  padding-bottom: 6px;
+}
+.userSettingsContainer div {
+  display: flex;
+  /* -ms-flex-flow: row wrap; */
+  /* flex-flow: row wrap; */
+  /* margin-bottom: 32px; */
+}
+
+.changeButton {
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+.emailDiv {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.emailDivInner {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+.emailDivInner p {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--newCommunityTheme-metaText);
+}
+.settingsIo {
+  background-color: white;
+  color: var(--newCommunityTheme-button);
+  cursor: pointer;
+}
+.settingsTitle {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.deleteAccountButton {
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #ff585b;
+  display: -ms-flexbox;
+  display: flex;
+}
+.signUpContainer input {
+  margin-bottom: 12px;
+}

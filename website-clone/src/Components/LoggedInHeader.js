@@ -10,14 +10,29 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "./img/Reddit_logo_new.png";
 import ProfilePage from "./ProfilePage";
+import { useAuth } from "./contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 // Todos on this page so far: give everything a link.
 function LoggedInHeader(props) {
   const [displayOptions, setDisplayOptions] = useState(true);
+  const [error, setError] = useState("");
+  const { currentUser, logout } = useAuth;
   let { displayPfp, setDisplayPfp } = props;
+  const navigate = useNavigate();
   // let showPfp = () => {
   //   setDisplayPfp(!displayPfp);
   //   console.log("peepoHey");
   // };
+  async function handleLogout() {
+    setError("");
+    try {
+      await logout();
+      // navigate("/", { replace: true });
+    } catch {
+      setError("Failed to log out");
+    }
+  }
   return (
     <div className="headerOuter">
       <div className="headerContainer">
@@ -70,7 +85,7 @@ function LoggedInHeader(props) {
                       <div className="myStuff">
                         <div className="myProfile">
                           <a href="/profile">Profile</a>
-                          <a href="#">User Settings</a>
+                          <a href="/userSettings">User Settings</a>
                         </div>
                       </div>
                       <div className="additionalStuff">
@@ -84,6 +99,9 @@ function LoggedInHeader(props) {
                         <a href="#">Privacy Policy</a>
                         <a href="#">Content Policy</a>
                         <a href="#">Moderator Guidelines</a>
+                        <a href="#" onClick={() => handleLogout()}>
+                          Log Out
+                        </a>
                       </div>
                     </div>
                   </div>
