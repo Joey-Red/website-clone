@@ -1035,3 +1035,16 @@ p {
 .signUpContainer input {
   margin-bottom: 12px;
 }
+.googleButtonFlex button {
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  color: black;
+}
+.googleButtonFlex button:hover {
+  cursor: pointer;
+}

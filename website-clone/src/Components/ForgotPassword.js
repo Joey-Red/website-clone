@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useAuth } from "./contexts/AuthContext";
+// import { useAuth } from "./contexts/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 function LogIn(props) {
@@ -26,23 +26,23 @@ function LogIn(props) {
     setDisplaySignUp(false);
     setDisplayLogIn(true);
   };
-  const emailRef = useRef();
-  const { resetPassword } = useAuth();
+  // const emailRef = useRef();
+  // const { resetPassword } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      setError("");
-      setLoading(true);
-      await resetPassword(emailRef.current.value);
-      setIsLoggedIn(true);
-      alert("Check your inbox for further instructions.");
-    } catch {
-      setError("Failed to reset password.");
-    }
-    setLoading(false);
-  }
+  const [message, setMessage] = useState("");
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   try {
+  //     setError("");
+  //     setLoading(true);
+  //     await resetPassword(emailRef.current.value);
+  //     message("Check your inbox for further instructions.");
+  //   } catch {
+  //     setError("Failed to reset password.");
+  //   }
+  //   setLoading(false);
+  // }
 
   return (
     <div className="signUpContainerOutside">
@@ -61,11 +61,12 @@ function LogIn(props) {
             </div>
             <div className="signUpButtons signInInputContainer">
               {error && <div>{error}</div>}
-              <form onSubmit={handleSubmit}>
+              {message && <div>{message}</div>}
+              <form>
                 <div className="signUpInputContainer" id="email">
                   <input
                     type="email"
-                    ref={emailRef}
+                    // ref={emailRef}
                     required
                     placeholder="EMAIL"
                   />
@@ -78,10 +79,10 @@ function LogIn(props) {
               </form>
               <div className="altLogin">
                 <div className="newToRed">
-                  <a href="" onClick={() => logIn()}>
+                  <a href="#" onClick={() => logIn()}>
                     LOG IN
                   </a>{" "}
-                  <a href="" onClick={() => signUp()}>
+                  <a href="#" onClick={() => signUp()}>
                     SIGN UP
                   </a>
                 </div>

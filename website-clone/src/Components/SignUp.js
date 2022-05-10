@@ -5,7 +5,7 @@ import Apple from "./img/Apple_logo_black.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import LogIn from "./LogIn";
-import { useAuth } from "./contexts/AuthContext";
+// import { useAuth } from "./contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 function SignUp(props) {
@@ -21,32 +21,32 @@ function SignUp(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const { signup } = useAuth();
+  // const [error, setError] = useState("");
+  // const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match.");
-    }
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+  //     return setError("Passwords do not match.");
+  //   }
 
-    try {
-      setError("");
-      setLoading(true);
-      await signup(
-        emailRef.current.value,
-        passwordRef.current.value,
-        passwordConfirmRef.current.value
-      );
-      navigate("/", { replace: true });
-    } catch {
-      setError("Failed to create an account");
-    }
-    setLoading(false);
-  }
-  console.log(error);
+  //   try {
+  //     setError("");
+  //     setLoading(true);
+  //     await signup(
+  //       emailRef.current.value,
+  //       passwordRef.current.value,
+  //       passwordConfirmRef.current.value
+  //     );
+  //     navigate("/", { replace: true });
+  //   } catch {
+  //     setError("Failed to create an account");
+  //   }
+  //   setLoading(false);
+  // }
+  // console.log(error);
   return (
     <div className="signUpContainerOutside">
       {!displayLogIn ? (
@@ -97,12 +97,12 @@ function SignUp(props) {
                 <span className="spacerSpan"></span>
               </div>
               {/* {currentUser && currentUser.email} */}
-              {error && <div>{error}</div>}
-              <form onSubmit={handleSubmit}>
+              {/* {error && <div>{error}</div>} */}
+              <form>
                 <div className="signUpInputContainer" id="email">
                   <input
                     type="email"
-                    ref={emailRef}
+                    // ref={emailRef}
                     required
                     placeholder="EMAIL"
                   />
@@ -113,7 +113,7 @@ function SignUp(props) {
                     minLength={6}
                     maxLength={16}
                     type="password"
-                    ref={passwordRef}
+                    // ref={passwordRef}
                     required
                     placeholder="PASSWORD"
                   />
@@ -125,7 +125,7 @@ function SignUp(props) {
                     minLength={6}
                     maxLength={16}
                     type="password"
-                    ref={passwordConfirmRef}
+                    // ref={passwordConfirmRef}
                     required
                     placeholder="CONFIRM PASSWORD"
                   />
@@ -133,9 +133,7 @@ function SignUp(props) {
                 {/* </form> */}
 
                 <div className="signUpButtonContinue">
-                  <button type="submit" disabled={loading}>
-                    Continue
-                  </button>
+                  <button type="submit">Continue</button>
                 </div>
               </form>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useAuth } from "./contexts/AuthContext";
+// import { useAuth } from "./contexts/AuthContext";
 // import "../styleSheet4.css";
 import G from "./img/googleG.png";
 import Apple from "./img/Apple_logo_black.svg";
@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import ForgotPassword from "./ForgotPassword";
+import { auth, provider } from "../firebase";
+import { signInWithPopup } from "firebase/auth";
 function LogIn(props) {
   let {
     setDisplayLogIn,
@@ -29,29 +31,18 @@ function LogIn(props) {
     setDisplayForgotPw(!displayForgotPw);
   };
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const { login } = useAuth();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  // const [error, setError] = useState("");
+  // const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  let navigate = useNavigate();
 
-    try {
-      setError("");
-      setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/", { replace: true });
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider).then((result) => {
       setIsLoggedIn(true);
-    } catch {
-      setError("Failed to log in");
-    }
-
-    setLoading(false);
-  }
-
+      localStorage.setItem("isAuth", true);
+      navigate("/");
+    });
+  };
   return (
     <div className="signUpContainerOutside">
       <div className="signUpContainer">
@@ -73,7 +64,14 @@ function LogIn(props) {
                     <div className="googleIco">
                       <img src={G} alt="" />
                     </div>
-                    <span>Continue with Google</span>
+                    <span>
+                      <button
+                        onClick={signInWithGoogle}
+                        className="login-with-google-btn"
+                      >
+                        Continue with Google
+                      </button>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -92,14 +90,14 @@ function LogIn(props) {
                 <span className="spacerText">OR</span>
                 <span className="spacerSpan"></span>
               </div>
-              {error && <div>{error}</div>}
-              <form onSubmit={handleSubmit}>
+              {/* {error && <div>{error}</div>} */}
+              <form>
                 <div className="signUpInputContainer" id="email">
                   <input
                     type="email"
-                    ref={emailRef}
+                    // ref={emailRef}
                     required
-                    placeholder="EMAIL"
+                    placeholder="EMAIL (only google button works)"
                   />
                 </div>
                 {/* <form > */}
@@ -108,16 +106,14 @@ function LogIn(props) {
                     minLength={6}
                     maxLength={16}
                     type="password"
-                    ref={passwordRef}
+                    // ref={passwordRef}
                     required
                     placeholder="PASSWORD"
                   />
                 </div>
                 {/* </form> */}
                 <div className="signUpButtonContinue">
-                  <button type="submit" disabled={loading}>
-                    Continue
-                  </button>
+                  <button type="submit">Continue</button>
                 </div>
               </form>
               <div className="altLogin">
