@@ -77,7 +77,10 @@ function App() {
               }
             />
           )}
-          <Route path="createpost" element={<CreatePost />} />
+          <Route
+            path="createpost"
+            element={<CreatePost isLoggedIn={isLoggedIn} />}
+          />
           <Route path="communitycreated" element={<CommunityCreated />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="userSettings" element={<UserSettings />} />

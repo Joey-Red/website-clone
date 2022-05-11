@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-// import "../styleSheet2.css";
-// import "../styleSheet3.css";
+import React, { useState, useEffect } from "react";
 import {
   faAngleDown,
   faCircle,
@@ -17,8 +15,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextEditorDRAFTJSCreatePost from "./TextEditorDRAFTJSCreatePost";
-function CreatePost() {
+import { useNavigate } from "react-router-dom";
+import { addDoc, collection, getDocs, doc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import NewCommunity from "./NewCommunity";
+function CreatePost(props) {
+  const { isLoggedIn } = props;
+
   let [showNewCom, setShowNewCom] = useState(false);
+  let [postingToCom, setPostingToCom] = useState("");
+  let [postToComId, setPostToComId] = useState("");
+  let [postBody, setPostBody] = useState("");
+  const [communities, setCommunities] = useState([]);
+  const [postTitle, setPostTitle] = useState("");
+
   let dropDownClick = () => {
     let target = document.querySelector(".dropDownContainer");
     if (target.style.display === "flex") {
@@ -34,104 +44,54 @@ function CreatePost() {
       setShowNewCom(false);
     }
   };
-  let hideCreate = () => {
-    setShowNewCom(false);
+
+  let createDay = new Date();
+  createDay.getDay();
+  let dateString = createDay.toDateString();
+  let modifiedDate = dateString.slice(4);
+  let navigate = useNavigate();
+  const communitiesCollectionRef = collection(db, "communities");
+
+  // console.log(typeof postingToCom);
+
+  // const postToComRef = doc(db, "communities", postingToCom);
+  const postToComRef = doc(db, "communities", "postingToCom");
+  const submitPost = async () => {
+    await addDoc(postToComRef, {
+      postTitle,
+      postBody,
+      author: {
+        username: auth.currentUser.displayName,
+        id: auth.currentUser.uid,
+      },
+    });
+    navigate("/");
   };
-  function NewCommunity() {
-    return (
-      <div className="blackScreen">
-        <div className="newComContainer">
-          <div className="ccHeader">
-            <h1>Create a community</h1>
-          </div>
-          <div className="ccInfoContainer">
-            <div className="ccNameInfo">
-              <div className="ccName">
-                <p className="ccNameSpan">Name</p>
-                <span className="nameInfo">
-                  Community names cannot be changed.
-                </span>
-                <span className="ccrPlaceholder">r/</span>
-                <input type="text" name="" id="ccNameInput" maxLength={21} />
-              </div>
-            </div>
-            <div className="ccComType">
-              <div>
-                <input type="radio" value="" defaultChecked id="comType" />
-                <label htmlFor="comType">
-                  <FontAwesomeIcon
-                    icon={faPerson}
-                    className="ccFa"
-                  ></FontAwesomeIcon>
-                  Public
-                </label>
-                <div className="ccTypeInfo">
-                  Anyone can view, post and comment to this community
-                </div>
-              </div>
-              <div>
-                <input type="radio" value="" id="comTypeRestricted" />
-                <label htmlFor="comTypeRestricted">
-                  <FontAwesomeIcon
-                    icon={faEye}
-                    className="ccFa"
-                  ></FontAwesomeIcon>
-                  Restricted
-                </label>
-                <div className="ccTypeInfo">
-                  Anyone can view this community, but only approved users can
-                  post
-                </div>
-              </div>
-              <div>
-                <input type="radio" value="" id="comTypePrivate" />
-                <label htmlFor="comTypePrivate">
-                  <FontAwesomeIcon
-                    icon={faLock}
-                    className="ccFa"
-                  ></FontAwesomeIcon>
-                  Private
-                </label>
-                <div className="ccTypeInfo">
-                  Only approved users can view and submit to this community
-                </div>
-              </div>
-              <div>
-                <input type="radio" value="" id="ccNotice" />
-                <label htmlFor="ccNotice">
-                  <FontAwesomeIcon
-                    icon={faBullhorn}
-                    className="ccFa"
-                  ></FontAwesomeIcon>
-                  <p className="ccNotice">Notice</p>
-                </label>
-                <div className="ccTypeInfo">
-                  All Communities are treated as public.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="ccFooter">
-            <div className="ccButtonContainer">
-              <button
-                onClick={() => {
-                  hideCreate();
-                }}
-                className="ccCancelButton"
-              >
-                Cancel
-              </button>
-              {/* create community needs to load to see if it was a success, then link to r/newcomname */}
-              <button className="ccCreateButton">Create Community</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // here^
+  // really need to figure out how to create a collection of posts
+  // when you create a new community thats the key here,
+  // then i can create a dynamic reference
+  // also need to figure out this loop issue at some point
+  // lastly, need to get texteditorbody state somehow, maybe through props?
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/");
+    } else {
+    }
+  }, []);
+  useEffect(() => {
+    let getPosts = async () => {
+      const data = await getDocs(communitiesCollectionRef);
+      setCommunities(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getPosts();
+  }, []);
+  // This loop is killing me. it has to refresh ..
   return (
     <div className="createPostContainer">
-      {showNewCom ? <NewCommunity /> : null}
+      {showNewCom ? (
+        <NewCommunity setShowNewCom={setShowNewCom} showNewCom={showNewCom} />
+      ) : null}
       <div className="createPost-x1">
         <div className="createPost-x2">
           <div className="createPostHeaderContainer">
@@ -149,7 +109,11 @@ function CreatePost() {
                   <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon>
                 </span>
                 <div className="inputCommunity">
-                  <input type="text" placeholder="Choose a community" />
+                  {postingToCom !== "" ? (
+                    postingToCom
+                  ) : (
+                    <input type="text" placeholder="Choose a community" />
+                  )}
                 </div>
                 <div
                   className="dropDownCommunity"
@@ -160,7 +124,7 @@ function CreatePost() {
                   <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
                   <div className="dropDownContainer">
                     <div className="yourComStyle">
-                      <span>YOUR COMMUNITIES</span>
+                      <span>COMMUNITIES</span>
                       <div>
                         <button
                           onClick={() => {
@@ -171,136 +135,32 @@ function CreatePost() {
                         </button>
                       </div>
                     </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/tech</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/gaming</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
-                    <div className="indComStyle">
-                      <img
-                        src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
-                        alt=""
-                      />
-                      <div className="flexSpans">
-                        <span className="liSubName">r/sports</span>
-                        <span className="liSubMemberCount">1000 Members</span>
-                      </div>
-                    </div>
+                    {communities.map((post) => {
+                      return (
+                        <div
+                          key={post.id}
+                          onClick={() => {
+                            setPostingToCom(post.communityName);
+                            setPostToComId(post.id);
+                          }}
+                        >
+                          <div className="indComStyle">
+                            <img
+                              src="https://styles.redditmedia.com/t5_3ofro/styles/communityIcon_hx4thg2ikey71.png"
+                              alt=""
+                            />
+                            <div className="flexSpans">
+                              <span className="liSubName">
+                                r/{post.communityName}
+                              </span>
+                              <span className="liSubMemberCount">
+                                # Members
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -352,10 +212,17 @@ function CreatePost() {
                       maxLength="300"
                       placeholder="Title"
                       className="titleTextArea"
+                      onChange={(e) => {
+                        setPostTitle(e.target.value);
+                      }}
                     ></textarea>
                   </div>
                 </div>
-                <TextEditorDRAFTJSCreatePost />
+                <TextEditorDRAFTJSCreatePost
+                  onChange={(e) => {
+                    setPostBody(e.target.value);
+                  }}
+                />
                 <div className="textFormattingButtonsContainer">
                   <div className="textFormattingButtonsContainer-x1">
                     <div className="tagAndSubmit">
@@ -395,7 +262,7 @@ function CreatePost() {
 
                       <div className="draftOrSubmit">
                         <div className="postSubmitButton">
-                          <button>Post</button>
+                          <button onClick={() => submitPost()}>Post</button>
                         </div>
                         <div className="saveDraft">
                           <button>Save Draft</button>
