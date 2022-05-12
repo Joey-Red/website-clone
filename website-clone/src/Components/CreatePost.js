@@ -16,12 +16,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextEditorDRAFTJSCreatePost from "./TextEditorDRAFTJSCreatePost";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection, getDocs, doc } from "firebase/firestore";
+import { addDoc, collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import NewCommunity from "./NewCommunity";
+import uniqid from "uniqid";
 function CreatePost(props) {
   const { isLoggedIn } = props;
-
+  let postId = uniqid();
   let [showNewCom, setShowNewCom] = useState(false);
   let [postingToCom, setPostingToCom] = useState("");
   let [postToComId, setPostToComId] = useState("");
@@ -54,10 +55,14 @@ function CreatePost(props) {
 
   // console.log(typeof postingToCom);
 
-  // const postToComRef = doc(db, "communities", postingToCom);
-  const postToComRef = doc(db, "communities", "postingToCom");
+  // const postToComRef = doc(db, "communities", postingToCom, "posts", postId);
+  // const postToComRef = db
+  //   .collection("communities")
+  //   .doc(postingToCom)
+  //   .collection(postingToCom + 'Collection')
+  //   .doc({})
   const submitPost = async () => {
-    await addDoc(postToComRef, {
+    await setDoc(doc(db, "communities", postingToCom, "posts", postId), {
       postTitle,
       postBody,
       author: {
@@ -67,6 +72,7 @@ function CreatePost(props) {
     });
     navigate("/");
   };
+  // so were really close, communities create and a post is made in them with a collection. but something messed up and is not letting me render, if i can figure this out i think we are 90% there.
   // here^
   // really need to figure out how to create a collection of posts
   // when you create a new community thats the key here,
@@ -136,6 +142,7 @@ function CreatePost(props) {
                       </div>
                     </div>
                     {communities.map((post) => {
+                      console.log(post);
                       return (
                         <div
                           key={post.id}

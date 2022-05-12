@@ -24,6 +24,7 @@ function NewCommunity(props) {
     });
     setShowNewCom(false);
   };
+
   let createDay = new Date();
   createDay.getDay();
   let dateString = createDay.toDateString();
