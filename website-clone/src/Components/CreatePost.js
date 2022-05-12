@@ -52,7 +52,12 @@ function CreatePost(props) {
   let modifiedDate = dateString.slice(4);
   let navigate = useNavigate();
   const communitiesCollectionRef = collection(db, "communities");
-
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/");
+    } else {
+    }
+  }, []);
   // console.log(typeof postingToCom);
 
   // const postToComRef = doc(db, "communities", postingToCom, "posts", postId);
@@ -72,26 +77,18 @@ function CreatePost(props) {
     });
     navigate("/");
   };
-  // so were really close, communities create and a post is made in them with a collection. but something messed up and is not letting me render, if i can figure this out i think we are 90% there.
-  // here^
-  // really need to figure out how to create a collection of posts
-  // when you create a new community thats the key here,
-  // then i can create a dynamic reference
   // also need to figure out this loop issue at some point
   // lastly, need to get texteditorbody state somehow, maybe through props?
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/");
-    } else {
-    }
-  }, []);
+
   useEffect(() => {
     let getPosts = async () => {
       const data = await getDocs(communitiesCollectionRef);
       setCommunities(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getPosts();
+    console.log(communities);
   }, []);
+
   // This loop is killing me. it has to refresh ..
   return (
     <div className="createPostContainer">
@@ -141,8 +138,8 @@ function CreatePost(props) {
                         </button>
                       </div>
                     </div>
+
                     {communities.map((post) => {
-                      console.log(post);
                       return (
                         <div
                           key={post.id}

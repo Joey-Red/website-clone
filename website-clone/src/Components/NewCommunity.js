@@ -13,6 +13,14 @@ function NewCommunity(props) {
   const { showNewCom, setShowNewCom } = props;
   let [communityName, setCommunityName] = useState("");
   const communityCollectionRef = collection(db, "communities");
+
+  let createDay = new Date();
+  createDay.getDay();
+  let dateString = createDay.toDateString();
+  let modifiedDate = dateString.slice(4);
+  let hideCreate = () => {
+    setShowNewCom(false);
+  };
   const createCommunity = async () => {
     await addDoc(communityCollectionRef, {
       communityName,
@@ -22,14 +30,6 @@ function NewCommunity(props) {
         id: auth.currentUser.uid,
       },
     });
-    setShowNewCom(false);
-  };
-
-  let createDay = new Date();
-  createDay.getDay();
-  let dateString = createDay.toDateString();
-  let modifiedDate = dateString.slice(4);
-  let hideCreate = () => {
     setShowNewCom(false);
   };
   return (

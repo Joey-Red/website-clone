@@ -18,7 +18,6 @@ class TextEditorDRAFTJS extends React.Component {
 
     // this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({ editorState });
-
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
     this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
     this.toggleBlockType = this._toggleBlockType.bind(this);
