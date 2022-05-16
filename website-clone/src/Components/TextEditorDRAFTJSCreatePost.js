@@ -10,6 +10,7 @@ import {
   faListOl,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { stateToHTML } from "draft-js-export-html";
 
 class TextEditorDRAFTJS extends React.Component {
   constructor(props) {
@@ -17,7 +18,10 @@ class TextEditorDRAFTJS extends React.Component {
     this.state = { editorState: EditorState.createEmpty() };
 
     // this.focus = () => this.refs.editor.focus();
-    this.onChange = (editorState) => this.setState({ editorState });
+    this.onChange = (editorState) => {
+      this.setState({ editorState });
+      this.props.handleEditor(stateToHTML(editorState.getCurrentContent()));
+    };
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
     this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
     this.toggleBlockType = this._toggleBlockType.bind(this);

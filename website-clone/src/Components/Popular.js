@@ -12,6 +12,8 @@ function Popular(props) {
     isLoggedIn,
     displayCreatePost,
     setDisplayCreatePost,
+    communities,
+    setCommunities,
   } = props;
   // let createPost = () => {
   //   setDisplayCreatePost(!displayCreatePost);
@@ -30,6 +32,8 @@ function Popular(props) {
             postPopUp={postPopUp}
             setPostPopUp={setPostPopUp}
             isLoggedIn={isLoggedIn}
+            communities={communities}
+            setCommunities={setCommunities}
           />
         </div>
         <TopXComs />

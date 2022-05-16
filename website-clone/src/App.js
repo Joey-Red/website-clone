@@ -25,6 +25,7 @@ function App() {
   const [displayForgotPw, setDisplayForgotPw] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isAuth"));
   const [postPopUp, setPostPopUp] = useState(false);
+  const [communities, setCommunities] = useState([]);
   return (
     <>
       <Router>
@@ -57,6 +58,8 @@ function App() {
                     postPopUp={postPopUp}
                     setPostPopUp={setPostPopUp}
                     isLoggedIn={isLoggedIn}
+                    communities={communities}
+                    setCommunities={setCommunities}
                   />
                 </Fragment>
               }
@@ -72,6 +75,8 @@ function App() {
                     postPopUp={postPopUp}
                     setPostPopUp={setPostPopUp}
                     isLoggedIn={isLoggedIn}
+                    communities={communities}
+                    setCommunities={setCommunities}
                   />
                 </Fragment>
               }
@@ -79,7 +84,13 @@ function App() {
           )}
           <Route
             path="createpost"
-            element={<CreatePost isLoggedIn={isLoggedIn} />}
+            element={
+              <CreatePost
+                isLoggedIn={isLoggedIn}
+                communities={communities}
+                setCommunities={setCommunities}
+              />
+            }
           />
           <Route path="communitycreated" element={<CommunityCreated />} />
           <Route path="profile" element={<ProfilePage />} />

@@ -1,4 +1,4 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import React, { useState, useEffect } from "react";
 import {
@@ -21,8 +21,21 @@ function NewCommunity(props) {
   let hideCreate = () => {
     setShowNewCom(false);
   };
+  // const createCommunity = async () => {
+  //   await addDoc(communityCollectionRef, {
+  //     communityName,
+  //     creationDate: modifiedDate,
+  //     author: {
+  //       username: auth.currentUser.displayName,
+  //       id: auth.currentUser.uid,
+  //     },
+  //   });
+  //   setShowNewCom(false);
+  // };
+  // do some sort of blend btw these two in order for this to work, maybe the first one then the bottom one!?!?!?!!?!
   const createCommunity = async () => {
-    await addDoc(communityCollectionRef, {
+    // if community doesnt exist create it
+    await setDoc(doc(db, "communities", communityName), {
       communityName,
       creationDate: modifiedDate,
       author: {
@@ -30,8 +43,14 @@ function NewCommunity(props) {
         id: auth.currentUser.uid,
       },
     });
+    await setDoc(doc(db, "communities", communityName, "posts", "firstPost"), {
+      firstPost: {
+        username: auth.currentUser.displayName,
+      },
+    });
     setShowNewCom(false);
   };
+
   return (
     <div className="blackScreen">
       <div className="newComContainer">

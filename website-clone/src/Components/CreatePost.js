@@ -21,15 +21,18 @@ import { auth, db } from "../firebase";
 import NewCommunity from "./NewCommunity";
 import uniqid from "uniqid";
 function CreatePost(props) {
-  const { isLoggedIn } = props;
+  const { isLoggedIn, communities, setCommunities } = props;
   let postId = uniqid();
   let [showNewCom, setShowNewCom] = useState(false);
   let [postingToCom, setPostingToCom] = useState("");
   let [postToComId, setPostToComId] = useState("");
   let [postBody, setPostBody] = useState("");
-  const [communities, setCommunities] = useState([]);
+  // const [communities, setCommunities] = useState([]);
   const [postTitle, setPostTitle] = useState("");
-
+  const [draftjs, setDraftJS] = useState({ content: "" });
+  const handleEditor = (e) => {
+    setPostBody({ ...draftjs, content: e });
+  };
   let dropDownClick = () => {
     let target = document.querySelector(".dropDownContainer");
     if (target.style.display === "flex") {
@@ -58,6 +61,7 @@ function CreatePost(props) {
     } else {
     }
   }, []);
+  // console.log(postBody, postTitle);
   // console.log(typeof postingToCom);
 
   // const postToComRef = doc(db, "communities", postingToCom, "posts", postId);
@@ -81,13 +85,13 @@ function CreatePost(props) {
   // lastly, need to get texteditorbody state somehow, maybe through props?
 
   useEffect(() => {
-    let getPosts = async () => {
-      const data = await getDocs(communitiesCollectionRef);
+    let getCommunities = async () => {
+      const data = await getDocs(collection(db, "communities"));
       setCommunities(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    getPosts();
-    console.log(communities);
+    getCommunities();
   }, []);
+  // console.log(communities);
 
   // This loop is killing me. it has to refresh ..
   return (
@@ -222,11 +226,9 @@ function CreatePost(props) {
                     ></textarea>
                   </div>
                 </div>
-                <TextEditorDRAFTJSCreatePost
-                  onChange={(e) => {
-                    setPostBody(e.target.value);
-                  }}
-                />
+                <div>
+                  <TextEditorDRAFTJSCreatePost handleEditor={handleEditor} />
+                </div>
                 <div className="textFormattingButtonsContainer">
                   <div className="textFormattingButtonsContainer-x1">
                     <div className="tagAndSubmit">
