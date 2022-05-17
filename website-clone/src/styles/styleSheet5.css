@@ -726,3 +726,10 @@ p {
 .googleButtonFlex button:hover {
   cursor: pointer;
 }
+
+#esSpace {
+  margin-left: 4px;
+}
+.postTitle h3 {
+  margin-left: 8px;
+}

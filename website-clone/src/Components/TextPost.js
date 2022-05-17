@@ -15,10 +15,12 @@ function TextPost(props) {
   let openPost = () => {
     setPostPopUp(true);
   };
+  // console.log(props);
   return (
     <>
       {/* {postPopUp ? (
         <PostFullPage
+          key={props.id}
           postPopUp={postPopUp}
           setPostPopUp={setPostPopUp}
           postSub={props.postSub}
@@ -26,6 +28,8 @@ function TextPost(props) {
           comments={props.comments}
           likes={props.likes}
           username={props.username}
+          postBody={props.content}
+          isLoggedIn={props.isLoggedIn}
         />
       ) : null} */}
       <div className="outerPostContainer" onClick={() => openPost()}>
@@ -60,7 +64,9 @@ function TextPost(props) {
                       {props.postSub}
                     </a>
                   </div>
-                  <span className="extraSpans">•</span>
+                  <span className="extraSpans" id="esSpace">
+                    •
+                  </span>
                   <span className="extraSpans">Posted by</span>
                   <div className="posterName">
                     <div>
@@ -73,7 +79,7 @@ function TextPost(props) {
                   <span className="timeStamp">
                     <a href="#">
                       {/* posted X time ago */}
-                      10 Hours ago
+                      {props.postDate}
                     </a>
                   </span>
                 </div>

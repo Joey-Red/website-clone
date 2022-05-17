@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import TextPost from "./TextPost";
 import PostFullPage from "./PostFullPage";
 import { db, auth } from "../firebase";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  deleteDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 
 // const postsRef = collection(db, 'posts');
 
@@ -27,103 +34,67 @@ let postData2 = {
 function PopularFeed(props) {
   const { postPopUp, setPostPopUp, isLoggedIn, communities, setCommunities } =
     props;
-  const [postList, setPostList] = useState([]);
-  const [tempCom, setTempCom] = useState([]);
   const [livePostList, setLivePostList] = useState([]);
-  const [loadCount, setLoadCount] = useState(0);
-  const postArray = [];
-  // const postsCollectionRef = collection(db, "posts");
-
-  // Maybe do a loop returning like 10 posts or something
-  const loadPosts = () => {
-    setLoadCount(loadCount + 1);
-    console.log(loadCount);
-  };
+  const [fpPostId, setFpPostId] = useState("");
+  const [currentPost, setCurrentPost] = useState([]);
   useEffect(() => {
-    let getComs = async () => {
-      const getColList = await getDocs(collection(db, "communities"));
-      setTempCom(getColList.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      // So I need to get the list of communities, DONE-
-      setCommunities(tempCom.map((com) => com.id));
-
-      /*
-      DO NOT CHANGE
-      // const postList = await getDocs(
-      //   collection(db, "communities", communities[1], "posts")
-      // );
-      // console.log(
-      //   postList.docs[1]._document.data.value.mapValue.fields.postTitle
-      // ); this successfully pulls title
-      DO NOT CHANGE
-      */
-
-      // get into them,grab posts,
-      for (let i = 0; i < communities.length; i++) {
-        const postList = await getDocs(
-          collection(db, "communities", communities[i], "posts")
-        );
-        for (let j = 0; j < postList.docs.length; j++) {
-          //Checking to see if the post is the first one made in the community
-          //Because firebase requires a field in order to be read, so upon community creation
-          //A post is made with a property "firstPost"
-          if (
-            postList.docs[
-              j
-            ]._document.data.value.mapValue.fields.hasOwnProperty("firstPost")
-          ) {
-            continue;
-          } else {
-            postArray.push(
-              postList.docs[j]._document.data.value.mapValue.fields
-            );
-            // console.log(postArray.docs[1]._document.data.value.mapValue.fields);
-          }
-        }
-      }
-      // console.log(livePostList);
-
-      // display post info
+    let getPosts = async () => {
+      const data = await getDocs(collection(db, "posts"));
+      setLivePostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    getComs();
-  }, [loadCount]);
-
+    getPosts();
+  }, []);
+  // console.log(livePostList);
+  // onClick={() => setPostId(post.id)}
+  // const setPostId = (id) => {
+  //   setFpPostId(id);
+  //   let getPost = async () => {
+  //     const data = await getDocs(collection(db, "posts", fpPostId, fpPostId));
+  //     setCurrentPost(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //     console.log(fpPostId);
+  //   };
+  //   getPost();
+  //   setFpPostId("");
+  // };
   return (
     <>
-      <button onClick={() => loadPosts()}>Load More Posts</button>
-      {postArray.map((post) => {
+      {livePostList.map((post) => {
         return (
-          <TextPost
-            key={post.id}
+          <div key={post.id}>
+            <TextPost
+              postPopUp={postPopUp}
+              setPostPopUp={setPostPopUp}
+              postSub={post.communityName.postingToCom}
+              postTitle={post.postTitle}
+              comments={postData2.comments}
+              likes={postData2.likes}
+              username={post.author.username}
+              postBody={post.postBody.content}
+              postDate={post.author.postDate}
+              isLoggedIn={isLoggedIn}
+            />
+          </div>
+        );
+      })}
+      {/* onclick take post.id and fetch it :) */}
+      {currentPost.map((post) => {
+        return postPopUp ? (
+          <PostFullPage
             postPopUp={postPopUp}
             setPostPopUp={setPostPopUp}
-            postSub={postData2.postSub}
-            postTitle={post.postTitle.stringValue}
+            postSub={post.communityName.postingToCom}
+            postTitle={post.postTitle}
             comments={postData2.comments}
             likes={postData2.likes}
-            username={post.author.mapValue.fields.username.stringValue}
-            postBody={post.postBody.mapValue.fields.content.stringValue}
+            username={post.author.username}
+            postBody={post.postBody.content}
+            postDate={post.author.postDate}
+            isLoggedIn={isLoggedIn}
           />
-        );
+        ) : null;
       })}
     </>
   );
 }
 
 export default PopularFeed;
-
-// {
-//   postPopUp ? (
-//     <PostFullPage
-//       isLoggedIn={isLoggedIn}
-//       key={post.id}
-//       postPopUp={postPopUp}
-//       setPostPopUp={setPostPopUp}
-//       postSub={postData2.postSub}
-//       postTitle={post.title}
-//       comments={postData2.comments}
-//       likes={postData2.likes}
-//       username={post.author.username}
-//       postBody={post.body}
-//     />
-//   ) : null;
-// }

@@ -13,7 +13,9 @@ function TopInfoContainer(props) {
             <div className="subName">
               <a href="#">{props.postSub}</a>
             </div>
-            <span className="extraSpans">•</span>
+            <span className="extraSpans" id="esSpace">
+              •
+            </span>
             <span className="extraSpans">Posted by</span>
             <div className="posterName">
               <div>

@@ -43,11 +43,6 @@ function NewCommunity(props) {
         id: auth.currentUser.uid,
       },
     });
-    await setDoc(doc(db, "communities", communityName, "posts", "firstPost"), {
-      firstPost: {
-        username: auth.currentUser.displayName,
-      },
-    });
     setShowNewCom(false);
   };
 

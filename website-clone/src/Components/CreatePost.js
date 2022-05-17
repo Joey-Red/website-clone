@@ -71,12 +71,14 @@ function CreatePost(props) {
   //   .collection(postingToCom + 'Collection')
   //   .doc({})
   const submitPost = async () => {
-    await setDoc(doc(db, "communities", postingToCom, "posts", postId), {
+    await setDoc(doc(db, "posts", postId), {
       postTitle,
       postBody,
+      communityName: { postingToCom },
       author: {
         username: auth.currentUser.displayName,
         id: auth.currentUser.uid,
+        postDate: modifiedDate,
       },
     });
     navigate("/");
@@ -90,7 +92,8 @@ function CreatePost(props) {
       setCommunities(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getCommunities();
-  }, []);
+    console.log("test");
+  }, [showNewCom]);
   // console.log(communities);
 
   // This loop is killing me. it has to refresh ..
