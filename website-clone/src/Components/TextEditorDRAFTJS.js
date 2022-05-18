@@ -17,7 +17,7 @@ class TextEditorDRAFTJS extends React.Component {
     super(props);
     this.state = { editorState: EditorState.createEmpty() };
 
-    this.focus = () => this.refs.editor.focus();
+    // this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({ editorState });
 
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
@@ -76,7 +76,7 @@ class TextEditorDRAFTJS extends React.Component {
     return (
       <div className="richEditCenter">
         <div className="RichEditor-root extraStyles">
-          <div className={className} onClick={this.focus}>
+          <div className={className}>
             <Editor
               blockStyleFn={getBlockStyle}
               customStyleMap={styleMap}

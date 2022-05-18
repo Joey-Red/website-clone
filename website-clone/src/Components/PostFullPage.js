@@ -9,7 +9,7 @@ import UpDownVotes from "./commentContainerComponents/UpDownVotes";
 import TopInfoContainer from "./commentContainerComponents/TopInfoContainer";
 function PostFullPage(props) {
   let { setPostPopUp, isLoggedIn } = props;
-  console.log("peepoLoggedIn?" + isLoggedIn);
+  // console.log("peepoLoggedIn?" + isLoggedIn);
   let closePost = () => {
     setPostPopUp(false);
   };

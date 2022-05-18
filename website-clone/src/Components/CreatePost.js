@@ -80,6 +80,10 @@ function CreatePost(props) {
         id: auth.currentUser.uid,
         postDate: modifiedDate,
       },
+      stats: {
+        comments: 0,
+        votes: 1,
+      },
     });
     navigate("/");
   };
