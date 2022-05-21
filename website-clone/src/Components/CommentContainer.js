@@ -1,8 +1,14 @@
 import React from "react";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { Markup, Interweave, Node } from "interweave";
 function CommentContainer(props) {
+  const { commentBody } = props;
+  // function transform(node, { commentBody }) {
+  //   if (node.tagName === "p") {
+  //     return <div>{commentBody}</div>;
+  //   }
+  // }
   return (
     <div className="commentContainerCenter">
       <div className="commentContainer">
@@ -34,7 +40,15 @@ function CommentContainer(props) {
           </div>
           <div className="commenterUserName">{props.username}</div>
         </div>
-        <div className="commentTextContent">{props.commentBody}</div>
+        {/* <div className="commentTextContent"> */}
+        <Markup
+          blockList={"p"}
+          content={props.commentBody}
+          className="commentTextContent"
+        />
+        {/* <div>{props.commentBody}</div> */}
+        {/* </div> */}
+        {/* <Interweave transform={transform} /> */}
         <div className="commentUpVoteContainer">
           <button className="upVote">
             <span>

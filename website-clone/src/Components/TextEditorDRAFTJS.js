@@ -1,6 +1,7 @@
 import React from "react";
 import { Editor, EditorState, RichUtils, getDefaultKeyBinding } from "draft-js";
 import "draft-js/dist/Draft.css";
+import { stateToHTML } from "draft-js-export-html";
 import {
   faBold,
   faItalic,
@@ -18,14 +19,24 @@ class TextEditorDRAFTJS extends React.Component {
     this.state = { editorState: EditorState.createEmpty() };
 
     // this.focus = () => this.refs.editor.focus();
-    this.onChange = (editorState) => this.setState({ editorState });
-
+    this.onChange = (editorState) => {
+      this.props.handleEditor(stateToHTML(editorState.getCurrentContent()));
+      this.setState({ editorState });
+    };
+    // this.onClick = (submitCommentState) => {
+    //   this.setState(submitCommentState)
+    // };
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
+    // this.submitComment = this.submitComment.bind(this);
+    // this.submitCommentState = false;
     this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
     this.toggleBlockType = this._toggleBlockType.bind(this);
     this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
   }
-
+  // submitComment() {
+  //   console.log("peepoSubmit");
+  //   // this.submitCommentState(true);
+  // }
   _handleKeyCommand(command, editorState) {
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
@@ -98,7 +109,9 @@ class TextEditorDRAFTJS extends React.Component {
               editorState={editorState}
               onToggle={this.toggleBlockType}
             />
-            <button className="submitComment">Comment</button>
+            {/* <button className="submitComment" onClick={this.submitComment}>
+              Comment
+            </button> */}
           </div>
         </div>
       </div>
@@ -158,16 +171,16 @@ class StyleButton extends React.Component {
 }
 
 const BLOCK_TYPES = [
-  {
-    label: <FontAwesomeIcon icon={faList}></FontAwesomeIcon>,
-    style: "unordered-list-item",
-    keyType: 3,
-  },
-  {
-    label: <FontAwesomeIcon icon={faListOl}></FontAwesomeIcon>,
-    style: "ordered-list-item",
-    keyType: 4,
-  },
+  // {
+  //   label: <FontAwesomeIcon icon={faList}></FontAwesomeIcon>,
+  //   style: "unordered-list-item",
+  //   keyType: 3,
+  // },
+  // {
+  //   label: <FontAwesomeIcon icon={faListOl}></FontAwesomeIcon>,
+  //   style: "ordered-list-item",
+  //   keyType: 4,
+  // },
   {
     label: <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>,
     style: "code-block",

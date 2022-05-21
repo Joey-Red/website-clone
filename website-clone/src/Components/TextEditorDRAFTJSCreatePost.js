@@ -133,7 +133,7 @@ class StyleButton extends React.Component {
   }
 
   render() {
-    let className = "RichEditor-styleButton";
+    let className = "RichEditor-styleButton sbEdit";
     if (this.props.active) {
       className += " RichEditor-activeButton";
       return (

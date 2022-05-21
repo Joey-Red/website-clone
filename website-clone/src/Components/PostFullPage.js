@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { faArrowUp, faArrowDown, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import "../styleSheet5.css";
@@ -7,23 +7,67 @@ import CommentContainer from "./CommentContainer";
 import FPRightSide from "./commentContainerComponents/FPRightSide";
 import UpDownVotes from "./commentContainerComponents/UpDownVotes";
 import TopInfoContainer from "./commentContainerComponents/TopInfoContainer";
+import { setSelectionRange } from "@testing-library/user-event/dist/utils";
+import { addDoc, collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import uniqid from "uniqid";
+import { Editor } from "draft-js";
 function PostFullPage(props) {
-  let { setPostPopUp, isLoggedIn } = props;
+  const [commentState, setCommentState] = useState("false");
+  const [draftjs, setDraftJS] = useState({ content: "" });
+  const [commentBody, setCommentBody] = useState("");
+  const [commentDisplayContainer, setCommentDisplayContainer] = useState([]);
+  // const [submitCommentState, setSubmitCommentState] = useState(false);
+  let { setPostPopUp, isLoggedIn, currCommentCount } = props;
   // console.log("peepoLoggedIn?" + isLoggedIn);
   let closePost = () => {
     setPostPopUp(false);
   };
-  let commentData = {
-    commentBody:
-      "I used to eat apples. I used to eat apples.I used to eat apples. I used to eat apples.",
-    likes: 100,
-    username: "just-a-dreamer",
+  // console.log(submitCommentState);
+  useEffect(() => {
+    if (currCommentCount > 0) {
+      setCommentState(true);
+    } else {
+      setCommentState(false);
+    }
+  }, []);
+  const handleEditor = (e) => {
+    setCommentBody({ ...draftjs, content: e });
   };
-  let commentData2 = {
-    commentBody: "lorem lorem.",
-    likes: 10,
-    username: "radGuy9",
+  let createDay = new Date();
+  createDay.getDay();
+  let dateString = createDay.toDateString();
+  let modifiedDate = dateString.slice(4);
+  // let postId = uniqid();
+  const submitComment = async () => {
+    await addDoc(collection(db, "posts", props.currPostId, "comments"), {
+      commentBody,
+      // communityName: { postingToCom },
+      author: {
+        username: auth.currentUser.displayName,
+        id: auth.currentUser.uid,
+        postDate: modifiedDate,
+      },
+      stats: {
+        // may have to map comments to get length for number rather than a formula
+        votes: 1,
+      },
+    });
   };
+
+  // useEffect(() => {
+  let getPosts = async () => {
+    const commentsDoc = await getDocs(
+      collection(db, "posts", props.currPostId, "comments")
+    );
+    setCommentDisplayContainer(
+      commentsDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    );
+  };
+  getPosts();
+
+  // ?^
+  // }, []);
   return (
     <div className="postFullScreenContainer">
       <div className="fullScreenPost">
@@ -55,7 +99,15 @@ function PostFullPage(props) {
                       </div>
                       <div className="holdsAllComments">
                         {isLoggedIn ? (
-                          <TextEditorDRAFTJS />
+                          <div className="commentButtonContainer">
+                            <TextEditorDRAFTJS handleEditor={handleEditor} />
+                            <button
+                              className="submitComment"
+                              onClick={() => submitComment()}
+                            >
+                              Comment
+                            </button>
+                          </div>
                         ) : (
                           <div className="logInToComment">
                             <span>Log in or sign up to leave a comment</span>
@@ -85,16 +137,19 @@ function PostFullPage(props) {
                             </div>
                           </div>
                         )}
-                        <CommentContainer
-                          username={commentData.username}
-                          likes={commentData.likes}
-                          commentBody={commentData.commentBody}
-                        />
-                        <CommentContainer
-                          username={commentData2.username}
-                          likes={commentData2.likes}
-                          commentBody={commentData2.commentBody}
-                        />
+                        {/* commentDisplayContainer.length > 0 */}
+                        {/* ?  */}
+                        {commentDisplayContainer.map((post) => {
+                          return (
+                            // <Editor readOnly={readOnly}/>
+                            <CommentContainer
+                              username={post.author.username}
+                              likes={post.stats.votes}
+                              commentBody={post.commentBody.content}
+                            />
+                          );
+                        })}
+                        {/* : null */}
                       </div>
                     </div>
                   </div>

@@ -44,7 +44,8 @@ function PopularFeed(props) {
   const [currPostTitle, setCurrPostTitle] = useState("");
   const [currVoteCount, setCurrVoteCount] = useState(1);
   const [currCommentCount, setCurrCommentCount] = useState(0);
-
+  const [currPostId, setCurrPostId] = useState("");
+  const [liveCommentList, setLiveCommentList] = useState([]);
   useEffect(() => {
     let getPosts = async () => {
       const data = await getDocs(collection(db, "posts"));
@@ -56,13 +57,19 @@ function PopularFeed(props) {
     let getPost = async () => {
       const postDoc = doc(db, "posts", id);
       const docSnap = await getDoc(postDoc);
-      // console.log(docSnap.data());
+      const commentsDoc = await getDocs(
+        collection(db, "posts", id, "comments")
+      );
       let data = docSnap.data();
       setCurrAuthor(data.author.username);
       setCurrPostDate(data.author.postDate);
       setCurrComName(data.communityName.postingToCom);
       setCurrPostBody(data.postBody.content);
       setCurrPostTitle(data.postTitle);
+      setCurrPostId(id);
+      setLiveCommentList(
+        commentsDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
     };
     getPost();
   };
@@ -77,8 +84,10 @@ function PopularFeed(props) {
               setPostPopUp={setPostPopUp}
               postSub={post.communityName.postingToCom}
               postTitle={post.postTitle}
-              comments={postData2.comments}
-              likes={postData2.likes}
+              comments={liveCommentList.length}
+              // comments={currCommentCount}
+              // will need changed^?
+              likes={post.stats.votes}
               username={post.author.username}
               postBody={post.postBody.content}
               postDate={post.author.postDate}
@@ -96,12 +105,14 @@ function PopularFeed(props) {
           setPostPopUp={setPostPopUp}
           postSub={currComName}
           postTitle={currPostTitle}
-          comments={postData2.comments}
-          likes={postData2.likes}
+          comments={liveCommentList.length}
+          likes={currVoteCount}
           username={currAuthor}
           postBody={currPostBody}
           postDate={currPostDate}
           isLoggedIn={isLoggedIn}
+          currPostId={currPostId}
+          setCurrPostId={setCurrPostId}
         />
       ) : null}
       {/* })} */}

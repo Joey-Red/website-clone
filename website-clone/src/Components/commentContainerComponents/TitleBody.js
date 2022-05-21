@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import CommentShareSaveButtons from "./CommentShareSaveButtons";
+import { Markup } from "interweave";
 function TitleBody(props) {
+  const { postBody } = props;
   return (
     <div className="postBodyContainer">
       <div className="wrapperTEST">
@@ -9,7 +11,10 @@ function TitleBody(props) {
             <h3 id="FPTitle">{props.postTitle}</h3>
           </div>
           <div className="postBodyMargin">
-            <div className="postBodyText">{props.postBody}</div>
+            {/* <div className="postBodyText">{props.postBody}</div> */}
+            <div className="postBodyText">
+              <Markup blockList={"p"} content={postBody} />
+            </div>
             <CommentShareSaveButtons comments={props.comments} />
           </div>
         </div>

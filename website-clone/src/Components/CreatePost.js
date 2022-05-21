@@ -30,9 +30,11 @@ function CreatePost(props) {
   // const [communities, setCommunities] = useState([]);
   const [postTitle, setPostTitle] = useState("");
   const [draftjs, setDraftJS] = useState({ content: "" });
+
   const handleEditor = (e) => {
     setPostBody({ ...draftjs, content: e });
   };
+
   let dropDownClick = () => {
     let target = document.querySelector(".dropDownContainer");
     if (target.style.display === "flex") {

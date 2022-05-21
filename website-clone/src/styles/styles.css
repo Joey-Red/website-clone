@@ -1165,6 +1165,7 @@ a:visited {
   word-break: normal;
   margin: 4px 0;
   color: rgb(26, 26, 27);
+  text-align: center;
 }
 .downVote {
   --post-line-color: var(--newCommunityTheme-postLine);

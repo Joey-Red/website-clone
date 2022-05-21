@@ -14,6 +14,7 @@
     "draft-js": "^0.11.7",
     "draft-js-export-html": "^1.4.1",
     "firebase": "^9.8.0",
+    "interweave": "^13.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-id-generator": "^3.0.2",

@@ -112,11 +112,24 @@
   border-radius: 9999px;
   padding: 4px 20px;
 }
+.commentButtonContainer {
+  position: relative;
+}
 .submitComment {
+  /* display: block; */
   flex: 1;
   margin-left: 100px;
   font-weight: 700;
   margin-right: 20px;
+  background-color: var(--newCommunityTheme-button);
+  border: none;
+  color: var(--newCommunityTheme-body);
+  fill: var(--newCommunityTheme-body);
+  border-radius: 9999px;
+  padding: 4px 20px;
+  position: absolute;
+  bottom: 13%;
+  right: 4%;
 }
 .commentControlsSP {
   display: flex;
@@ -347,6 +360,22 @@
   }
   .submitComment {
     margin: 0px 80px;
+  }
+  .submitComment {
+    /* display: block; */
+    flex: 1;
+    margin-left: 100px;
+    font-weight: 700;
+    margin-right: 20px;
+    background-color: var(--newCommunityTheme-button);
+    border: none;
+    color: var(--newCommunityTheme-body);
+    fill: var(--newCommunityTheme-body);
+    border-radius: 9999px;
+    padding: 4px 20px;
+    position: absolute;
+    bottom: -2%;
+    right: 10%;
   }
 }
 @media only screen and (max-width: 830px) {
@@ -732,4 +761,7 @@ p {
 }
 .postTitle h3 {
   margin-left: 8px;
+}
+.sbEdit {
+  display: flex;
 }
