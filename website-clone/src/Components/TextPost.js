@@ -9,41 +9,38 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PostFullPage from "./PostFullPage";
+import { doc, updateDoc, increment } from "firebase/firestore";
+import { db, auth } from "../firebase";
 
 function TextPost(props) {
-  let { postPopUp, setPostPopUp } = props;
+  let { postPopUp, setPostPopUp, id } = props;
   let openPost = () => {
     setPostPopUp(true);
   };
-  // console.log(props);
+  const upVote = async (id) => {
+    await updateDoc(doc(db, "posts", props.id), {
+      "stats.votes": increment(1),
+    });
+  };
+  const downVote = async (id) => {
+    await updateDoc(doc(db, "posts", props.id), {
+      "stats.votes": increment(-1),
+    });
+  };
   return (
     <>
-      {/* {postPopUp ? (
-        <PostFullPage
-          key={props.id}
-          postPopUp={postPopUp}
-          setPostPopUp={setPostPopUp}
-          postSub={props.postSub}
-          postTitle={props.postTitle}
-          comments={props.comments}
-          likes={props.likes}
-          username={props.username}
-          postBody={props.content}
-          isLoggedIn={props.isLoggedIn}
-        />
-      ) : null} */}
       <div className="outerPostContainer" onClick={() => openPost()}>
         <div className="innerPostContainer">
           <div className="likeContainer">
             <div className="likeContainer-x1">
               <div className="like-container-x2">
-                <button className="upVote">
+                <button className="upVote" onClick={() => upVote()}>
                   <span>
                     <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
                   </span>
                 </button>
                 <div className="voteCount">{props.likes}</div>
-                <button className="downVote">
+                <button className="downVote" onClick={() => downVote()}>
                   <span>
                     <FontAwesomeIcon icon={faArrowDown}></FontAwesomeIcon>
                   </span>

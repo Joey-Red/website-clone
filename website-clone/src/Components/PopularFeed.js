@@ -12,26 +12,6 @@ import {
   getDoc,
 } from "firebase/firestore";
 
-// const postsRef = collection(db, 'posts');
-
-// let postData = {
-//   postSub: "r/AskReddit",
-//   postTitle:
-//     "What did you eat as a kid that you now realize was really f*cked up?",
-//   postBody: "I used to eat xyz",
-//   comments: 14000,
-//   likes: 23000,
-//   username: "MawedUpScribble",
-// };
-let postData2 = {
-  postSub: "r/Economics",
-  postTitle: "The Mystery of the Declining U.S. Birth Rate | Econofact",
-  postBody: "I used to eat xyz",
-  comments: 808,
-  likes: 1000,
-  username: "just-a-dreamer",
-};
-
 function PopularFeed(props) {
   const { postPopUp, setPostPopUp, isLoggedIn, communities, setCommunities } =
     props;
@@ -46,6 +26,7 @@ function PopularFeed(props) {
   const [currCommentCount, setCurrCommentCount] = useState(0);
   const [currPostId, setCurrPostId] = useState("");
   const [liveCommentList, setLiveCommentList] = useState([]);
+  const [postIdDepend, setPostIdDepend] = useState(false);
   useEffect(() => {
     let getPosts = async () => {
       const data = await getDocs(collection(db, "posts"));
@@ -53,13 +34,14 @@ function PopularFeed(props) {
     };
     getPosts();
   }, []);
+
   const setPostId = (id) => {
     let getPost = async () => {
       const postDoc = doc(db, "posts", id);
       const docSnap = await getDoc(postDoc);
-      const commentsDoc = await getDocs(
-        collection(db, "posts", id, "comments")
-      );
+      // const commentsDoc = await getDocs(
+      //   collection(db, "posts", id, "comments")
+      // );
       let data = docSnap.data();
       setCurrAuthor(data.author.username);
       setCurrPostDate(data.author.postDate);
@@ -67,9 +49,13 @@ function PopularFeed(props) {
       setCurrPostBody(data.postBody.content);
       setCurrPostTitle(data.postTitle);
       setCurrPostId(id);
-      setLiveCommentList(
-        commentsDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
+      setCurrVoteCount(data.stats.votes);
+      setCurrCommentCount(data.stats.comments);
+      // console.log(data.stats.votes);
+      // setLiveCommentList(
+      //   commentsDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      // );
+      // may have trouble getting likes to display properly if comments are any indicator
     };
     getPost();
   };
@@ -80,13 +66,12 @@ function PopularFeed(props) {
         return (
           <div key={post.id} onClick={() => setPostId(post.id)}>
             <TextPost
+              id={post.id}
               postPopUp={postPopUp}
               setPostPopUp={setPostPopUp}
               postSub={post.communityName.postingToCom}
               postTitle={post.postTitle}
-              comments={liveCommentList.length}
-              // comments={currCommentCount}
-              // will need changed^?
+              comments={post.stats.comments}
               likes={post.stats.votes}
               username={post.author.username}
               postBody={post.postBody.content}
@@ -105,7 +90,7 @@ function PopularFeed(props) {
           setPostPopUp={setPostPopUp}
           postSub={currComName}
           postTitle={currPostTitle}
-          comments={liveCommentList.length}
+          comments={currCommentCount}
           likes={currVoteCount}
           username={currAuthor}
           postBody={currPostBody}
