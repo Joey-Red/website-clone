@@ -1,39 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { faArrowUp, faArrowDown, faX } from "@fortawesome/free-solid-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import "../styleSheet5.css";
 import TextEditorDRAFTJS from "./TextEditorDRAFTJS";
 import CommentContainer from "./CommentContainer";
 import FPRightSide from "./commentContainerComponents/FPRightSide";
 import UpDownVotes from "./commentContainerComponents/UpDownVotes";
 import TopInfoContainer from "./commentContainerComponents/TopInfoContainer";
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 import {
   addDoc,
   collection,
   getDocs,
   doc,
-  setDoc,
-  getDoc,
   updateDoc,
   increment,
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
-import uniqid from "uniqid";
-import { Editor } from "draft-js";
-import { Navigate } from "react-router-dom";
-import { updateIn } from "draft-js/lib/DefaultDraftBlockRenderMap";
+
 function PostFullPage(props) {
   const [draftjs, setDraftJS] = useState({ content: "" });
   const [commentBody, setCommentBody] = useState("");
   const [commentDisplayContainer, setCommentDisplayContainer] = useState([]);
-  const [checkForComments, setCheckForComments] = useState(false);
   const [seeOwnComment, setSeeOwnComment] = useState(false);
-  // const [submitCommentState, setSubmitCommentState] = useState(false);
   let { setPostPopUp, isLoggedIn } = props;
-  // console.log("peepoLoggedIn?" + isLoggedIn);
   let closePost = () => {
     setPostPopUp(false);
+    window.location.pathname = "/";
   };
   const handleEditor = (e) => {
     setCommentBody({ ...draftjs, content: e });
@@ -54,7 +45,6 @@ function PostFullPage(props) {
         votes: 1,
       },
     });
-    // updating comment count w00t
     setSeeOwnComment(!seeOwnComment);
     await updateDoc(doc(db, "posts", props.currPostId), {
       "stats.comments": increment(1),
@@ -96,6 +86,7 @@ function PostFullPage(props) {
                         <UpDownVotes
                           likes={props.likes}
                           id={props.currPostId}
+                          isLoggedIn={isLoggedIn}
                         />
                         <TopInfoContainer
                           postBody={props.postBody}

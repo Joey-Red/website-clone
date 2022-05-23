@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   faArrowUp,
   faArrowDown,
@@ -13,23 +13,34 @@ import { doc, updateDoc, increment } from "firebase/firestore";
 import { db, auth } from "../firebase";
 
 function TextPost(props) {
-  let { postPopUp, setPostPopUp, id } = props;
+  const [fakeCount, setFakeCount] = useState(props.likes);
+  let { postPopUp, setPostPopUp, id, isLoggedIn } = props;
   let openPost = () => {
     setPostPopUp(true);
   };
   const upVote = async (id) => {
-    await updateDoc(doc(db, "posts", props.id), {
-      "stats.votes": increment(1),
-    });
+    if (!isLoggedIn) {
+      return;
+    } else {
+      await updateDoc(doc(db, "posts", props.id), {
+        "stats.votes": increment(1),
+      });
+      setFakeCount(fakeCount + 1);
+    }
   };
   const downVote = async (id) => {
-    await updateDoc(doc(db, "posts", props.id), {
-      "stats.votes": increment(-1),
-    });
+    if (!isLoggedIn) {
+      return;
+    } else {
+      await updateDoc(doc(db, "posts", props.id), {
+        "stats.votes": increment(-1),
+      });
+      setFakeCount(fakeCount - 1);
+    }
   };
   return (
     <>
-      <div className="outerPostContainer" onClick={() => openPost()}>
+      <div className="outerPostContainer">
         <div className="innerPostContainer">
           <div className="likeContainer">
             <div className="likeContainer-x1">
@@ -39,7 +50,7 @@ function TextPost(props) {
                     <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
                   </span>
                 </button>
-                <div className="voteCount">{props.likes}</div>
+                <div className="voteCount">{fakeCount}</div>
                 <button className="downVote" onClick={() => downVote()}>
                   <span>
                     <FontAwesomeIcon icon={faArrowDown}></FontAwesomeIcon>
@@ -48,7 +59,7 @@ function TextPost(props) {
               </div>
             </div>
           </div>
-          <div className="postFormatContainerHP">
+          <div className="postFormatContainerHP" onClick={() => openPost()}>
             <div className="post-info">
               <div className="post-pic">
                 <a href="#">{/* link to sub img */}</a>

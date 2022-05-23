@@ -7,10 +7,17 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import LogIn from "./LogIn";
 // import { useAuth } from "./contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { auth, provider } from "../firebase";
+import { signInWithPopup } from "firebase/auth";
 
 function SignUp(props) {
-  let { setDisplaySignUp, displaySignUp, displayLogIn, setDisplayLogIn } =
-    props;
+  let {
+    setDisplaySignUp,
+    displaySignUp,
+    displayLogIn,
+    setDisplayLogIn,
+    setIsLoggedIn,
+  } = props;
   let toggleMenu = () => {
     setDisplaySignUp(!displaySignUp);
   };
@@ -18,35 +25,14 @@ function SignUp(props) {
     setDisplaySignUp(!displaySignUp);
     setDisplayLogIn(!displayLogIn);
   };
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  // const { signup } = useAuth();
-  // const [error, setError] = useState("");
-  // const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider).then((result) => {
+      setIsLoggedIn(true);
+      localStorage.setItem("isAuth", true);
+      window.location.pathname = "/";
+    });
+  };
 
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-  //     return setError("Passwords do not match.");
-  //   }
-
-  //   try {
-  //     setError("");
-  //     setLoading(true);
-  //     await signup(
-  //       emailRef.current.value,
-  //       passwordRef.current.value,
-  //       passwordConfirmRef.current.value
-  //     );
-  //     navigate("/", { replace: true });
-  //   } catch {
-  //     setError("Failed to create an account");
-  //   }
-  //   setLoading(false);
-  // }
-  // console.log(error);
   return (
     <div className="signUpContainerOutside">
       {!displayLogIn ? (
@@ -71,7 +57,10 @@ function SignUp(props) {
               <a href="#"> Privacy Policy</a>.
             </div>
             <div className="signUpButtons">
-              <div className="googleButtonContainer">
+              <div
+                className="googleButtonContainer"
+                onClick={() => signInWithGoogle()}
+              >
                 <div className="googleButtonInner">
                   <div className="googleButtonFlex">
                     <div className="googleIco">
@@ -104,7 +93,7 @@ function SignUp(props) {
                     type="email"
                     // ref={emailRef}
                     required
-                    placeholder="EMAIL"
+                    placeholder="EMAIL (Only Google button works)"
                   />
                 </div>
                 {/* <form > */}

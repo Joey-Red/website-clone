@@ -112,6 +112,7 @@ function FixedHeader(props) {
                     setDisplaySignUp={setDisplaySignUp}
                     displayLogIn={displayLogIn}
                     setDisplayLogIn={setDisplayLogIn}
+                    setIsLoggedIn={setIsLoggedIn}
                   />
                 ) : null}
                 {!displayLogIn ? (

@@ -41,6 +41,7 @@ function LogIn(props) {
       setIsLoggedIn(true);
       localStorage.setItem("isAuth", true);
       navigate("/");
+      window.location.pathname = "/";
     });
   };
   return (
