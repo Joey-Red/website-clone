@@ -63,31 +63,29 @@ function CreatePost(props) {
     } else {
     }
   }, []);
-  // console.log(postBody, postTitle);
-  // console.log(typeof postingToCom);
-
-  // const postToComRef = doc(db, "communities", postingToCom, "posts", postId);
-  // const postToComRef = db
-  //   .collection("communities")
-  //   .doc(postingToCom)
-  //   .collection(postingToCom + 'Collection')
-  //   .doc({})
   const submitPost = async () => {
-    await setDoc(doc(db, "posts", postId), {
-      postTitle,
-      postBody,
-      communityName: { postingToCom },
-      author: {
-        username: auth.currentUser.displayName,
-        id: auth.currentUser.uid,
-        postDate: modifiedDate,
-      },
-      stats: {
-        comments: 0,
-        votes: 1,
-      },
-    });
-    navigate("/");
+    if (postingToCom.length < 4) {
+      alert("You must choose a community.");
+    }
+    if (postTitle.length < 2) {
+      alert("You must include a title.");
+    } else {
+      await setDoc(doc(db, "posts", postId), {
+        postTitle,
+        postBody,
+        communityName: { postingToCom },
+        author: {
+          username: auth.currentUser.displayName,
+          id: auth.currentUser.uid,
+          postDate: modifiedDate,
+        },
+        stats: {
+          comments: 0,
+          votes: 1,
+        },
+      });
+      navigate("/");
+    }
   };
   // also need to figure out this loop issue at some point
   // lastly, need to get texteditorbody state somehow, maybe through props?
@@ -229,6 +227,7 @@ function CreatePost(props) {
                       maxLength="300"
                       placeholder="Title"
                       className="titleTextArea"
+                      required
                       onChange={(e) => {
                         setPostTitle(e.target.value);
                       }}

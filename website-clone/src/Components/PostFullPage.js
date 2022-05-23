@@ -21,6 +21,7 @@ function PostFullPage(props) {
   const [commentBody, setCommentBody] = useState("");
   const [commentDisplayContainer, setCommentDisplayContainer] = useState([]);
   const [seeOwnComment, setSeeOwnComment] = useState(false);
+  const [cursor, setCursor] = useState("default");
   let { setPostPopUp, isLoggedIn } = props;
   let closePost = () => {
     setPostPopUp(false);
@@ -49,6 +50,10 @@ function PostFullPage(props) {
     await updateDoc(doc(db, "posts", props.currPostId), {
       "stats.comments": increment(1),
     });
+    setCursor("progress");
+    setTimeout(() => {
+      setCursor("default");
+    }, 1000);
   };
 
   useEffect(() => {
@@ -64,7 +69,7 @@ function PostFullPage(props) {
   }, [props.currPostId, seeOwnComment]);
 
   return (
-    <div className="postFullScreenContainer">
+    <div className="postFullScreenContainer" style={{ cursor: cursor }}>
       <div className="fullScreenPost">
         <div className="fullScreenPostHeader">
           <div className="postTitleFP">

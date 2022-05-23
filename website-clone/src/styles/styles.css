@@ -410,7 +410,6 @@ body {
   padding: 2px 0;
 }
 .searchBar {
-  min-width: 321px;
   width: 594px;
   height: 33px;
   border: solid 1px #f0f1f3;

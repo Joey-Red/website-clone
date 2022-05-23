@@ -58,7 +58,7 @@ function FixedHeader(props) {
           </div>
           <div className="right-side">
             <div className="buttonGroup">
-              <div>
+              <div className="bullHornDiv">
                 <button className="faBullhorn">
                   <FontAwesomeIcon icon={faBullhorn}></FontAwesomeIcon>
                 </button>

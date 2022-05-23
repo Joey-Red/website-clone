@@ -10,9 +10,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function NewCommunity(props) {
-  const { showNewCom, setShowNewCom } = props;
+  const { setShowNewCom } = props;
   let [communityName, setCommunityName] = useState("");
-  const communityCollectionRef = collection(db, "communities");
 
   let createDay = new Date();
   createDay.getDay();
@@ -21,20 +20,7 @@ function NewCommunity(props) {
   let hideCreate = () => {
     setShowNewCom(false);
   };
-  // const createCommunity = async () => {
-  //   await addDoc(communityCollectionRef, {
-  //     communityName,
-  //     creationDate: modifiedDate,
-  //     author: {
-  //       username: auth.currentUser.displayName,
-  //       id: auth.currentUser.uid,
-  //     },
-  //   });
-  //   setShowNewCom(false);
-  // };
-  // do some sort of blend btw these two in order for this to work, maybe the first one then the bottom one!?!?!?!!?!
   const createCommunity = async () => {
-    // if community doesnt exist create it
     await setDoc(doc(db, "communities", communityName), {
       communityName,
       creationDate: modifiedDate,
@@ -66,6 +52,7 @@ function NewCommunity(props) {
                 }}
                 type="text"
                 id="ccNameInput"
+                minLength={4}
                 maxLength={21}
               />
             </div>
