@@ -8,7 +8,6 @@ import {
   faEllipsis,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PostFullPage from "./PostFullPage";
 import { doc, updateDoc, increment } from "firebase/firestore";
 import { db, auth } from "../firebase";
 

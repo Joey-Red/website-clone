@@ -15,17 +15,11 @@ function Popular(props) {
     communities,
     setCommunities,
   } = props;
-  // let createPost = () => {
-  //   setDisplayCreatePost(!displayCreatePost);
-  // };
   return (
     <>
-      {/* {displayCreatePost ? <CreatePost /> : null} */}
       <div className="outermost-popular-container" id="loggedInPop">
         <div className="outer-menu-control-container">
-          {/* <div onClick={() => createPost()}> */}
           <MakePostLinkBox />
-          {/* </div> */}
           <div className="popular-post-header">Popular Posts</div>
           <SortButtonsBar />
           <PopularFeed

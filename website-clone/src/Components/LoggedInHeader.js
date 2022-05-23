@@ -11,9 +11,17 @@ import {
 import logo from "./img/Reddit_logo_new.png";
 import ProfilePage from "./ProfilePage";
 import { useNavigate } from "react-router-dom";
-
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import {
+  getDocs,
+  collection,
+  deleteDoc,
+  doc,
+  query,
+  where,
+  getDoc,
+} from "firebase/firestore";
 function LoggedInHeader(props) {
   const [displayOptions, setDisplayOptions] = useState(true);
   let {
@@ -22,8 +30,9 @@ function LoggedInHeader(props) {
     setIsLoggedIn,
     isLoggedIn,
     setDisplayLogIn,
+    formValue,
+    setFormValue,
   } = props;
-  const navigate = useNavigate();
   const signUserOut = () => {
     signOut(auth).then(() => {
       localStorage.clear();
@@ -32,6 +41,12 @@ function LoggedInHeader(props) {
       setDisplayLogIn(true);
     });
   };
+  const navigate = useNavigate();
+  const searchQuery = () => {
+    navigate("search/");
+    localStorage.setItem("searchQuery", formValue);
+  };
+  // localStorage.setItem("isAuth", true);
   return (
     <div className="headerOuter">
       <div className="headerContainer">
@@ -53,6 +68,9 @@ function LoggedInHeader(props) {
                 type="text"
                 className="searchBar"
                 placeholder="Search Reddit"
+                id="searchQuery"
+                onChange={(e) => setFormValue(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && searchQuery()}
               />
             </form>
           </div>
@@ -105,12 +123,6 @@ function LoggedInHeader(props) {
                     </div>
                   </div>
                 ) : null}
-                {/* {!displayPfp ? (
-                  <ProfilePage
-                    displayPfp={displayPfp}
-                    setDisplayPfp={setDisplayPfp}
-                  />
-                ) : null} */}
               </div>
             </div>
           </div>

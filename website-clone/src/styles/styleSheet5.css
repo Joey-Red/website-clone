@@ -476,6 +476,7 @@
       max-width: 400px;
     }
   }
+
   @media only screen and (max-width: 663px) {
     .faMag,
     .faMessage {
@@ -488,6 +489,9 @@
     .bullHornDiv {
       display: none;
     }
+  }
+  .searchComListQuery {
+    display: none;
   }
 }
 .adContainer {
@@ -805,4 +809,76 @@ p {
 }
 .sbEdit {
   display: flex;
+}
+.staleButtonsContainer {
+  margin-top: 50px;
+  align-items: center;
+  display: flex;
+  height: 93px;
+  justify-content: space-around;
+}
+.postButtonQuery {
+  background-color: var(--newCommunityTheme-field);
+  border-radius: 9999px;
+  padding: 12px 20px;
+  margin-left: 18px;
+}
+.staleButtonPeople {
+  margin-right: 18px;
+}
+.staleButtonsContainer button {
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+.staleButton {
+  background: none;
+}
+.searchPageContainer {
+  display: flex;
+  margin: 0px auto;
+  justify-content: center;
+}
+.searchComHeader {
+  background-color: white;
+  height: 20px;
+  width: 278px;
+  padding: 16px 16px 0 16px;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+.searchQueryCom {
+  height: 36px;
+  width: 278px;
+  padding: 16px;
+  background-color: white;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  margin-left: 10px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.joinComQueryButton {
+  padding: 16px;
+  border: none;
+  background-color: var(--newCommunityTheme-field);
+  color: var(--newCommunityTheme-button);
+  border-radius: 9999px;
+  padding: 4px 16px;
+  min-height: 32px;
+  min-width: 32px;
+  width: 88px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.queryComName {
+  height: 16px;
+  width: 138px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.searchQueryComInfo {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--newRedditTheme-metaText);
 }

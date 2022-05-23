@@ -13,10 +13,8 @@ import {
 } from "firebase/firestore";
 
 function PopularFeed(props) {
-  const { postPopUp, setPostPopUp, isLoggedIn, communities, setCommunities } =
-    props;
+  const { postPopUp, setPostPopUp, isLoggedIn } = props;
   const [livePostList, setLivePostList] = useState([]);
-  const [currentPost, setCurrentPost] = useState([]);
   const [currAuthor, setCurrAuthor] = useState("");
   const [currPostDate, setCurrPostDate] = useState("");
   const [currComName, setCurrComName] = useState("");
@@ -25,8 +23,6 @@ function PopularFeed(props) {
   const [currVoteCount, setCurrVoteCount] = useState(1);
   const [currCommentCount, setCurrCommentCount] = useState(0);
   const [currPostId, setCurrPostId] = useState("");
-  const [liveCommentList, setLiveCommentList] = useState([]);
-  const [postIdDepend, setPostIdDepend] = useState(false);
   useEffect(() => {
     let getPosts = async () => {
       const data = await getDocs(collection(db, "posts"));
@@ -39,11 +35,8 @@ function PopularFeed(props) {
     let getPost = async () => {
       const postDoc = doc(db, "posts", id);
       const docSnap = await getDoc(postDoc);
-      // const commentsDoc = await getDocs(
-      //   collection(db, "posts", id, "comments")
-      // );
       let data = docSnap.data();
-      setCurrAuthor(data.author.username);
+      // setCurrAuthor(data.author.username);
       setCurrPostDate(data.author.postDate);
       setCurrComName(data.communityName.postingToCom);
       setCurrPostBody(data.postBody.content);
@@ -51,11 +44,6 @@ function PopularFeed(props) {
       setCurrPostId(id);
       setCurrVoteCount(data.stats.votes);
       setCurrCommentCount(data.stats.comments);
-      // console.log(data.stats.votes);
-      // setLiveCommentList(
-      //   commentsDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      // );
-      // may have trouble getting likes to display properly if comments are any indicator
     };
     getPost();
   };
@@ -81,9 +69,6 @@ function PopularFeed(props) {
           </div>
         );
       })}
-      {/* onclick take post.id and fetch it :) */}
-      {/* {currentPost.map((post) => { */}
-      {/* return  */}
       {postPopUp ? (
         <PostFullPage
           postPopUp={postPopUp}
@@ -100,7 +85,6 @@ function PopularFeed(props) {
           setCurrPostId={setCurrPostId}
         />
       ) : null}
-      {/* })} */}
     </>
   );
 }

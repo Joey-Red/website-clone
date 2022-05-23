@@ -12,6 +12,7 @@ import CommunityCreated from "./Components/CommunityCreated";
 import LoggedInHeader from "./Components/LoggedInHeader";
 import ProfilePage from "./Components/ProfilePage";
 import PopularLoggedOut from "./Components/PopularLoggedOut";
+import SearchPage from "./Components/SearchPage";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // import { AuthProvider } from "./Components/contexts/AuthContext";
 import UserSettings from "./Components/UserSettings";
@@ -26,6 +27,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isAuth"));
   const [postPopUp, setPostPopUp] = useState(false);
   const [communities, setCommunities] = useState([]);
+  const [formValue, setFormValue] = useState("");
   return (
     <>
       <Router>
@@ -34,6 +36,8 @@ function App() {
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
             setDisplayLogIn={setDisplayLogIn}
+            formValue={formValue}
+            setFormValue={setFormValue}
           />
         ) : (
           <FixedHeader
@@ -44,6 +48,8 @@ function App() {
             setIsLoggedIn={setIsLoggedIn}
             setDisplayForgotPw={setDisplayForgotPw}
             displayForgotPw={displayForgotPw}
+            formValue={formValue}
+            setFormValue={setFormValue}
           />
         )}
         <Routes>
@@ -95,6 +101,18 @@ function App() {
           <Route path="communitycreated" element={<CommunityCreated />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="userSettings" element={<UserSettings />} />
+          <Route
+            path="/search"
+            element={
+              <SearchPage
+                isLoggedIn={isLoggedIn}
+                postPopUp={postPopUp}
+                setPostPopUp={setPostPopUp}
+                formValue={formValue}
+                setFormValue={setFormValue}
+              />
+            }
+          />
         </Routes>
       </Router>
     </>
