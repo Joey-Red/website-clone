@@ -12,8 +12,7 @@ import phimg from "./img/phimg.png";
 import { db, auth } from "../firebase";
 import { doc, getDocs, collection, query, where } from "firebase/firestore";
 import TextPost from "./TextPost";
-import MakePostLinkBoxSmall from "./MakePostLinkBoxSmall";
-import SortButtonsBarSmall from "./SortButtonsBarSmall";
+
 function CommunityCreated(props) {
   const { isLoggedIn, setPostPopUp, postPopUp } = props;
   let createDay = new Date();
@@ -80,9 +79,7 @@ function CommunityCreated(props) {
       <div className="outermost-popular-container" id="CCPC">
         <div>
           <div>
-            <MakePostLinkBoxSmall />
-            <SortButtonsBarSmall />
-            <div className="postsBodyContainer">
+            <div className="postBodyContainer">
               {livePostList.length === 0 ? (
                 <>
                   <div className="emptyPostBody">
@@ -100,7 +97,11 @@ function CommunityCreated(props) {
               ) : (
                 <>
                   <div className="outermost-popular-container">
-                    <div className="outer-menu-control-container">
+                    <div className="outer-menu-control-containerSmall">
+                      <div className="mpOuter">
+                        <MakePostLinkBox />
+                        <SortButtonsBar />
+                      </div>
                       {livePostList.map((post) => {
                         return (
                           <div key={post.id} onClick={() => setPostId(post.id)}>
@@ -121,58 +122,65 @@ function CommunityCreated(props) {
                         );
                       })}
                     </div>
+                    <div
+                      className="top-x-communities-container extraBit subMQ"
+                      id="orig"
+                    >
+                      <div className="top-communities">
+                        <div className="top-coms-header-edit">
+                          About Community
+                        </div>
+                        <div className="tcInside">
+                          <div className="aboutComInfo">
+                            Input about this community
+                            {/* if a mod, display edit pencil */}
+                            <FontAwesomeIcon
+                              icon={faPencil}
+                              className="faEnv"
+                            ></FontAwesomeIcon>
+                          </div>
+                          <div className="createdInfo">
+                            <FontAwesomeIcon
+                              icon={faCake}
+                              className="faEnv"
+                            ></FontAwesomeIcon>
+
+                            {modifiedDate}
+                          </div>
+                          <div className="viewButtonContainer">
+                            <a href="createPost">Create Post</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="top-x-communities-container top-x-special extraBits">
+                        <div className="top-communities">
+                          <div className="top-coms-header-edit">Moderators</div>
+                          <div className="tcInside">
+                            <div className="viewButtonContainerInverse">
+                              <a href="#">
+                                <FontAwesomeIcon
+                                  icon={faEnvelope}
+                                  className="faEnv"
+                                ></FontAwesomeIcon>
+                                Message the mods
+                              </a>
+                            </div>
+                            <div className="modsList">
+                              {/* will need to loop through mods and list mods here also needs to be a link*/}
+                              <ol>
+                                <li>u/ModGuy1</li>
+                              </ol>
+                            </div>
+                            <div className="viewAllMods">
+                              View All Moderators
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </>
               )}
-            </div>
-          </div>
-        </div>
-        <div className="top-x-communities-container  extraBit" id="orig">
-          <div className="top-communities">
-            <div className="top-coms-header-edit">About Community</div>
-            <div className="tcInside">
-              <div className="aboutComInfo">
-                Input about this community
-                {/* if a mod, display edit pencil */}
-                <FontAwesomeIcon
-                  icon={faPencil}
-                  className="faEnv"
-                ></FontAwesomeIcon>
-              </div>
-              <div className="createdInfo">
-                <FontAwesomeIcon
-                  icon={faCake}
-                  className="faEnv"
-                ></FontAwesomeIcon>
-
-                {modifiedDate}
-              </div>
-              <div className="viewButtonContainer">
-                <a href="createPost">Create Post</a>
-              </div>
-            </div>
-          </div>
-          <div className="top-x-communities-container top-x-special extraBits">
-            <div className="top-communities">
-              <div className="top-coms-header-edit">Moderators</div>
-              <div className="tcInside">
-                <div className="viewButtonContainerInverse">
-                  <a href="#">
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="faEnv"
-                    ></FontAwesomeIcon>
-                    Message the mods
-                  </a>
-                </div>
-                <div className="modsList">
-                  {/* will need to loop through mods and list mods here also needs to be a link*/}
-                  <ol>
-                    <li>u/ModGuy1</li>
-                  </ol>
-                </div>
-                <div className="viewAllMods">View All Moderators</div>
-              </div>
             </div>
           </div>
         </div>
