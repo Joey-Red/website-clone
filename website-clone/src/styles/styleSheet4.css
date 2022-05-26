@@ -216,6 +216,18 @@
   padding: 10px 12px;
   overflow: hidden;
 }
+.mpContainerSmall {
+  margin-bottom: 16px;
+  height: 40px;
+  display: flex;
+  background-color: white;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid var(--newCommunityTheme-postLine);
+  padding: 8px;
+  overflow: hidden;
+  max-width: 622px;
+}
 .mpLinks {
   display: flex;
   width: 38px;
@@ -228,7 +240,8 @@
   align-self: center;
 }
 
-.mpContainer input {
+.mpContainer input,
+.mpContainerSmall input {
   width: 486px;
   height: 38px;
   padding: 0px 16px;

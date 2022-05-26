@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -9,8 +9,7 @@ import {
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "./img/Reddit_logo_new.png";
-import ProfilePage from "./ProfilePage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
 import {
@@ -22,8 +21,10 @@ import {
   where,
   getDoc,
 } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
 function LoggedInHeader(props) {
-  const [displayOptions, setDisplayOptions] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
   let {
     displayPfp,
     setDisplayPfp,
@@ -32,6 +33,8 @@ function LoggedInHeader(props) {
     setDisplayLogIn,
     formValue,
     setFormValue,
+    displayOptions,
+    setDisplayOptions,
   } = props;
   const signUserOut = () => {
     signOut(auth).then(() => {
@@ -41,12 +44,25 @@ function LoggedInHeader(props) {
       setDisplayLogIn(true);
     });
   };
+  const auth = getAuth();
+  // useEffect(() => {
+  //   if (
+  //     auth.currentUser.displayName !== undefined &&
+  //     auth.currentUser.displayName !== null
+  //   ) {
+  //     setCurrentUser(auth.currentUser.displayName);
+  //   } else {
+  //     setCurrentUser(null);
+  //   }
+  //   console.log(currentUser);
+  // }, [displayOptions, auth.currentUser]);
   const navigate = useNavigate();
   const searchQuery = () => {
     navigate("search/");
     localStorage.setItem("searchQuery", formValue);
   };
-  // localStorage.setItem("isAuth", true);
+  let hrefLink = "/u/" + localStorage.getItem("user");
+
   return (
     <div className="headerOuter">
       <div className="headerContainer">
@@ -101,7 +117,16 @@ function LoggedInHeader(props) {
                     <div className="optionsContainer">
                       <div className="myStuff">
                         <div className="myProfile">
-                          <a href="/profile">Profile</a>
+                          {/* needs to be dynamic, get actual profile name */}
+                          {/* target="_blank" */}
+                          <Link
+                            href={hrefLink}
+                            to={hrefLink}
+                            onClick={() => setDisplayOptions(false)}
+                          >
+                            Profile
+                          </Link>
+                          {/* <a href="/u/currentUser">Profile</a> */}
                           <a href="/userSettings">User Settings</a>
                         </div>
                       </div>

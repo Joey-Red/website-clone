@@ -122,7 +122,6 @@ function NewCommunity(props) {
             >
               Cancel
             </button>
-            {/* create community needs to load to see if it was a success, then link to r/newcomname */}
             <button
               className="ccCreateButton"
               onClick={() => createCommunity()}

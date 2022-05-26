@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Trending from "./Components/Trending";
 import FixedHeader from "./Components/FixedHeader";
 import Popular from "./Components/Popular";
@@ -13,13 +13,10 @@ import LoggedInHeader from "./Components/LoggedInHeader";
 import ProfilePage from "./Components/ProfilePage";
 import PopularLoggedOut from "./Components/PopularLoggedOut";
 import SearchPage from "./Components/SearchPage";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-// import { AuthProvider } from "./Components/contexts/AuthContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserSettings from "./Components/UserSettings";
-// import PrivateRoutes from "./PrivateRoutes";
-import { signOut } from "firebase/auth";
-import { auth } from "./firebase";
-
+import { db, auth } from "./firebase";
+import { getAuth } from "firebase/auth";
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
@@ -28,6 +25,22 @@ function App() {
   const [postPopUp, setPostPopUp] = useState(false);
   const [communities, setCommunities] = useState([]);
   const [formValue, setFormValue] = useState("");
+  const [displayOptions, setDisplayOptions] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
+  // if (
+  //   auth.currentUser.displayName !== undefined &&
+  //   auth.currentUser.displayName !== null
+  // ) {
+  //   setCurrentUser(auth.currentUser.displayName);
+  // } else {
+  //   setCurrentUser(null);
+  // }
+  // const getCurrentUser = async () => {
+  //   getAuth();
+  //   setCurrentUser(auth.currentUser.displayName);
+  //   console.log(auth.currentUser);
+  // };
+
   return (
     <>
       <Router>
@@ -38,6 +51,8 @@ function App() {
             setDisplayLogIn={setDisplayLogIn}
             formValue={formValue}
             setFormValue={setFormValue}
+            displayOptions={displayOptions}
+            setDisplayOptions={setDisplayOptions}
           />
         ) : (
           <FixedHeader
@@ -98,9 +113,29 @@ function App() {
               />
             }
           />
-          <Route path="communitycreated" element={<CommunityCreated />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route
+            path="u/:username"
+            element={
+              <ProfilePage
+                postPopUp={postPopUp}
+                setPostPopUp={setPostPopUp}
+                isLoggedIn={isLoggedIn}
+                // currentUser={currentUser}
+                // setCurrentUser={setCurrentUser}
+              />
+            }
+          />
           <Route path="userSettings" element={<UserSettings />} />
+          <Route
+            path="/r/:subId"
+            element={
+              <CommunityCreated
+                postPopUp={postPopUp}
+                setPostPopUp={setPostPopUp}
+                isLoggedIn={isLoggedIn}
+              />
+            }
+          />
           <Route
             path="/search"
             element={

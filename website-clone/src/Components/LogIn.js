@@ -27,12 +27,8 @@ function LogIn(props) {
     setDisplayLogIn(!displayLogIn);
   };
   let forgotPw = () => {
-    // setDisplayLogIn(!displayLogIn);
     setDisplayForgotPw(!displayForgotPw);
   };
-
-  // const [error, setError] = useState("");
-  // const [loading, setLoading] = useState(false);
 
   let navigate = useNavigate();
 
@@ -40,6 +36,7 @@ function LogIn(props) {
     signInWithPopup(auth, provider).then((result) => {
       setIsLoggedIn(true);
       localStorage.setItem("isAuth", true);
+      localStorage.setItem("user", auth.currentUser.displayName);
       navigate("/");
       window.location.pathname = "/";
     });

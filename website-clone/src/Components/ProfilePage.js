@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LoggedInHeader from "./LoggedInHeader";
 import ProfileSortButtonsBar from "./ProfileSortButtonsBar";
 import profilePic from "./img/userPhImg.png";
+import TextPost from "./TextPost";
+import { db, auth } from "../firebase";
+import { doc, getDocs, collection, query, where } from "firebase/firestore";
+function ProfilePage(props) {
+  const { postPopUp, setPostPopUp, isLoggedIn, currentUser } = props;
+  const [livePostList, setLivePostList] = useState([]);
+  const [postId, setPostId] = useState("");
+  let url = window.location.href;
+  let urlSplit = url.split("/");
+  let searchUserTemp = urlSplit[4];
+  let searchUser = decodeURI(searchUserTemp);
+  console.log(searchUser);
+  useEffect(() => {
+    let getPosts = async () => {
+      const postsRef = collection(db, "posts");
+      const q = query(postsRef, where("author.username", "==", searchUser));
+      const querySnapshot = await getDocs(q);
+      setLivePostList(
+        querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    };
+    getPosts();
+    console.log(livePostList);
+  }, []);
 
-function ProfilePage() {
   return (
     <>
       <LoggedInHeader />
@@ -23,19 +46,42 @@ function ProfilePage() {
         <div className="outer-menu-control-container">
           <ProfileSortButtonsBar />
           <div className="postsBodyContainer">
-            {/* if there are no posts return this: */}
-            <div className="emptyPostBody">
-              <div className="beFirstText">
-                `hmm... u/Salty_Hero hasn't posted anything`
-              </div>
-              {/* else return this with the relevant props*/}
-              {/* <TextPost /> */}
-            </div>
+            {livePostList.length === 0 ? (
+              <>
+                <div className="emptyPostBody">
+                  <div className="beFirstText">
+                    `hmm... u/{currentUser} hasn't posted anything`
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {livePostList.map((post) => {
+                  return (
+                    <div key={post.id} onClick={() => setPostId(post.id)}>
+                      <TextPost
+                        id={post.id}
+                        postPopUp={postPopUp}
+                        setPostPopUp={setPostPopUp}
+                        postSub={post.communityName.postingToCom}
+                        postTitle={post.postTitle}
+                        comments={post.stats.comments}
+                        likes={post.stats.votes}
+                        username={post.author.username}
+                        postBody={post.postBody.content}
+                        postDate={post.author.postDate}
+                        isLoggedIn={isLoggedIn}
+                      />
+                    </div>
+                  );
+                })}
+              </>
+            )}
           </div>
         </div>
         <div className="top-x-communities-container" id="orig">
           <div className="top-communities">
-            <div className="top-coms-header">
+            <div id="tchProfile">
               <div className="profilePicContainer">
                 <div className="pfpInner">
                   <img src={profilePic} alt="" className="profilePic" />

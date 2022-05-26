@@ -721,7 +721,26 @@ a:visited {
   margin-bottom: 16px;
   padding: 10px 12px;
 }
-
+.inner-menu-control-small {
+  overflow: hidden;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  --newCommunityTheme-body: #ffffff;
+  --newCommunityTheme-postLine: #ccc;
+  background-color: var(--newCommunityTheme-body);
+  border: 1px solid var(--newCommunityTheme-postLine);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  /* width: 614px; */
+}
 .menu-links {
   -webkit-font-smoothing: antialiased;
   --background: #ffffff;
@@ -834,6 +853,15 @@ a:visited {
   height: 80px;
   position: relative;
 }
+#tchProfile {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: rgb(26, 26, 27);
+  display: block;
+  height: 80px;
+  position: relative;
+}
+
 .top-coms-header h2 {
   display: block;
   font-size: 16px;

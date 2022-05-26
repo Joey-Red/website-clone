@@ -22,7 +22,7 @@ function PostFullPage(props) {
   const [commentDisplayContainer, setCommentDisplayContainer] = useState([]);
   const [seeOwnComment, setSeeOwnComment] = useState(false);
   const [cursor, setCursor] = useState("default");
-  let { setPostPopUp, isLoggedIn } = props;
+  let { setPostPopUp, isLoggedIn, currPostId } = props;
   let closePost = () => {
     setPostPopUp(false);
     window.location.pathname = "/";
@@ -59,14 +59,14 @@ function PostFullPage(props) {
   useEffect(() => {
     let getPosts = async () => {
       const commentsDoc = await getDocs(
-        collection(db, "posts", props.currPostId, "comments")
+        collection(db, "posts", currPostId, "comments")
       );
       setCommentDisplayContainer(
         commentsDoc.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
     };
     getPosts();
-  }, [props.currPostId, seeOwnComment]);
+  }, [currPostId, seeOwnComment]);
 
   return (
     <div className="postFullScreenContainer" style={{ cursor: cursor }}>

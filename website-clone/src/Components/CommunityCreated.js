@@ -1,5 +1,4 @@
-import React from "react";
-// import "../styleSheet4.css";
+import React, { useState, useEffect } from "react";
 import SortButtonsBar from "./SortButtonsBar";
 import {
   faEnvelope,
@@ -10,18 +9,41 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MakePostLinkBox from "./MakePostLinkBox";
 import phimg from "./img/phimg.png";
+import { db, auth } from "../firebase";
+import { doc, getDocs, collection, query, where } from "firebase/firestore";
 import TextPost from "./TextPost";
-
-function CommunityCreated() {
-  // let creationDate = new Date("2015-03-25");
-  // let createYear = new Date();
-  // createYear.getFullYear();
-  // let createMonth = new Date();
-  // createMonth.getMonth();
+import MakePostLinkBoxSmall from "./MakePostLinkBoxSmall";
+import SortButtonsBarSmall from "./SortButtonsBarSmall";
+function CommunityCreated(props) {
+  const { isLoggedIn, setPostPopUp, postPopUp } = props;
   let createDay = new Date();
   createDay.getDay();
   let dateString = createDay.toDateString();
   let modifiedDate = dateString.slice(4);
+
+  const [livePostList, setLivePostList] = useState([]);
+  const [postId, setPostId] = useState("");
+  let url = window.location.href;
+  let urlSplit = url.split("/");
+  let searchComTemp = urlSplit[4];
+  let searchCom = decodeURI(searchComTemp);
+  // console.log(searchCom);
+  useEffect(() => {
+    let getPosts = async () => {
+      const postsRef = collection(db, "posts");
+      const q = query(
+        postsRef,
+        where("communityName.postingToCom", "==", searchCom)
+      );
+      const querySnapshot = await getDocs(q);
+      setLivePostList(
+        querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    };
+    getPosts();
+    console.log(livePostList);
+  }, []);
+
   return (
     <>
       <span className="colorSpan"></span>
@@ -40,8 +62,7 @@ function CommunityCreated() {
               </div>
               <div className="ccJoinLeaveNotif">
                 <div className="block" id="joinButton">
-                  {/* are you a part of this? if so, 'Joined' leave on hover, if not, Join */}
-                  <button>Join</button>
+                  <button className="ccJoinButtonStale">Join</button>
                 </div>
                 <div className="block" id="notifButton">
                   <button>
@@ -59,23 +80,50 @@ function CommunityCreated() {
       <div className="outermost-popular-container" id="CCPC">
         <div>
           <div>
-            <MakePostLinkBox />
-            <SortButtonsBar />
+            <MakePostLinkBoxSmall />
+            <SortButtonsBarSmall />
             <div className="postsBodyContainer">
-              {/* if there are no posts return this: */}
-              <div className="emptyPostBody">
-                <div className="beFirstText">
-                  There are no posts in this subreddit
-                </div>
-                <div className="beFirstText bft">
-                  Be the first to till this fertile land.
-                </div>
-                <div className="viewButtonContainer">
-                  <a href="#">Add a post</a>
-                </div>
-                {/* else return this with the relevant props*/}
-                {/* <TextPost /> */}
-              </div>
+              {livePostList.length === 0 ? (
+                <>
+                  <div className="emptyPostBody">
+                    <div className="beFirstText">
+                      There are no posts in this subreddit
+                    </div>
+                    <div className="beFirstText bft">
+                      Be the first to till this fertile land.
+                    </div>
+                    <div className="viewButtonContainer">
+                      <a href="/createPost">Add a post</a>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="outermost-popular-container">
+                    <div className="outer-menu-control-container">
+                      {livePostList.map((post) => {
+                        return (
+                          <div key={post.id} onClick={() => setPostId(post.id)}>
+                            <TextPost
+                              id={post.id}
+                              postPopUp={postPopUp}
+                              setPostPopUp={setPostPopUp}
+                              postSub={post.communityName.postingToCom}
+                              postTitle={post.postTitle}
+                              comments={post.stats.comments}
+                              likes={post.stats.votes}
+                              username={post.author.username}
+                              postBody={post.postBody.content}
+                              postDate={post.author.postDate}
+                              isLoggedIn={isLoggedIn}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -100,7 +148,7 @@ function CommunityCreated() {
                 {modifiedDate}
               </div>
               <div className="viewButtonContainer">
-                <a href="#">Create Post</a>
+                <a href="createPost">Create Post</a>
               </div>
             </div>
           </div>
