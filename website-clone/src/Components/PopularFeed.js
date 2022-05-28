@@ -36,7 +36,7 @@ function PopularFeed(props) {
       const postDoc = doc(db, "posts", id);
       const docSnap = await getDoc(postDoc);
       let data = docSnap.data();
-      // setCurrAuthor(data.author.username);
+      setCurrAuthor(data.author.username);
       setCurrPostDate(data.author.postDate);
       setCurrComName(data.communityName.postingToCom);
       setCurrPostBody(data.postBody.content);

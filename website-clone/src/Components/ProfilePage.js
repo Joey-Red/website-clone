@@ -13,7 +13,6 @@ function ProfilePage(props) {
   let urlSplit = url.split("/");
   let searchUserTemp = urlSplit[4];
   let searchUser = decodeURI(searchUserTemp);
-  console.log(searchUser);
   useEffect(() => {
     let getPosts = async () => {
       const postsRef = collection(db, "posts");
@@ -43,7 +42,7 @@ function ProfilePage(props) {
         </div>
       </div>
       <div className="outermost-popular-container">
-        <div className="outer-menu-control-container">
+        <div className="outer-menu-control-containerSmall">
           <ProfileSortButtonsBar />
           <div className="postsBodyContainer">
             {livePostList.length === 0 ? (

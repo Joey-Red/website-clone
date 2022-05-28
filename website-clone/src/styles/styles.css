@@ -1596,3 +1596,9 @@ a:visited {
 .innerPostContainer:hover {
   border: solid black 1px;
 }
+.commenterUserNameLink a:visited {
+  color: black;
+}
+.subNameLink a:visited {
+  color: black;
+}

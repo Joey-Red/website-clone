@@ -27,19 +27,6 @@ function App() {
   const [formValue, setFormValue] = useState("");
   const [displayOptions, setDisplayOptions] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
-  // if (
-  //   auth.currentUser.displayName !== undefined &&
-  //   auth.currentUser.displayName !== null
-  // ) {
-  //   setCurrentUser(auth.currentUser.displayName);
-  // } else {
-  //   setCurrentUser(null);
-  // }
-  // const getCurrentUser = async () => {
-  //   getAuth();
-  //   setCurrentUser(auth.currentUser.displayName);
-  //   console.log(auth.currentUser);
-  // };
 
   return (
     <>
@@ -104,7 +91,7 @@ function App() {
             />
           )}
           <Route
-            path="createpost"
+            path="/createPost"
             element={
               <CreatePost
                 isLoggedIn={isLoggedIn}

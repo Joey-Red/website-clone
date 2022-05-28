@@ -67,7 +67,6 @@ function PostFullPage(props) {
     };
     getPosts();
   }, [currPostId, seeOwnComment]);
-
   return (
     <div className="postFullScreenContainer" style={{ cursor: cursor }}>
       <div className="fullScreenPost">

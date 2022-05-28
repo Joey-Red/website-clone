@@ -55,8 +55,8 @@ function CommunityCreated(props) {
             <div className="nameAndButtons">
               <div>
                 <div className="ccName">
-                  <h1>SUBNAME</h1>
-                  <h2>r/SUBNAME</h2>
+                  <h1>{searchCom}</h1>
+                  <h2>r/{searchCom}</h2>
                 </div>
               </div>
               <div className="ccJoinLeaveNotif">
@@ -90,7 +90,7 @@ function CommunityCreated(props) {
                       Be the first to till this fertile land.
                     </div>
                     <div className="viewButtonContainer">
-                      <a href="/createPost">Add a post</a>
+                      <a href="/new/createPost">Add a post</a>
                     </div>
                   </div>
                 </>
@@ -148,7 +148,7 @@ function CommunityCreated(props) {
                             {modifiedDate}
                           </div>
                           <div className="viewButtonContainer">
-                            <a href="createPost">Create Post</a>
+                            <a href="/createPost">Create Post</a>
                           </div>
                         </div>
                       </div>

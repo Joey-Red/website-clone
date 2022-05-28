@@ -1,14 +1,11 @@
 import React from "react";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Markup, Interweave, Node } from "interweave";
+import { Markup } from "interweave";
+import { Link } from "react-router-dom";
 function CommentContainer(props) {
-  const { commentBody } = props;
-  // function transform(node, { commentBody }) {
-  //   if (node.tagName === "p") {
-  //     return <div>{commentBody}</div>;
-  //   }
-  // }
+  const { commentBody, username } = props;
+  let hrefLink = "/u/" + username;
   return (
     <div className="commentContainerCenter">
       <div className="commentContainer">
@@ -38,17 +35,21 @@ function CommentContainer(props) {
               </g>
             </svg>
           </div>
-          <div className="commenterUserName">{props.username}</div>
+          <div className="commenterUserName">
+            <Link
+              href={hrefLink}
+              to={hrefLink}
+              className="commenterUserNameLink"
+            >
+              <a href="#">u/{props.username}</a>
+            </Link>
+          </div>
         </div>
-        {/* <div className="commentTextContent"> */}
         <Markup
           blockList={"p"}
           content={props.commentBody}
           className="commentTextContent"
         />
-        {/* <div>{props.commentBody}</div> */}
-        {/* </div> */}
-        {/* <Interweave transform={transform} /> */}
         <div className="commentUpVoteContainer">
           <button className="upVote">
             <span>

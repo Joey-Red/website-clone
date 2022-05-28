@@ -1,7 +1,11 @@
 import React from "react";
 import TitleBody from "./TitleBody";
+import { Link } from "react-router-dom";
 
 function TopInfoContainer(props) {
+  let { username, postSub } = props;
+  let hrefLink = "/u/" + username;
+  let hrefLinkCom = "r/" + postSub;
   return (
     <div className="top-info-container">
       <div className="post-infoFP">
@@ -11,7 +15,11 @@ function TopInfoContainer(props) {
         <div className="subMoreInfoFP">
           <div className="subAndPosterName">
             <div className="subName">
-              <a href="#">{props.postSub}</a>
+              <Link href={hrefLinkCom} to={hrefLinkCom}>
+                <a href="#" className="subNameLink">
+                  r/{props.postSub}
+                </a>
+              </Link>
             </div>
             <span className="extraSpans" id="esSpace">
               •
@@ -19,7 +27,9 @@ function TopInfoContainer(props) {
             <span className="extraSpans">Posted by</span>
             <div className="posterName">
               <div>
-                <a href="#">u/{props.username}</a>
+                <Link href={hrefLink} to={hrefLink}>
+                  <a href="#">u/{props.username}</a>
+                </Link>
               </div>
             </div>
             <span className="timeStamp">
