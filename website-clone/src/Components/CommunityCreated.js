@@ -10,8 +10,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MakePostLinkBox from "./MakePostLinkBox";
 import phimg from "./img/phimg.png";
 import { db, auth } from "../firebase";
-import { doc, getDocs, collection, query, where } from "firebase/firestore";
+import {
+  doc,
+  getDocs,
+  collection,
+  query,
+  where,
+  getDoc,
+} from "firebase/firestore";
 import TextPost from "./TextPost";
+import PostFullPage from "./PostFullPage";
 
 function CommunityCreated(props) {
   const { isLoggedIn, setPostPopUp, postPopUp } = props;
@@ -21,12 +29,19 @@ function CommunityCreated(props) {
   let modifiedDate = dateString.slice(4);
 
   const [livePostList, setLivePostList] = useState([]);
-  const [postId, setPostId] = useState("");
+  // const [postId, setPostId] = useState("");
   let url = window.location.href;
   let urlSplit = url.split("/");
   let searchComTemp = urlSplit[4];
   let searchCom = decodeURI(searchComTemp);
-  // console.log(searchCom);
+  const [currAuthor, setCurrAuthor] = useState("");
+  const [currPostDate, setCurrPostDate] = useState("");
+  const [currComName, setCurrComName] = useState("");
+  const [currPostBody, setCurrPostBody] = useState("");
+  const [currPostTitle, setCurrPostTitle] = useState("");
+  const [currVoteCount, setCurrVoteCount] = useState(1);
+  const [currCommentCount, setCurrCommentCount] = useState(0);
+  const [currPostId, setCurrPostId] = useState("");
   useEffect(() => {
     let getPosts = async () => {
       const postsRef = collection(db, "posts");
@@ -40,8 +55,23 @@ function CommunityCreated(props) {
       );
     };
     getPosts();
-    console.log(livePostList);
   }, []);
+  const setPostId = (id) => {
+    let getPost = async () => {
+      const postDoc = doc(db, "posts", id);
+      const docSnap = await getDoc(postDoc);
+      let data = docSnap.data();
+      setCurrAuthor(data.author.username);
+      setCurrPostDate(data.author.postDate);
+      setCurrComName(data.communityName.postingToCom);
+      setCurrPostBody(data.postBody.content);
+      setCurrPostTitle(data.postTitle);
+      setCurrPostId(id);
+      setCurrVoteCount(data.stats.votes);
+      setCurrCommentCount(data.stats.comments);
+    };
+    getPost();
+  };
 
   return (
     <>
@@ -121,6 +151,22 @@ function CommunityCreated(props) {
                           </div>
                         );
                       })}
+                      {postPopUp ? (
+                        <PostFullPage
+                          postPopUp={postPopUp}
+                          setPostPopUp={setPostPopUp}
+                          postSub={currComName}
+                          postTitle={currPostTitle}
+                          comments={currCommentCount}
+                          likes={currVoteCount}
+                          username={currAuthor}
+                          postBody={currPostBody}
+                          postDate={currPostDate}
+                          isLoggedIn={isLoggedIn}
+                          currPostId={currPostId}
+                          setCurrPostId={setCurrPostId}
+                        />
+                      ) : null}
                     </div>
                     <div
                       className="top-x-communities-container extraBit subMQ"

@@ -310,12 +310,14 @@
   }
 }
 @media only screen and (max-width: 985px) {
+  .postBodyMargin {
+    margin-left: 75px;
+  }
   .richEditCenter,
   .commentContainerCenter,
   .cSSContainerFP,
   .FPLeftSide,
-  .submitComment,
-  .postBodyMargin {
+  .submitComment {
     margin: 0 auto;
   }
   .FPLeftSideOuter {
@@ -351,8 +353,10 @@
   .postTitleFPStrict {
     font-size: 12px;
     margin: 4px;
-    text-align: center;
     color: black;
+    margin-left: 75px;
+    max-width: 75%;
+    overflow-wrap: break-word;
   }
 
   .ioButtonComment button a {
@@ -366,7 +370,6 @@
     margin: 0px 80px;
   }
   .submitComment {
-    /* display: block; */
     flex: 1;
     margin-left: 100px;
     font-weight: 700;
@@ -406,8 +409,7 @@
   .richEditCenter,
   .commentContainerCenter,
   .cSSContainerFP,
-  .FPLeftSide,
-  .postBodyMargin {
+  .FPLeftSide {
     margin: 0 auto;
   }
   .FPLeftSideOuter {
@@ -436,8 +438,8 @@
   .postTitleFPStrict {
     font-size: 12px;
     margin: 4px;
-    text-align: center;
     color: black;
+    margin-left: 75px;
   }
   .likeContainerFP {
     margin-left: -44px;
@@ -486,6 +488,17 @@
   }
 
   @media only screen and (max-width: 663px) {
+    .postBodyMargin {
+      overflow-wrap: break-word;
+      margin-left: 40px;
+    }
+    .postTitleFPStrict {
+      font-size: 12px;
+      margin: 4px;
+      /* text-align: center; */
+      color: black;
+      margin-left: 40px;
+    }
     .faMag,
     .faMessage {
       display: none;

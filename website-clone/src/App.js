@@ -55,7 +55,10 @@ function App() {
           />
         )}
         <Routes>
-          <Route path="profile" element={<ProfilePage />} />
+          <Route
+            path="profile"
+            element={<ProfilePage setDisplayOptions={setDisplayOptions} />}
+          />
           {isLoggedIn ? (
             <Route
               exact
@@ -107,8 +110,7 @@ function App() {
                 postPopUp={postPopUp}
                 setPostPopUp={setPostPopUp}
                 isLoggedIn={isLoggedIn}
-                // currentUser={currentUser}
-                // setCurrentUser={setCurrentUser}
+                currentUser={currentUser}
               />
             }
           />

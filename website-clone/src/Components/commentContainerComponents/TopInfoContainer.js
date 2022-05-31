@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 function TopInfoContainer(props) {
   let { username, postSub } = props;
   let hrefLink = "/u/" + username;
-  let hrefLinkCom = "r/" + postSub;
+  let hrefLinkCom = "/r/" + postSub;
+  let closePost = () => {
+    props.setPostPopUp(false);
+  };
   return (
     <div className="top-info-container">
       <div className="post-infoFP">
@@ -15,7 +18,11 @@ function TopInfoContainer(props) {
         <div className="subMoreInfoFP">
           <div className="subAndPosterName">
             <div className="subName">
-              <Link href={hrefLinkCom} to={hrefLinkCom}>
+              <Link
+                href={hrefLinkCom}
+                to={hrefLinkCom}
+                onClick={() => closePost()}
+              >
                 <a href="#" className="subNameLink">
                   r/{props.postSub}
                 </a>
@@ -27,7 +34,7 @@ function TopInfoContainer(props) {
             <span className="extraSpans">Posted by</span>
             <div className="posterName">
               <div>
-                <Link href={hrefLink} to={hrefLink}>
+                <Link href={hrefLink} to={hrefLink} onClick={() => closePost()}>
                   <a href="#">u/{props.username}</a>
                 </Link>
               </div>

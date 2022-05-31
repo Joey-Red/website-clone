@@ -117,16 +117,13 @@ function LoggedInHeader(props) {
                     <div className="optionsContainer">
                       <div className="myStuff">
                         <div className="myProfile">
-                          {/* needs to be dynamic, get actual profile name */}
-                          {/* target="_blank" */}
                           <Link
                             href={hrefLink}
                             to={hrefLink}
-                            onClick={() => setDisplayOptions(false)}
+                            onClick={() => setDisplayOptions((s) => !s)}
                           >
                             Profile
                           </Link>
-                          {/* <a href="/u/currentUser">Profile</a> */}
                           <a href="/userSettings">User Settings</a>
                         </div>
                       </div>

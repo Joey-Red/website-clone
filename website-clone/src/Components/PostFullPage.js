@@ -22,10 +22,10 @@ function PostFullPage(props) {
   const [commentDisplayContainer, setCommentDisplayContainer] = useState([]);
   const [seeOwnComment, setSeeOwnComment] = useState(false);
   const [cursor, setCursor] = useState("default");
-  let { setPostPopUp, isLoggedIn, currPostId } = props;
+  let { postPopUp, setPostPopUp, isLoggedIn, currPostId } = props;
   let closePost = () => {
     setPostPopUp(false);
-    window.location.pathname = "/";
+    // window.location.pathname = "/";
   };
   const handleEditor = (e) => {
     setCommentBody({ ...draftjs, content: e });
@@ -93,6 +93,8 @@ function PostFullPage(props) {
                           isLoggedIn={isLoggedIn}
                         />
                         <TopInfoContainer
+                          postPopUp={postPopUp}
+                          setPostPopUp={setPostPopUp}
                           postBody={props.postBody}
                           comments={props.comments}
                           postTitle={props.postTitle}

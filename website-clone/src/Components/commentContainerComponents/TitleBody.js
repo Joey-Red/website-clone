@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CommentShareSaveButtons from "./CommentShareSaveButtons";
 import { Markup } from "interweave";
 function TitleBody(props) {
@@ -11,7 +11,6 @@ function TitleBody(props) {
             <h3 id="FPTitle">{props.postTitle}</h3>
           </div>
           <div className="postBodyMargin">
-            {/* <div className="postBodyText">{props.postBody}</div> */}
             <div className="postBodyText">
               <Markup blockList={"p"} content={postBody} />
             </div>

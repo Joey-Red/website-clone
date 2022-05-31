@@ -1,20 +1,37 @@
 import React, { useState, useEffect } from "react";
-import LoggedInHeader from "./LoggedInHeader";
-import ProfileSortButtonsBar from "./ProfileSortButtonsBar";
+import SortButtonsBar from "./SortButtonsBar";
 import profilePic from "./img/userPhImg.png";
 import TextPost from "./TextPost";
-import { db, auth } from "../firebase";
-import { doc, getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../firebase";
+import PostFullPage from "./PostFullPage";
+import {
+  getDocs,
+  collection,
+  query,
+  where,
+  getDoc,
+  doc,
+} from "firebase/firestore";
 function ProfilePage(props) {
-  const { postPopUp, setPostPopUp, isLoggedIn, currentUser } = props;
+  const { postPopUp, setPostPopUp, isLoggedIn } = props;
+  const [profileUser, setProfileUser] = useState("Username");
   const [livePostList, setLivePostList] = useState([]);
-  const [postId, setPostId] = useState("");
+  const [currAuthor, setCurrAuthor] = useState("");
+  const [currPostDate, setCurrPostDate] = useState("");
+  const [currComName, setCurrComName] = useState("");
+  const [currPostBody, setCurrPostBody] = useState("");
+  const [currPostTitle, setCurrPostTitle] = useState("");
+  const [currVoteCount, setCurrVoteCount] = useState(1);
+  const [currCommentCount, setCurrCommentCount] = useState(0);
+  const [currPostId, setCurrPostId] = useState("");
   let url = window.location.href;
   let urlSplit = url.split("/");
   let searchUserTemp = urlSplit[4];
   let searchUser = decodeURI(searchUserTemp);
   useEffect(() => {
     let getPosts = async () => {
+      setProfileUser(searchUser);
+
       const postsRef = collection(db, "posts");
       const q = query(postsRef, where("author.username", "==", searchUser));
       const querySnapshot = await getDocs(q);
@@ -23,12 +40,26 @@ function ProfilePage(props) {
       );
     };
     getPosts();
-    console.log(livePostList);
   }, []);
+  const setPostId = (id) => {
+    let getPost = async () => {
+      const postDoc = doc(db, "posts", id);
+      const docSnap = await getDoc(postDoc);
+      let data = docSnap.data();
+      setCurrAuthor(data.author.username);
+      setCurrPostDate(data.author.postDate);
+      setCurrComName(data.communityName.postingToCom);
+      setCurrPostBody(data.postBody.content);
+      setCurrPostTitle(data.postTitle);
+      setCurrPostId(id);
+      setCurrVoteCount(data.stats.votes);
+      setCurrCommentCount(data.stats.comments);
+    };
+    getPost();
+  };
 
   return (
     <>
-      <LoggedInHeader />
       <div className="pfpContainer">
         <div className="pfpSortingButtonsContainer">
           <div className="sortingButton">
@@ -43,40 +74,54 @@ function ProfilePage(props) {
       </div>
       <div className="outermost-popular-container">
         <div className="outer-menu-control-containerSmall">
-          <ProfileSortButtonsBar />
-          <div className="postsBodyContainer">
-            {livePostList.length === 0 ? (
-              <>
-                <div className="emptyPostBody">
-                  <div className="beFirstText">
-                    `hmm... u/{currentUser} hasn't posted anything`
-                  </div>
+          <SortButtonsBar />
+          {livePostList.length === 0 ? (
+            <>
+              <div className="emptyPostBody">
+                <div className="beFirstText">
+                  `hmm... u/{profileUser} hasn't posted anything`
                 </div>
-              </>
-            ) : (
-              <>
-                {livePostList.map((post) => {
-                  return (
-                    <div key={post.id} onClick={() => setPostId(post.id)}>
-                      <TextPost
-                        id={post.id}
-                        postPopUp={postPopUp}
-                        setPostPopUp={setPostPopUp}
-                        postSub={post.communityName.postingToCom}
-                        postTitle={post.postTitle}
-                        comments={post.stats.comments}
-                        likes={post.stats.votes}
-                        username={post.author.username}
-                        postBody={post.postBody.content}
-                        postDate={post.author.postDate}
-                        isLoggedIn={isLoggedIn}
-                      />
-                    </div>
-                  );
-                })}
-              </>
-            )}
-          </div>
+              </div>
+            </>
+          ) : (
+            <>
+              {livePostList.map((post) => {
+                return (
+                  <div key={post.id} onClick={() => setPostId(post.id)}>
+                    <TextPost
+                      id={post.id}
+                      postPopUp={postPopUp}
+                      setPostPopUp={setPostPopUp}
+                      postSub={post.communityName.postingToCom}
+                      postTitle={post.postTitle}
+                      comments={post.stats.comments}
+                      likes={post.stats.votes}
+                      username={post.author.username}
+                      postBody={post.postBody.content}
+                      postDate={post.author.postDate}
+                      isLoggedIn={isLoggedIn}
+                    />
+                  </div>
+                );
+              })}
+            </>
+          )}
+          {postPopUp ? (
+            <PostFullPage
+              postPopUp={postPopUp}
+              setPostPopUp={setPostPopUp}
+              postSub={currComName}
+              postTitle={currPostTitle}
+              comments={currCommentCount}
+              likes={currVoteCount}
+              username={currAuthor}
+              postBody={currPostBody}
+              postDate={currPostDate}
+              isLoggedIn={isLoggedIn}
+              currPostId={currPostId}
+              setCurrPostId={setCurrPostId}
+            />
+          ) : null}
         </div>
         <div className="top-x-communities-container" id="orig">
           <div className="top-communities">
@@ -85,7 +130,9 @@ function ProfilePage(props) {
                 <div className="pfpInner">
                   <img src={profilePic} alt="" className="profilePic" />
                 </div>
-                <div className="usernameContainer topComsUser">u/userName</div>
+                <div className="usernameContainer topComsUser">
+                  u/{profileUser}
+                </div>
               </div>
             </div>
             <div className="accountInfoContainer topComsUser">
@@ -100,7 +147,7 @@ function ProfilePage(props) {
               </div>
             </div>
             <div className="viewButtonContainer">
-              <a href="#">New Post</a>
+              <a href="/createPost">New Post</a>
             </div>
           </div>
         </div>

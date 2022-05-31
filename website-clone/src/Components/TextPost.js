@@ -15,6 +15,7 @@ function TextPost(props) {
   const [fakeCount, setFakeCount] = useState(props.likes);
   let { postPopUp, setPostPopUp, id, isLoggedIn } = props;
   let openPost = () => {
+    // setPostPopUp(true);
     setPostPopUp(true);
   };
   const upVote = async (id) => {

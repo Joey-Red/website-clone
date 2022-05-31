@@ -41,7 +41,9 @@ function CommentContainer(props) {
               to={hrefLink}
               className="commenterUserNameLink"
             >
-              <a href="#">u/{props.username}</a>
+              <a href="#" className="commenterUserNameLink">
+                u/{props.username}
+              </a>
             </Link>
           </div>
         </div>
