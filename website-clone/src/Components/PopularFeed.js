@@ -10,6 +10,7 @@ import {
   query,
   where,
   getDoc,
+  orderBy,
 } from "firebase/firestore";
 
 function PopularFeed(props) {
@@ -25,8 +26,14 @@ function PopularFeed(props) {
   const [currPostId, setCurrPostId] = useState("");
   useEffect(() => {
     let getPosts = async () => {
-      const data = await getDocs(collection(db, "posts"));
-      setLivePostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const first = query(
+        collection(db, "posts"),
+        orderBy("stats.votes", "desc")
+      );
+      const documentSnapshots = await getDocs(first);
+      setLivePostList(
+        documentSnapshots.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
     };
     getPosts();
   }, []);

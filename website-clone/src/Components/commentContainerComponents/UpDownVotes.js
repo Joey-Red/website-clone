@@ -6,6 +6,8 @@ import { increment, updateDoc, doc } from "firebase/firestore";
 function UpDownVotes(props) {
   const { isLoggedIn } = props;
   let [fakeCount, setFakeCount] = useState(props.likes);
+  let [voteStyle, setVoteStyle] = useState(null);
+  let [downVoteStyle, setDownVoteStyle] = useState(null);
   const upVote = async (id) => {
     if (!isLoggedIn) {
       return;
@@ -13,6 +15,10 @@ function UpDownVotes(props) {
       await updateDoc(doc(db, "posts", props.id), {
         "stats.votes": increment(1),
       });
+      if (downVoteStyle !== null) {
+        setDownVoteStyle(null);
+      }
+      setVoteStyle("upVoteStyle");
       setFakeCount(props.likes + 1);
     }
   };
@@ -23,7 +29,11 @@ function UpDownVotes(props) {
       await updateDoc(doc(db, "posts", props.id), {
         "stats.votes": increment(-1),
       });
+      if (voteStyle !== null) {
+        setVoteStyle(null);
+      }
       setFakeCount(props.likes - 1);
+      setDownVoteStyle("downVoteStyle");
     }
   };
   useEffect(() => {
@@ -35,15 +45,14 @@ function UpDownVotes(props) {
       <div className="likeContainer-x1FP">
         <div className="like-container-x2FP">
           <button className="upVote" onClick={() => upVote()}>
-            <span>
+            <span className={voteStyle}>
               <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
             </span>
           </button>
-          {/* <div className="voteCount">{fakeCount}</div> */}
           <div className="voteCount">{fakeCount}</div>
 
           <button className="downVote" onClick={() => downVote()}>
-            <span>
+            <span className={downVoteStyle}>
               <FontAwesomeIcon icon={faArrowDown}></FontAwesomeIcon>
             </span>
           </button>

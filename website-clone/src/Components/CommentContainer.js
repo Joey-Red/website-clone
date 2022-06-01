@@ -1,11 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Markup } from "interweave";
 import { Link } from "react-router-dom";
+import { increment, updateDoc, doc } from "firebase/firestore";
+import { db, auth } from "../firebase";
 function CommentContainer(props) {
-  const { commentBody, username } = props;
+  const {
+    commentBody,
+    username,
+    setPostPopUp,
+    isLoggedIn,
+    commentId,
+    currPostId,
+  } = props;
   let hrefLink = "/u/" + username;
+  let [fakeCount, setFakeCount] = useState(props.likes);
+  let [voteStyle, setVoteStyle] = useState(null);
+  let [downVoteStyle, setDownVoteStyle] = useState(null);
+  let closePost = () => {
+    setPostPopUp(false);
+  };
+
+  const upVote = async () => {
+    if (!isLoggedIn) {
+      return;
+    } else {
+      await updateDoc(doc(db, "posts", currPostId, "comments", commentId), {
+        "stats.votes": increment(1),
+      });
+      if (downVoteStyle !== null) {
+        setDownVoteStyle(null);
+      }
+      setVoteStyle("upVoteStyle");
+      setFakeCount(props.likes + 1);
+    }
+  };
+  const downVote = async (id) => {
+    if (!isLoggedIn) {
+      return;
+    } else {
+      await updateDoc(doc(db, "posts", currPostId, "comments", commentId), {
+        "stats.votes": increment(-1),
+      });
+      if (voteStyle !== null) {
+        setVoteStyle(null);
+      }
+      setFakeCount(props.likes - 1);
+      setDownVoteStyle("downVoteStyle");
+    }
+  };
+  useEffect(() => {
+    setFakeCount(props.likes);
+    console.log(fakeCount);
+  }, [props.likes]);
   return (
     <div className="commentContainerCenter">
       <div className="commentContainer">
@@ -41,8 +89,12 @@ function CommentContainer(props) {
               to={hrefLink}
               className="commenterUserNameLink"
             >
-              <a href="#" className="commenterUserNameLink">
-                u/{props.username}
+              <a
+                href="#"
+                className="commenterUserNameLink"
+                onClick={() => closePost()}
+              >
+                {props.username}
               </a>
             </Link>
           </div>
@@ -53,14 +105,14 @@ function CommentContainer(props) {
           className="commentTextContent"
         />
         <div className="commentUpVoteContainer">
-          <button className="upVote">
-            <span>
+          <button className="upVote" onClick={() => upVote()}>
+            <span className={voteStyle}>
               <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
             </span>
           </button>
-          <span className="commentVoteCount">{props.likes}</span>
-          <button className="downVote">
-            <span>
+          <span className="commentVoteCount">{fakeCount}</span>
+          <button className="downVote" onClick={() => downVote()}>
+            <span className={downVoteStyle}>
               <FontAwesomeIcon icon={faArrowDown}></FontAwesomeIcon>
             </span>
           </button>

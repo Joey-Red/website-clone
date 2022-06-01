@@ -3,22 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import React from "react";
 
-function FPRightSide() {
+function FPRightSide(props) {
   return (
     <div className="top-x-communities-container">
       <div className="top-communities">
         <div className="top-coms-header-editFP"></div>
         <div className="tcInside">
-          <div>r/SubName</div>
+          <div>r/{props.postSub}</div>
           <div className="modsList">
-            <FontAwesomeIcon icon={faCake}></FontAwesomeIcon> DateSubWasCreated
+            <FontAwesomeIcon icon={faCake}></FontAwesomeIcon>{" "}
+            {props.modifiedDate}
             <div className="members">Members: #</div>
           </div>
         </div>
       </div>
       <div className="fpGap">
         <div className="top-communities">
-          <div className="top-coms-header-editFP">r/subname Rules</div>
+          <div className="top-coms-header-editFP">r/{props.postSub} Rules</div>
           <div className="tcInside">
             <div className="rulesList">
               <ol>

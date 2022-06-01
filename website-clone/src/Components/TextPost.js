@@ -14,6 +14,8 @@ import { db, auth } from "../firebase";
 function TextPost(props) {
   const [fakeCount, setFakeCount] = useState(props.likes);
   let { postPopUp, setPostPopUp, id, isLoggedIn } = props;
+  let [voteStyle, setVoteStyle] = useState(null);
+  let [downVoteStyle, setDownVoteStyle] = useState(null);
   let openPost = () => {
     // setPostPopUp(true);
     setPostPopUp(true);
@@ -25,6 +27,10 @@ function TextPost(props) {
       await updateDoc(doc(db, "posts", props.id), {
         "stats.votes": increment(1),
       });
+      if (downVoteStyle !== null) {
+        setDownVoteStyle(null);
+      }
+      setVoteStyle("upVoteStyle");
       setFakeCount(fakeCount + 1);
     }
   };
@@ -35,6 +41,10 @@ function TextPost(props) {
       await updateDoc(doc(db, "posts", props.id), {
         "stats.votes": increment(-1),
       });
+      if (voteStyle !== null) {
+        setVoteStyle(null);
+      }
+      setDownVoteStyle("downVoteStyle");
       setFakeCount(fakeCount - 1);
     }
   };
@@ -46,13 +56,13 @@ function TextPost(props) {
             <div className="likeContainer-x1">
               <div className="like-container-x2">
                 <button className="upVote" onClick={() => upVote()}>
-                  <span>
+                  <span className={voteStyle}>
                     <FontAwesomeIcon icon={faArrowUp}></FontAwesomeIcon>
                   </span>
                 </button>
                 <div className="voteCount">{fakeCount}</div>
                 <button className="downVote" onClick={() => downVote()}>
-                  <span>
+                  <span className={downVoteStyle}>
                     <FontAwesomeIcon icon={faArrowDown}></FontAwesomeIcon>
                   </span>
                 </button>

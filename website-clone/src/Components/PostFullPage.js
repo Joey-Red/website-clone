@@ -25,7 +25,6 @@ function PostFullPage(props) {
   let { postPopUp, setPostPopUp, isLoggedIn, currPostId } = props;
   let closePost = () => {
     setPostPopUp(false);
-    // window.location.pathname = "/";
   };
   const handleEditor = (e) => {
     setCommentBody({ ...draftjs, content: e });
@@ -147,9 +146,13 @@ function PostFullPage(props) {
                             // <Editor readOnly={readOnly}/>
                             <div key={post.id}>
                               <CommentContainer
+                                currPostId={currPostId}
                                 username={post.author.username}
                                 likes={post.stats.votes}
                                 commentBody={post.commentBody.content}
+                                setPostPopUp={setPostPopUp}
+                                isLoggedIn={isLoggedIn}
+                                commentId={post.id}
                               />
                             </div>
                           );
@@ -158,7 +161,10 @@ function PostFullPage(props) {
                     </div>
                   </div>
                   <div className="FPRightSide">
-                    <FPRightSide />
+                    <FPRightSide
+                      postSub={props.postSub}
+                      modifiedDate={modifiedDate}
+                    />
                   </div>
                 </div>
               </div>

@@ -903,3 +903,9 @@ p {
   font-weight: 400;
   color: var(--newRedditTheme-metaText);
 }
+.upVoteStyle {
+  color: #ff4500;
+}
+.downVoteStyle {
+  color: #7193ff;
+}
