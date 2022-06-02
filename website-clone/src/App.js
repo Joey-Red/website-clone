@@ -62,7 +62,7 @@ function App() {
           {isLoggedIn ? (
             <Route
               exact
-              path="/"
+              path="/website-clone/"
               element={
                 <Fragment>
                   <Popular
@@ -78,7 +78,7 @@ function App() {
           ) : (
             <Route
               exact
-              path="/"
+              path="/website-clone/"
               element={
                 <Fragment>
                   <Trending />
@@ -98,7 +98,7 @@ function App() {
             />
           )}
           <Route
-            path="/createPost"
+            path="/website-clone/createPost"
             element={
               <CreatePost
                 isLoggedIn={isLoggedIn}
@@ -108,7 +108,7 @@ function App() {
             }
           />
           <Route
-            path="u/:username"
+            path="/website-clone/u/:username"
             element={
               <ProfilePage
                 postPopUp={postPopUp}
@@ -118,9 +118,12 @@ function App() {
               />
             }
           />
-          <Route path="userSettings" element={<UserSettings />} />
           <Route
-            path="/r/:subId"
+            path="/website-clone/userSettings"
+            element={<UserSettings />}
+          />
+          <Route
+            path="/website-clone/r/:subId"
             element={
               <CommunityCreated
                 postPopUp={postPopUp}
@@ -130,7 +133,7 @@ function App() {
             }
           />
           <Route
-            path="/search"
+            path="/website-clone/search"
             element={
               <SearchPage
                 isLoggedIn={isLoggedIn}

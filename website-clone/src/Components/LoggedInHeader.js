@@ -40,7 +40,7 @@ function LoggedInHeader(props) {
     signOut(auth).then(() => {
       localStorage.clear();
       setIsLoggedIn(false);
-      window.location.pathname = "/";
+      window.location.pathname = "/website-clone/";
       setDisplayLogIn(true);
     });
   };
