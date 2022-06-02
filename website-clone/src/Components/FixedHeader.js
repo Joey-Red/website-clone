@@ -38,7 +38,7 @@ function FixedHeader(props) {
         <div className="inner-container">
           <div className="left-side">
             <div className="logoWrapper">
-              <a href="/">
+              <a href="/website-clone/">
                 <img src={logo} alt="redditlogo" className="logo" />
               </a>
             </div>

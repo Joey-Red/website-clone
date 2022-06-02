@@ -147,7 +147,7 @@ function ProfilePage(props) {
               </div>
             </div>
             <div className="viewButtonContainer">
-              <a href="/createPost">New Post</a>
+              <a href="/website-clone/createPost">New Post</a>
             </div>
           </div>
         </div>

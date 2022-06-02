@@ -53,11 +53,11 @@ function TopXComs() {
   useEffect(() => {
     if (hrefLoad === false && comList.length > 0) {
       setIsLoaded(true);
-      setHrefLinkOne("r/" + comList[0].id);
-      setHrefLinkTwo("r/" + comList[1].id);
-      setHrefLinkThree("r/" + comList[2].id);
-      setHrefLinkFour("r/" + comList[3].id);
-      setHrefLinkFive("r/" + comList[4].id);
+      setHrefLinkOne("/website-clone/r/" + comList[0].id);
+      setHrefLinkTwo("/website-clone/r/" + comList[1].id);
+      setHrefLinkThree("/website-clone/r/" + comList[2].id);
+      setHrefLinkFour("/website-clone/r/" + comList[3].id);
+      setHrefLinkFive("/website-clone/r/" + comList[4].id);
     }
   }, [comList]);
 
@@ -218,9 +218,6 @@ function TopXComs() {
         </div>
       </div>
       <div className="top-communities" id="redditPremium">
-        {/* <div className="top-coms-header ">
-          <h2>Reddit Premium</h2>
-        </div> */}
         <div>
           <div className="premFlex">
             <FontAwesomeIcon

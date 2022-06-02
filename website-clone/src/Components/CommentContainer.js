@@ -14,7 +14,7 @@ function CommentContainer(props) {
     commentId,
     currPostId,
   } = props;
-  let hrefLink = "/u/" + username;
+  let hrefLink = "/website-clone/u/" + username;
   let [fakeCount, setFakeCount] = useState(props.likes);
   let [voteStyle, setVoteStyle] = useState(null);
   let [downVoteStyle, setDownVoteStyle] = useState(null);

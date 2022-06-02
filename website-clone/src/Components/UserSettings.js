@@ -1,11 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
-// import { useAuth } from "./contexts/AuthContext";
-
 function UserSettings() {
-  // const [error, setError] = useState("");
-  // const { currentUser } = useAuth();
   return (
     <div className="outerSettingsContainer">
       <div className="userSettingsContainer">
@@ -14,7 +10,6 @@ function UserSettings() {
         <div className="emailDiv">
           <div className="emailDivInner">
             <div className="settingsTitle">Email address</div>
-            {/* <p>{currentUser.email}</p> */}
           </div>
           <div className="changeButton">
             <button className="ioButton settingsIo">Change</button>

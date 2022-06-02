@@ -38,7 +38,7 @@ function LogIn(props) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("user", auth.currentUser.displayName);
       navigate("/");
-      window.location.pathname = "/";
+      window.location.pathname = "/website-clone/";
     });
   };
   return (

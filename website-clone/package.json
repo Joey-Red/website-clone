@@ -1,7 +1,7 @@
 {
   "name": "website-clone",
   "version": "0.1.0",
-  "homepage": "https://Joey-Red.github.io/website-clone",
+  "homepage": "https://Joey-Red.github.io/website-clone/",
   "private": true,
   "dependencies": {
     "@firebase/auth": "^0.20.0",

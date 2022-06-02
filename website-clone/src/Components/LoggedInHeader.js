@@ -50,7 +50,7 @@ function LoggedInHeader(props) {
     navigate("search/");
     localStorage.setItem("searchQuery", formValue);
   };
-  let hrefLink = "/u/" + localStorage.getItem("user");
+  let hrefLink = "/website-clone/u/" + localStorage.getItem("user");
 
   return (
     <div className="headerOuter">
@@ -58,7 +58,7 @@ function LoggedInHeader(props) {
         <div className="inner-container">
           <div className="left-side">
             <div className="logoWrapper">
-              <a href="/">
+              <a href="/website-clone/">
                 <img src={logo} alt="redditlogo" className="logo" />
               </a>
             </div>

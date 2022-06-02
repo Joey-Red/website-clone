@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 function TopInfoContainer(props) {
   let { username, postSub } = props;
-  let hrefLink = "/u/" + username;
-  let hrefLinkCom = "/r/" + postSub;
+  let hrefLink = "/website-clone/u/" + username;
+  let hrefLinkCom = "/website-clone/r/" + postSub;
   let closePost = () => {
     props.setPostPopUp(false);
   };

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function MakePostLinkBox() {
   return (
     <div className="mpOuter">
-      <a href="/createpost">
+      <a href="/website-clone/createpost">
         <div className="mpContainer">
           <div>
             <div className="svg">

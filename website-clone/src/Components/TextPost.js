@@ -204,28 +204,6 @@ function TextPost(props) {
             </div>
           </div>
         ) : null}
-        {/* {displaySignUpFromText ? (
-          // {displaySignUp ? (
-          <SignUp
-            displaySignUp={displaySignUp}
-            setDisplaySignUp={setDisplaySignUp}
-            displayLogIn={displayLogIn}
-            setDisplayLogIn={setDisplayLogIn}
-            setIsLoggedIn={setIsLoggedIn}
-          />
-        ) : null} */}
-        {/* {!displayLogIn ? ( */}
-        {/* {!displayLogInFromText ? (
-          <LogIn
-            displayLogIn={displayLogIn}
-            setDisplayLogIn={setDisplayLogIn}
-            displaySignUp={displaySignUp}
-            setDisplaySignUp={setDisplaySignUp}
-            setIsLoggedIn={setIsLoggedIn}
-            setDisplayForgotPw={setDisplayForgotPw}
-            displayForgotPw={displayForgotPw}
-          />
-        ) : null} */}
       </div>
     </>
   );

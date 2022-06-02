@@ -194,7 +194,7 @@ function CommunityCreated(props) {
                             {modifiedDate}
                           </div>
                           <div className="viewButtonContainer">
-                            <a href="/createPost">Create Post</a>
+                            <a href="/website-clone/createPost">Create Post</a>
                           </div>
                         </div>
                       </div>

@@ -153,9 +153,6 @@ function TopXComs() {
         </div>
       </div>
       <div className="top-communities" id="redditPremium">
-        {/* <div className="top-coms-header ">
-          <h2>Reddit Premium</h2>
-        </div> */}
         <div>
           <div className="premFlex">
             <FontAwesomeIcon
