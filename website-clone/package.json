@@ -1,6 +1,7 @@
 {
   "name": "website-clone",
   "version": "0.1.0",
+  "homepage": "https://Joey-Red.github.io/website-clone",
   "private": true,
   "dependencies": {
     "@firebase/auth": "^0.20.0",
@@ -24,6 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "file-loader": "^6.2.0"
+    "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0"
   }
 }
