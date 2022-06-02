@@ -1,10 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp, faShield } from "@fortawesome/free-solid-svg-icons";
 import adPhoto from "../Components/img/adplacement.jpg";
-
+import { db, auth } from "../firebase";
+import {
+  getDocs,
+  collection,
+  deleteDoc,
+  doc,
+  query,
+  where,
+  getDoc,
+  orderBy,
+  limit,
+} from "firebase/firestore";
+import { Link } from "react-router-dom";
 function TopXComs() {
   let [activeButton, setActiveButton] = useState(true);
+  const [comList, setComList] = useState([]);
+  const [hrefLoad, setHrefLoad] = useState(true);
+  const [hrefLinkOne, setHrefLinkOne] = useState("");
+  const [hrefLinkTwo, setHrefLinkTwo] = useState("");
+  const [hrefLinkThree, setHrefLinkThree] = useState("");
+  const [hrefLinkFour, setHrefLinkFour] = useState("");
+  const [hrefLinkFive, setHrefLinkFive] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hrefLinkDisplayZero, setHrefLinkDisplayZero] = useState("");
+  const [hrefLinkDisplayOne, setHrefLinkDisplayOne] = useState("");
+  const [hrefLinkDisplayTwo, setHrefLinkDisplayTwo] = useState("");
+  const [hrefLinkDisplayThree, setHrefLinkDisplayThree] = useState("");
+  const [hrefLinkDisplayFour, setHrefLinkDisplayFour] = useState("");
   let topComsSort = (e) => {
     if (activeButton === true) {
       e.target.style.backgroundColor = "#0079d3";
@@ -14,17 +39,44 @@ function TopXComs() {
       e.target.style.color = "#0079d3";
     }
     setActiveButton(!activeButton);
-    console.log(activeButton);
   };
+  useEffect(() => {
+    let getPosts = async () => {
+      const querySnapshot = await getDocs(
+        collection(db, "communities"),
+        limit(5)
+      );
+      setComList(
+        querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    };
+    getPosts();
+    setHrefLoad(false);
+  }, []);
+  useEffect(() => {
+    if (hrefLoad === false && comList.length > 0) {
+      setIsLoaded(true);
+      setHrefLinkOne("/website-clone/r/" + comList[0].id);
+      setHrefLinkDisplayZero("r/" + comList[0].id);
+      setHrefLinkTwo("/website-clone/r/" + comList[1].id);
+      setHrefLinkDisplayOne("r/" + comList[1].id);
+      setHrefLinkThree("/website-clone/r/" + comList[2].id);
+      setHrefLinkDisplayTwo("r/" + comList[2].id);
+      setHrefLinkFour("/website-clone/r/" + comList[3].id);
+      setHrefLinkDisplayThree("r/" + comList[3].id);
+      setHrefLinkFive("/website-clone/r/" + comList[4].id);
+      setHrefLinkDisplayFour("r/" + comList[4].id);
+    }
+  }, [comList]);
   return (
     <div className="top-x-communities-container extraBit" id="orig">
       <div className="top-communities">
         <div className="top-coms-header">
-          <h2>Top News Communities</h2>
+          <h2>Explore New Communities</h2>
         </div>
         <ol className="top-coms-list">
           <li>
-            <a href="#">
+            <div className="liA">
               <span>
                 <div className="number-holder">1</div>
                 <FontAwesomeIcon
@@ -36,17 +88,21 @@ function TopXComs() {
                   role="presentation"
                   src="https://styles.redditmedia.com/t5_2qi4j/styles/communityIcon_a0b0l0lb75k41.png"
                 />
-                r/technews
+                <Link href={hrefLinkOne} to={hrefLinkOne}>
+                  <a href="#" className="subNameLink">
+                    {isLoaded ? <>{hrefLinkDisplayZero}</> : "loading..."}
+                  </a>
+                </Link>
               </span>
               <div className="joinButtonDiv">
                 <button>
                   <div>Join</div>
                 </button>
               </div>
-            </a>
+            </div>
           </li>
           <li>
-            <a href="#">
+            <div className="liA">
               <span>
                 <div className="number-holder">2</div>
                 <FontAwesomeIcon
@@ -58,17 +114,21 @@ function TopXComs() {
                   role="presentation"
                   src="https://a.thumbs.redditmedia.com/E0Bkwgwe5TkVLflBA7WMe9fMSC7DV2UOeff-UpNJeb0.png"
                 />
-                r/technews
+                <Link href={hrefLinkTwo} to={hrefLinkTwo}>
+                  <a href="#" className="subNameLink">
+                    {isLoaded ? <>{hrefLinkDisplayOne}</> : "loading..."}
+                  </a>
+                </Link>
               </span>
               <div className="joinButtonDiv">
                 <button>
                   <div>Join</div>
                 </button>
               </div>
-            </a>
+            </div>
           </li>
           <li>
-            <a href="#">
+            <div className="liA">
               <span>
                 <div className="number-holder">3</div>
                 <FontAwesomeIcon
@@ -80,17 +140,21 @@ function TopXComs() {
                   role="presentation"
                   src="https://styles.redditmedia.com/t5_2qi4j/styles/communityIcon_a0b0l0lb75k41.png"
                 />
-                r/worldnews
+                <Link href={hrefLinkThree} to={hrefLinkThree}>
+                  <a href="#" className="subNameLink">
+                    {isLoaded ? <>{hrefLinkDisplayTwo}</> : "loading..."}
+                  </a>
+                </Link>
               </span>
               <div className="joinButtonDiv">
                 <button>
                   <div>Join</div>
                 </button>
               </div>
-            </a>
+            </div>
           </li>
           <li>
-            <a href="#">
+            <div className="liA">
               <span>
                 <div className="number-holder">4</div>
                 <FontAwesomeIcon
@@ -102,17 +166,21 @@ function TopXComs() {
                   role="presentation"
                   src="https://styles.redditmedia.com/t5_2qh11/styles/communityIcon_yn4xge2wh2h51.png"
                 />
-                r/offbeat
+                <Link href={hrefLinkFour} to={hrefLinkFour}>
+                  <a href="#" className="subNameLink">
+                    {isLoaded ? <>{hrefLinkDisplayThree}</> : "loading..."}
+                  </a>
+                </Link>
               </span>
               <div className="joinButtonDiv">
                 <button>
                   <div>Join</div>
                 </button>
               </div>
-            </a>
+            </div>
           </li>
           <li>
-            <a href="#">
+            <div className="liA">
               <span>
                 <div className="number-holder">5</div>
                 <FontAwesomeIcon
@@ -124,14 +192,18 @@ function TopXComs() {
                   role="presentation"
                   src="https://styles.redditmedia.com/t5_2sc3f/styles/communityIcon_x6dymnk82f861.png"
                 />
-                r/gamernews
+                <Link href={hrefLinkFive} to={hrefLinkFive}>
+                  <a href="#" className="subNameLink">
+                    {isLoaded ? <>{hrefLinkDisplayFour}</> : "loading..."}
+                  </a>
+                </Link>
               </span>
               <div className="joinButtonDiv">
                 <button>
                   <div>Join</div>
                 </button>
               </div>
-            </a>
+            </div>
           </li>
           <div className="viewButtonContainer">
             <a href="#">View All</a>

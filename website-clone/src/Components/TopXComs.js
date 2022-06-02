@@ -26,6 +26,11 @@ function TopXComs() {
   const [hrefLinkFour, setHrefLinkFour] = useState("");
   const [hrefLinkFive, setHrefLinkFive] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hrefLinkDisplayZero, setHrefLinkDisplayZero] = useState("");
+  const [hrefLinkDisplayOne, setHrefLinkDisplayOne] = useState("");
+  const [hrefLinkDisplayTwo, setHrefLinkDisplayTwo] = useState("");
+  const [hrefLinkDisplayThree, setHrefLinkDisplayThree] = useState("");
+  const [hrefLinkDisplayFour, setHrefLinkDisplayFour] = useState("");
   let topComsSort = (e) => {
     if (activeButton === true) {
       e.target.style.backgroundColor = "#0079d3";
@@ -54,10 +59,15 @@ function TopXComs() {
     if (hrefLoad === false && comList.length > 0) {
       setIsLoaded(true);
       setHrefLinkOne("/website-clone/r/" + comList[0].id);
+      setHrefLinkDisplayZero("r/" + comList[0].id);
       setHrefLinkTwo("/website-clone/r/" + comList[1].id);
+      setHrefLinkDisplayOne("r/" + comList[1].id);
       setHrefLinkThree("/website-clone/r/" + comList[2].id);
+      setHrefLinkDisplayTwo("r/" + comList[2].id);
       setHrefLinkFour("/website-clone/r/" + comList[3].id);
+      setHrefLinkDisplayThree("r/" + comList[3].id);
       setHrefLinkFive("/website-clone/r/" + comList[4].id);
+      setHrefLinkDisplayFour("r/" + comList[4].id);
     }
   }, [comList]);
 
@@ -83,7 +93,7 @@ function TopXComs() {
                 />
                 <Link href={hrefLinkOne} to={hrefLinkOne}>
                   <a href="#" className="subNameLink">
-                    {isLoaded ? <>{hrefLinkOne}</> : "loading..."}
+                    {isLoaded ? <>{hrefLinkDisplayZero}</> : "loading..."}
                   </a>
                 </Link>
               </span>
@@ -109,7 +119,7 @@ function TopXComs() {
                 />
                 <Link href={hrefLinkTwo} to={hrefLinkTwo}>
                   <a href="#" className="subNameLink">
-                    {isLoaded ? <>{hrefLinkTwo}</> : "loading..."}
+                    {isLoaded ? <>{hrefLinkDisplayOne}</> : "loading..."}
                   </a>
                 </Link>
               </span>
@@ -135,7 +145,7 @@ function TopXComs() {
                 />
                 <Link href={hrefLinkThree} to={hrefLinkThree}>
                   <a href="#" className="subNameLink">
-                    {isLoaded ? <>{hrefLinkThree}</> : "loading..."}
+                    {isLoaded ? <>{hrefLinkDisplayTwo}</> : "loading..."}
                   </a>
                 </Link>
               </span>
@@ -161,7 +171,7 @@ function TopXComs() {
                 />
                 <Link href={hrefLinkFour} to={hrefLinkFour}>
                   <a href="#" className="subNameLink">
-                    {isLoaded ? <>{hrefLinkFour}</> : "loading..."}
+                    {isLoaded ? <>{hrefLinkDisplayThree}</> : "loading..."}
                   </a>
                 </Link>
               </span>
@@ -187,7 +197,7 @@ function TopXComs() {
                 />
                 <Link href={hrefLinkFive} to={hrefLinkFive}>
                   <a href="#" className="subNameLink">
-                    {isLoaded ? <>{hrefLinkFive}</> : "loading..."}
+                    {isLoaded ? <>{hrefLinkDisplayFour}</> : "loading..."}
                   </a>
                 </Link>
               </span>

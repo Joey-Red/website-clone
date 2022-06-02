@@ -98,7 +98,7 @@ function App() {
             />
           )}
           <Route
-            path="/website-clone/createPost"
+            path="/website-clone/createpost"
             element={
               <CreatePost
                 isLoggedIn={isLoggedIn}

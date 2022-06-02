@@ -40,7 +40,7 @@ function TopInfoContainer(props) {
               </div>
             </div>
             <span className="timeStamp">
-              <a href="#">10 Hours ago</a>
+              {/* <a href="#">10 Hours ago</a> */}
             </span>
           </div>
         </div>
