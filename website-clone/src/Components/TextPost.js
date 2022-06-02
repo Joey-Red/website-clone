@@ -10,18 +10,42 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { doc, updateDoc, increment } from "firebase/firestore";
 import { db, auth } from "../firebase";
-
+import LogIn from "./ForgotPassword";
+import SignUp from "./SignUp";
 function TextPost(props) {
   const [fakeCount, setFakeCount] = useState(props.likes);
-  let { postPopUp, setPostPopUp, id, isLoggedIn } = props;
+  let {
+    setDisplaySignUp,
+    displaySignUp,
+    setDisplayLogIn,
+    displayLogIn,
+    setIsLoggedIn,
+    setDisplayForgotPw,
+    displayForgotPw,
+    isLoggedIn,
+    setPostPopUp,
+  } = props;
   let [voteStyle, setVoteStyle] = useState(null);
   let [downVoteStyle, setDownVoteStyle] = useState(null);
+  const [displayOptions, setDisplayOptions] = useState(false);
+
+  const [displayLogInFromText, setDisplayLogInFromText] = useState(false);
+  const [displaySignUpFromText, setDisplaySignUpFromText] = useState(false);
   let openPost = () => {
-    // setPostPopUp(true);
     setPostPopUp(true);
   };
+
+  let toggleMenu = () => {
+    setDisplayOptions(!displayOptions);
+  };
+
+  let showLogin = () => {
+    setDisplayLogIn(!displayLogIn);
+  };
+
   const upVote = async (id) => {
     if (!isLoggedIn) {
+      showLogin();
       return;
     } else {
       await updateDoc(doc(db, "posts", props.id), {
@@ -36,6 +60,7 @@ function TextPost(props) {
   };
   const downVote = async (id) => {
     if (!isLoggedIn) {
+      showLogin();
       return;
     } else {
       await updateDoc(doc(db, "posts", props.id), {
@@ -157,6 +182,50 @@ function TextPost(props) {
             </div>
           </div>
         </div>
+        {displayOptions ? (
+          <div className="userOptionsContainer">
+            <div className="myStuff">
+              <div className="myProfile">
+                <a href="#" onClick={() => toggleMenu()}>
+                  Create Account
+                </a>
+              </div>
+            </div>
+            <div className="additionalStuff">
+              <a href="#">Advertise on Reddit</a>
+              <a href="#">Reddit Coins</a>
+              <a href="#">Premium</a>
+              <a href="#">Help Center</a>
+              <a href="#">Terms & Policies</a>
+              <a href="#">User Agreement</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Content Policy</a>
+              <a href="#">Moderator Guidelines</a>
+            </div>
+          </div>
+        ) : null}
+        {/* {displaySignUpFromText ? (
+          // {displaySignUp ? (
+          <SignUp
+            displaySignUp={displaySignUp}
+            setDisplaySignUp={setDisplaySignUp}
+            displayLogIn={displayLogIn}
+            setDisplayLogIn={setDisplayLogIn}
+            setIsLoggedIn={setIsLoggedIn}
+          />
+        ) : null} */}
+        {/* {!displayLogIn ? ( */}
+        {/* {!displayLogInFromText ? (
+          <LogIn
+            displayLogIn={displayLogIn}
+            setDisplayLogIn={setDisplayLogIn}
+            displaySignUp={displaySignUp}
+            setDisplaySignUp={setDisplaySignUp}
+            setIsLoggedIn={setIsLoggedIn}
+            setDisplayForgotPw={setDisplayForgotPw}
+            displayForgotPw={displayForgotPw}
+          />
+        ) : null} */}
       </div>
     </>
   );

@@ -88,6 +88,10 @@ function App() {
                     isLoggedIn={isLoggedIn}
                     communities={communities}
                     setCommunities={setCommunities}
+                    displayLogIn={displayLogIn}
+                    setDisplayLogIn={setDisplayLogIn}
+                    setDisplayForgotPw={setDisplayForgotPw}
+                    displayForgotPw={displayForgotPw}
                   />
                 </Fragment>
               }

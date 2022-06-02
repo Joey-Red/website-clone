@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-// import { useAuth } from "./contexts/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 function LogIn(props) {
@@ -31,18 +30,6 @@ function LogIn(props) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   try {
-  //     setError("");
-  //     setLoading(true);
-  //     await resetPassword(emailRef.current.value);
-  //     message("Check your inbox for further instructions.");
-  //   } catch {
-  //     setError("Failed to reset password.");
-  //   }
-  //   setLoading(false);
-  // }
 
   return (
     <div className="signUpContainerOutside">
@@ -64,12 +51,7 @@ function LogIn(props) {
               {message && <div>{message}</div>}
               <form>
                 <div className="signUpInputContainer" id="email">
-                  <input
-                    type="email"
-                    // ref={emailRef}
-                    required
-                    placeholder="EMAIL"
-                  />
+                  <input type="email" required placeholder="EMAIL" />
                 </div>
                 <div className="signUpButtonContinue">
                   <button type="submit" disabled={loading}>

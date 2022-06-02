@@ -8,15 +8,11 @@ import {
   faPoll,
   faMicrophone,
   faPlusCircle,
-  faBullhorn,
-  faLock,
-  faPerson,
-  faEye,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextEditorDRAFTJSCreatePost from "./TextEditorDRAFTJSCreatePost";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import NewCommunity from "./NewCommunity";
 import uniqid from "uniqid";
@@ -56,7 +52,6 @@ function CreatePost(props) {
   let dateString = createDay.toDateString();
   let modifiedDate = dateString.slice(4);
   let navigate = useNavigate();
-  const communitiesCollectionRef = collection(db, "communities");
   useEffect(() => {
     if (!isLoggedIn) {
       navigate("/");
@@ -87,20 +82,14 @@ function CreatePost(props) {
       navigate("/");
     }
   };
-  // also need to figure out this loop issue at some point
-  // lastly, need to get texteditorbody state somehow, maybe through props?
-
   useEffect(() => {
     let getCommunities = async () => {
       const data = await getDocs(collection(db, "communities"));
       setCommunities(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getCommunities();
-    console.log("test");
   }, [showNewCom]);
-  // console.log(communities);
 
-  // This loop is killing me. it has to refresh ..
   return (
     <div className="createPostContainer">
       {showNewCom ? (

@@ -141,9 +141,16 @@ function PostFullPage(props) {
                             </div>
                           </div>
                         )}
+                        {commentDisplayContainer.length === 0 ? (
+                          <div className="noComments">
+                            No Comments yet. Be the first to share what you
+                            think!
+                          </div>
+                        ) : (
+                          <></>
+                        )}
                         {commentDisplayContainer.map((post) => {
                           return (
-                            // <Editor readOnly={readOnly}/>
                             <div key={post.id}>
                               <CommentContainer
                                 currPostId={currPostId}

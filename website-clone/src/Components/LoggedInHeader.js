@@ -45,17 +45,6 @@ function LoggedInHeader(props) {
     });
   };
   const auth = getAuth();
-  // useEffect(() => {
-  //   if (
-  //     auth.currentUser.displayName !== undefined &&
-  //     auth.currentUser.displayName !== null
-  //   ) {
-  //     setCurrentUser(auth.currentUser.displayName);
-  //   } else {
-  //     setCurrentUser(null);
-  //   }
-  //   console.log(currentUser);
-  // }, [displayOptions, auth.currentUser]);
   const navigate = useNavigate();
   const searchQuery = () => {
     navigate("search/");

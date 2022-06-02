@@ -11,10 +11,19 @@ import {
   where,
   getDoc,
   orderBy,
+  limit,
 } from "firebase/firestore";
 
 function PopularFeed(props) {
-  const { postPopUp, setPostPopUp, isLoggedIn } = props;
+  const {
+    postPopUp,
+    setPostPopUp,
+    isLoggedIn,
+    displayLogIn,
+    setDisplayLogIn,
+    displayForgotPw,
+    setDisplayForgotPw,
+  } = props;
   const [livePostList, setLivePostList] = useState([]);
   const [currAuthor, setCurrAuthor] = useState("");
   const [currPostDate, setCurrPostDate] = useState("");
@@ -57,6 +66,7 @@ function PopularFeed(props) {
 
   return (
     <>
+      {livePostList.length > 0 ? <></> : <>loading posts...</>}
       {livePostList.map((post) => {
         return (
           <div key={post.id} onClick={() => setPostId(post.id)}>
@@ -72,6 +82,10 @@ function PopularFeed(props) {
               postBody={post.postBody.content}
               postDate={post.author.postDate}
               isLoggedIn={isLoggedIn}
+              displayLogIn={displayLogIn}
+              setDisplayLogIn={setDisplayLogIn}
+              setDisplayForgotPw={setDisplayForgotPw}
+              displayForgotPw={displayForgotPw}
             />
           </div>
         );

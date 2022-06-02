@@ -52,7 +52,6 @@ function CommentContainer(props) {
   };
   useEffect(() => {
     setFakeCount(props.likes);
-    console.log(fakeCount);
   }, [props.likes]);
   return (
     <div className="commentContainerCenter">
