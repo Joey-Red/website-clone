@@ -917,3 +917,10 @@ p {
   margin: 12px;
   padding: 12px;
 }
+.noPostFoundMsg {
+  max-width: 30vw;
+  padding: 12px;
+}
+.postFound {
+  padding: 12px;
+}

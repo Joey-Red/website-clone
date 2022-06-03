@@ -33,8 +33,8 @@ function LoggedInHeader(props) {
   const auth = getAuth();
   const navigate = useNavigate();
   const searchQuery = () => {
-    navigate("/website-clone/search/");
     localStorage.setItem("searchQuery", formValue);
+    navigate("/website-clone/search/");
   };
   let hrefLink = "/website-clone/u/" + localStorage.getItem("user");
 

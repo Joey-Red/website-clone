@@ -16,7 +16,6 @@ function SearchPage(props) {
   const { isLoggedIn, postPopUp, setPostPopUp, formValue, setFormValue } =
     props;
   const [searchPostList, setSearchPostList] = useState([]);
-  // const [postId, setPostId] = useState();
   const [searchComList, setSearchComList] = useState([]);
   let searchTerm = localStorage.getItem("searchQuery");
   const [currAuthor, setCurrAuthor] = useState("");
@@ -89,16 +88,16 @@ function SearchPage(props) {
       </div>
       <div className="searchPageContainer">
         {searchPostList.length > 0 ? null : (
-          <>
+          <div className="noPostFoundMsg">
             No posts for {searchTerm} were found, at this time search must match
-            with post title exactly.
-          </>
+            with post title exactly.<br></br>
+          </div>
         )}
         {searchComList.length > 0 ? null : (
-          <>
+          <div className="noPostFoundMsg">
             No communities named {searchTerm} were found, at this time search
             query must match with community name exactly.
-          </>
+          </div>
         )}
         {searchPostList.map((post) => {
           return (
@@ -107,7 +106,7 @@ function SearchPage(props) {
               onClick={() => setPostId(post.id)}
               className="searchQueryPost"
             >
-              <div onClick={() => searchPopUp()}>
+              <div onClick={() => searchPopUp()} className="postFound">
                 <TextPost
                   id={post.id}
                   postPopUp={postPopUp}
