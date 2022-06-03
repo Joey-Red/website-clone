@@ -24,7 +24,19 @@ function PostFullPage(props) {
   const [commentDisplayContainer, setCommentDisplayContainer] = useState([]);
   const [seeOwnComment, setSeeOwnComment] = useState(false);
   const [cursor, setCursor] = useState("default");
-  let { postPopUp, setPostPopUp, isLoggedIn, currPostId } = props;
+  let {
+    postPopUp,
+    setPostPopUp,
+    isLoggedIn,
+    currPostId,
+    displayLogIn,
+    setDisplayLogIn,
+    displaySignUp,
+    setDisplaySignUp,
+    setIsLoggedIn,
+    setDisplayForgotPw,
+    displayForgotPw,
+  } = props;
   let closePost = () => {
     setPostPopUp(false);
   };
@@ -68,6 +80,12 @@ function PostFullPage(props) {
     };
     getPosts();
   }, [currPostId, seeOwnComment]);
+  let toggleSignIn = () => {
+    setDisplayLogIn(!displayLogIn);
+  };
+  let toggleSignUp = () => {
+    setDisplaySignUp(!displaySignUp);
+  };
   return (
     <div className="postFullScreenContainer" style={{ cursor: cursor }}>
       <div className="fullScreenPost">
@@ -92,6 +110,8 @@ function PostFullPage(props) {
                           likes={props.likes}
                           id={props.currPostId}
                           isLoggedIn={isLoggedIn}
+                          setDisplayLogIn={setDisplayLogIn}
+                          displayLogIn={displayLogIn}
                         />
                         <TopInfoContainer
                           postPopUp={postPopUp}
@@ -119,19 +139,18 @@ function PostFullPage(props) {
                             <span>Log in or sign up to leave a comment</span>
                             <div className="ioButtonComment">
                               <div className="inComment">
-                                <button>
+                                <button onClick={() => toggleSignIn()}>
                                   <a
                                     href="#"
                                     className="ioButton iButton"
                                     id="iButtonComment"
-                                    // onclick open log in
                                   >
                                     Log In
                                   </a>
                                 </button>
                               </div>
                               <div className="outComment">
-                                <button>
+                                <button onClick={() => toggleSignUp()}>
                                   <a
                                     href="#"
                                     className="ioButton oButton"
@@ -177,26 +196,6 @@ function PostFullPage(props) {
                     />
                   </div>
                 </div>
-                {/* {!displaySignUp ? (
-                  <SignUp
-                    displaySignUp={displaySignUp}
-                    setDisplaySignUp={setDisplaySignUp}
-                    displayLogIn={displayLogIn}
-                    setDisplayLogIn={setDisplayLogIn}
-                    setIsLoggedIn={setIsLoggedIn}
-                  />
-                ) : null}
-                {!displayLogIn ? (
-                  <LogIn
-                    displayLogIn={displayLogIn}
-                    setDisplayLogIn={setDisplayLogIn}
-                    displaySignUp={displaySignUp}
-                    setDisplaySignUp={setDisplaySignUp}
-                    setIsLoggedIn={setIsLoggedIn}
-                    setDisplayForgotPw={setDisplayForgotPw}
-                    displayForgotPw={displayForgotPw}
-                  />
-                ) : null} */}
               </div>
             </div>
           </div>

@@ -10,6 +10,8 @@ import {
   getDoc,
 } from "firebase/firestore";
 import PostFullPage from "./PostFullPage";
+import { Link } from "react-router-dom";
+
 function SearchPage(props) {
   const { isLoggedIn, postPopUp, setPostPopUp, formValue, setFormValue } =
     props;
@@ -131,8 +133,11 @@ function SearchPage(props) {
             return (
               <div id={post.id} className="searchQueryCom" key={post.id}>
                 <div className="queryComName">
-                  {post.communityName.postingToCom}
-
+                  <Link
+                    to={`/website-clone/r/` + post.communityName.postingToCom}
+                  >
+                    {post.communityName.postingToCom}
+                  </Link>
                   <div className="searchQueryComInfo">5 Billion Members</div>
                 </div>
                 <button className="joinComQueryButton">Join</button>

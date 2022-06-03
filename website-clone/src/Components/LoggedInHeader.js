@@ -11,25 +11,11 @@ import {
 import logo from "./img/Reddit_logo_new.png";
 import { useNavigate, Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { auth, db } from "../firebase";
-import {
-  getDocs,
-  collection,
-  deleteDoc,
-  doc,
-  query,
-  where,
-  getDoc,
-} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 function LoggedInHeader(props) {
-  const [currentUser, setCurrentUser] = useState(null);
   let {
-    displayPfp,
-    setDisplayPfp,
     setIsLoggedIn,
-    isLoggedIn,
     setDisplayLogIn,
     formValue,
     setFormValue,

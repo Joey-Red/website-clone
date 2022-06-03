@@ -122,7 +122,7 @@ function App() {
             }
           />
           <Route
-            path="/website-clone/userSettings"
+            path="/website-clone/usersettings"
             element={<UserSettings />}
           />
           <Route

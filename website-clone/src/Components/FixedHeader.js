@@ -7,10 +7,9 @@ import {
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "./img/Reddit_logo_new.png";
-// import "../styleSheet4.css";
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
-// Todos on this page so far: give everything a link.
+import { useNavigate } from "react-router-dom";
 function FixedHeader(props) {
   let {
     setDisplaySignUp,
@@ -20,6 +19,8 @@ function FixedHeader(props) {
     setIsLoggedIn,
     setDisplayForgotPw,
     displayForgotPw,
+    formValue,
+    setFormValue,
   } = props;
   const [displayOptions, setDisplayOptions] = useState(true);
   let toggleMenu = () => {
@@ -31,6 +32,11 @@ function FixedHeader(props) {
   };
   let showLogin = () => {
     setDisplayLogIn(!displayLogIn);
+  };
+  const navigate = useNavigate();
+  const searchQuery = () => {
+    navigate("/website-clone/search/");
+    localStorage.setItem("searchQuery", formValue);
   };
   return (
     <div className="headerOuter">
@@ -53,6 +59,9 @@ function FixedHeader(props) {
                 type="text"
                 className="searchBar"
                 placeholder="Search Reddit"
+                id="searchQuery"
+                onChange={(e) => setFormValue(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && searchQuery()}
               />
             </form>
           </div>

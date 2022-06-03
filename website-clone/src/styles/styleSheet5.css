@@ -898,6 +898,9 @@ p {
   font-size: 12px;
   font-weight: 700;
 }
+.queryComName a:visited {
+  color: var(--newRedditTheme-metaText);
+}
 .searchQueryComInfo {
   font-size: 12px;
   font-weight: 400;

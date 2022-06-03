@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { db, auth } from "../../firebase";
 import { increment, updateDoc, doc } from "firebase/firestore";
 function UpDownVotes(props) {
-  const { isLoggedIn } = props;
+  const { isLoggedIn, setDisplayLogIn, displayLogIn } = props;
   let [fakeCount, setFakeCount] = useState(props.likes);
   let [voteStyle, setVoteStyle] = useState(null);
   let [downVoteStyle, setDownVoteStyle] = useState(null);
   const upVote = async (id) => {
     if (!isLoggedIn) {
+      setDisplayLogIn(!displayLogIn);
       return;
     } else {
       await updateDoc(doc(db, "posts", props.id), {
@@ -24,6 +25,7 @@ function UpDownVotes(props) {
   };
   const downVote = async (id) => {
     if (!isLoggedIn) {
+      setDisplayLogIn(!displayLogIn);
       return;
     } else {
       await updateDoc(doc(db, "posts", props.id), {
