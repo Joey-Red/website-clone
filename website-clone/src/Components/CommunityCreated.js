@@ -32,8 +32,7 @@ function CommunityCreated(props) {
   // const [postId, setPostId] = useState("");
   let url = window.location.href;
   let urlSplit = url.split("/");
-  let searchComTemp = urlSplit[4];
-  console.log(searchComTemp);
+  let searchComTemp = urlSplit[5];
   let searchCom = decodeURI(searchComTemp);
   const [currAuthor, setCurrAuthor] = useState("");
   const [currPostDate, setCurrPostDate] = useState("");

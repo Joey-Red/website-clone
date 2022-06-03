@@ -26,7 +26,7 @@ function ProfilePage(props) {
   const [currPostId, setCurrPostId] = useState("");
   let url = window.location.href;
   let urlSplit = url.split("/");
-  let searchUserTemp = urlSplit[4];
+  let searchUserTemp = urlSplit[5];
   let searchUser = decodeURI(searchUserTemp);
   useEffect(() => {
     let getPosts = async () => {
