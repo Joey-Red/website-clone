@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/website-clone/static/css/main.8291457c.css",
-    "main.js": "/website-clone/static/js/main.85a019fa.js",
+    "main.css": "/website-clone/static/css/main.2ba6fee6.css",
+    "main.js": "/website-clone/static/js/main.b0d6504d.js",
     "static/media/art-sidebar.jpg": "/website-clone/static/media/art-sidebar.d51bc5c249324cba516a.jpg",
     "static/media/adplacement.jpg": "/website-clone/static/media/adplacement.d873a5e0a32117ab9a0c.jpg",
     "static/media/phimg.png": "/website-clone/static/media/phimg.64269ae4c527a1df122e.png",
@@ -9,11 +9,11 @@
     "static/media/Reddit_logo_new.png": "/website-clone/static/media/Reddit_logo_new.779c9e8cf9b607ea590b.png",
     "static/media/Apple_logo_black.svg": "/website-clone/static/media/Apple_logo_black.134569f8a176d874c830345a091a4c33.svg",
     "index.html": "/website-clone/index.html",
-    "main.8291457c.css.map": "/website-clone/static/css/main.8291457c.css.map",
-    "main.85a019fa.js.map": "/website-clone/static/js/main.85a019fa.js.map"
+    "main.2ba6fee6.css.map": "/website-clone/static/css/main.2ba6fee6.css.map",
+    "main.b0d6504d.js.map": "/website-clone/static/js/main.b0d6504d.js.map"
   },
   "entrypoints": [
-    "static/css/main.8291457c.css",
-    "static/js/main.85a019fa.js"
+    "static/css/main.2ba6fee6.css",
+    "static/js/main.b0d6504d.js"
   ]
 }
