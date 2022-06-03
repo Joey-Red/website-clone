@@ -99,7 +99,9 @@ function LoggedInHeader(props) {
                           >
                             Profile
                           </Link>
-                          <a href="/userSettings">User Settings</a>
+                          <a href="/website-clone/usersettings">
+                            User Settings
+                          </a>
                         </div>
                       </div>
                       <div className="additionalStuff">

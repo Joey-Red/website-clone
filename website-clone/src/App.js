@@ -101,7 +101,7 @@ function App() {
             />
           )}
           <Route
-            path="/website-clone/createpost"
+            path="/website-clone/createpost/:"
             element={
               <CreatePost
                 isLoggedIn={isLoggedIn}
@@ -136,7 +136,7 @@ function App() {
             }
           />
           <Route
-            path="/website-clone/search"
+            path="/website-clone/search/:"
             element={
               <SearchPage
                 isLoggedIn={isLoggedIn}
