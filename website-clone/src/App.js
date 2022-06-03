@@ -17,6 +17,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserSettings from "./Components/UserSettings";
 import { db, auth } from "./firebase";
 import { getAuth } from "firebase/auth";
+import { createBrowserHistory } from "history";
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
@@ -27,10 +28,14 @@ function App() {
   const [formValue, setFormValue] = useState("");
   const [displayOptions, setDisplayOptions] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
-
+  const history = createBrowserHistory();
+  // {
+  //   basename: process.env.PUBLIC_URL,
+  // }
+  // basename={process.env.PUBLIC_URL}
   return (
     <>
-      <Router>
+      <Router history={history}>
         {isLoggedIn ? (
           <LoggedInHeader
             isLoggedIn={isLoggedIn}
