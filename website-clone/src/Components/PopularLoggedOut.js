@@ -12,6 +12,9 @@ function PopularLoggedOut(props) {
     setDisplayLogIn,
     displayForgotPw,
     setDisplayForgotPw,
+    displaySignUp,
+    setDisplaySignUp,
+    setIsLoggedIn,
   } = props;
   return (
     <div className="outermost-popular-container">
@@ -26,6 +29,9 @@ function PopularLoggedOut(props) {
           isLoggedIn={isLoggedIn}
           setDisplayForgotPw={setDisplayForgotPw}
           displayForgotPw={displayForgotPw}
+          displaySignUp={displaySignUp}
+          setDisplaySignUp={setDisplaySignUp}
+          setIsLoggedIn={setIsLoggedIn}
         />
       </div>
       <TopXComsLoggedOut />

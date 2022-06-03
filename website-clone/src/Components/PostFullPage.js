@@ -15,6 +15,8 @@ import {
   increment,
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import SignUp from "./SignUp";
+import LogIn from "./LogIn";
 
 function PostFullPage(props) {
   const [draftjs, setDraftJS] = useState({ content: "" });
@@ -122,6 +124,7 @@ function PostFullPage(props) {
                                     href="#"
                                     className="ioButton iButton"
                                     id="iButtonComment"
+                                    // onclick open log in
                                   >
                                     Log In
                                   </a>
@@ -174,6 +177,26 @@ function PostFullPage(props) {
                     />
                   </div>
                 </div>
+                {/* {!displaySignUp ? (
+                  <SignUp
+                    displaySignUp={displaySignUp}
+                    setDisplaySignUp={setDisplaySignUp}
+                    displayLogIn={displayLogIn}
+                    setDisplayLogIn={setDisplayLogIn}
+                    setIsLoggedIn={setIsLoggedIn}
+                  />
+                ) : null}
+                {!displayLogIn ? (
+                  <LogIn
+                    displayLogIn={displayLogIn}
+                    setDisplayLogIn={setDisplayLogIn}
+                    displaySignUp={displaySignUp}
+                    setDisplaySignUp={setDisplaySignUp}
+                    setIsLoggedIn={setIsLoggedIn}
+                    setDisplayForgotPw={setDisplayForgotPw}
+                    displayForgotPw={displayForgotPw}
+                  />
+                ) : null} */}
               </div>
             </div>
           </div>

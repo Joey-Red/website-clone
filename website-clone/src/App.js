@@ -83,6 +83,9 @@ function App() {
                 <Fragment>
                   <Trending />
                   <PopularLoggedOut
+                    displaySignUp={displaySignUp}
+                    setDisplaySignUp={setDisplaySignUp}
+                    setIsLoggedIn={setIsLoggedIn}
                     postPopUp={postPopUp}
                     setPostPopUp={setPostPopUp}
                     isLoggedIn={isLoggedIn}

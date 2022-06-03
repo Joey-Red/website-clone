@@ -23,6 +23,9 @@ function PopularFeed(props) {
     setDisplayLogIn,
     displayForgotPw,
     setDisplayForgotPw,
+    displaySignUp,
+    setDisplaySignUp,
+    setIsLoggedIn,
   } = props;
   const [livePostList, setLivePostList] = useState([]);
   const [currAuthor, setCurrAuthor] = useState("");
@@ -104,6 +107,13 @@ function PopularFeed(props) {
           isLoggedIn={isLoggedIn}
           currPostId={currPostId}
           setCurrPostId={setCurrPostId}
+          displayLogIn={displayLogIn}
+          setDisplayLogIn={setDisplayLogIn}
+          displaySignUp={displaySignUp}
+          setDisplaySignUp={setDisplaySignUp}
+          setIsLoggedIn={setIsLoggedIn}
+          setDisplayForgotPw={setDisplayForgotPw}
+          displayForgotPw={displayForgotPw}
         />
       ) : null}
     </>

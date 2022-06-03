@@ -47,7 +47,7 @@ function LoggedInHeader(props) {
   const auth = getAuth();
   const navigate = useNavigate();
   const searchQuery = () => {
-    navigate("search/");
+    navigate("/website-clone/search/");
     localStorage.setItem("searchQuery", formValue);
   };
   let hrefLink = "/website-clone/u/" + localStorage.getItem("user");

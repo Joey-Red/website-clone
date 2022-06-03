@@ -120,7 +120,7 @@ function CommunityCreated(props) {
                       Be the first to till this fertile land.
                     </div>
                     <div className="viewButtonContainer">
-                      <a href="/createPost">Add a post</a>
+                      <a href="/website-clone/createpost">Add a post</a>
                     </div>
                   </div>
                 </>
