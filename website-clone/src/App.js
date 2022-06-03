@@ -29,6 +29,7 @@ function App() {
   const [displayOptions, setDisplayOptions] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
   const history = createBrowserHistory();
+  console.log(history);
   // {
   //   basename: process.env.PUBLIC_URL,
   // }
@@ -106,7 +107,6 @@ function App() {
             />
           )}
           <Route
-            exact
             path="/website-clone/createpost/"
             element={
               <CreatePost
@@ -128,7 +128,6 @@ function App() {
             }
           />
           <Route
-            exact
             path="/website-clone/usersettings"
             element={<UserSettings />}
           />
