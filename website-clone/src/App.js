@@ -18,6 +18,7 @@ import UserSettings from "./Components/UserSettings";
 import { db, auth } from "./firebase";
 import { getAuth } from "firebase/auth";
 import { createBrowserHistory } from "history";
+// import createHistory from "history/createBrowserHistory";
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
@@ -28,15 +29,17 @@ function App() {
   const [formValue, setFormValue] = useState("");
   const [displayOptions, setDisplayOptions] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
-  const history = createBrowserHistory();
-  console.log(history);
+  // const history = createBrowserHistory();
+  // console.log(history);
   // {
   //   basename: process.env.PUBLIC_URL,
   // }
   // basename={process.env.PUBLIC_URL}
   return (
     <>
-      <Router history={history}>
+      <Router
+        history={createBrowserHistory({ basename: process.env.PUBLIC_URL })}
+      >
         {isLoggedIn ? (
           <LoggedInHeader
             isLoggedIn={isLoggedIn}
