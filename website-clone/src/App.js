@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import Trending from "./Components/Trending";
 import FixedHeader from "./Components/FixedHeader";
 import Popular from "./Components/Popular";
@@ -15,10 +15,8 @@ import PopularLoggedOut from "./Components/PopularLoggedOut";
 import SearchPage from "./Components/SearchPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserSettings from "./Components/UserSettings";
-import { db, auth } from "./firebase";
-import { getAuth } from "firebase/auth";
 import { createBrowserHistory } from "history";
-// import createHistory from "history/createBrowserHistory";
+
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
   const [displayLogIn, setDisplayLogIn] = useState(true);
@@ -28,18 +26,15 @@ function App() {
   const [communities, setCommunities] = useState([]);
   const [formValue, setFormValue] = useState("");
   const [displayOptions, setDisplayOptions] = useState(true);
-  const [currentUser, setCurrentUser] = useState(null);
-  // const history = createBrowserHistory();
-  // console.log(history);
-  // {
-  //   basename: process.env.PUBLIC_URL,
-  // }
-  // basename={process.env.PUBLIC_URL}
+  const [currentUser] = useState(null);
+
+  const customHistory = createBrowserHistory({
+    basename: process.env.PUBLIC_URL,
+  });
+
   return (
     <>
-      <Router
-        history={createBrowserHistory({ basename: process.env.PUBLIC_URL })}
-      >
+      <Router history={customHistory}>
         {isLoggedIn ? (
           <LoggedInHeader
             isLoggedIn={isLoggedIn}
@@ -110,7 +105,7 @@ function App() {
             />
           )}
           <Route
-            path="/website-clone/createpost/"
+            path="/createpost/"
             element={
               <CreatePost
                 isLoggedIn={isLoggedIn}

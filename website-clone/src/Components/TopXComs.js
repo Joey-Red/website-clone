@@ -92,9 +92,9 @@ function TopXComs() {
                   src="https://styles.redditmedia.com/t5_2qi4j/styles/communityIcon_a0b0l0lb75k41.png"
                 />
                 <Link href={hrefLinkOne} to={hrefLinkOne}>
-                  <a href="#" className="subNameLink">
+                  <div className="subNameLink">
                     {isLoaded ? <>{hrefLinkDisplayZero}</> : "loading..."}
-                  </a>
+                  </div>
                 </Link>
               </span>
               <div className="joinButtonDiv">
@@ -118,9 +118,9 @@ function TopXComs() {
                   src="https://a.thumbs.redditmedia.com/E0Bkwgwe5TkVLflBA7WMe9fMSC7DV2UOeff-UpNJeb0.png"
                 />
                 <Link href={hrefLinkTwo} to={hrefLinkTwo}>
-                  <a href="#" className="subNameLink">
+                  <div className="subNameLink">
                     {isLoaded ? <>{hrefLinkDisplayOne}</> : "loading..."}
-                  </a>
+                  </div>
                 </Link>
               </span>
               <div className="joinButtonDiv">
@@ -144,9 +144,9 @@ function TopXComs() {
                   src="https://styles.redditmedia.com/t5_2qi4j/styles/communityIcon_a0b0l0lb75k41.png"
                 />
                 <Link href={hrefLinkThree} to={hrefLinkThree}>
-                  <a href="#" className="subNameLink">
+                  <div className="subNameLink">
                     {isLoaded ? <>{hrefLinkDisplayTwo}</> : "loading..."}
-                  </a>
+                  </div>
                 </Link>
               </span>
               <div className="joinButtonDiv">
@@ -170,9 +170,9 @@ function TopXComs() {
                   src="https://styles.redditmedia.com/t5_2qh11/styles/communityIcon_yn4xge2wh2h51.png"
                 />
                 <Link href={hrefLinkFour} to={hrefLinkFour}>
-                  <a href="#" className="subNameLink">
+                  <div className="subNameLink">
                     {isLoaded ? <>{hrefLinkDisplayThree}</> : "loading..."}
-                  </a>
+                  </div>
                 </Link>
               </span>
               <div className="joinButtonDiv">
@@ -196,9 +196,9 @@ function TopXComs() {
                   src="https://styles.redditmedia.com/t5_2sc3f/styles/communityIcon_x6dymnk82f861.png"
                 />
                 <Link href={hrefLinkFive} to={hrefLinkFive}>
-                  <a href="#" className="subNameLink">
+                  <div className="subNameLink">
                     {isLoaded ? <>{hrefLinkDisplayFour}</> : "loading..."}
-                  </a>
+                  </div>
                 </Link>
               </span>
               <div className="joinButtonDiv">
