@@ -43,7 +43,7 @@ function SignUp(props) {
           setDisplaySignUp={setDisplaySignUp}
         />
       ) : null}
-      <div className="signUpContainer">
+      <div className="signUpContainer signUpContainerPadding">
         <button className="xButton" onClick={() => toggleMenu()}>
           <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
         </button>

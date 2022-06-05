@@ -187,21 +187,21 @@ function CreatePost(props) {
                   ></FontAwesomeIcon>
                   <span className="buttonText">Images & Video</span>
                 </button>
-                <button className="disabledButton">
+                <button className="disabledButton" id="mobileHide">
                   <FontAwesomeIcon
                     icon={faLink}
                     className="createFA"
                   ></FontAwesomeIcon>
                   <span className="buttonText">Link</span>
                 </button>
-                <button className="disabledButton">
+                <button className="disabledButton" id="mobileHide">
                   <FontAwesomeIcon
                     icon={faPoll}
                     className="createFA"
                   ></FontAwesomeIcon>
                   Poll
                 </button>
-                <button className="disabledButton">
+                <button className="disabledButton" id="mobileHide">
                   <FontAwesomeIcon
                     icon={faMicrophone}
                     className="createFA"
@@ -245,7 +245,7 @@ function CreatePost(props) {
                             ></FontAwesomeIcon>
                             Spoiler
                           </button>
-                          <button className="tag">
+                          <button className="tag" id="nsfwTag">
                             <FontAwesomeIcon
                               icon={faPlusCircle}
                               className="faAddFlair"

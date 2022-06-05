@@ -66,9 +66,15 @@ function ProfilePage(props) {
             <a href="#">Overview</a>
             <a href="#">Posts</a>
             <a href="#">Comments</a>
-            <a href="#">Saved</a>
-            <a href="#">Upvoted</a>
-            <a href="#">Downvoted</a>
+            <a href="#" id="mobileHide">
+              Saved
+            </a>
+            <a href="#" id="mobileHide">
+              Upvoted
+            </a>
+            <a href="#" id="mobileHide">
+              Downvoted
+            </a>
           </div>
         </div>
       </div>

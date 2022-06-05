@@ -30,14 +30,11 @@ function LogIn(props) {
     setDisplayForgotPw(!displayForgotPw);
   };
 
-  let navigate = useNavigate();
-
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
       setIsLoggedIn(true);
       localStorage.setItem("isAuth", true);
       localStorage.setItem("user", auth.currentUser.displayName);
-      navigate("/");
       window.location.pathname = "/website-clone/";
     });
   };
