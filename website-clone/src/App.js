@@ -13,9 +13,14 @@ import LoggedInHeader from "./Components/LoggedInHeader";
 import ProfilePage from "./Components/ProfilePage";
 import PopularLoggedOut from "./Components/PopularLoggedOut";
 import SearchPage from "./Components/SearchPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import UserSettings from "./Components/UserSettings";
-import { createBrowserHistory } from "history";
+// import { createBrowserHistory } from "history";
 
 function App() {
   const [displaySignUp, setDisplaySignUp] = useState(true);
@@ -28,13 +33,13 @@ function App() {
   const [displayOptions, setDisplayOptions] = useState(true);
   const [currentUser] = useState(null);
 
-  const customHistory = createBrowserHistory({
-    basename: process.env.PUBLIC_URL,
-  });
+  // const history = createBrowserHistory({
+  //   basename: process.env.PUBLIC_URL,
+  // });
 
   return (
     <>
-      <Router history={customHistory}>
+      <Router>
         {isLoggedIn ? (
           <LoggedInHeader
             isLoggedIn={isLoggedIn}
@@ -105,7 +110,7 @@ function App() {
             />
           )}
           <Route
-            path="/createpost/"
+            path="/website-clone/createpost/"
             element={
               <CreatePost
                 isLoggedIn={isLoggedIn}
@@ -140,7 +145,7 @@ function App() {
             }
           />
           <Route
-            path="/website-clone/search/"
+            path="/website-clone/search/:searchValue"
             element={
               <SearchPage
                 isLoggedIn={isLoggedIn}

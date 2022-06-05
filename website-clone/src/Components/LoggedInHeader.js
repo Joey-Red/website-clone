@@ -34,7 +34,7 @@ function LoggedInHeader(props) {
   const navigate = useNavigate();
   const searchQuery = () => {
     localStorage.setItem("searchQuery", formValue);
-    navigate("/website-clone/search/");
+    navigate("/website-clone/search/" + formValue);
   };
   let hrefLink = "/website-clone/u/" + localStorage.getItem("user");
 
@@ -99,9 +99,13 @@ function LoggedInHeader(props) {
                           >
                             Profile
                           </Link>
-                          <a href="/website-clone/usersettings">
-                            User Settings
-                          </a>
+                          <div
+                            onClick={() =>
+                              navigate("/website-clone/usersettings")
+                            }
+                          >
+                            <a>User Settings</a>
+                          </div>
                         </div>
                       </div>
                       <div className="additionalStuff">
