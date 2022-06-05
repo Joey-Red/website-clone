@@ -100,9 +100,10 @@ function LoggedInHeader(props) {
                             Profile
                           </Link>
                           <div
-                            onClick={() =>
-                              navigate("/website-clone/usersettings")
-                            }
+                            onClick={() => {
+                              navigate("/website-clone/usersettings");
+                              setDisplayOptions((s) => !s);
+                            }}
                           >
                             <a>User Settings</a>
                           </div>

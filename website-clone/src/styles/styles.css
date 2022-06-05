@@ -576,8 +576,7 @@ body {
   position: relative;
   width: 100%;
   fill: inherit;
-  background: url("https://external-preview.redd.it/VADjlUWrU3EfCXpEKxa3erMgWh4l_246TyQTgJS9dLQ.png?format=pjpg&auto=webp&s=9aea7c40c07725b34bb616d80e0cdefd86a2ca7b")
-    center center / cover no-repeat rgb(255, 255, 255);
+  background-color: #474954;
   --SearchDiscoveryUnits-TrendingPosts-Post-background: linear-gradient(
     rgba(255, 255, 255, 0.2),
     rgba(255, 255, 255, 0.3),
@@ -587,7 +586,6 @@ body {
     #ffffff
   );
 }
-/* caro-inside-x1 has an image linked */
 .caro-inside-x2 {
   margin: 0;
   border: 0;

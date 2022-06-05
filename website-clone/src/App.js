@@ -90,7 +90,20 @@ function App() {
               path="/website-clone/"
               element={
                 <Fragment>
-                  <Trending />
+                  <Trending
+                    displaySignUp={displaySignUp}
+                    setDisplaySignUp={setDisplaySignUp}
+                    setIsLoggedIn={setIsLoggedIn}
+                    postPopUp={postPopUp}
+                    setPostPopUp={setPostPopUp}
+                    isLoggedIn={isLoggedIn}
+                    communities={communities}
+                    setCommunities={setCommunities}
+                    displayLogIn={displayLogIn}
+                    setDisplayLogIn={setDisplayLogIn}
+                    setDisplayForgotPw={setDisplayForgotPw}
+                    displayForgotPw={displayForgotPw}
+                  />
                   <PopularLoggedOut
                     displaySignUp={displaySignUp}
                     setDisplaySignUp={setDisplaySignUp}

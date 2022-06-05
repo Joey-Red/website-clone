@@ -11,7 +11,6 @@ import {
   where,
   getDoc,
   orderBy,
-  limit,
 } from "firebase/firestore";
 
 function PopularFeed(props) {

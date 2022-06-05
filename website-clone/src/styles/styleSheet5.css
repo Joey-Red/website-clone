@@ -391,6 +391,28 @@
     display: none;
   }
 }
+.loRightSide {
+  color: var(--newCommunityTheme-bodyText);
+  margin: 0 40px 0 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 0;
+}
+@media only screen and (max-width: 1130px) {
+  .loRightSide {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .loBull {
+    display: none;
+  }
+}
 @media only screen and (max-width: 971px) {
   .logInToComment span {
     font-size: 12px;
@@ -403,6 +425,11 @@
 @media only screen and (max-width: 932px) {
   .searchDiv {
     max-width: 500px;
+  }
+}
+@media only screen and (max-width: 860px) {
+  .oButton {
+    display: none;
   }
 }
 @media only screen and (max-width: 830px) {
@@ -513,6 +540,16 @@
   }
   .searchComListQuery {
     display: none;
+  }
+}
+@media only screen and (max-width: 570px) {
+  .iButton {
+    width: 40px;
+    font-size: 10px;
+    padding: 4px;
+  }
+  .loButtonGroup {
+    gap: 2px;
   }
 }
 .adContainer {
@@ -923,4 +960,8 @@ p {
 }
 .postFound {
   padding: 12px;
+}
+.caroPostTitle,
+.caroPostBody {
+  max-width: 190px;
 }

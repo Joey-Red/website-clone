@@ -79,7 +79,7 @@ function CreatePost(props) {
           votes: 1,
         },
       });
-      navigate("/");
+      navigate("/website-clone/");
     }
   };
   useEffect(() => {

@@ -8,7 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MakePostLinkBox from "./MakePostLinkBox";
-import phimg from "./img/phimg.png";
+// import phimg from "./img/phimg.png";
+import phimg from "./img/rslash.png";
 import { db, auth } from "../firebase";
 import {
   doc,

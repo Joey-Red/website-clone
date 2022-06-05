@@ -35,8 +35,8 @@ function FixedHeader(props) {
   };
   const navigate = useNavigate();
   const searchQuery = () => {
-    navigate("/website-clone/search/");
     localStorage.setItem("searchQuery", formValue);
+    navigate("/website-clone/search/" + formValue);
   };
   return (
     <div className="headerOuter">
@@ -65,9 +65,9 @@ function FixedHeader(props) {
               />
             </form>
           </div>
-          <div className="right-side">
-            <div className="buttonGroup">
-              <div className="bullHornDiv">
+          <div className="loRightSide">
+            <div className="buttonGroup loButtonGroup">
+              <div className="bullHornDiv loBull">
                 <button className="faBullhorn">
                   <FontAwesomeIcon icon={faBullhorn}></FontAwesomeIcon>
                 </button>

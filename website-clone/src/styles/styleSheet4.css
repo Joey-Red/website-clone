@@ -116,10 +116,14 @@
 .imgContainer {
   border-radius: 100%;
   border: 4px solid #fff;
+  background-color: #fff;
   display: inline-block;
+  min-height: 72px;
+  min-width: 72px;
   height: 72px;
-  width: 72px;
+  width: 74px;
 }
+
 .ccJuice img {
   height: 72px;
   width: 72px;
