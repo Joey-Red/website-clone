@@ -11,6 +11,7 @@ import MakePostLinkBox from "./MakePostLinkBox";
 // import phimg from "./img/phimg.png";
 import phimg from "./img/rslash.png";
 import { db, auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 import {
   doc,
   getDocs,
@@ -28,6 +29,7 @@ function CommunityCreated(props) {
   createDay.getDay();
   let dateString = createDay.toDateString();
   let modifiedDate = dateString.slice(4);
+  const navigate = useNavigate();
 
   const [livePostList, setLivePostList] = useState([]);
   // const [postId, setPostId] = useState("");
@@ -121,7 +123,15 @@ function CommunityCreated(props) {
                       Be the first to till this fertile land.
                     </div>
                     <div className="viewButtonContainer">
-                      <a href="/website-clone/createpost">Add a post</a>
+                      <a>
+                        <div
+                          onClick={() => {
+                            navigate("/website-clone/usersettings");
+                            props.setDisplayOptions((s) => !s);
+                          }}
+                        ></div>
+                        Add a post
+                      </a>
                     </div>
                   </div>
                 </>

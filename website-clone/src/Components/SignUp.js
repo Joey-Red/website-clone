@@ -29,7 +29,7 @@ function SignUp(props) {
     signInWithPopup(auth, provider).then((result) => {
       setIsLoggedIn(true);
       localStorage.setItem("isAuth", true);
-      window.location.pathname = "/";
+      window.location.pathname = "/website-clone/";
     });
   };
 
