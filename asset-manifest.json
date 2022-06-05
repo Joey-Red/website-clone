@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/website-clone/static/css/main.6246276e.css",
-    "main.js": "/website-clone/static/js/main.1cd2c35a.js",
+    "main.css": "/website-clone/static/css/main.3aca90d9.css",
+    "main.js": "/website-clone/static/js/main.8c4dae17.js",
     "static/media/art-sidebar.jpg": "/website-clone/static/media/art-sidebar.d51bc5c249324cba516a.jpg",
     "static/media/adplacement.jpg": "/website-clone/static/media/adplacement.d873a5e0a32117ab9a0c.jpg",
     "static/media/googleG.png": "/website-clone/static/media/googleG.a48861a30efafd17be59.png",
@@ -9,11 +9,11 @@
     "static/media/rslash.png": "/website-clone/static/media/rslash.53524e1bf483348eb221.png",
     "static/media/Apple_logo_black.svg": "/website-clone/static/media/Apple_logo_black.134569f8a176d874c830345a091a4c33.svg",
     "index.html": "/website-clone/index.html",
-    "main.6246276e.css.map": "/website-clone/static/css/main.6246276e.css.map",
-    "main.1cd2c35a.js.map": "/website-clone/static/js/main.1cd2c35a.js.map"
+    "main.3aca90d9.css.map": "/website-clone/static/css/main.3aca90d9.css.map",
+    "main.8c4dae17.js.map": "/website-clone/static/js/main.8c4dae17.js.map"
   },
   "entrypoints": [
-    "static/css/main.6246276e.css",
-    "static/js/main.1cd2c35a.js"
+    "static/css/main.3aca90d9.css",
+    "static/js/main.8c4dae17.js"
   ]
 }
