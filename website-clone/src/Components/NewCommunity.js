@@ -21,6 +21,9 @@ function NewCommunity(props) {
     setShowNewCom(false);
   };
   const createCommunity = async () => {
+    if (communityName.length <= 0) {
+      alert("Community Must have a name.");
+    }
     await setDoc(doc(db, "communities", communityName), {
       communityName,
       creationDate: modifiedDate,
@@ -60,7 +63,7 @@ function NewCommunity(props) {
           <div className="ccComType">
             <div>
               <input type="radio" value="" defaultChecked id="comType" />
-              <label htmlFor="comType">
+              <label htmlFor="comType" className="fontMutator">
                 <FontAwesomeIcon
                   icon={faPerson}
                   className="ccFa"
@@ -72,8 +75,8 @@ function NewCommunity(props) {
               </div>
             </div>
             <div>
-              <input type="radio" value="" id="comTypeRestricted" />
-              <label htmlFor="comTypeRestricted">
+              <input type="radio" value="" id="comTypeRestricted" disabled />
+              <label htmlFor="comTypeRestricted" className="fontMutator">
                 <FontAwesomeIcon
                   icon={faEye}
                   className="ccFa"
@@ -85,8 +88,8 @@ function NewCommunity(props) {
               </div>
             </div>
             <div>
-              <input type="radio" value="" id="comTypePrivate" />
-              <label htmlFor="comTypePrivate">
+              <input type="radio" value="" id="comTypePrivate" disabled />
+              <label htmlFor="comTypePrivate" className="fontMutator">
                 <FontAwesomeIcon
                   icon={faLock}
                   className="ccFa"
@@ -98,8 +101,8 @@ function NewCommunity(props) {
               </div>
             </div>
             <div>
-              <input type="radio" value="" id="ccNotice" />
-              <label htmlFor="ccNotice">
+              <input type="radio" value="" id="ccNotice" disabled />
+              <label htmlFor="ccNotice" className="fontMutator">
                 <FontAwesomeIcon
                   icon={faBullhorn}
                   className="ccFa"

@@ -61,9 +61,11 @@ function CreatePost(props) {
   const submitPost = async () => {
     if (postingToCom.length < 4) {
       alert("You must choose a community.");
+      return;
     }
     if (postTitle.length < 2) {
-      alert("You must include a title.");
+      alert("You must include a title longer than two characters.");
+      return;
     } else {
       await setDoc(doc(db, "posts", postId), {
         postTitle,
@@ -111,7 +113,12 @@ function CreatePost(props) {
                 <span className="circlePlaceHolder">
                   <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon>
                 </span>
-                <div className="inputCommunity">
+                <div
+                  className="inputCommunity"
+                  onClick={() => {
+                    dropDownClick();
+                  }}
+                >
                   {postingToCom !== "" ? (
                     postingToCom
                   ) : (

@@ -554,15 +554,15 @@ body {
   font: inherit;
   vertical-align: baseline;
   flex: 1;
-  max-width: 375px;
-  min-width: 208px;
+  max-width: 234px;
+  min-width: 234px;
   margin-left: 0;
   color: var(--newCommunityTheme-lightText);
-  background-color: purple;
   border-radius: 8px;
 }
 .caro-inside-x1 {
   margin: 0;
+  margin-left: 4px;
   padding: 0;
   border: 0;
   font: inherit;
