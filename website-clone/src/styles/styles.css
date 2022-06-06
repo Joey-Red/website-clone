@@ -1621,6 +1621,7 @@ a:visited {
 .commenterUserNameLink a:visited {
   color: black;
 }
-.subNameLink a:visited {
+.subNameLink,
+.subnameLink a:visited {
   color: black;
 }
